@@ -4,7 +4,8 @@
   "description": "Plateforme de gestion de bibliothèque et de suivi de lecture",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node--- watch src/server.js"
   },
   "repository": {
     "type": "git",
@@ -13,9 +14,18 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/MorganLeotet/Lectio/issues"
   },
-  "homepage": "https://github.com/MorganLeotet/Lectio#readme"
+  "homepage": "https://github.com/MorganLeotet/Lectio#readme",
+  "dependencies": {
+    "argon2": "^0.44.0",
+    "dotenv": "^17.2.3",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.17.2",
+    "sequelize": "^6.37.7"
+  }
 }
