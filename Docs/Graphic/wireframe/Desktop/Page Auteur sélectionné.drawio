@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.4">
+  <diagram name="Page-1" id="x3zAkybWIHEPwcq-rJII">
+    <mxGraphModel dx="1909" dy="3010" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="NoFXx7XrkoPkVOkcOwZU-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="60" width="826" x="-826" y="-2332" as="geometry" />
+        </mxCell>
+        <mxCell id="NoFXx7XrkoPkVOkcOwZU-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Logo" vertex="1">
+          <mxGeometry height="31" width="84" x="-799" y="-2317.5" as="geometry" />
+        </mxCell>
+        <mxCell id="NoFXx7XrkoPkVOkcOwZU-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Connexion" vertex="1">
+          <mxGeometry height="30" width="60" x="-236" y="-2322" as="geometry" />
+        </mxCell>
+        <mxCell id="NoFXx7XrkoPkVOkcOwZU-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Mode Handicap" vertex="1">
+          <mxGeometry height="30" width="92" x="-114" y="-2322" as="geometry" />
+        </mxCell>
+        <mxCell id="NoFXx7XrkoPkVOkcOwZU-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Moteur de recherche" vertex="1">
+          <mxGeometry height="26" width="248" x="-537" y="-2270" as="geometry" />
+        </mxCell>
+        <mxCell id="NoFXx7XrkoPkVOkcOwZU-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="458" width="827" x="-826" y="-1925" as="geometry" />
+        </mxCell>
+        <mxCell id="NoFXx7XrkoPkVOkcOwZU-7" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Livre 1" vertex="1">
+          <mxGeometry height="164" width="136" x="-768" y="-1905" as="geometry" />
+        </mxCell>
+        <mxCell id="NoFXx7XrkoPkVOkcOwZU-8" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Livre 2" vertex="1">
+          <mxGeometry height="164" width="134" x="-559" y="-1902" as="geometry" />
+        </mxCell>
+        <mxCell id="NoFXx7XrkoPkVOkcOwZU-9" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Livre 3" vertex="1">
+          <mxGeometry height="164" width="134" x="-365" y="-1905" as="geometry" />
+        </mxCell>
+        <mxCell id="NoFXx7XrkoPkVOkcOwZU-10" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Livre 4" vertex="1">
+          <mxGeometry height="164" width="134" x="-174" y="-1905" as="geometry" />
+        </mxCell>
+        <mxCell id="NoFXx7XrkoPkVOkcOwZU-11" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Livre 5" vertex="1">
+          <mxGeometry height="164" width="134" x="-768" y="-1689" as="geometry" />
+        </mxCell>
+        <mxCell id="NoFXx7XrkoPkVOkcOwZU-12" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Livre 6" vertex="1">
+          <mxGeometry height="164" width="134" x="-566" y="-1689" as="geometry" />
+        </mxCell>
+        <mxCell id="NoFXx7XrkoPkVOkcOwZU-13" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Livre 7" vertex="1">
+          <mxGeometry height="164" width="134" x="-365" y="-1689" as="geometry" />
+        </mxCell>
+        <mxCell id="NoFXx7XrkoPkVOkcOwZU-14" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Livre 8" vertex="1">
+          <mxGeometry height="164" width="134" x="-174" y="-1689" as="geometry" />
+        </mxCell>
+        <mxCell id="NoFXx7XrkoPkVOkcOwZU-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Affichage de ses&amp;nbsp; livres présent dans ma bibliothèque" vertex="1">
+          <mxGeometry height="30" width="344" x="-569" y="-1961" as="geometry" />
+        </mxCell>
+        <mxCell id="NoFXx7XrkoPkVOkcOwZU-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="104" width="824" x="-825" y="-1276" as="geometry" />
+        </mxCell>
+        <mxCell id="NoFXx7XrkoPkVOkcOwZU-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Nom du site" vertex="1">
+          <mxGeometry height="30" width="116" x="-792" y="-1233" as="geometry" />
+        </mxCell>
+        <mxCell id="NoFXx7XrkoPkVOkcOwZU-18" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Mentions légales" vertex="1">
+          <mxGeometry height="30" width="137" x="-482" y="-1233" as="geometry" />
+        </mxCell>
+        <mxCell id="NoFXx7XrkoPkVOkcOwZU-19" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Mode Accessibilité" vertex="1">
+          <mxGeometry height="30" width="148" x="-213" y="-1233" as="geometry" />
+        </mxCell>
+        <mxCell id="NoFXx7XrkoPkVOkcOwZU-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Nom de l&#39;auteur" vertex="1">
+          <mxGeometry height="36" width="407" x="-617" y="-2209" as="geometry" />
+        </mxCell>
+        <mxCell id="NoFXx7XrkoPkVOkcOwZU-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Présentation rapide de l&#39;auteur" vertex="1">
+          <mxGeometry height="60" width="559" x="-693" y="-2119" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

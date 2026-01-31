@@ -1,0 +1,60 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.4">
+  <diagram name="Page-1" id="7HPx2Mgld8pRSelWoI3d">
+    <mxGraphModel dx="1082" dy="672" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="EnW-7MIzbyiYwM2wp-OE-1" parent="1" style="html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.ios7.misc.iphone;strokeColor=#c0c0c0;" value="" vertex="1">
+          <mxGeometry height="786" width="344" x="242" y="19" as="geometry" />
+        </mxCell>
+        <mxCell id="EnW-7MIzbyiYwM2wp-OE-2" parent="1" style="html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;shadow=0;dashed=0;strokeWidth=2;shape=mxgraph.ios7.misc.options;fillColor=#222222;sketch=0;" value="" vertex="1">
+          <mxGeometry height="19" width="22" x="278" y="151" as="geometry" />
+        </mxCell>
+        <mxCell id="EnW-7MIzbyiYwM2wp-OE-3" parent="1" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.eye;" value="" vertex="1">
+          <mxGeometry height="18.55" width="33" x="520" y="151" as="geometry" />
+        </mxCell>
+        <mxCell id="EnW-7MIzbyiYwM2wp-OE-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Logo" vertex="1">
+          <mxGeometry height="21" width="70" x="384" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="EnW-7MIzbyiYwM2wp-OE-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="60" width="297" x="265.5" y="628" as="geometry" />
+        </mxCell>
+        <mxCell id="EnW-7MIzbyiYwM2wp-OE-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="nom du site" vertex="1">
+          <mxGeometry height="30" width="60" x="284.5" y="643" as="geometry" />
+        </mxCell>
+        <mxCell id="EnW-7MIzbyiYwM2wp-OE-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Mentions&amp;nbsp;&lt;div&gt;légales&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="390.5" y="643" as="geometry" />
+        </mxCell>
+        <mxCell id="EnW-7MIzbyiYwM2wp-OE-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Mode&lt;div&gt;Accessibilité&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="485.5" y="643" as="geometry" />
+        </mxCell>
+        <mxCell id="EnW-7MIzbyiYwM2wp-OE-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Titre du Genre" vertex="1">
+          <mxGeometry height="26" width="142" x="348" y="211" as="geometry" />
+        </mxCell>
+        <mxCell id="EnW-7MIzbyiYwM2wp-OE-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="290" width="180" x="333" y="276" as="geometry" />
+        </mxCell>
+        <mxCell id="EnW-7MIzbyiYwM2wp-OE-11" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Livre 1" vertex="1">
+          <mxGeometry height="129" width="98" x="374" y="288" as="geometry" />
+        </mxCell>
+        <mxCell id="EnW-7MIzbyiYwM2wp-OE-12" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Livre 2" vertex="1">
+          <mxGeometry height="129" width="98" x="374" y="431" as="geometry" />
+        </mxCell>
+        <mxCell id="EnW-7MIzbyiYwM2wp-OE-13" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Scroll Vertical" vertex="1">
+          <mxGeometry height="30" width="92" x="119" y="375" as="geometry" />
+        </mxCell>
+        <mxCell id="EnW-7MIzbyiYwM2wp-OE-14" edge="1" parent="1" source="EnW-7MIzbyiYwM2wp-OE-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.391;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;" target="EnW-7MIzbyiYwM2wp-OE-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EnW-7MIzbyiYwM2wp-OE-16" edge="1" parent="1" source="EnW-7MIzbyiYwM2wp-OE-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="471" y="345" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EnW-7MIzbyiYwM2wp-OE-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Au clic, on affiche la page de détail d&#39;un livre" vertex="1">
+          <mxGeometry height="30" width="121" x="607" y="337.5" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

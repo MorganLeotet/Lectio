@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.4">
+  <diagram name="Page-1" id="2JoF-BCOCawzf3EI6mBg">
+    <mxGraphModel dx="1909" dy="672" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="eCBLZ1D7l6XyUZS-dB2e-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="60" width="826" y="4" as="geometry" />
+        </mxCell>
+        <mxCell id="eCBLZ1D7l6XyUZS-dB2e-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Logo" vertex="1">
+          <mxGeometry height="31" width="84" x="22" y="18.5" as="geometry" />
+        </mxCell>
+        <mxCell id="eCBLZ1D7l6XyUZS-dB2e-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Connexion" vertex="1">
+          <mxGeometry height="30" width="60" x="607" y="18" as="geometry" />
+        </mxCell>
+        <mxCell id="eCBLZ1D7l6XyUZS-dB2e-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Mode Handicap" vertex="1">
+          <mxGeometry height="30" width="92" x="714.5" y="19" as="geometry" />
+        </mxCell>
+        <mxCell id="eCBLZ1D7l6XyUZS-dB2e-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Moteur de recherche" vertex="1">
+          <mxGeometry height="26" width="248" x="300" y="68" as="geometry" />
+        </mxCell>
+        <mxCell id="eCBLZ1D7l6XyUZS-dB2e-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="458" width="827" x="-1" y="229" as="geometry" />
+        </mxCell>
+        <mxCell id="eCBLZ1D7l6XyUZS-dB2e-8" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Genre 1" vertex="1">
+          <mxGeometry height="164" width="162" x="57" y="249" as="geometry" />
+        </mxCell>
+        <mxCell id="eCBLZ1D7l6XyUZS-dB2e-11" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Genre 2" vertex="1">
+          <mxGeometry height="164" width="134" x="266" y="252" as="geometry" />
+        </mxCell>
+        <mxCell id="eCBLZ1D7l6XyUZS-dB2e-12" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Genre 3" vertex="1">
+          <mxGeometry height="164" width="134" x="460" y="249" as="geometry" />
+        </mxCell>
+        <mxCell id="eCBLZ1D7l6XyUZS-dB2e-13" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Genre 4" vertex="1">
+          <mxGeometry height="164" width="134" x="651" y="249" as="geometry" />
+        </mxCell>
+        <mxCell id="eCBLZ1D7l6XyUZS-dB2e-14" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Genre 5" vertex="1">
+          <mxGeometry height="164" width="134" x="57" y="465" as="geometry" />
+        </mxCell>
+        <mxCell id="eCBLZ1D7l6XyUZS-dB2e-15" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Genre 6" vertex="1">
+          <mxGeometry height="164" width="134" x="259" y="465" as="geometry" />
+        </mxCell>
+        <mxCell id="eCBLZ1D7l6XyUZS-dB2e-16" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Genre 7" vertex="1">
+          <mxGeometry height="164" width="134" x="460" y="465" as="geometry" />
+        </mxCell>
+        <mxCell id="eCBLZ1D7l6XyUZS-dB2e-17" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Genre 8" vertex="1">
+          <mxGeometry height="164" width="134" x="651" y="465" as="geometry" />
+        </mxCell>
+        <mxCell id="eCBLZ1D7l6XyUZS-dB2e-18" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Affichage des genres présent dans ma bibliothèque" vertex="1">
+          <mxGeometry height="30" width="344" x="256" y="193" as="geometry" />
+        </mxCell>
+        <mxCell id="eCBLZ1D7l6XyUZS-dB2e-19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="104" width="824" y="865" as="geometry" />
+        </mxCell>
+        <mxCell id="eCBLZ1D7l6XyUZS-dB2e-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Nom du site" vertex="1">
+          <mxGeometry height="30" width="116" x="33" y="908" as="geometry" />
+        </mxCell>
+        <mxCell id="eCBLZ1D7l6XyUZS-dB2e-21" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Mentions légales" vertex="1">
+          <mxGeometry height="30" width="137" x="328" y="908" as="geometry" />
+        </mxCell>
+        <mxCell id="eCBLZ1D7l6XyUZS-dB2e-22" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Mode Accessibilité" vertex="1">
+          <mxGeometry height="30" width="148" x="612" y="908" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

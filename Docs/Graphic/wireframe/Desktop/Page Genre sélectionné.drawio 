@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.4">
+  <diagram name="Page-1" id="7R4q9l-rj_GnEVH8Z8BH">
+    <mxGraphModel dx="1909" dy="672" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="XEAXnBoDCVAfNGR1JXi_-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="60" width="826" x="1" y="4" as="geometry" />
+        </mxCell>
+        <mxCell id="XEAXnBoDCVAfNGR1JXi_-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Logo" vertex="1">
+          <mxGeometry height="31" width="84" x="23" y="18.5" as="geometry" />
+        </mxCell>
+        <mxCell id="XEAXnBoDCVAfNGR1JXi_-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Connexion" vertex="1">
+          <mxGeometry height="30" width="60" x="608" y="18" as="geometry" />
+        </mxCell>
+        <mxCell id="XEAXnBoDCVAfNGR1JXi_-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Mode Handicap" vertex="1">
+          <mxGeometry height="30" width="92" x="715.5" y="19" as="geometry" />
+        </mxCell>
+        <mxCell id="XEAXnBoDCVAfNGR1JXi_-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Moteur de recherche" vertex="1">
+          <mxGeometry height="26" width="248" x="301" y="68" as="geometry" />
+        </mxCell>
+        <mxCell id="XEAXnBoDCVAfNGR1JXi_-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="104" width="824" x="1" y="865" as="geometry" />
+        </mxCell>
+        <mxCell id="XEAXnBoDCVAfNGR1JXi_-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Nom du site" vertex="1">
+          <mxGeometry height="30" width="116" x="34" y="908" as="geometry" />
+        </mxCell>
+        <mxCell id="XEAXnBoDCVAfNGR1JXi_-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Mentions légales" vertex="1">
+          <mxGeometry height="30" width="137" x="329" y="908" as="geometry" />
+        </mxCell>
+        <mxCell id="XEAXnBoDCVAfNGR1JXi_-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Mode Accessibilité" vertex="1">
+          <mxGeometry height="30" width="148" x="613" y="908" as="geometry" />
+        </mxCell>
+        <mxCell id="XEAXnBoDCVAfNGR1JXi_-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Titre du Genre" vertex="1">
+          <mxGeometry height="45" width="368" x="253" y="138" as="geometry" />
+        </mxCell>
+        <mxCell id="XEAXnBoDCVAfNGR1JXi_-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="458" width="827" x="-2" y="321" as="geometry" />
+        </mxCell>
+        <mxCell id="XEAXnBoDCVAfNGR1JXi_-12" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Livre 1" vertex="1">
+          <mxGeometry height="164" width="136" x="56" y="341" as="geometry" />
+        </mxCell>
+        <mxCell id="XEAXnBoDCVAfNGR1JXi_-13" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Livre 2" vertex="1">
+          <mxGeometry height="164" width="134" x="265" y="344" as="geometry" />
+        </mxCell>
+        <mxCell id="XEAXnBoDCVAfNGR1JXi_-14" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Livre 3" vertex="1">
+          <mxGeometry height="164" width="134" x="459" y="341" as="geometry" />
+        </mxCell>
+        <mxCell id="XEAXnBoDCVAfNGR1JXi_-15" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Livre 4" vertex="1">
+          <mxGeometry height="164" width="134" x="650" y="341" as="geometry" />
+        </mxCell>
+        <mxCell id="XEAXnBoDCVAfNGR1JXi_-16" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Livre 5" vertex="1">
+          <mxGeometry height="164" width="134" x="56" y="557" as="geometry" />
+        </mxCell>
+        <mxCell id="XEAXnBoDCVAfNGR1JXi_-17" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Livre 6" vertex="1">
+          <mxGeometry height="164" width="134" x="258" y="557" as="geometry" />
+        </mxCell>
+        <mxCell id="XEAXnBoDCVAfNGR1JXi_-18" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Livre 7" vertex="1">
+          <mxGeometry height="164" width="134" x="459" y="557" as="geometry" />
+        </mxCell>
+        <mxCell id="XEAXnBoDCVAfNGR1JXi_-19" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Livre 8" vertex="1">
+          <mxGeometry height="164" width="134" x="650" y="557" as="geometry" />
+        </mxCell>
+        <mxCell id="XEAXnBoDCVAfNGR1JXi_-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Affichage des livres présent dans le genre sélectionné" vertex="1">
+          <mxGeometry height="30" width="344" x="255" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="XEAXnBoDCVAfNGR1JXi_-21" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Background : image qui rappel le genre sélectionné" vertex="1">
+          <mxGeometry height="30" width="157" x="13.5" y="119" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

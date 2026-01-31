@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.4">
+  <diagram name="Page-1" id="4kUioAb_DwMJ8mdEeqb6">
+    <mxGraphModel dx="1082" dy="672" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="O2I8t1rIgL5ZjIAXR3ZT-1" parent="1" style="html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.ios7.misc.iphone;strokeColor=#c0c0c0;" value="" vertex="1">
+          <mxGeometry height="786" width="344" x="242" y="22" as="geometry" />
+        </mxCell>
+        <mxCell id="O2I8t1rIgL5ZjIAXR3ZT-2" parent="1" style="html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;shadow=0;dashed=0;strokeWidth=2;shape=mxgraph.ios7.misc.options;fillColor=#222222;sketch=0;" value="" vertex="1">
+          <mxGeometry height="19" width="22" x="278" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="O2I8t1rIgL5ZjIAXR3ZT-3" parent="1" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.eye;" value="" vertex="1">
+          <mxGeometry height="18.55" width="33" x="520" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="O2I8t1rIgL5ZjIAXR3ZT-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Logo" vertex="1">
+          <mxGeometry height="21" width="70" x="384" y="153" as="geometry" />
+        </mxCell>
+        <mxCell id="O2I8t1rIgL5ZjIAXR3ZT-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="60" width="297" x="265.5" y="631" as="geometry" />
+        </mxCell>
+        <mxCell id="O2I8t1rIgL5ZjIAXR3ZT-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="nom du site" vertex="1">
+          <mxGeometry height="30" width="60" x="284.5" y="646" as="geometry" />
+        </mxCell>
+        <mxCell id="O2I8t1rIgL5ZjIAXR3ZT-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Mentions&amp;nbsp;&lt;div&gt;légales&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="390.5" y="646" as="geometry" />
+        </mxCell>
+        <mxCell id="O2I8t1rIgL5ZjIAXR3ZT-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Mode&lt;div&gt;Accessibilité&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="485.5" y="646" as="geometry" />
+        </mxCell>
+        <mxCell id="O2I8t1rIgL5ZjIAXR3ZT-9" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Livre 1" vertex="1">
+          <mxGeometry height="200" width="179.5" x="330.75" y="219" as="geometry" />
+        </mxCell>
+        <mxCell id="O2I8t1rIgL5ZjIAXR3ZT-14" parent="O2I8t1rIgL5ZjIAXR3ZT-9" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.ios.iAddIcon;fillColor=#7AdF78;fillColor2=#1A9917;strokeColor=#ffffff;sketch=0;" value="" vertex="1">
+          <mxGeometry height="15" width="15" x="139.75" y="181" as="geometry" />
+        </mxCell>
+        <mxCell id="O2I8t1rIgL5ZjIAXR3ZT-15" parent="O2I8t1rIgL5ZjIAXR3ZT-9" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.ios.iDeleteIcon;fillColor=#e8878E;fillColor2=#BD1421;strokeColor=#ffffff;sketch=0;" value="" vertex="1">
+          <mxGeometry height="15" width="15" x="158.75" y="181" as="geometry" />
+        </mxCell>
+        <mxCell id="O2I8t1rIgL5ZjIAXR3ZT-10" parent="1" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.heart;" value="" vertex="1">
+          <mxGeometry height="23" width="23" x="485.5" y="246" as="geometry" />
+        </mxCell>
+        <mxCell id="O2I8t1rIgL5ZjIAXR3ZT-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="A Lire" vertex="1">
+          <mxGeometry height="19" width="80" x="330.75" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="O2I8t1rIgL5ZjIAXR3ZT-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Fiche Technique" vertex="1">
+          <mxGeometry height="90" width="192" x="324.5" y="435" as="geometry" />
+        </mxCell>
+        <mxCell id="O2I8t1rIgL5ZjIAXR3ZT-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Résumé du Livre" vertex="1">
+          <mxGeometry height="67" width="186" x="327.5" y="551" as="geometry" />
+        </mxCell>
+        <mxCell id="O2I8t1rIgL5ZjIAXR3ZT-17" edge="1" parent="1" source="O2I8t1rIgL5ZjIAXR3ZT-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=3;" target="O2I8t1rIgL5ZjIAXR3ZT-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="O2I8t1rIgL5ZjIAXR3ZT-16" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Etiquette de statut de lecture du livre , visible que si on est connecté" vertex="1">
+          <mxGeometry height="30" width="128" x="85" y="394.5" as="geometry" />
+        </mxCell>
+        <mxCell id="O2I8t1rIgL5ZjIAXR3ZT-18" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Bouton gestion de la bibliothèque , visible que si on est connecté" vertex="1">
+          <mxGeometry height="30" width="128" x="640" y="394.5" as="geometry" />
+        </mxCell>
+        <mxCell id="O2I8t1rIgL5ZjIAXR3ZT-19" edge="1" parent="1" source="O2I8t1rIgL5ZjIAXR3ZT-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.967;entryY=0.667;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;" target="O2I8t1rIgL5ZjIAXR3ZT-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="O2I8t1rIgL5ZjIAXR3ZT-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Bouton &quot;coup de coeur&quot; visible que si on est connecté" vertex="1">
+          <mxGeometry height="30" width="128" x="601" y="248.5" as="geometry" />
+        </mxCell>
+        <mxCell id="O2I8t1rIgL5ZjIAXR3ZT-21" edge="1" parent="1" source="O2I8t1rIgL5ZjIAXR3ZT-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0.891;entryY=0.435;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;" target="O2I8t1rIgL5ZjIAXR3ZT-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
