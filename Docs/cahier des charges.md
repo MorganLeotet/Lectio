@@ -408,7 +408,8 @@ Voici la liste des routes frontend
 
 Ce schéma représente l’arborescence des routes frontend de l’application et illustre les principaux parcours utilisateurs.
 
-![alt text](image.png)
+![alt text](<Arborescence Routes.drawio.png>)
+
 
 ## 📡 Tableau des Endpoints API et descriptions
 

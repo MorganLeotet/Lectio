@@ -16,7 +16,7 @@ import userRouter from './routers/userRouter.js';
 const app = express();
 
 /* ==== EJS CONFIGURATION ==== */
-app.set('views', join(import.meta.dirname, '../views'));
+app.set('views', join(import.meta.dirname, 'src/views'));
 app.set('view engine', 'ejs');
 
 /* ==== STACTIC FILES ==== */
