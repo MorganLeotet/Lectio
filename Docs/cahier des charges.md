@@ -281,14 +281,6 @@ Justification du choix :
 
 Express.js fournit une structure simple et légère pour gérer les routes, les requêtes HTTP et les middlewares.Il permet de construire une API REST claire et maintenable.
 
-### 🐘 Backend – Laravel (PHP)
-
-Laravel sera utilisé comme framework backend alternatif ou complémentaire.
-
-Justification du choix :
-
-Laravel propose une architecture MVC robuste et des outils intégrés pour la sécurité et la gestion des données.Il facilite la maintenance du code et l’évolution de l’application.
-
 
 ### 🗃️ ORM – Sequelize
 
