@@ -1,0 +1,47 @@
+/* ====== MODE ACCESSIBILITY ====== */
+
+body.accessibility {
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+/* ===== TITRES PLUS LISIBLES ====== */
+
+body.accessibility h1, h2, h3 {
+    letter-spacing: 0.08rem;
+}
+
+/* ===== CONTRASTE RENFORCE ===== */
+
+body.accessibility {
+    background: #0f1e4a;
+    color: #f8fafc;
+}
+
+/* ==== LOGO ==== */
+body.accessibility .logo img {
+    width: 660px;
+}
+
+/* ==== TITRE ==== */
+body.accessibility h1 {
+    font-size: 2.5rem;
+}
+
+/* ==== SLOGAN ==== */
+body.accessibility .slogan {
+    font-size: 3rem;
+}
+
+/* ==== BOUTON ==== */
+body.accessibility .welcome {
+    font-size: 2rem;
+    padding: 1rem 2.5rem;
+}
+
+/* ==== DESACTIVATION DES ANIMATIONS ==== */
+body.accessibility * {
+    transition: none !important;
+    animation: none !important;
+}
+

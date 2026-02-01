@@ -1,7 +1,7 @@
 /* ==== IMPORT ==== */
 
 import express from 'express';
-import { join } from 'node:path';
+import path, { join } from 'node:path';
 
 import bookRouter from './routers/bookRouter.js';
 import authRouter from './routers/authRouter.js';
@@ -27,9 +27,9 @@ app.use(express.json());            /* pour lire le Json envoyé par le navigate
 
 /* ==== ROADS ==== */
 
-app.get('/', (req, res) => {
-    res.send('Welcome');
-})
+app.get('/home', (req, res) => {
+    res.sendFile(path.join(process.cwd(), 'public/pages/home.html'));
+});
 
 /* ==== AUTH ROAD ==== */
 app.use('/auth', authRouter);

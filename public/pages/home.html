@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lection - Accueil</title>
+    <link rel="stylesheet" href="css/Lectio.css">
+    <link rel="stylesheet" href="css/lectioReset.css">
+    <link rel="stylesheet" href="css/Lectio-accessibility.css">
+    
+</head>
+<body>
+<!--- ======= HEADER ====== -->
+    <header class="topbar">
+        <div class="topbar-left">
+            <img src="../assets/img/logo/logo.svg" alt="logo Lectio" class="topbar-logo">
+        </div>
+        <div class="topbar-right">
+            <a href="login.html" class="btn-connexion">Connexion</a>
+            <button class="accessibility-toggle" aria-label="Activer le Mode Accessibilité">
+                <img src="../assets/img/icons/handicap.svg" alt="logo Mode Accessibilité" class="accesibility-icon">
+            </button>
+        </div>
+    </header>
+<!-- ==== MAIN ==== -->
+    <main class="catalog">
+<!-- ==== MOTEUR DE RECHERCHE ==== -->
+        <section class="search">
+            <div class="search-bar">
+                <span class="search-icon">☰</span>
+                <input type="search" placeholder="Rechercher par Livre, Auteur, Genre" aria-label="Recherche de Livres">
+                <span class="search-icon">🔍</span>
+            </div>
+        </section>
+<!-- ==== COUP DE COEUR ==== -->
+        <section class="favorites">
+            <h2>Coups de coeurs des Lecteurs</h2>
+
+            <div class="books-grid">
+                <article class="book-card">
+                    <div class="cover placeholder"></div>
+                    <h3>Titre du Livre</h3>
+                    <p>Nom Auteur</p>
+                </article>
+
+                <article class="book-card">
+                    <div class="cover placeholder"></div>
+                    <h3>Titre du Livre</h3>
+                    <p>Nom Auteur</p>
+                </article>
+
+                <article class="book-card">
+                    <div class="cover placeholder"></div>
+                    <h3>Titre du Livre</h3>
+                    <p>Nom Auteur</p>
+                </article>
+
+                <article class="book-card">
+                    <div class="cover placeholder"></div>
+                    <h3>Titre du Livre</h3>
+                    <p>Nom Auteur</p>
+                </article>
+
+            </div>
+        </section>
+<!-- ===== BOUTON ==== -->
+        <section class="cta">
+            <a href="library.html" class="btn-primary">Voir la Bibliothèque</a>
+        </section>
+    </main>
+<!--- ==== FOOTER ==== -->
+    <footer class="footer">
+        <span>LECTIO ® 2026</span>
+        <a href="mentions.html">Mentions Légales</a>
+        <a href="accesibility.html">Mode accessibilité</a>
+    </footer>
+<script src="../js/accessibility.js"></script>
+</body>
+</html>

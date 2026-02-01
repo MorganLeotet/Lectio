@@ -1,0 +1,233 @@
+:root {
+    --color-background-header-footer: #1e3a8a;
+    --color-menu-text: #0f172a;
+    --color-text: #64748b;
+    --color-background-menu: #f8fafc;
+    --color-background-button: #f97316;
+    --color-button-reading-status: #22c55e;
+    --color-button-reading-status: #facc15;
+    --color-button-reading-status: #38bdf8;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("/public/fonts/Inter/Inter-VariableFont_opsz\,wght.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Merriweather";
+    src: url("/public/fonts/Merriweather/Merriweather-VariableFont_opsz\,wdth\,wght.ttf");
+    font-weight: 400;
+}
+
+/* ===== BODY ===== */
+body {
+    min-height: 100vh;
+    font-family: "Inter", sans-serif;
+}
+
+/* ==== HEADER ===== */
+.topbar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    height: 7rem;
+    padding: 0 2.5rem;
+    background: var(--color-background-header-footer);
+    color: var(--color-background-menu);
+}
+
+/* === LOGO === */
+.topbar-left {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.topbar-logo {
+    width: auto;
+    height: 8rem;
+    display: block;
+}
+
+/* ==== BOUTON CONNEXION === */
+.topbar-right {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-connexion {
+    padding: 0.4rem 1.1rem;
+    border-radius: 0.6rem;
+    border: 1px solid var(--color-menu-text);
+    background: var(--color-background-menu);
+    color: var(--color-menu-text);
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.btn-connexion:hover {
+    background: var(--color-background-button);
+    color: var(--color-background-menu);
+}
+
+/* ===== MAIN CATALOG ===== */
+.catalog {
+    display: grid;
+    gap: 3rem;
+    padding: 3rem 2rem;
+}
+
+/* === RECHERCHE === */
+.search {
+    display: grid;
+    place-items: center;
+}
+
+.search-bar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    width: min(32.5rem, 90%);
+    padding: 0.5rem 1rem;
+    background: var(--color-background-menu);
+    color: var(--color-menu-text);
+    border-radius: 999rem;
+    gap: 0.75rem;
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.search-icon {
+    font-size: 1rem;
+    opacity: 0.7;
+}
+
+/* === COUP DE COEUR === */
+.favorites {
+    display: grid;
+    gap: 2rem;
+    text-align: center;
+}
+
+.favorites h2 {
+    background: var(--color-background-menu);
+    padding: 0.75rem 1.5rem;
+    border-radius: 1rem;
+    width: fit-content;
+    margin: 0 auto;
+    color: var(--color-menu-text);
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: 2rem;
+    align-items: start;
+    justify-items: center;
+}
+
+.book-card {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 0.75rem;
+    align-self: start;
+    width: 12rem;
+    padding: 1rem;
+    border: 1px solid var(--color-menu-text);
+    border-radius: 1rem;
+    background: var(--color-background-menu);
+    color: var(--color-menu-text);
+}
+
+.book-card h3 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 0.25rem 0 0;
+    text-align: center;
+}
+
+.book-card p {
+    font-size: 0.85rem;
+    color: var(--color-menu-text);
+    margin: 0;
+    text-align: center;
+}
+
+.cover {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    background: var(--color-background-menu);
+    border-radius: 0.5rem;
+}
+
+/* ==== BOUTON BIBLIOTHEQUE ==== */
+.cta {
+    display: grid;
+    place-items: center;
+}
+
+.btn-primary {
+    padding: 0.75rem 2.5rem;
+    border: 1px solid var(--color-menu-text);
+    border-radius: 12px;
+    color: var(--color-menu-text);
+    background: var(--color-background-menu);
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background: var(--color-background-button);
+    color: var(--color-background-menu);
+}
+
+/* ==== FOOTER ==== */
+.footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1.5rem;
+    background:var(--color-background-header-footer);
+    color: var(--color-background-menu);
+    text-align: center;
+}
+
+.footer a {
+    text-decoration: none;
+    color: inherit;
+    color: var(--color-background-menu);
+}
+
+
+/* ===== MODE ACCESSIBILITE ====== */
+
+.accessibility-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+}
+
+.accessibility-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+}
+
+.accessibility-toggle:hover .accessibility-icon{
+    filter: brightness(0.9);
+}
+
+.accessibility-toggle:focus-visible {
+    outline: 2px solid var(--color-background-menu);
+    outline-offset: 0.3rem;
+}
