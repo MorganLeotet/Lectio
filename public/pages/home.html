@@ -34,33 +34,52 @@
         </section>
 <!-- ==== COUP DE COEUR ==== -->
         <section class="favorites">
-            <h2>Coups de coeurs des Lecteurs</h2>
+            <h2 class="favorites-title">Coups de coeurs des Lecteurs</h2>
 
-            <div class="books-grid">
-                <article class="book-card">
-                    <div class="cover placeholder"></div>
-                    <h3>Titre du Livre</h3>
-                    <p>Nom Auteur</p>
-                </article>
+            <div class="carousel-wrapper">
+                <div class="favorites-grid" id="carousel-track">
+                    <article class="book-card">
+                        <div class="book-cover"></div>
+                        <h3 class="book-title">Titre du Livre</h3>
+                        <p class="book-author">Nom de l'auteur</p>
+                    </article>
 
-                <article class="book-card">
-                    <div class="cover placeholder"></div>
-                    <h3>Titre du Livre</h3>
-                    <p>Nom Auteur</p>
-                </article>
+                    <article class="book-card">
+                        <div class="book-cover"></div>
+                        <h3 class="book-title">Titre du Livre 2</h3>
+                        <p class="book-author">Nom de l'auteur</p>
+                    </article>
 
-                <article class="book-card">
-                    <div class="cover placeholder"></div>
-                    <h3>Titre du Livre</h3>
-                    <p>Nom Auteur</p>
-                </article>
+                    <article class="book-card">
+                        <div class="book-cover"></div>
+                        <h3 class="book-title">Titre du Livre 3</h3>
+                        <p class="book-author">Nom de l'auteur</p>
+                    </article>
 
-                <article class="book-card">
-                    <div class="cover placeholder"></div>
-                    <h3>Titre du Livre</h3>
-                    <p>Nom Auteur</p>
-                </article>
+                    <article class="book-card">
+                        <div class="book-cover"></div>
+                        <h3 class="book-title">Titre du Livre 4</h3>
+                        <p class="book-author">Nom de l'auteur</p>
+                    </article>
 
+                    <article class="book-card">
+                        <div class="book-cover"></div>
+                        <h3 class="book-title">Titre du Livre 5</h3>
+                        <p class="book-author">Nom de l'auteur</p>
+                    </article>
+
+                    <article class="book-card">
+                        <div class="book-cover"></div>
+                        <h3 class="book-title">Titre du Livre 6</h3>
+                        <p class="book-author">Nom de l'auteur</p>
+                    </article>
+
+                </div>
+            </div>
+
+            <div class="carousel-controls">
+                <button id="btn-prev" aria-label="Précédent">←</button>
+                <button id="btn-next" aria-label="Suivant">→</button>
             </div>
         </section>
 <!-- ===== BOUTON ==== -->
@@ -74,6 +93,9 @@
         <a href="mentions.html">Mentions Légales</a>
         <a href="accesibility.html">Mode accessibilité</a>
     </footer>
+
+<script src="../js/carousel.js"></script>
 <script src="../js/accessibility.js"></script>
+
 </body>
 </html>

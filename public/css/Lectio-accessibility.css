@@ -18,6 +18,11 @@ body.accessibility {
     color: #f8fafc;
 }
 
+/* ==== CAROUSSEL ==== */
+body.accessibility .carousel-track {
+    scroll-behavior: auto;
+}
+
 /* ==== LOGO ==== */
 body.accessibility .logo img {
     width: 660px;
@@ -43,5 +48,10 @@ body.accessibility .welcome {
 body.accessibility * {
     transition: none !important;
     animation: none !important;
+    scroll-behavior: none !important;
+}
+
+.body.accessibility .favorites-grid {
+    scroll-behavior: auto;
 }
 
