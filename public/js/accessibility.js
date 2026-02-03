@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         body.classList.toggle('accessibility');
         localStorage.setItem(
             'accessibility',
-            body.classList.contains('accessibility')
+            body.classList.contains('accessibility').toString()
         );
     })
 });

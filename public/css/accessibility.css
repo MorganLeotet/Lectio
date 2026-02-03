@@ -74,14 +74,6 @@ body {
     background: var(--color-background-button);
     color: var(--color-background-menu);
 }
-
-/* ===== MAIN CATALOG ===== */
-.catalog {
-    display: grid;
-    gap: 3rem;
-    padding: 3rem 2rem;
-}
-
 /* === RECHERCHE === */
 .search {
     display: grid;
@@ -110,6 +102,58 @@ body {
 .search-icon {
     font-size: 1rem;
     opacity: 0.7;
+}
+
+/* ==== FOOTER ==== */
+.footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1.5rem;
+    background:var(--color-background-header-footer);
+    color: var(--color-background-menu);
+    text-align: center;
+}
+
+.footer a {
+    text-decoration: none;
+    color: inherit;
+    color: var(--color-background-menu);
+}
+
+/* ===== MODE ACCESSIBILITE ====== */
+
+.accessibility-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+}
+
+.accessibility-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+}
+
+.accessibility-toggle:hover .accessibility-icon{
+    filter: brightness(0.9);
+}
+
+.accessibility-toggle:focus-visible {
+    outline: 2px solid var(--color-background-menu);
+    outline-offset: 0.3rem;
+}
+
+/* ==============================================================================
+    PAGE HOME
+================================================================================*/
+
+/* ===== MAIN CATALOG ===== */
+.catalog {
+    display: grid;
+    gap: 3rem;
+    padding: 3rem 2rem;
 }
 
 /* === COUP DE COEUR === */
@@ -145,8 +189,16 @@ body {
     height: 22rem;
     border: 1px solid var(--color-menu-text);
     border-radius: 1rem;
-    padding: 1rem;
+    padding: 1.25rem;
     background: var(--color-background-menu);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.book-card a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .book-cover {
@@ -163,7 +215,8 @@ body {
 
 .book-author {
     font-size: 0.9rem;
-    margin-top: 0.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
     color: var(--color-menu-text);
 }
 
@@ -213,7 +266,7 @@ body {
 }
 
 .btn-primary {
-    padding: 0.75rem 2.5rem;
+    padding: 0 1.5rem;
     border: 1px solid var(--color-menu-text);
     border-radius: 12px;
     color: var(--color-menu-text);
@@ -226,47 +279,43 @@ body {
     color: var(--color-background-menu);
 }
 
-/* ==== FOOTER ==== */
-.footer {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding: 1.5rem;
-    background:var(--color-background-header-footer);
-    color: var(--color-background-menu);
-    text-align: center;
+/*  ======= MODE ACCESSIBILTE ======= */
+
+body.accessibility h2 {
+    font-size: 2rem;
 }
 
-.footer a {
-    text-decoration: none;
-    color: inherit;
-    color: var(--color-background-menu);
+body.accessibility h3 {
+    font-size: 1.3rem;
 }
 
-
-/* ===== MODE ACCESSIBILITE ====== */
-
-.accessibility-toggle {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    display: grid;
-    place-items: center;
+body.accessibility p {
+    font-size: 1.15rem;
+    line-height: 1.8;
 }
 
-.accessibility-icon {
-    width: 2.25rem;
-    height: 2.25rem;
+/* ===== BOUTON CARROUSEL ===== */
+body.accessibility .carousel-controls button {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.8rem;
+    border-radius: 0.75rem;
 }
 
-.accessibility-toggle:hover .accessibility-icon{
-    filter: brightness(0.9);
+.favorites-grid {
+    grid-auto-columns: 18rem;
+    gap: 2rem;
 }
 
-.accessibility-toggle:focus-visible {
-    outline: 2px solid var(--color-background-menu);
-    outline-offset: 0.3rem;
+body.accessibility .book-card {
+    padding: 1.5em;
 }
+
+body.accessibility .btn-primary {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+}
+
 
 /* ====== MEDIA QUERIES ====== */
 
