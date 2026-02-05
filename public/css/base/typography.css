@@ -1,0 +1,12 @@
+
+@font-face {
+    font-family: "Inter";
+    src: url("/public/fonts/Inter/Inter-VariableFont_opsz\,wght.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Merriweather";
+    src: url("/public/fonts/Merriweather/Merriweather-VariableFont_opsz\,wdth\,wght.ttf");
+    font-weight: 400;
+}

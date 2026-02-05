@@ -1,19 +1,12 @@
 
-document.addEventListener('DOMContentLoaded', () => {
-    const toggle = document.querySelector('.accessibility-toggle');
-    const body = document.body;
+document.addEventListener("DOMContentLoaded", () => {
+    const button = document.querySelector(".accessibility-toggle");
+    const html = document.documentElement;
 
-    if (!toggle) return;
+    if (!button) return;
 
-    const enabled = localStorage.getItem('accessibility') === 'true';
-    
-    if (enabled) body.classList.add('accessibility');
-
-    toggle.addEventListener('click', () => {
-        body.classList.toggle('accessibility');
-        localStorage.setItem(
-            'accessibility',
-            body.classList.contains('accessibility').toString()
-        );
-    })
+    button.addEventListener("click", () => {
+        html.classList.toggle("accessibility");
+    });
 });
+

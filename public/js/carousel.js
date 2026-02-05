@@ -1,25 +1,49 @@
-
-/* ==== CAROUSSEL ==== */
-
+/* =============================================
+                    CAROUSEL 
+===============================================*/
 document.addEventListener("DOMContentLoaded", () => {
-  const track = document.getElementById("carousel-track");
-  const btnPrev = document.getElementById("btn-prev");
-  const btnNext = document.getElementById("btn-next");
+  const carousels = document.querySelectorAll("[data-carousel]");
 
-  if (!track || !btnPrev || !btnNext) return;
+  carousels.forEach(carousel => {
+    const track = carousel.querySelector(".carousel-track");
+    const cards = track.children;
+    const prevBtn = carousel.querySelector(".carousel-prev");
+    const nextBtn = carousel.querySelector(".carousel-next");
 
-  const card = track.querySelector(".book-card");
-  const gap = 32; // 2rem
-  const scrollAmount = card.offsetWidth + gap;
+    if (!track || !prevBtn || !nextBtn || cards.length === 0) {
+      console.warn("Carousel incomplet, ignoré", carousel);
+      return;
+    }
 
-  /*const scrollAmount = 220; // largeur carte + marge*/
+    const visible = parseInt(carousel.dataset.visible, 10);
+    let index = 0;
 
-  btnPrev.addEventListener("click", () => {
-    track.scrollLeft -= scrollAmount;
-  });
+    const cardWidth = cards[0].offsetWidth;
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+    const step = cardWidth + gap;
 
-  btnNext.addEventListener("click", () => {
-    track.scrollLeft += scrollAmount;
+    function update() {
+      track.style.transform = `translateX(-${index * step}px)`;
+
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index >= cards.length - visible;
+    }
+
+    prevBtn.addEventListener("click", () => {
+      if (index > 0) {
+        index--;
+        update();
+      }
+    });
+
+    nextBtn.addEventListener("click", () => {
+      if (index < cards.length - visible) {
+        index++;
+        update();
+      }
+    });
+
+    update();
   });
 });
 

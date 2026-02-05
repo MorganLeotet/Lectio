@@ -1,0 +1,50 @@
+/* =========================
+    CAROUSEL - BASE
+========================= */
+
+.carousel {
+    position: relative;
+    width: 100%;
+}
+.carousel-window {
+    overflow: hidden;
+    width: 100%;
+}
+.carousel-track {
+    display: flex;
+    gap: 2rem;
+    transition: transform 0.3s ease;
+}
+/* ==========================
+    CARTES LIVRES (carousel)
+============================== */
+.carousel .book-card {
+    flex: 0 0 auto;
+}
+/* =========================
+    AUTEURS (carousel)
+========================= */
+.carousel .author-card {
+    flex: 0 0 auto;
+}
+/* =========================
+    FLÈCHES
+========================= */
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+.carousel-controls button {
+    font-size: 1.25rem;
+    background: #eee;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+}
+
+
+
+
+

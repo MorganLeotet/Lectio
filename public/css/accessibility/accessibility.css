@@ -1,0 +1,128 @@
+/* ========================================
+            PAGE PRESENTATION
+==========================================*/
+html {
+    font-size: 100%;
+}
+html.accessibility {
+    font-size: 120%;
+}
+body.accessibility {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    background: #0f1e4a;
+    color: #f8fafc;
+}
+
+body.accessibility main {
+    place-items: start center;
+    padding-top: 4rem;
+}
+
+/* ===== TITRES PLUS LISIBLES ====== */
+
+body.accessibility h1, h2, h3 {
+    letter-spacing: 0.08rem;
+}
+/* ==== LOGO ==== */
+body.accessibility .logo img {
+    width: 660px;
+}
+/* ==== TITRE ==== */
+body.accessibility h1 {
+    font-size: 2.5rem;
+}
+/* ==== SLOGAN ==== */
+body.accessibility .slogan {
+    font-size: 3rem;
+}
+/* ==== BOUTON ==== */
+body.accessibility .welcome {
+    font-size: 2rem;
+    padding: 1rem 2.5rem;
+}
+/* ==== DESACTIVATION DES ANIMATIONS ==== */
+body.accessibility * {
+    transition: none !important;
+    animation: none !important;
+}
+
+/* ======================================
+            PAGE HOME
+========================================*/
+
+.accessibility-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+}
+.accessibility-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+}
+.accessibility-toggle:hover .accessibility-icon{
+    filter: brightness(0.9);
+}
+.accessibility-toggle:focus-visible {
+    outline: 2px solid var(--color-background-menu);
+    outline-offset: 0.3rem;
+}
+body.accessibility h2 {
+    font-size: 2rem;
+}
+body.accessibility h3 {
+    font-size: 1.3rem;
+}
+body.accessibility p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+}
+body.accessibility .book-title {
+    font-size: 1.3rem;
+}
+body.accessibility .book-author {
+    font-size: 1.1rem;
+}
+body.accessibility .book-link:focus-visible {
+    outline-width: 5px;
+}
+
+/* ===== BOUTON CARROUSEL ===== */
+
+body.accessibility .carousel-controls button {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.8rem;
+    border-radius: 0.75rem;
+}
+.favorites-grid {
+    grid-auto-columns: 18rem;
+    gap: 2rem;
+}
+body.accessibility .book-card {
+    padding: 1.5em;
+}
+body.accessibility .btn-primary {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+}
+body.accessibility .carousel-controls button:focus-visible {
+    outline: 4px solid var(--color-text);
+    outline-offset: 4px;
+}
+body.accessibility .carousel-controls {
+    gap: 1.5rem;
+}
+body.accessibility .carousel-wrapper {
+    max-width: 100%;
+}
+.authors-grid {
+    outline: none;
+}
+.authors-grid:focus-visible {
+    outline: 3px solid var(--color-text);
+}
+

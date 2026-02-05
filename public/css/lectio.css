@@ -1,0 +1,24 @@
+/* ======================================
+                IMPORT
+========================================*/
+
+/* ======== BASE ======= */
+
+@import url("./base/reset.css");
+@import url("./base/typography.css");
+@import url("./base/variables.css");
+
+/* ======= COMPONENTS ======= */
+
+@import url("./components/header-footer.css");
+@import url("./components/cards.css");
+@import url("./components/carousel.css");
+
+/* ======= PAGES ====== */
+
+@import url("./pages/home.css");
+
+
+/* ======== ACCESSIBILITY ====== */
+
+@import url("./accessibility/accessibility.css");
