@@ -108,6 +108,10 @@ section {
     align-items: center;
     gap: 0.75rem;
 }
+.author-card a {
+    text-decoration: none;
+    color: inherit;
+}
 .author-avatar {
     width: 3.5rem;
     height: 3.5rem;
