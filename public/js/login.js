@@ -1,56 +1,66 @@
-const openLoginBtn = document.getElementById('openLogin');
-const loginPanel = document.getElementById('loginPanel');
-const overlay = document.getElementById('loginOverlay');
+const openLoginBtn = document.getElementById("openLogin");
+const loginOverlay = document.getElementById("loginOverlay");
+const loginPanel = document.getElementById("loginPanel");
+const loginSteps = document.getElementById("loginSteps");
+const toPassword = document.getElementById("toPassword");
 
-const stepEmail = document.getElementById('stepEmail');
-const stepPassword = document.getElementById('stepPassword');
-const stepRegister = document.getElementById('loginRegister');
+const toPasswordBtn = document.getElementById("toPassword");
+const emailInput = document.getElementById("emailInput");
+const fakeDatabase = ["test@mail.com", "admin@mail.com"];
 
-const toPassword = document.getElementById('toPassword');
-const loginSubmit = document.getElementById('loginSubmit');
-const changeUser = document.getElementById('changeUser');
+const loginBtn = document.querySelector(".step:nth-child(2) .btn-continue");
+const passwordInput = document.querySelector('input[type="password"]');
 
-// OUVRIR
-openLoginBtn.addEventListener('click', () => {
-    overlay.classList.add('active');
-    loginPanel.classList.add('active');
-});
+const backToEmail1 = document.getElementById("backToEmail1");
+const backToEmail2 = document.getElementById("backToEmail2");
 
-// PASSER À MOT DE PASSE
-toPassword.addEventListener('click', () => {
-    const emailValue = document.querySelector('#stepEmail input').value;
+const fakePassword = "1234";
+const fakeUsers = [
+    "user@mail.com",
+    "test@mail.com"
+]
 
-    if (emailValue.includes("new")) {
-        stepEmail.classList.remove('active');
-        stepRegister.classList.add('active');
+loginBtn.addEventListener("click", () => {
+
+    const passwordValue = passwordInput.value.trim();
+
+    if (passwordValue === fakePassword) {
+        // Redirection vers bibliothèque
+        window.location.href = "library.html";
     } else {
-        stepEmail.classList.remove('active');
-        stepPassword.classList.add('active');
+        alert("Mot de passe incorrect");
     }
+
 });
 
-// SIMULER CONNEXION
-loginSubmit.addEventListener('click', () => {
-    window.location.href = "library.html";
+openLoginBtn.addEventListener("click", () => {
+    loginOverlay.classList.add("active");
+    loginPanel.classList.add("active");
 });
 
-// CHANGER UTILISATEUR
-changeUser.addEventListener('click', () => {
-    stepRegister.classList.remove('active');
-    stepEmail.classList.add('active');
+loginOverlay.addEventListener("click", () => {
+    loginOverlay.classList.remove("active");
+    loginPanel.classList.remove("active");
+    loginSteps.style.transform = "translateX(0)";
 });
 
-// FERMER SI CLIC FOND
-overlay.addEventListener('click', () => {
-    overlay.classList.remove('active');
-    loginPanel.classList.remove('active');
+toPassword.addEventListener("click", () => {
+    const emailValue = emailInput.value.trim();
 
-    stepPassword.classList.remove('active');
-    stepRegister.classList.remove('active');
-    stepEmail.classList.add('active');
+    if (fakeUsers.includes(emailValue)) {
+        // Slide vers PASSWORD
+        loginSteps.style.transform = "translateX(-100%)";
+    } else {
+        // Slide vers INSCRIPTION
+        loginSteps.style.transform = "translateX(-200%)";
+    }
+
 });
 
-// EMPÊCHER FERMETURE SI CLIC DANS PANEL
-loginPanel.addEventListener('click', (e) => {
-    e.stopPropagation();
+backToEmail1.addEventListener("click", () => {
+    loginSteps.style.transform = "translateX(0)";
+});
+
+backToEmail2.addEventListener("click", () => {
+    loginSteps.style.transform = "translateX(0)";
 });
