@@ -4,7 +4,7 @@
     --color-text: #64748b;
     --color-background-menu: #f8fafc;
     --color-background-button: #f97316;
-    --color-button-reading-status: #22c55e;
-    --color-button-reading-status: #facc15;
-    --color-button-reading-status: #38bdf8;
+    --color-button-reading-status-lu: #22c55e;
+    --color-button-reading-status-encours: #facc15;
+    --color-button-reading-status-alire: #38bdf8;
 }

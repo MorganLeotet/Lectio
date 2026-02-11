@@ -1,0 +1,87 @@
+.book-wrapper {
+    max-width: 70rem;
+    margin: 0 auto 4rem;
+}
+.book-container {
+    display: flex;
+    gap: 3rem;
+    padding: 3rem;
+    background: var(--color-background-menu);
+    border-radius: 2rem;
+}
+.book-cover {
+    position: relative;
+}
+.book-cover img {
+    width: 20rem;
+    border-radius: 1rem;
+}
+.book-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.book-info h1 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+}
+.book-info p {
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--color-text);
+}
+.book-summary {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+.book-summary p {
+    max-width: 55rem;
+    padding: 2rem;
+    background: var(--color-background-menu);
+    border-radius: 1rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    color: var(--color-text);
+}
+.favorite-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.book-status {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    color: var(--color-background-menu);
+    background: var(--color-button-reading-status-alire);
+    padding: 0.4rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+}
+.book-actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+.btn-add {
+    background: var(--color-background-button);
+    color: var(--color-background-menu);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    cursor: pointer;
+}
+.btn-remove {
+    background: var(--color-background-button);
+    color: var(--color-background-menu);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    cursor: pointer;
+}
