@@ -1,11 +1,9 @@
 /* ===== BODY ===== */
-
 body {
     min-height: 100vh;
     font-family: "Inter", sans-serif;
 }
 /* ==== HEADER ===== */
-
 .topbar {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -15,8 +13,13 @@ body {
     background: var(--color-background-header-footer);
     color: var(--color-background-menu);
 }
+/* ==== FIL ARIANE ==== */
+.breadcrumb {
+    margin: 2rem 3rem;
+    font-size: 0.875rem;
+    color: var(--color-menu-text);
+}
 /* === LOGO === */
-
 .topbar-left {
     display: grid;
     grid-auto-flow: column;
@@ -29,7 +32,6 @@ body {
     display: block;
 }
 /* ==== BOUTON CONNEXION === */
-
 .topbar-right {
     display: grid;
     grid-auto-flow: column;
@@ -50,7 +52,6 @@ body {
     color: var(--color-background-menu);
 }
 /* === RECHERCHE === */
-
 .search {
     display: grid;
     place-items: center;
@@ -77,7 +78,6 @@ body {
     opacity: 0.7;
 }
 /* ==== FOOTER ==== */
-
 .footer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
