@@ -14,6 +14,11 @@ const passwordInput = document.querySelector('input[type="password"]');
 const backToEmail1 = document.getElementById("backToEmail1");
 const backToEmail2 = document.getElementById("backToEmail2");
 
+const forgotPasswordBtn = document.getElementById("forgotPasswordBtn");
+const forgotPanel = document.getElementById("forgotPanel");
+const backToPassword = document.getElementById("backToPassword");
+
+
 const fakePassword = "1234";
 const fakeUsers = [
     "user@mail.com",
@@ -42,6 +47,7 @@ loginOverlay.addEventListener("click", () => {
     loginOverlay.classList.remove("active");
     loginPanel.classList.remove("active");
     loginSteps.style.transform = "translateX(0)";
+    forgotPanel.classList.remove("active");
 });
 
 toPassword.addEventListener("click", () => {
@@ -64,3 +70,19 @@ backToEmail1.addEventListener("click", () => {
 backToEmail2.addEventListener("click", () => {
     loginSteps.style.transform = "translateX(0)";
 });
+
+forgotPasswordBtn.addEventListener("click", () => {
+    // s'assurer que le panel est ouvert
+    loginOverlay.classList.add("active");
+    loginPanel.classList.add("active");
+    // on cache le slider
+    loginSteps.style.transform = "translateX(0)";
+    // on affiche le forgot panel
+    forgotPanel.classList.add("active");
+});
+
+backToPassword.addEventListener("click", () => {
+    forgotPanel.classList.remove("active");
+    loginPanel.classList.add("active");
+});
+

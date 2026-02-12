@@ -111,3 +111,75 @@
     margin-bottom: 2rem;
     cursor: pointer;
 }
+
+/* ================= FORGOT PASSWORD =============== */
+
+.forgot-panel {
+    position: absolute;
+    inset: 0;
+    background: var(--color-background-menu);
+    padding: 3rem 2.5rem;
+    display: none;
+    /*z-index: 2000;*/
+}
+
+.forgot-panel.active {
+    display: block;
+}
+
+.forgot-panel .step-content {
+    max-width: 26rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.forgot-panel h2 {
+    background: var(--color-background-button);
+    color: var(--color-background-menu);
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.forgot-panel p {
+    font-size: 1.05rem;
+    color: var(--color-menu-text);
+    line-height: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.forgot-panel input {
+    width: 100%;
+    padding: 1.1rem;
+    border-radius: 0.8rem;
+    border: 0.08rem solid var(--color-menu-text);
+    font-size: 1rem;
+    margin-bottom: 3rem;
+}
+
+.forgot-panel .btn-continue {
+    width: 60%;
+    padding: 0.9rem;
+    border-radius: 1rem;
+    font-size: 1.1rem;
+    margin: 0 auto;
+    display: block;
+}
+
+.forgot-password {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-menu-text);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.forgot-password:hover {
+    opacity: 0.7;
+}
