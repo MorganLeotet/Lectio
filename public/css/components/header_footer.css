@@ -38,7 +38,7 @@ body {
     align-items: center;
     gap: 1rem;
 }
-.btn-login {
+#openLogin {
     padding: 0.4rem 1.1rem;
     border-radius: 0.6rem;
     border: 1px solid var(--color-menu-text);

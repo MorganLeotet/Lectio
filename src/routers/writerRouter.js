@@ -14,6 +14,10 @@ router.get('/', authMiddleware, writerController.getAll);
 
 router.get('/:id', authMiddleware, writerController.getById);
 
+router.get('selected/:id', (req, res) => {
+    res.sendFile(path.join(process.cwd)(), 'public/pages/authors_selected.html');
+});
+
 /* ==== EXPORT ==== */
 
 export default router;

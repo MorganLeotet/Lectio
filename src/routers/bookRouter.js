@@ -18,6 +18,10 @@ router.put('/:id', authMiddleware, bookController.updateBook);          // mettr
 
 router.delete('/:id', authMiddleware, bookController.deleteBook);       // retirer un livre
 
+router.get('/detail/:id', (req,res) => {
+    res.sendFile(path.join(process.cwd)(), 'public/pages/book_detail.html');
+});
+
 
 /* ==== EXPORT ==== */
 

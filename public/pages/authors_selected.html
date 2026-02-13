@@ -11,12 +11,12 @@
 <!--- ======= HEADER ====== -->
     <header class="topbar">
         <div class="topbar-left">
-            <img src="../assets/img/logo/logo.svg" alt="logo Lectio" class="topbar-logo">
+            <img src="../assets/logo/logo.svg" alt="logo Lectio" class="topbar-logo">
         </div>
         <div class="topbar-right">
-            <button class="btn-login" id="openLogin">Connexion</button>
+            <button id="openLogin">Connexion</button>
             <button class="accessibility-toggle" aria-label="Activer le Mode Accessibilité">
-                <img src="../assets/img/icons/handicap.svg" alt="logo Mode Accessibilité" class="accesibility-icon">
+                <img src="../assets/icons/handicap.svg" alt="logo Mode Accessibilité" class="accesibility-icon">
             </button>
         </div>
     </header>
@@ -102,33 +102,58 @@
         <a href="accesibility.html">Mode accessibilité</a>
     </footer>
 <!--======= POPUP LOGIN ====-->
-<div class="login-overlay" id="loginOverlay">
-    <div class="login-panel" id="loginPanel">
-        <div class="login-step active" id="stepEmail">
-            <h2>Connexion / Inscription</h2>
-            <p>Saisissez votre email pour vous connecter ou créer un compte</p>
-            <input type="email" placeholder="adresse e-mail">
-            <button class="btn-continue" id="toPassword">Continuer</button>
-        </div>
-        <div class="login-step" id="stepPassword">
-            <h2>Connexion</h2>
-            <input type="password" placeholder="mot de passe">
-            <button class="btn-continue" id="loginSubmit">Continuer</button>
-        </div>
-        <div class="login-step" id="loginRegister">
-            <h2>Pas encore de compte</h2>
-            <p>Renseignez vos informations pour finaliser votre inscription</p>
-            <p class="user-email">email@example.com</p>
-            <button class="user-change" id="changeUser">Changer d'utilisateur ?</button>>
 
-            <input type="text" placeholder="Prénom">
-            <input type="text" placeholder="Nom">
-            <input type="password" placeholder="mot de passe">
-            <input type="text" placeholder="Nom de votre Bibliothèque">
+<div class="login-overlay" id="loginOverlay"></div>
 
-            <button class="btn-continue" id="registerSubmit">Créer mon compte</button>
+<div class="login-panel" id="loginPanel">
+    <div class="login-steps" id="loginSteps">
+
+        <!-- ÉTAPE 1 : EMAIL -->
+        <div class="step">
+            <div class="step-content">
+                <h2>Connexion / Inscription</h2>
+                <p>Saisissez votre e-mail pour vous connecter ou créer un compte</p>
+                <input type="email" id="emailInput" placeholder="adresse e-mail">
+                <button class="btn-continue" id="toPassword">
+                Continuer
+                </button>
+            </div>
+        </div>
+
+        <!-- ÉTAPE 2 : PASSWORD -->
+        <div class="step">
+            <div class="step-content">
+                <button class="btn-back" id="backToEmail1">← Retour</button>
+                <h2>Connexion</h2>
+                <input type="password" placeholder="mot de passe">
+                <button type="button" class="forgot-password" id="forgotPasswordBtn">Mot de passe oublié ?</button>
+                <button class="btn-continue"><a href="/pages/library.html">Se connecter</a></button>
+            </div>
+        </div>
+
+        <!-- ÉTAPE 3 : INSCRIPTION -->
+        <div class="step">
+            <div class="step-content">
+                <button class="btn-back" id="backToEmail2">← Retour</button>
+                <h2>Inscription</h2>
+                <input type="text" placeholder="Prénom">
+                <input type="text" placeholder="Nom">
+                <input type="password" placeholder="mot de passe">
+                <input type="text" placeholder="Nom de votre Bibliothèque">
+                <button class="btn-continue">Créer mon compte</button>
+            </div>
         </div>
     </div>
+    <!-- ÉTAPE 4 : FORGOT PASSWORD -->
+    
+        <div class="forgot-panel" id="forgotPanel">
+            <button class="btn-back" id="backToPassword">← Retour</button>
+            <h2>Mot de passe oublié ?</h2>
+            <p>Nous allons vous envoyer un message pour vous permettre de vous connecter</p>
+            <input type="email" placeholder="adresse e-mail">
+            <button class="btn-continue">Continuer</button>
+        </div>
+
 </div>
 
 <script src="../js/accessibility.js"></script>

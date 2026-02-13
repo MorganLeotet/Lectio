@@ -11,12 +11,12 @@
 <!--- ======= HEADER ====== -->
     <header class="topbar">
         <div class="topbar-left">
-            <img src="../assets/img/logo/logo.svg" alt="logo Lectio" class="topbar-logo">
+            <img src="../assets/logo/logo.svg" alt="logo Lectio" class="topbar-logo">
         </div>
         <div class="topbar-right">
             <button id="openLogin">Connexion</button>
             <button class="accessibility-toggle" aria-label="Activer le Mode Accessibilité">
-                <img src="../assets/img/icons/handicap.svg" alt="logo Mode Accessibilité" class="accesibility-icon">
+                <img src="../assets/icons/handicap.svg" alt="logo Mode Accessibilité" class="accesibility-icon">
             </button>
         </div>
     </header>
@@ -40,13 +40,13 @@
         <section class="genres">
             <div class="genres-wrapper">
 
-                    <button class="genre-card">Genre 1</button>
-                    <button class="genre-card">Genre 2</button>
-                    <button class="genre-card">Genre 3</button>
-                    <button class="genre-card">Genre 4</button>
-                    <button class="genre-card">Genre 5</button>
-                    <button class="genre-card">Genre 6</button>
-                    <button class="genre-card">Genre 7</button>
+                    <button class="genre-card"><a href="/pages/genres_selected.html">Genre 1</a></button>
+                    <button class="genre-card"><a href="/pages/genres_selected.html">Genre 2</a></button>
+                    <button class="genre-card"><a href="/pages/genres_selected.html">Genre 3</a></button>
+                    <button class="genre-card"><a href="/pages/genres_selected.html">Genre 4</a></button>
+                    <button class="genre-card"><a href="/pages/genres_selected.html">Genre 5</a></button>
+                    <button class="genre-card"><a href="/pages/genres_selected.html">Genre 6</a></button>
+                    <button class="genre-card"><a href="/pages/genres_selected.html">Genre 7</a></button>
             </div>
             <button class="genres-toggle"><a href="/pages/genres.html">Afficher la liste</a></button>
         </section>
@@ -62,10 +62,10 @@
 
                                 <article class="book-card">
                                     <a href="books.html" class="book-link">
-                                    <div class="book-cover"></div>
-                                    <h3 class="book-title">Titre du livre</a></h3>
+                                    <div class="book-cover"><a href="/pages/book_detail.html">#</a></div>
+                                    <h3 class="book-title"><a href="/pages/book_detail.html">Titre du livre</a></h3>
                                     </a>
-                                    <p class="book-author"><a href="authorsSelected.html">Nom de l'auteur</a> </p>
+                                    <p class="book-author"><a href="/pages/authors_selected.html">Nom de l'auteur</a> </p>
                                 </article>
 
                                 <article class="book-card">
@@ -334,7 +334,7 @@
 <!-- ===== BOUTON ==== -->
         <section class="cta">
             <div class="section-container">
-                <a href="library.html" class="btn-primary">Voir la Bibliothèque</a>
+                <a href="books.html" class="btn-primary">Voir la Bibliothèque</a>
             </div>
         </section>
     </main>
@@ -370,7 +370,7 @@
                 <h2>Connexion</h2>
                 <input type="password" placeholder="mot de passe">
                 <button type="button" class="forgot-password" id="forgotPasswordBtn">Mot de passe oublié ?</button>
-                <button class="btn-continue">Se connecter</button>
+                <button class="btn-continue"><a href="/pages/library.html">Se connecter</a></button>
             </div>
         </div>
 

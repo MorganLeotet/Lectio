@@ -14,6 +14,10 @@ router.get('/', authMiddleware, genreController.getAll);
 
 router.get('/:id', authMiddleware, genreController.getById);
 
+router.get('selected/:id', (req, res) => {
+    res.sendFile(path.join(process.cwd)(), 'public/pages/genres_selected.html');
+});
+
 /* ==== EXPORT ==== */
 
 export default router;

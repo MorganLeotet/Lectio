@@ -3,36 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ma Bibliothèque - Blablabook</title>
+    <title>Lectio - Ma Bibliothèque</title>
+    <link rel="stylesheet" href="../css/lectio.css">
 </head>
 <body>
-    <h1>Ma bibliothèque</h1>
+    <!--- ======= HEADER ====== -->
+    <header class="topbar">
+        <div class="topbar-left">
+            <img src="../assets/logo/logo.svg" alt="logo Lectio" class="topbar-logo">
+        </div>
+        <div class="topbar-right">
+            <span class="welcome">Nom du user connecté</span>
+            <button class="accessibility-toggle" aria-label="Activer le Mode Accessibilité">
+                <img src="../assets/icons/handicap.svg" alt="logo Mode Accessibilité" class="accesibility-icon">
+            </button>
+        </div>
+    </header>
+    <!-- ==== MOTEUR DE RECHERCHE ==== -->
+        <section class="search">
+            <div class="search-bar">
+                <span class="search-icon">☰</span>
+                <input type="search" placeholder="Rechercher par Livre, Auteur, Genre" aria-label="Recherche par livre, auteur ou genre">
+                <span class="search-icon">🔍</span>
+            </div>
+        </section>
+    <!-- ======= MAIN ========= -->
+    <main class="library-page">
+        <h1 id="libraryTitle">Nom de la bibliothèque</h1>
 
-    <button type="button" onclick="logout()">Se déconnecter</button>
+        <div class="library_menu">
+            <button data-filter="all">Tous</button>
+            <button data-filter="a_lire">A Lire</button>
+            <button data-filter="en_cours">En Cours</button>
+            <button data-filter="lu">Lu</button>
+            <button data-filter="favorites">Coup de Coeur</button>
+        </div>
+        <div class="library_grid" id="libraryGrid"></div>
 
-    <hr>
-
-    <h2>Ajouter un livre</h2>
-
-    <input type="text" id="title" placeholder="Titre">
-    <br><br>
-    <input type="text" id="author" placeholder="Auteur">
-    <br><br>
-    <select id="status">
-        <option value="à lire">A Lire</option>
-        <option value="en cours">En Cours</option>
-        <option value="lu">Lu</option>
-    </select>
-    <br><br>
-
-    <button type="button" onclick="addBook()">Ajouter à ma bibliothèque</button>
-
-    <hr>
-
-    <h2>Mes Livres</h2>
-
-    <ul id="books-list"></ul>
-
-    <script src="./js/main.js"></script>
+    </main>
+    
+<script src="../js/accessibility.js"></script>
+<script src="../js/library.js"></script>
 </body>
 </html>

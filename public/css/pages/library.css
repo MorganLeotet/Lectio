@@ -1,0 +1,169 @@
+/* ======= MAIN ====== */
+.library-page {
+    padding: 3rem 2rem 4rem 2rem;
+    text-align: center;
+}
+.library-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    gap: 2.5rem;
+    padding: 3rem 4rem;
+    margin: 0 auto;
+    transition: opacity 0.2s ease;
+    justify-content: center;
+}
+/* ===== TITRE ===== */
+#libraryTitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--color-menu-text);
+    letter-spacing: 0.03em;
+}
+/* ======== BOUTONS ====== */
+.favorite-book {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.4rem;
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.favorite-book.active {
+    transform: scale(1.2);
+}
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.remove-book {
+    background: var(--color-background-button);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 1.1rem;
+    font-size: 0.8rem;
+    color: var(--color-background-menu);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+.remove-book:hover {
+    background: var(--color-text);
+}
+/* ===== MENU STATUT DE LA BIBLIOTHEQUE ====== */
+.library_menu {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    background: var(--color-background-menu);
+    padding: 0.6rem 1rem;
+    border-radius: 2rem;
+    width: fit-content;
+    margin: 0 auto 3rem auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.library_menu button {
+    border: none;
+    padding: 0.3rem 1.2rem;
+    border-radius: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+/* ===== COULEURS MENU STATUT BIBLIOTHEQUE ====== */
+.library_menu button[data-filter="a_lire"] {
+    background: var(--color-button-reading-status-alire);
+    color: var(--color-background-menu);
+}
+.library_menu button[data-filter="en_cours"] {
+    background: var(--color-button-reading-status-encours);
+    color: var(--color-background-menu);
+}
+.library_menu button[data-filter="lu"] {
+    background: var(--color-button-reading-status-lu);
+    color: var(--color-background-menu);
+}
+.library_menu button[data-filter="all"] {
+    background: var(--color-menu-text);
+    color: var(--color-background-menu);
+}
+.library_menu button[data-filter="favorites"] {
+    background: red;
+    color: var(--color-background-menu);
+}
+.library_menu button:hover {
+    transform: translateY(-O.15rem);
+}
+.library_menu button:active {
+    transform: scale(0.95);
+}
+.library_menu button.active {
+    box-shadow: 0 0.2rem 0.6rem rgba(0,0,0,0.15);
+    transform: translateY(-0.1rem);
+}
+/* ==== STATUT DU LIVRE ===== */
+.change-status {
+    width: 100%;
+    padding: 0.4rem;
+    border-radius: 0.6rem;
+    border: 1px solid #ddd;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+}
+.cover-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.cover-wrapper img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+.status-badge {
+    position: absolute;
+    bottom: 1.4rem;
+    left: 0.4rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 2rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-background-menu);
+    z-index: 2;
+}
+/* ====== COULEURS PAR STATUT ====== */
+.status-badge.a_lire {
+    background: var(--color-button-reading-status-alire);
+}
+.status-badge.en_cours {
+    background: var(--color-button-reading-status-encours);
+    color: var(--color-background-menu);
+}
+.status-badge.lu {
+    background: var(--color-button-reading-status-lu);
+}
+/* ====== APPARITION LIVRES ====== */
+.book-item {
+    opacity: 0;
+    transform: translateY(1rem);
+    animation: fadeIn 0.4s ease forwards;
+}
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ====== ANIMATION BOUTON RETIRER ==== */
+.remove-btn {
+    transition: all 0.2s ease;
+}
+.remove-btn:hover {
+    transform: translateY(-0.1rem);
+}
+.remove-btn:active {
+    transform: scale(0.95);
+}
