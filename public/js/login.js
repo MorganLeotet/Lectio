@@ -89,4 +89,9 @@ backToPassword.addEventListener("click", () => {
     forgotPanel.classList.remove("active");
     loginPanel.classList.add("active");
 });
+
+document.querySelector(".user-icon")
+    .addEventListener("click", () => {
+    openLoginModal();
+});
 }
