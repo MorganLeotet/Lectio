@@ -85,3 +85,14 @@
     border-radius: 0.75rem;
     cursor: pointer;
 }
+
+/* ========================== MEDIA QUERIES =========================== */
+
+/* =============== GRAND ECRAN ======= */ 
+@media (min-width: 90rem) {}
+
+/* =============== DESKTOP =========== */
+@media (min-width: 64rem) {}
+
+/* =============== TABLETTE ========== */
+@media (min-width: 48rem) {}

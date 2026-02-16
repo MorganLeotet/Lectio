@@ -1,13 +1,12 @@
 
 /* ===== MAIN CATALOG ===== */
 
-.home {
+.page-home {
     max-width: 90rem;
     margin: 0 auto;
     padding: 2rem;
 }
 .section-container {
-    max-width: 70rem;
     margin: 0 auto;
 }
 /* ===== GENRES ====== */
@@ -152,6 +151,18 @@ section {
     background: var(--color-background-button);
     color: var(--color-background-menu);
 }
+
+
+/* ========================== MEDIA QUERIES =========================== */
+
+/* =============== GRAND ECRAN ======= */ 
+@media (min-width: 90rem) {}
+
+/* =============== DESKTOP =========== */
+@media (min-width: 64rem) {}
+
+/* =============== TABLETTE ========== */
+@media (min-width: 48rem) {}
 
 
 

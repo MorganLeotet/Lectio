@@ -1,0 +1,35 @@
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+/* ======= STRUCTURE DES PAGES ======= */
+.page {
+    width: 100%;
+    padding: 1rem;
+}
+.container {
+    width: 100%;
+    padding: 0 1rem;
+}
+/* ======= HEADER ET FOOTER ======= */
+.topbar, .footer {
+    padding: 1rem;
+}
+
+/* ========================== MEDIA QUERIES =========================== */
+
+/* =============== DESKTOP =========== */
+@media (min-width: 64rem) {
+    .page {
+        max-width: 90rem;
+        margin: 0 auto;
+    }
+}
+
+/* =============== TABLETTE ========== */
+@media (min-width: 48rem) {
+    .page {
+        padding: 2rem;
+    }
+}

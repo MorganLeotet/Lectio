@@ -1,5 +1,5 @@
 /* ======= MAIN ====== */
-.library-page {
+.page-library {
     padding: 3rem 2rem 4rem 2rem;
     text-align: center;
 }
@@ -167,3 +167,16 @@
 .remove-btn:active {
     transform: scale(0.95);
 }
+
+/* ========================== MEDIA QUERIES =========================== */
+
+/* =============== GRAND ECRAN ======= */ 
+@media (min-width: 90rem) {}
+
+/* =============== DESKTOP =========== */
+@media (min-width: 64rem) {}
+
+/* =============== TABLETTE ========== */
+@media (min-width: 48rem) {}
+
+

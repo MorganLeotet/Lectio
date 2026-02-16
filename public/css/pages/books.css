@@ -38,15 +38,39 @@
     opacity: 0.6;
     font-size: 1rem;
 }
-.book {
-    display: grid;
-    grid-template-columns:  repeat(4, 1fr);
-    gap: 4rem;
-    padding: 6rem;
-}
 .book-title a {
     font-size: 0.9rem;
     font-weight: bold;
     text-decoration: none;
     color: inherit;
+}
+
+
+/* ========================== MEDIA QUERIES =========================== */
+
+/* =============== MOBILE ============= */
+.page-book .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+.book-card {
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+    border: 1px solid var(--color-menu-text);
+    background-color: var(--color-background-menu);
+}
+
+/* =============== TABLETTE ========== */
+@media (min-width: 48rem) {
+    .page-book .container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =============== DESKTOP =========== */
+@media (min-width: 64rem) {
+    .page-book .container{
+        grid-template-columns: repeat(4, 1fr);
+    }
 }

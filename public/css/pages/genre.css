@@ -1,11 +1,6 @@
-.genre {
-    display: grid;
-    grid-template-columns:  repeat(4, 1fr);
-    gap: 4rem;
-    padding: 6rem;
-}
+
 .genre-card {
-    width: 10rem;
+    width: auto;
     padding: 1rem;
     border-radius: 1.25rem;
     border: 1px solid var(--color-menu-text);
@@ -27,4 +22,33 @@
     font-weight: bold;
     text-decoration: none;
     color: inherit;
+}
+
+/* ========================== MEDIA QUERIES =========================== */
+
+/* =============== MOBILE ============= */
+.page-genre .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+.genre-card {
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+    border: 1px solid var(--color-menu-text);
+    background-color: var(--color-background-menu);
+}
+
+/* =============== TABLETTE ========== */
+@media (min-width: 48rem) {
+    .page-genre .container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =============== DESKTOP =========== */
+@media (min-width: 64rem) {
+    .page-genre .container{
+        grid-template-columns: repeat(4, 1fr);
+    }
 }

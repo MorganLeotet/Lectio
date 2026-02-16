@@ -1,61 +1,91 @@
 
-body {
+.index-page {
     min-height: 100vh;
     background: var(--color-background-header-footer);
-    font-family: "Inter", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
-.logo {
-    display: grid;
-    place-items: center;
-    min-height: 70vh;
+.index {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 3rem;
+    padding: 2rem;
 }
 
-.slogan {
+.index-logo {
+    width: 15rem;
+}
+
+.index-slogan {
     color: var(--color-background-menu);
-    font-family: "Merriweather" sans-serif;
+    font-family: "Merriweather", sans-serif;
     font-style: italic;
-    font-size: x-large;
     font-weight: bold;
-    gap: 2rem;
+    font-size: 1.25rem;
+    max-width: 22rem;
 }
 
-.button {
-    display: grid;
-    place-items: center;
-}
-
-.welcome {
+.index-button {
     border: 1px solid var(--color-background-menu);
     color: var(--color-background-menu);
-    border-radius: 12px;
     padding: 0.75rem 2rem;
-    background: var(--color-background-header-footer);
-}
-
-.welcome a {
+    border-radius: 0.75rem;
     text-decoration: none;
-    color: inherit;
+    background: transparent;
+    transition: 0.3s ease;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 }
 
-.welcome:hover {
+.index-button:hover {
     background: var(--color-background-button);
-    color: var(--color-background-menu);
 }
 
 .accessibility-toggle {
     position: fixed;
     bottom: 2rem;
-    right: 2rem;
-    z-index: 9999;
-
+    left: 50%;
+    transform: translateX(-50%);
     background: #f8fafc;
     border: none;
-    border-radius: 12px;
+    border-radius: 0.75rem;
     padding: 0.75rem 1rem;
     cursor: pointer;
-    font-size: 1.5rem;
+}
+.accessibility .index-logo {
+    width: 20rem;
+}
+
+.accessibility .index-slogan {
+    font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+.accessibility .index-button {
+    font-size: 1.2rem;
+    padding: 1rem 2.5rem;
+}
+
+.accessibility .index {
+    gap: 4rem;
 }
 
 
 
+/* ========================== MEDIA QUERIES =========================== */
+
+/* =============== TABLETTE ========== */
+@media (min-width: 48rem) {
+    .accessibility-toggle {
+        left: auto;
+        transform: none;
+        right: 2rem;
+    }
+}

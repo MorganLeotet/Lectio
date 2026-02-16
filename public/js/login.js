@@ -1,3 +1,5 @@
+function initLogin() {
+
 const openLoginBtn = document.getElementById("openLogin");
 const loginOverlay = document.getElementById("loginOverlay");
 const loginPanel = document.getElementById("loginPanel");
@@ -37,6 +39,8 @@ loginBtn.addEventListener("click", () => {
     }
 
 });
+
+if (!openLoginBtn) return;
 
 openLoginBtn.addEventListener("click", () => {
     loginOverlay.classList.add("active");
@@ -85,4 +89,4 @@ backToPassword.addEventListener("click", () => {
     forgotPanel.classList.remove("active");
     loginPanel.classList.add("active");
 });
-
+}
