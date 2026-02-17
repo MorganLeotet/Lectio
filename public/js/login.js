@@ -1,6 +1,6 @@
 function initLogin() {
 
-const openLoginBtn = document.getElementById("openLogin");
+const openLoginBtns = document.querySelectorAll(".open-login");
 const loginOverlay = document.getElementById("loginOverlay");
 const loginPanel = document.getElementById("loginPanel");
 const loginSteps = document.getElementById("loginSteps");
@@ -40,11 +40,11 @@ loginBtn.addEventListener("click", () => {
 
 });
 
-if (!openLoginBtn) return;
-
-openLoginBtn.addEventListener("click", () => {
+openLoginBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
     loginOverlay.classList.add("active");
     loginPanel.classList.add("active");
+    });
 });
 
 loginOverlay.addEventListener("click", () => {
