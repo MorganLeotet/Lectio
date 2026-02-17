@@ -1,4 +1,4 @@
-function initLogin() {
+export function initLogin() {
 
 const openLoginBtns = document.querySelectorAll(".open-login");
 const loginOverlay = document.getElementById("loginOverlay");
@@ -95,3 +95,4 @@ document.querySelector(".user-icon")
     openLoginModal();
 });
 }
+

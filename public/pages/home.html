@@ -10,18 +10,33 @@
 <body>
 <!--- ======= HEADER ====== -->
     <header class="topbar">
-        <div class="topbar-left">
-            <button class="user-icon open-login">👤</button>
-            <img src="../assets/logo/logo.svg" alt="logo Lectio" class="topbar-logo">
-        </div>
-        <div class="topbar-right">
-            <button class="glass-icon">🔍</button>
-            <button class="open-login">Connexion</button>
-            <button class="accessibility-toggle" aria-label="Activer le Mode Accessibilité">
-                <img src="../assets/icons/handicap.svg" alt="logo Mode Accessibilité" class="accesibility-icon">
-            </button>
+        <div class="topbar-inner">
+            <div class="topbar-left">
+                <button class="user-icon open-login">👤</button>
+                <img src="../assets/logo/logo.svg" alt="logo Lectio" class="topbar-logo">
+            </div>
+            <div class="topbar-right">
+                <button class="glass-icon">🔍</button>
+                <button class="open-login">Connexion</button>
+                <button class="accessibility-toggle" aria-label="Activer le Mode Accessibilité">
+                    <img src="../assets/icons/handicap.svg" alt="logo Mode Accessibilité" class="accesibility-icon">
+                </button>
+            </div>
         </div>
     </header>
+    <div class="mobile-search" id="mobile-search">
+        <div class="mobile-search-content">
+            <input type="search" placeholder="Rechercher par Livre, Auteur, Genre" aria-label="Recherche par livre, auteur ou genre">
+        </div>
+    </div>
+<!-- ==== MOTEUR DE RECHERCHE ==== -->
+            <section class="search">
+                <div class="search-bar">
+                    <span class="search-icon">☰</span>
+                    <input type="search" placeholder="Rechercher par Livre, Auteur, Genre" aria-label="Recherche par livre, auteur ou genre">
+                    <span class="search-icon">🔍</span>
+                </div>
+            </section>
 <!-- ==== MAIN ==== -->
     <main class="page page-home">
         <div class="container">
@@ -31,14 +46,6 @@
                 <a href="#">Catalogue</a> &gt;
                 <span>Livre</span>
             </nav>
-    <!-- ==== MOTEUR DE RECHERCHE ==== -->
-            <section class="search">
-                <div class="search-bar">
-                    <span class="search-icon">☰</span>
-                    <input type="search" placeholder="Rechercher par Livre, Auteur, Genre" aria-label="Recherche par livre, auteur ou genre">
-                    <span class="search-icon">🔍</span>
-                </div>
-            </section>
     <!-- ==== GENRE ====== -->
             <section class="genres">
                 <div class="genres-wrapper">
@@ -51,7 +58,7 @@
                     <a class="genre-card" href="/pages/genres_selected.html">Genre 6</a>
                     <a class="genre-card" href="/pages/genres_selected.html">Genre 7</a>
                 </div>
-                <button class="genres-toggle"><a href="/pages/genres.html">Afficher la liste</a></button>
+                <a class="genres-toggle" href="/pages/genres.html">Afficher la liste</a>
             </section>
     <!-- ==== COUP DE COEUR ==== -->
             <section class="section favorites">
@@ -351,10 +358,7 @@
 
 <div id="loginContainer"></div>
 
-<script src="../js/carousel.js"></script>
-<script src="../js/accessibility.js"></script>
-<script src="../js/login.js"></script>
-<script src="../js/loadLogin.js"></script>
+<script type="module" src="../js/lectio.js"></script>
 
 </body>
 </html>

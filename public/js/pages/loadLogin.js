@@ -1,3 +1,5 @@
+import { initLogin } from "./login.js";
+
 fetch("../components/login.html")
     .then(res => res.text())
     .then(data => {

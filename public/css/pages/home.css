@@ -13,55 +13,22 @@
 /* ===== GENRES ====== */
 
 .genres {
-    /*display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;*/
     text-align: center;
     margin: 4rem 0;
 }
 .genres-wrapper {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
     justify-content: center;
-    /*display: flex;
-    gap: 1rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    width: 100%;*/
 }
 .genre-card {
-    /*padding: 0.9rem 1.5rem;
-    border-radius: 0.75rem;
-    border: 1px solid var(--color-menu-text);
-    background: var(--color-background-menu);
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.1s ease;
-    text-decoration: none;
-    color: inherit;*/
-    width: 12rem;
-    padding: 1rem;
-    border-radius: 0.75rem;
+    display: inline-block;
+    padding: 0.8rem 2.5rem;
+    border-radius: 0.8rem;
     border: 0.1rem solid var(--color-background-menu);
-    background: var(--color-text-menu);
-    text-align: center;
-    color: inherit;
     text-decoration: none;
-    transition: background 0.2s ease, transform 0.1s ease;
-    font-size: 0.95rem;
-    cursor: pointer;
-    /*flex: 0 0 80%;
-    text-align: center;
-    padding: 1rem;
-    border-radius: 0.75rem;
-    border: 0.1rem solid #ccc;
-    background: white;
-    text-decoration: none;
-    color: black;
-    scroll-snap-align: center;*/
-    
+    color: var(--color-menu-text);
 }
 .genre-card:hover {
     background: var(--color-background-button);
@@ -73,13 +40,14 @@
     outline-offset: 3px;
 }
 .genres-toggle {
+    display: inline-block;
     margin-top: 2rem;
-    padding: 0.8rem 1.2rem;
-    border-radius: 0.6rem;
-    border: 1px solid var(--color-menu-text);
-    background: var(--color-background-menu);
-    cursor: pointer;
-    font-size: 0.9rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.8rem;
+    border: 0.1rem solid var(--color-background-menu);
+    text-decoration: none;
+    color: var(--color-background-menu);
+    background: var(--color-background-header-footer);
 }
 .genres-toggle a {
     text-decoration: none;
@@ -158,52 +126,37 @@ section {
 
 /* ========================== MEDIA QUERIES =========================== */
 
-/* =============== MOBILE =============== */
-@media (max-width: 30rem) {
+@media (max-width: 48rem) {
 
     .genres-wrapper {
-        /*flex-direction: column;
-        flex-wrap: nowrap;
-        align-items: center;
-        /*overflow-x: hidden;
-        flex-wrap: wrap;
-        justify-content: center;*/
-        grid-template-columns: 1fr;
-        justify-content: center;
-    }
-    .genre-card {
-        /*width: 80%;*/
-        flex: 0 0 calc(25% - 1rem);
+    flex-direction: column;
+    align-items: center;
     }
 
-    .genres-wrapper > *:not(:first-child) {
+    .genre-card {
         display: none;
     }
 
-    .genres-wrapper .expanded > * {
-        display: block;
+    .genre-card:first-child {
+        display: inline-block;
     }
 
 }
 
-/* =============== TABLETTE =============== */
-@media (max-width: 48rem) {
-    .genres-wrapper {
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-    }
-    .genre-card {
-    flex: 0 0 calc(14% - 1rem);
-}
-
-}
-
-/* ============== DESKTOP =============== */
+/* ================= TABLETTE ================= */
 @media (max-width: 64rem) {
+
     .genres-wrapper {
-        grid-template-columns: repeat(4, 1fr);
+        justify-content: center;
     }
+
+    /* On cache les boutons à partir du 5e */
+    .genre-card:nth-child(n+5) {
+        display: none;
+    }
+
 }
+
 
 
 

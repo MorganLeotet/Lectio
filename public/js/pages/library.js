@@ -4,6 +4,7 @@
 
 let myLibrary = JSON.parse(localStorage.getItem("myLibrary")) || [];
 const libraryGrid = document.getElementById("libraryGrid");
+if (libraryGrid) {
 
 
 // ===============================
@@ -219,3 +220,4 @@ if (myLibrary.length === 0) {
 // ===============================
 
 renderLibrary();
+}

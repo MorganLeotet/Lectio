@@ -11,15 +11,22 @@
 <!--- ======= HEADER ====== -->
     <header class="topbar">
         <div class="topbar-left">
+            <button class="user-icon open-login">👤</button>
             <img src="../assets/logo/logo.svg" alt="logo Lectio" class="topbar-logo">
         </div>
         <div class="topbar-right">
-            <button id="openLogin">Connexion</button>
+            <button class="glass-icon">🔍</button>
+            <button class="open-login">Connexion</button>
             <button class="accessibility-toggle" aria-label="Activer le Mode Accessibilité">
                 <img src="../assets/icons/handicap.svg" alt="logo Mode Accessibilité" class="accesibility-icon">
             </button>
         </div>
     </header>
+    <div class="mobile-search" id="mobile-search">
+        <div class="mobile-search-content">
+            <input type="search" placeholder="Rechercher par Livre, Auteur, Genre" aria-label="Recherche par livre, auteur ou genre">
+        </div>
+    </div>
 <!-- FIL D’ARIANE -->
     <nav class="breadcrumb">
         <a href="/pages/home.html">Accueil</a> &gt;
@@ -67,9 +74,7 @@
 
 <div id="loginContainer"></div>
 
-<script src="../js/accessibility.js"></script>
-<script src="../js/login.js"></script>
-<script src="../js/loadLogin.js"></script>
+<script type="module" src="../js/lectio.js"></script>
 
 </body>
 </html>
