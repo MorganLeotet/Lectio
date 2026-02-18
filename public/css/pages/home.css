@@ -9,6 +9,9 @@
 }
 .section-container {
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 /* ===== GENRES ====== */
 
@@ -126,35 +129,34 @@ section {
 
 /* ========================== MEDIA QUERIES =========================== */
 
-@media (max-width: 48rem) {
-
-    .genres-wrapper {
-    flex-direction: column;
-    align-items: center;
-    }
-
-    .genre-card {
-        display: none;
-    }
-
-    .genre-card:first-child {
-        display: inline-block;
-    }
-
-}
-
 /* ================= TABLETTE ================= */
 @media (max-width: 64rem) {
 
+    /* ====== GENRES ====== */
     .genres-wrapper {
         justify-content: center;
     }
-
     /* On cache les boutons à partir du 5e */
     .genre-card:nth-child(n+5) {
         display: none;
     }
 
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 48rem) {
+
+/* ===== GENRES ====== */    
+    .genres-wrapper {
+    flex-direction: column;
+    align-items: center;
+    }
+    .genre-card {
+        display: none;
+    }
+    .genre-card:first-child {
+        display: inline-block;
+    }
 }
 
 

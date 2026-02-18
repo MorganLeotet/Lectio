@@ -26,6 +26,13 @@
 .login-panel.active {
     transform: translateX(0);
 }
+.login-close {
+    top: 1rem;
+    right: 5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-menu-text);
+}
 /* ================= SLIDER ================= */
 .login-steps {
     display: flex;
@@ -156,4 +163,13 @@
 }
 .forgot-password:hover {
     opacity: 0.7;
+}
+
+/* ============== MEDIA QUERIES ============== */
+
+/* ========== TABLETTE + MOBILE ========== */
+@media (max-width: 64rem) {
+    .login-panel {
+        width: 100%;
+    }
 }

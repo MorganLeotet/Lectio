@@ -20,12 +20,28 @@ const forgotPasswordBtn = document.getElementById("forgotPasswordBtn");
 const forgotPanel = document.getElementById("forgotPanel");
 const backToPassword = document.getElementById("backToPassword");
 
+const closeBtn = document.querySelector(".login-close");
 
 const fakePassword = "1234";
 const fakeUsers = [
     "user@mail.com",
     "test@mail.com"
 ]
+
+if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+        loginOverlay.classList.remove("active");
+        loginPanel.classList.remove("active");
+        loginSteps.style.transform = "translateX(0)";
+    });
+}
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        loginPanel.classList.remove("active");
+        loginOverlay.classList.remove("active");
+    }
+});
 
 loginBtn.addEventListener("click", () => {
 
