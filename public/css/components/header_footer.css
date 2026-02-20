@@ -24,8 +24,8 @@ body {
 }
 /* ==== FIL ARIANE ==== */
 .breadcrumb {
-    margin: 2rem 3rem;
-    font-size: 0.875rem;
+    margin: O.2rem 0.5rem;
+    font-size: 0.7rem;
     color: var(--color-menu-text);
 }
 /* ===== USER ICON ===== */

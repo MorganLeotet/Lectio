@@ -7,12 +7,6 @@
     margin: 0 auto;
     padding: 2rem;
 }
-.section-container {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 /* ===== GENRES ====== */
 
 .genres {
@@ -136,10 +130,7 @@ section {
     .genres-wrapper {
         justify-content: center;
     }
-    /* On cache les boutons à partir du 5e */
-    .genre-card:nth-child(n+5) {
-        display: none;
-    }
+    
 
 }
 
@@ -150,12 +141,6 @@ section {
     .genres-wrapper {
     flex-direction: column;
     align-items: center;
-    }
-    .genre-card {
-        display: none;
-    }
-    .genre-card:first-child {
-        display: inline-block;
     }
 }
 

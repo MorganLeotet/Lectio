@@ -1,55 +1,114 @@
 
-
+.page-genre {
+    min-height: auto;
+}
+.container {
+    height: auto;
+}
+.genre-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-height: none;
+    overflow: visible;
+}
+.page-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    font-weight: bold;
+}
 .genre-card {
-    width: auto;
     padding: 1rem;
     border-radius: 1.25rem;
     border: 1px solid var(--color-menu-text);
-    background-color: var(--color-background-menu);
+    background: var(--color-background-menu);
+    transition: transform 0.2s ease;
+    overflow: hidden;
+    min-height: 10rem;
 }
 .genre-card a {
     text-decoration: none;
     color: inherit;
 }
+.genre-card:hover {
+    transform: translateY(-0.3rem);
+}
 .genre-cover {
     width: 100%;
-    height: 12rem;
+    height: 8rem;
     background: var(--color-background-menu);
     border-radius: 0.75rem;
     margin-bottom: 1rem;
+    overflow: hidden;
 }
-.genre-title a {
+.genre-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.genre-title {
     font-size: 0.9rem;
     font-weight: bold;
+    text-align: center;
+    font-size: 2rem;
+}
+.genre-title a {
     text-decoration: none;
     color: inherit;
 }
 
 /* ========================== MEDIA QUERIES =========================== */
 
-/* =============== MOBILE ============= */
-.page-genre .container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-}
-.genre-card {
-    padding: 1.5rem;
-    border-radius: 1.25rem;
-    border: 1px solid var(--color-menu-text);
-    background-color: var(--color-background-menu);
+/* =============== MOBILE ============ */
+@media (max-width: 48rem) {
+
+    .genre-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+
+        max-height: 65vh;   /* limite hauteur */
+        overflow-y: auto;   /* scroll vertical */
+        padding-right: 0.5rem;
+    }
+
 }
 
 /* =============== TABLETTE ========== */
-@media (min-width: 48rem) {
-    .page-genre .container{
-        grid-template-columns: repeat(2, 1fr);
+@media (min-width: 48rem) and (max-width: 74.99rem){
+
+    .genre-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 0.5rem;
     }
+    .genre-grid::-webkit-scrollbar {
+    width: 0.4rem;
+    }
+
+    .genre-grid::-webkit-scrollbar-thumb {
+    background: var(--color-menu-text);
+    border-radius: 1rem;
+    }
+    .genre-cover {
+        height: 20rem;
+    }
+    .genre-title {
+        text-align: center;
+        font-size: 2rem;
+    }
+    
 }
 
 /* =============== DESKTOP =========== */
 @media (min-width: 64rem) {
-    .page-genre .container{
-        grid-template-columns: repeat(4, 1fr);
+
+    .genre-grid {
+    grid-template-columns: repeat(4, 1fr);
+    max-height: none;
+    overflow: visible;
     }
 }

@@ -57,10 +57,7 @@ loginBtn.addEventListener("click", () => {
 });
 
 openLoginBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-    loginOverlay.classList.add("active");
-    loginPanel.classList.add("active");
-    });
+    btn.addEventListener("click", openLoginModal);
 });
 
 loginOverlay.addEventListener("click", () => {
@@ -106,9 +103,12 @@ backToPassword.addEventListener("click", () => {
     loginPanel.classList.add("active");
 });
 
-document.querySelector(".user-icon")
-    .addEventListener("click", () => {
-    openLoginModal();
-});
+function openLoginModal() {
+    loginOverlay.classList.add("active");
+    loginPanel.classList.add("active");
+}
+
+document.querySelector(".user-btn")
+    .addEventListener("click", openLoginModal);
 }
 
