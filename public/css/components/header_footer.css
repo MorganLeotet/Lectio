@@ -1,7 +1,18 @@
 /* ===== BODY ===== */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     font-family: "Inter", sans-serif;
+}
+
+main {
+    flex: 1;
 }
 /* ==== HEADER ===== */
 .header {

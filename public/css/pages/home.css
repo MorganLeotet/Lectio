@@ -1,40 +1,29 @@
 
-
 /* ===== MAIN ===== */
 
 .page-home {
-    max-width: 90rem;
+    max-width: 80rem;
     margin: 0 auto;
     padding: 2rem;
 }
 /* ===== GENRES ====== */
 
 .genres {
+    padding: 1.5rem 1rem;
     text-align: center;
-    margin: 4rem 0;
 }
-.genres-wrapper {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
+.genres-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
 }
-.genre-card {
-    display: inline-block;
-    padding: 0.8rem 2.5rem;
+.genres-grid a:nth-child(n+4) {
+    display: none;
+}
+.genres-grid img {
+    width: 100%;
+    display: block;
     border-radius: 0.8rem;
-    border: 0.1rem solid var(--color-background-menu);
-    text-decoration: none;
-    color: var(--color-menu-text);
-}
-.genre-card:hover {
-    background: var(--color-background-button);
-    color: var(--color-background-menu);
-    transform: translateY(-0.2rem);
-}
-.genre-card:focus-visible {
-    outline: 3px solid var(--color-background-header-footer);
-    outline-offset: 3px;
 }
 .genres-toggle {
     display: inline-block;
@@ -124,25 +113,19 @@ section {
 /* ========================== MEDIA QUERIES =========================== */
 
 /* ================= TABLETTE ================= */
-@media (max-width: 64rem) {
+@media (min-width: 48rem) {
 
-    /* ====== GENRES ====== */
-    .genres-wrapper {
-        justify-content: center;
-    }
     
 
 }
 
-/* ================= MOBILE ================= */
-@media (max-width: 48rem) {
+/* ================= DESKTOP  ================= */
+@media (min-width: 64rem) {
 
-/* ===== GENRES ====== */    
-    .genres-wrapper {
-    flex-direction: column;
-    align-items: center;
-    }
+
 }
+
+
 
 
 
