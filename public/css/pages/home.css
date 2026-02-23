@@ -11,6 +11,7 @@
 .genres {
     padding: 1.5rem 1rem;
     text-align: center;
+    margin-top: 2rem;
 }
 .genres-grid {
     display: grid;
@@ -43,20 +44,15 @@
     background: var(--color-background-button);
     color: var(--color-background-menu);
 }
-/* ========== SECTION ========= */
-section {
-    margin-bottom: 5rem;
-    text-align: center;
-}
+/* ========== TITLE ========= */
 .section-title {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.75rem;
+    margin-bottom: 3rem;
 }
-/* === COUP DE COEUR === */
-.favorites-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+/* ========= SECTION ======== */
+.section {
+    margin: 6rem 0;
 }
 /* ===== LIVRES ===== */
 .books-wrapper {
@@ -65,25 +61,25 @@ section {
     gap: 2rem;
 }
 /* ===== AUTEURS ===== */
-.authors-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-}
 .author-card {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    min-width: 18rem;
+    height: 22rem;
+    padding: 2rem;
+    border-radius: 1.2rem;
 }
 .author-card a {
     text-decoration: none;
     color: inherit;
 }
 .author-avatar {
-    width: 3.5rem;
-    height: 3.5rem;
-    background: #5e6a82;
+    width: 8rem;
+    height: 8rem;
     border-radius: 50%;
+    margin-bottom: 1.5rem;
+    background: #5e6a82;
 }
 .author-name {
     font-size: 0.9rem;
@@ -94,7 +90,7 @@ section {
 
 .cta {
     display: grid;
-    place-items: center;
+    justify-content: center;
 }
 .btn-primary {
     padding: 0 1.5rem;
@@ -109,21 +105,6 @@ section {
     color: var(--color-background-menu);
 }
 
-
-/* ========================== MEDIA QUERIES =========================== */
-
-/* ================= TABLETTE ================= */
-@media (min-width: 48rem) {
-
-    
-
-}
-
-/* ================= DESKTOP  ================= */
-@media (min-width: 64rem) {
-
-
-}
 
 
 

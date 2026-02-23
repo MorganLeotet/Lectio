@@ -1,0 +1,12 @@
+.carousel {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 2rem;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+}

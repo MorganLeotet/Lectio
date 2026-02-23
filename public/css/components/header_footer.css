@@ -61,7 +61,7 @@ main {
     font-size: 0.9rem;
     text-decoration: none;
 }
-.btn-login:hover {
+.open-login:hover {
     background: var(--color-background-button);
     color: var(--color-background-menu);
 }

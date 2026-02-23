@@ -72,6 +72,13 @@
         overflow-y: auto;   /* scroll vertical */
         padding-right: 0.5rem;
     }
+    #loginPanel {
+        width: 80%;
+        max-width: 100%;
+        height: 50vh;
+        border-radius: 1.5rem 1.5rem 0 0;
+        right: 0;
+    }
 
 }
 
@@ -99,6 +106,11 @@
     .genre-title {
         text-align: center;
         font-size: 2rem;
+    }
+    #loginPanel {
+        width: 32rem;
+        max-width: 85%;
+        border-radius: 1.5rem;
     }
     
 }

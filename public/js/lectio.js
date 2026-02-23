@@ -6,5 +6,4 @@ import "./pages/login.js";
 import "./pages/loadLogin.js";
 import "./pages/home.js";
 import "./pages/book_connected.js";
-import "./pages/carousel.js";
 import "./pages/library.js";
