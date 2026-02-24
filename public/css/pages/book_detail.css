@@ -1,73 +1,88 @@
 .book-wrapper {
-    max-width: 70rem;
-    margin: 0 auto 4rem;
+    max-width: 110rem;
+    margin: 0 auto 6rem;
 }
 .book-container {
     display: flex;
-    gap: 3rem;
-    padding: 3rem;
-    background: var(--color-background-menu);
-    border-radius: 2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;   
+    padding: 2rem;
 }
-.book-cover {
+.cover {
     position: relative;
-}
-.book-cover img {
-    width: 20rem;
-    border-radius: 1rem;
 }
 .book-info {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;   
+    text-align: center;
 }
 .book-info h1 {
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 2.5rem;
     color: var(--color-text);
 }
 .book-info p {
-    margin-bottom: 0.75rem;
-    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.5;
     color: var(--color-text);
 }
 .book-summary {
-    display: flex;
-    justify-content: center;
-    margin-top: 3rem;
+    margin-top: 5rem;
+}
+.book-summary h1 {
+    font-weight: bold;
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 2rem;
 }
 .book-summary p {
-    max-width: 55rem;
-    padding: 2rem;
+    max-width: 70rem;
+    padding: 3rem 4rem;
+    margin: 0 auto;
     background: var(--color-background-menu);
     border-radius: 1rem;
-    line-height: 1.6;
-    font-size: 0.95rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    font-weight: 600;
     color: var(--color-text);
 }
 .favorite-btn {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    width: 3rem;
+    height: 3rem;
     background: none;
     border: none;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .book-status {
     position: absolute;
-    bottom: 1rem;
+    bottom: 6rem;
     left: 1rem;
     color: var(--color-background-menu);
     background: var(--color-button-reading-status-alire);
-    padding: 0.4rem 1rem;
+    padding: 0.5rem 1rem;
     border-radius: 1rem;
     font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .book-actions {
     margin-top: 2rem;
     display: flex;
     gap: 1rem;
+    justify-content: center;
 }
 .btn-add {
     background: var(--color-background-button);
@@ -88,11 +103,35 @@
 
 /* ========================== MEDIA QUERIES =========================== */
 
-/* =============== GRAND ECRAN ======= */ 
-@media (min-width: 90rem) {}
-
 /* =============== DESKTOP =========== */
-@media (min-width: 64rem) {}
-
+@media (min-width: 64rem) {
+    .book-container {
+        flex-direction: row;
+        align-items: center;
+        gap: 6rem;              
+        padding: 5rem 6rem;     
+    }
+    .cover {
+        height: 35rem;
+    }
+    .cover img {
+        height: 100%;
+    }
+    .book-info {
+        flex: 1;
+    }
+    .book-status {
+        bottom: 1rem;
+        left: 1rem;
+    }
+}
 /* =============== TABLETTE ========== */
-@media (min-width: 48rem) {}
+@media (min-width: 48rem) {
+    .book-container {
+    gap: 3.5rem;
+    padding: 3rem 4rem;
+    }
+    .cover img {
+        max-width: 30rem;
+    }
+    }

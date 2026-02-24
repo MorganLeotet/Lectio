@@ -1,29 +1,104 @@
 
-/* ========================== MEDIA QUERIES =========================== */
-
-/* =============== MOBILE ============= */
-.page-authors-selected .container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-}
 .authors-card {
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: 1.25rem;
     border: 1px solid var(--color-menu-text);
-    background-color: var(--color-background-menu);
+    background: var(--color-background-menu);
+    transition: transform 0.2s ease;
+    overflow: hidden;
+    min-height: 18rem;
+
+}
+.authors-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.author-header {
+    text-align: center;
+    max-width: 48rem;
+    margin: 5rem auto 4rem;
+}
+.author-name {
+    display: inline-block;
+    padding: 1rem 3rem;
+    border-radius: 2rem;
+    font-size: 1.4rem;
+}
+.author-bio {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ========================== MEDIA QUERIES =========================== */
+
+/* =============== MOBILE ============ */
+@media (max-width: 48rem) {
+
+    .books-grid {
+        display: grid;
+        grid-template-columns: 18rem;
+        gap: 2rem;
+        justify-content: center;
+        max-height: 65vh;   /* limite hauteur */
+        overflow-y: auto;   /* scroll vertical */
+        padding-right: 0.5rem;
+    }
+    #loginPanel {
+        width: 80%;
+        max-width: 100%;
+        height: 50vh;
+        border-radius: 1.5rem 1.5rem 0 0;
+        right: 0;
+    }
+
 }
 
 /* =============== TABLETTE ========== */
-@media (min-width: 48rem) {
-    .page-authors-selected .container{
-        grid-template-columns: repeat(2, 1fr);
+@media (min-width: 48rem) and (max-width: 74.99rem){
+
+    .books-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 20rem);
+        justify-content: center;
+        gap: 4rem 5rem; /* vertical horizontal */
+        margin: 6rem auto;
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+    .books-grid::-webkit-scrollbar {
+    width: 0.4rem;
+    }
+    .books-grid::-webkit-scrollbar-thumb {
+    background: var(--color-menu-text);
+    border-radius: 1rem;
+    }
+    .authors-cover {
+        height: 24rem;
+    }
+    .authors-title {
+        text-align: center;
+        font-size: 2rem;
+    }
+    #loginPanel {
+        width: 32rem;
+        max-width: 85%;
+        border-radius: 1.5rem;
     }
 }
 
 /* =============== DESKTOP =========== */
-@media (min-width: 64rem) {
-    .page-authors-selected .container{
-        grid-template-columns: repeat(4, 1fr);
+@media (min-width: 75rem) {
+
+    .books-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 20rem);
+        justify-content: center;
+        gap: 5rem 4rem; /* vertical horizontal */
+        margin: 7rem auto;
+    }
+    .authors-cover {
+        height: 26rem;
     }
 }
