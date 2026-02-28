@@ -3,53 +3,50 @@
 <div class="login-overlay" id="loginOverlay"></div>
 
 <div class="login-panel" id="loginPanel">
-    <button class="login-close" aria-label="Fermer la connexion">X</button>
+    <button class="login-close" id="closeLogin" aria-label="Fermer la connexion">X</button>
     <div class="login-steps" id="loginSteps">
 
         <!-- ÉTAPE 1 : EMAIL -->
-        <div class="step">
-            <div class="step-content">
-                <h2>Connexion / Inscription</h2>
-                <p>Saisissez votre e-mail pour vous connecter ou créer un compte</p>
-                <input type="email" id="emailInput" placeholder="adresse e-mail">
-                <button class="btn-continue" id="toPassword">
-                Continuer
-                </button>
-            </div>
-        </div>
+        <section class="step active">
+            <h2>Connexion / Inscription</h2>
+            <p>Saisissez votre e-mail pour vous connecter ou créer un compte</p>
+            <input type="email" id="emailInput" placeholder="adresse e-mail">
+            <button class="next">Continuer</button>
+            </section>
 
         <!-- ÉTAPE 2 : PASSWORD -->
-        <div class="step">
-            <div class="step-content">
-                <button class="btn-back" id="backToEmail1">← Retour</button>
-                <h2>Connexion</h2>
-                <input type="password" placeholder="mot de passe">
-                <button type="button" class="forgot-password" id="forgotPasswordBtn">Mot de passe oublié ?</button>
-                <a href="/pages/library.html" class="btn-continue">Se connecter</a>
-            </div>
-        </div>
+        <section class="step">
+            <button class="btn-back" id="backToEmail1">← Retour</button>
+            <h2>Connexion</h2>
+            <input type="password" placeholder="mot de passe">
+            <button type="button" class="forgot-password" id="forgotPasswordBtn">Mot de passe oublié ?</button>
+            <button type="button" class="inscripttion" id="btnInscription">Pas encore inscrit ?</button>
+            <button class="next">Se connecter</button>
+        </section>
 
         <!-- ÉTAPE 3 : INSCRIPTION -->
-        <div class="step">
-            <div class="step-content">
-                <button class="btn-back" id="backToEmail2">← Retour</button>
-                <h2>Inscription</h2>
-                <input type="text" placeholder="Prénom">
-                <input type="text" placeholder="Nom">
-                <input type="password" placeholder="mot de passe">
-                <input type="text" placeholder="Nom de votre Bibliothèque">
-                <button class="btn-continue">Créer mon compte</button>
-            </div>
-        </div>
+        <section class="step">
+            <button class="btn-back" id="backToEmail2">← Retour</button>
+            <h2>Inscription</h2>
+            <input type="text" placeholder="Prénom">
+            <input type="text" placeholder="Nom">
+            <input type="password" placeholder="mot de passe">
+            <input type="text" placeholder="Nom de votre Bibliothèque">
+            <button class="next">Créer mon compte</button>
+        </section>
+        <!-- ÉTAPE 4 : FORGOT PASSWORD -->
+        <section class="step">
+                <button class="btn-back" id="backToPassword">← Retour</button>
+                <h2>Mot de passe oublié ?</h2>
+                <p>Nous allons vous envoyer un message pour vous permettre de vous connecter</p>
+                <input type="email" placeholder="adresse e-mail">
+                <button class="next">Continuer</button>
+        </section>
+        <!-- ÉTAPE 5 : RECHERCHE -->
+        <section class="step">
+        <h2>Recherche</h2>
+        <input type="text" placeholder="Rechercher un livre, auteur, genre">
+        <button class="search-submit">Rechercher</button>
+        </section>
     </div>
-    <!-- ÉTAPE 4 : FORGOT PASSWORD -->
-    
-        <div class="forgot-panel" id="forgotPanel">
-            <button class="btn-back" id="backToPassword">← Retour</button>
-            <h2>Mot de passe oublié ?</h2>
-            <p>Nous allons vous envoyer un message pour vous permettre de vous connecter</p>
-            <input type="email" placeholder="adresse e-mail">
-            <button class="btn-continue">Continuer</button>
-        </div>
-
 </div>

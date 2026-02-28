@@ -15,11 +15,12 @@
 @import url("./components/cards.css");
 @import url('./components/carrousel.css');
 
+
 /* ======= PAGES ====== */
 
 @import url("./pages/home.css");
 @import url("./pages/genre.css");
-@import url("./pages/books.css");
+@import url("./pages/genres_selected.css");
 @import url("./pages/authors.css");
 @import url('./pages/authors_selected.css');
 @import url("./pages/book_detail.css");

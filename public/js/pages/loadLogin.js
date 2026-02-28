@@ -3,8 +3,15 @@ import { initLogin } from "./login.js";
 fetch("../components/login.html")
     .then(res => res.text())
     .then(data => {
-        document.getElementById("loginContainer").innerHTML = data;
 
-        // Initialisation du login
-    initLogin();
-});
+    const container =
+        document.getElementById("loginContainer");
+
+    if (container) {
+        container.innerHTML = data;
+
+      // IMPORTANT : init APRES injection
+        initLogin();
+    }
+
+    });

@@ -7,8 +7,10 @@ if (glassIcon) {
     });
 }
 
-mobileSearch.addEventListener("click", (e) => {
-    if (e.target === mobileSearch) {
+if (mobileSearch) {
+    mobileSearch.addEventListener("click", (e) => {
+        if (e.target === mobileSearch) {
         mobileSearch.classList.remove("active");
-    }
-});
+        }
+    });
+}

@@ -69,13 +69,13 @@ function renderLibrary(filter = "all") {
 
     filteredBooks.forEach(book => {
 
-        const statusLabel =
+        
         book.status === "a_lire" ? "À lire" :
         book.status === "en_cours" ? "En cours" :
         "Lu";
 
         libraryGrid.innerHTML += `
-        <div class="book-card data-id="${book.id}">
+        <div class="book-card" data-id="${book.id}">
 
             <div class="cover-wrapper">
         <img src="${book.cover}" alt="${book.title}" class="book-cover">
@@ -203,16 +203,82 @@ document.querySelectorAll(".library_menu button").forEach(btn => {
 
 if (myLibrary.length === 0) {
 
-    const testBook = {
+    const books = [
+        {
         id: Date.now(),
         title: "Le Seigneur des Anneaux",
         author: "J.R.R. Tolkien",
-        cover: "assets/img/test-book.jpg", // mets le bon chemin
+        /*cover: "#",*/
         status: "a_lire",
         favorite: false
-    };
+        },
+        {
+        id: Date.now() + 1,
+        title: "Le Crime de l'Orient-Express",
+        author: "Agatha Christie",
+        /*cover: "#",*/
+        status: "lu",
+        favorite: true
+        },
+        {
+        id: Date.now() + 2,
+        title: "Des Souris et des Hommes",
+        author: "John Steinbeck",
+        /*cover: "#",*/
+        status: "en_cours",
+        favorite: false
+        },
+        {
+        id: Date.now() + 3,
+        title: "Sans Atout",
+        author: "Boileau-Narcejac",
+        /*cover: "#",*/
+        status: "a_lire",
+        favorite: false
+        },
+        {
+        id: Date.now() + 4,
+        title: "Sans Atout",
+        author: "Boileau-Narcejac",
+        /*cover: "#",*/
+        status: "a_lire",
+        favorite: false
+        },
+        {
+        id: Date.now() + 5,
+        title: "Sans Atout",
+        author: "Boileau-Narcejac",
+        /*cover: "#",*/
+        status: "a_lire",
+        favorite: false
+        },
+        {
+        id: Date.now() + 6,
+        title: "Sans Atout",
+        author: "Boileau-Narcejac",
+        /*cover: "#",*/
+        status: "a_lire",
+        favorite: false
+        },
+        {
+        id: Date.now() + 7,
+        title: "Le Seigneur des Anneaux",
+        author: "J.R.R. Tolkien",
+        /*cover: "#",*/
+        status: "a_lire",
+        favorite: false
+        },
+        {
+        id: Date.now() + 8,
+        title: "Le Seigneur des Anneaux",
+        author: "J.R.R. Tolkien",
+        /*cover: "#",*/
+        status: "a_lire",
+        favorite: false
+        }
+    ];
 
-    myLibrary.push(testBook);
+    myLibrary = books;
     saveLibrary();
 }
 // ===============================

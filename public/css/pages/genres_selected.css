@@ -13,31 +13,6 @@
     letter-spacing: 0.25rem;
     color: var(--color-menu-text);
 }
-.search-bar {
-    position: absolute;
-    top: 2.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    width: 32.5rem;
-    padding: 0.75rem 1.25rem;
-    background: var(--color-background-menu);
-    border-radius: 999rem;
-    color: var(--color-menu-text);
-}
-.search-bar input {
-    flex: 1;
-    border: none;
-    outline: none;
-    background: transparent;
-    font-size: 0.875rem;
-}
-.search-icon {
-    opacity: 0.6;
-    font-size: 1rem;
-}
 .book-title a {
     font-size: 0.9rem;
     font-weight: bold;

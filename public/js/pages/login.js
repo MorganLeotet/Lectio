@@ -1,114 +1,128 @@
 export function initLogin() {
 
-const openLoginBtns = document.querySelectorAll(".open-login");
-const loginOverlay = document.getElementById("loginOverlay");
-const loginPanel = document.getElementById("loginPanel");
-const loginSteps = document.getElementById("loginSteps");
-const toPassword = document.getElementById("toPassword");
+    console.log("init login ok");
 
-const toPasswordBtn = document.getElementById("toPassword");
-const emailInput = document.getElementById("emailInput");
-const fakeDatabase = ["test@mail.com", "admin@mail.com"];
 
-const loginBtn = document.querySelector(".step:nth-child(2) .btn-continue");
-const passwordInput = document.querySelector('input[type="password"]');
+    // ON DECLARE TOUT D’ABORD
+    const loginBtn = document.querySelector(".login-btn");
+    const mobileUserBtn = document.querySelector(".mobile-user");
+    const mobileSearchBtn = document.querySelector(".mobile-search");
+    const closeBtn = document.getElementById("closeLogin");
+    const overlay = document.getElementById("loginOverlay");
+    const panel = document.getElementById("loginPanel");
 
-const backToEmail1 = document.getElementById("backToEmail1");
-const backToEmail2 = document.getElementById("backToEmail2");
+    const steps = document.querySelectorAll(".step");
+    const nextButtons = document.querySelectorAll(".next");
+    const backButtons = document.querySelectorAll(".btn-back");
+    const forgotBtn = document.getElementById("forgotPasswordBtn");
+    const inscriptionBtn = document.getElementById("btnInscription");
 
-const forgotPasswordBtn = document.getElementById("forgotPasswordBtn");
-const forgotPanel = document.getElementById("forgotPanel");
-const backToPassword = document.getElementById("backToPassword");
+    // ENSUITE on vérifie
+    if (!loginBtn || !panel || !overlay) return;
 
-const closeBtn = document.querySelector(".login-close");
+    // OUVRIR / FERMER LE PANEL
+    function openLogin() {
+        overlay.classList.add("active");
+        panel.classList.add("active");
+        document.body.style.overflow = "hidden";
+    }
 
-const fakePassword = "1234";
-const fakeUsers = [
-    "user@mail.com",
-    "test@mail.com"
-]
+    function closeLogin() {
+        overlay.classList.remove("active");
+        panel.classList.remove("active");
+        document.body.style.overflow = "";
+        showStep(0); // reset à la première étape
+    }
 
-if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
-        loginOverlay.classList.remove("active");
-        loginPanel.classList.remove("active");
-        loginSteps.style.transform = "translateX(0)";
+    // Desktop
+    if (loginBtn) {
+    loginBtn.addEventListener("click", openLogin);
+    }
+
+    // Mobile
+    if (mobileUserBtn) {
+    mobileUserBtn.addEventListener("click", openLogin);
+    }
+
+    loginBtn.addEventListener("click", openLogin);
+
+    if (closeBtn) closeBtn.addEventListener("click", closeLogin);
+    overlay.addEventListener("click", closeLogin);
+
+    if (mobileSearchBtn) {
+        mobileSearchBtn.addEventListener("click", () => {
+            openLogin();      // ouvre le panel
+            showStep(4);      // index du step Recherche
+
+            setTimeout(() => {
+                const searchInput = document.querySelector(".step.active input");
+                if (searchInput) searchInput.focus();
+                }, 200);
+        });
+    }
+    
+    // GESTION DES STEPS
+    let currentStep = 0;
+
+    function showStep(index) {
+        steps.forEach(step => step.classList.remove("active"));
+        steps[index].classList.add("active");
+        currentStep = index;
+    }
+
+    // BOUTON CONTINUER
+    nextButtons.forEach(button => {
+        button.addEventListener("click", (e) => {
+        e.preventDefault();
+
+    // Étape 1 → va à password
+    if (currentStep === 0) {
+        showStep(1);
+        return;
+    }
+
+    // Étape 2 → connexion (redirige)
+    if (currentStep === 1) {
+        window.location.href = "/pages/library.html";
+        return;
+    }
+
+    // Étape 3 → inscription terminée
+    if (currentStep === 2) {
+        window.location.href = "/pages/library.html";
+        return;
+    }
+
+    // Étape 4 → après forgot
+    if (currentStep === 3) {
+      showStep(0); // retour au début
+        }
     });
-}
-
-document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-        loginPanel.classList.remove("active");
-        loginOverlay.classList.remove("active");
-    }
 });
 
-loginBtn.addEventListener("click", () => {
-
-    const passwordValue = passwordInput.value.trim();
-
-    if (passwordValue === fakePassword) {
-        // Redirection vers bibliothèque
-        window.location.href = "library.html";
-    } else {
-        alert("Mot de passe incorrect");
+    // MOT DE PASSE OUBLIE
+    if (forgotBtn) {
+        forgotBtn.addEventListener("click", () => {
+            console.log("forgot clicked");
+        showStep(3); // index 3 = forgot password
+        });
     }
 
-});
-
-openLoginBtns.forEach(btn => {
-    btn.addEventListener("click", openLoginModal);
-});
-
-loginOverlay.addEventListener("click", () => {
-    loginOverlay.classList.remove("active");
-    loginPanel.classList.remove("active");
-    loginSteps.style.transform = "translateX(0)";
-    forgotPanel.classList.remove("active");
-});
-
-toPassword.addEventListener("click", () => {
-    const emailValue = emailInput.value.trim();
-
-    if (fakeUsers.includes(emailValue)) {
-        // Slide vers PASSWORD
-        loginSteps.style.transform = "translateX(-100%)";
-    } else {
-        // Slide vers INSCRIPTION
-        loginSteps.style.transform = "translateX(-200%)";
+    // INSCRIPTION
+    if (inscriptionBtn) {
+        inscriptionBtn.addEventListener("click", () => {
+            showStep(2); // index 2 = inscription
+        });
     }
 
-});
+    // BOUTON RETOUR
+    backButtons.forEach(button => {
+        button.addEventListener("click", () => {
+    if (currentStep > 0) {
+        showStep(currentStep - 1);
+        }   
+        });
+    });
 
-backToEmail1.addEventListener("click", () => {
-    loginSteps.style.transform = "translateX(0)";
-});
-
-backToEmail2.addEventListener("click", () => {
-    loginSteps.style.transform = "translateX(0)";
-});
-
-forgotPasswordBtn.addEventListener("click", () => {
-    // s'assurer que le panel est ouvert
-    loginOverlay.classList.add("active");
-    loginPanel.classList.add("active");
-    // on cache le slider
-    loginSteps.style.transform = "translateX(0)";
-    // on affiche le forgot panel
-    forgotPanel.classList.add("active");
-});
-
-backToPassword.addEventListener("click", () => {
-    forgotPanel.classList.remove("active");
-    loginPanel.classList.add("active");
-});
-
-function openLoginModal() {
-    loginOverlay.classList.add("active");
-    loginPanel.classList.add("active");
-}
-
-document.querySelector(".user-btn")
-    .addEventListener("click", openLoginModal);
 }
 
