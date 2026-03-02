@@ -31,6 +31,6 @@ import './models/index.js';
 const port = process.env.PORT || 3000;
 const base_url = process.env.BASE_URL || 'http://localhost';
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0' , () => {
     console.log(`Server ok on ${base_url}:${port}`)
 });

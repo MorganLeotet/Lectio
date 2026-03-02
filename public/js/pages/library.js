@@ -1,289 +1,183 @@
-// ===============================
-// 📚 INITIALISATION
-// ===============================
+/* ============== IMPORT ================ */
 
-let myLibrary = JSON.parse(localStorage.getItem("myLibrary")) || [];
-const libraryGrid = document.getElementById("libraryGrid");
-if (libraryGrid) {
+import { store } from "../core/store.js";
 
 
-// ===============================
-// 💾 SAUVEGARDE
-// ===============================
+export function initLibrary() {
 
-function saveLibrary() {
-    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
-}
+    const libraryGrid = document.getElementById("libraryGrid");
+    if (!libraryGrid) return;
 
+    let myLibrary = store.library.get();
 
-// ===============================
-// 🏗️ CRÉER UN LIVRE
-// ===============================
+    /* ==========================
+        STORAGE
+    ========================== */
 
-function createBook(title, author, cover) {
-    return {
+    function saveLibrary() {
+        store.library.set(myLibrary);
+    }
+
+    /* ==========================
+        CREATE BOOK
+    ========================== */
+
+    function createBook(title, author, cover) {
+        return {
         id: Date.now(),
         title,
         author,
         cover,
         status: "a_lire",
         favorite: false
-    };
-}
-
-
-// ===============================
-// ➕ AJOUTER UN LIVRE
-// ===============================
-
-function addBook(title, author, cover) {
-    const newBook = createBook(title, author, cover);
-    myLibrary.push(newBook);
-    saveLibrary();
-    renderLibrary();
-}
-
-
-// ===============================
-// 🎨 AFFICHAGE
-// ===============================
-
-function renderLibrary(filter = "all") {
-
-    libraryGrid.innerHTML = "";
-
-    let filteredBooks = myLibrary;
-
-    if (filter !== "all") {
-        if (filter === "favorites") {
-        filteredBooks = myLibrary.filter(book => book.favorite);
-        } else {
-        filteredBooks = myLibrary.filter(book => book.status === filter);
-        }
+        };
     }
 
-    if (filteredBooks.length === 0) {
+    /* ==========================
+        RENDER
+    ========================== */
+
+    function getStatusLabel(status) {
+        if (status === "a_lire") return "À lire";
+        if (status === "en_cours") return "En cours";
+        return "Lu";
+    }
+
+    function renderLibrary(filter = "all") {
+
+        let books = myLibrary;
+
+        if (filter === "favorites") {
+        books = myLibrary.filter(b => b.favorite);
+        } else if (filter !== "all") {
+        books = myLibrary.filter(b => b.status === filter);
+        }
+
+        if (books.length === 0) {
         libraryGrid.innerHTML = "<p>Aucun livre ici.</p>";
         return;
-    }
+        }
 
-    filteredBooks.forEach(book => {
-
-        
-        book.status === "a_lire" ? "À lire" :
-        book.status === "en_cours" ? "En cours" :
-        "Lu";
-
-        libraryGrid.innerHTML += `
+        const html = books.map(book => `
         <div class="book-card" data-id="${book.id}">
 
             <div class="cover-wrapper">
-        <img src="${book.cover}" alt="${book.title}" class="book-cover">
+            <img src="${book.cover}" alt="${book.title}" class="book-cover">
 
-        <span class="status-badge ${book.status}">
-        ${
-            book.status === "a_lire" ? "À lire" :
-            book.status === "en_cours" ? "En cours" :
-            "Lu"
-        }
-        </span>
+            <span class="status-badge ${book.status}">
+                ${getStatusLabel(book.status)}
+            </span>
 
-        <button class="favorite-book ${book.favorite ? "active" : ""}" data-id="${book.id}">
-        ❤️
-        </button>
-    </div>
+            <button class="favorite-book ${book.favorite ? "active" : ""}" data-id="${book.id}">
+                ❤️
+            </button>
+            </div>
 
-    <div class="book-info">
-        <h3>${book.title}</h3>
-        <p>${book.author}</p>
+            <div class="book-info">
+            <h3>${book.title}</h3>
+            <p>${book.author}</p>
 
-        <select class="change-status" data-id="${book.id}">
-        <option value="a_lire" ${book.status === "a_lire" ? "selected" : ""}>À lire</option>
-        <option value="en_cours" ${book.status === "en_cours" ? "selected" : ""}>En cours</option>
-        <option value="lu" ${book.status === "lu" ? "selected" : ""}>Lu</option>
-        </select>
+            <select class="change-status" data-id="${book.id}">
+                <option value="a_lire" ${book.status==="a_lire"?"selected":""}>À lire</option>
+                <option value="en_cours" ${book.status==="en_cours"?"selected":""}>En cours</option>
+                <option value="lu" ${book.status==="lu"?"selected":""}>Lu</option>
+            </select>
 
-        <button class="remove-book" data-id="${book.id}">
-        Retirer
-        </button>
-    </div>`;
-    });
-}
+            <button class="remove-book" data-id="${book.id}">
+                Retirer
+            </button>
+            </div>
 
+        </div>
+        `).join("");
 
-// ===============================
-// 🎯 GESTION DES ACTIONS (EVENT DELEGATION)
-// ===============================
-
-libraryGrid.addEventListener("click", (e) => {
-
-    const id = Number(e.target.dataset.id);
-
-    // 🗑️ Supprimer
-    if (e.target.classList.contains("remove-book")) {
-        myLibrary = myLibrary.filter(book => book.id !== id);
-        saveLibrary();
-        renderLibrary();
+        libraryGrid.innerHTML = html;
     }
 
-    // ❤️ Favori
-    if (e.target.classList.contains("favorite-book")) {
-        myLibrary = myLibrary.map(book => {
-        if (book.id === id) {
-            book.favorite = !book.favorite;
-        }
-        return book;
-        });
-        saveLibrary();
-        renderLibrary();
-    }
-    // 📖 Cliquer sur la carte → page détail
-    if (e.target.closest(".book-card") &&
-        !e.target.classList.contains("remove-book") &&
-        !e.target.classList.contains("favorite-book") &&
-        !e.target.classList.contains("change-status")) {
+    /* ==========================
+        EVENTS CLICK
+    ========================== */
 
-    const card = e.target.closest(".book-card");
-    const bookId = Number(card.dataset.id);
-
-    localStorage.setItem("selectedBookId", bookId);
-
-    window.location.href = "book_connected.html"; // adapte le nom si besoin
-}
-});
-
-
-// ===============================
-// 🔄 CHANGEMENT DE STATUT
-// ===============================
-
-libraryGrid.addEventListener("change", (e) => {
-
-    if (e.target.classList.contains("change-status")) {
+    libraryGrid.addEventListener("click", e => {
 
         const id = Number(e.target.dataset.id);
-        const newStatus = e.target.value;
 
-        myLibrary = myLibrary.map(book => {
-        if (book.id === id) {
-            book.status = newStatus;
+        if (e.target.classList.contains("remove-book")) {
+        myLibrary = myLibrary.filter(b => b.id !== id);
+        saveLibrary();
+        renderLibrary();
         }
-        return book;
+
+        if (e.target.classList.contains("favorite-book")) {
+        myLibrary = myLibrary.map(b => {
+            if (b.id === id) b.favorite = !b.favorite;
+            return b;
+        });
+        saveLibrary();
+        renderLibrary();
+        }
+
+        const card = e.target.closest(".book-card");
+        if (
+        card &&
+        !e.target.classList.contains("remove-book") &&
+        !e.target.classList.contains("favorite-book") &&
+        !e.target.classList.contains("change-status")
+        ) {
+        localStorage.setItem("selectedBookId", card.dataset.id);
+        window.location.href = "book_connected.html";
+        }
+    });
+
+    /* ==========================
+        STATUS CHANGE
+    ========================== */
+
+    libraryGrid.addEventListener("change", e => {
+
+        if (!e.target.classList.contains("change-status")) return;
+
+        const id = Number(e.target.dataset.id);
+        const status = e.target.value;
+
+        myLibrary = myLibrary.map(b => {
+        if (b.id === id) b.status = status;
+        return b;
         });
 
         saveLibrary();
         renderLibrary();
-    }
-});
-
-
-// ===============================
-// 🔎 FILTRES MENU
-// ===============================
-
-document.querySelectorAll(".library_menu button").forEach(btn => {
-
-    btn.addEventListener("click", () => {
-
-        document
-        .querySelectorAll(".library_menu button")
-        .forEach(b => b.classList.remove("active"));
-
-        btn.classList.add("active");
-
-        const filter = btn.dataset.filter;
-        renderLibrary(filter);
     });
 
-});
+    /* ==========================
+        FILTERS
+    ========================== */
 
-// ===============================
-// 🧪 LIVRE TEST (si bibliothèque vide)
-// ===============================
+    document.querySelectorAll(".library_menu button")
+        .forEach(btn => {
+        btn.addEventListener("click", () => {
 
-if (myLibrary.length === 0) {
+            document
+            .querySelectorAll(".library_menu button")
+            .forEach(b => b.classList.remove("active"));
 
-    const books = [
-        {
-        id: Date.now(),
-        title: "Le Seigneur des Anneaux",
-        author: "J.R.R. Tolkien",
-        /*cover: "#",*/
-        status: "a_lire",
-        favorite: false
-        },
-        {
-        id: Date.now() + 1,
-        title: "Le Crime de l'Orient-Express",
-        author: "Agatha Christie",
-        /*cover: "#",*/
-        status: "lu",
-        favorite: true
-        },
-        {
-        id: Date.now() + 2,
-        title: "Des Souris et des Hommes",
-        author: "John Steinbeck",
-        /*cover: "#",*/
-        status: "en_cours",
-        favorite: false
-        },
-        {
-        id: Date.now() + 3,
-        title: "Sans Atout",
-        author: "Boileau-Narcejac",
-        /*cover: "#",*/
-        status: "a_lire",
-        favorite: false
-        },
-        {
-        id: Date.now() + 4,
-        title: "Sans Atout",
-        author: "Boileau-Narcejac",
-        /*cover: "#",*/
-        status: "a_lire",
-        favorite: false
-        },
-        {
-        id: Date.now() + 5,
-        title: "Sans Atout",
-        author: "Boileau-Narcejac",
-        /*cover: "#",*/
-        status: "a_lire",
-        favorite: false
-        },
-        {
-        id: Date.now() + 6,
-        title: "Sans Atout",
-        author: "Boileau-Narcejac",
-        /*cover: "#",*/
-        status: "a_lire",
-        favorite: false
-        },
-        {
-        id: Date.now() + 7,
-        title: "Le Seigneur des Anneaux",
-        author: "J.R.R. Tolkien",
-        /*cover: "#",*/
-        status: "a_lire",
-        favorite: false
-        },
-        {
-        id: Date.now() + 8,
-        title: "Le Seigneur des Anneaux",
-        author: "J.R.R. Tolkien",
-        /*cover: "#",*/
-        status: "a_lire",
-        favorite: false
-        }
-    ];
+            btn.classList.add("active");
 
-    myLibrary = books;
-    saveLibrary();
-}
-// ===============================
-// 🏁 LANCEMENT INITIAL
-// ===============================
+            renderLibrary(btn.dataset.filter);
+        });
+        });
 
-renderLibrary();
+    /* ==========================
+        INIT DATA
+    ========================== */
+
+    if (myLibrary.length === 0) {
+        myLibrary = [
+        createBook("Le Seigneur des Anneaux","J.R.R. Tolkien","#"),
+        createBook("Le Crime de l'Orient-Express","Agatha Christie","#")
+        ];
+        saveLibrary();
+    }
+
+    renderLibrary();
 }

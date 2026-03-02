@@ -95,7 +95,7 @@ html,body {
     background: var(--color-text);
 }
 /* ===== MENU STATUT DE LA BIBLIOTHEQUE ====== */
-.library_menu {
+/*.library_menu {
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -105,6 +105,29 @@ html,body {
     width: fit-content;
     margin: 0 auto 3rem auto;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}*/
+.library_menu {
+    display: flex;
+    justify-content: flex-start;
+
+    gap: 0.5rem;
+
+    overflow-x: auto;
+    width: 100%;
+
+    padding: 0.6rem 1rem;
+    padding-inline: 1rem;
+    scroll-padding-left: 1rem;
+    border-radius: 2rem;
+
+    margin: 0 auto 3rem auto;
+
+    scrollbar-width: none;
+    box-sizing: border-box;
+}
+
+.library_menu::-webkit-scrollbar {
+    display: none;
 }
 .library_menu button {
     border: none;
@@ -223,6 +246,9 @@ html,body {
     .header-connected {
         min-height: 10rem;
     }
+    .library_menu {
+        justify-content: center;
+    }
     .logo {
         height: 12rem;
     }
@@ -242,6 +268,9 @@ html,body {
     }
     .header-connected {
         min-height: 10rem;
+    }
+    .library_menu {
+        justify-content: center;
     }
     .logo {
         height: 12rem;

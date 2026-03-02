@@ -1,9 +1,22 @@
 /* =========== IMPORTS ============ */
+
 console.log("Lectio JS chargé");
 
-import "./pages/accessibility.js";
-import "./pages/login.js";
-import "./pages/loadLogin.js";
-import "./pages/home.js";
-import "./pages/book_connected.js";
-import "./pages/library.js";
+import { authGuard } from "./core/authGuard.js";
+import { initAccessibility } from "./pages/accessibility.js";
+import { loadLogin } from "./pages/loadLogin.js";
+import { initHome } from "./pages/home.js";
+import { initLibrary } from "./pages/library.js";
+import { initBook } from "./pages/book_connected.js";
+import { initHeaderAuth } from "./components/headerAuth.js";
+
+/* GUARD */
+authGuard();
+
+/* =========== INIT GLOBAL ============ */
+initAccessibility();
+loadLogin();
+initHome();
+initLibrary();
+initBook();
+initHeaderAuth();

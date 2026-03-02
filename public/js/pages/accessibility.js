@@ -1,12 +1,14 @@
 
-document.addEventListener("DOMContentLoaded", () => {
-    const button = document.querySelector(".accessibility-toggle");
-    const html = document.documentElement;
+export function initAccessibility() {
 
+    const button = document.querySelector(".accessibility-toggle");
     if (!button) return;
+
+    const html = document.documentElement;
 
     button.addEventListener("click", () => {
         html.classList.toggle("accessibility");
     });
-});
+
+}
 

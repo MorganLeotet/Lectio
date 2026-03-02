@@ -1,17 +1,22 @@
 import { initLogin } from "./login.js";
 
-fetch("../components/login.html")
-    .then(res => res.text())
-    .then(data => {
+export function loadLogin() {
 
-    const container =
-        document.getElementById("loginContainer");
+    const container = document.getElementById("loginContainer");
+    if (!container) return;
 
-    if (container) {
-        container.innerHTML = data;
-
-      // IMPORTANT : init APRES injection
-        initLogin();
-    }
-
-    });
+    fetch("/components/login.html") // chemin absolu plus stable
+        .then(response => {
+        if (!response.ok) {
+            throw new Error("Erreur chargement login.html");
+        }
+        return response.text();
+        })
+        .then(html => {
+        container.innerHTML = html;
+        initLogin(); // init seulement après injection
+        })
+        .catch(error => {
+        console.error("Login load error :", error);
+        });
+}
