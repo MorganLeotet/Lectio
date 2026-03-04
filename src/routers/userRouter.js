@@ -1,18 +1,22 @@
 /* ==== IMPORT ==== */
 
-import { Router } from 'express';
-import authMiddleware from '../middlewares/authMiddleware.js';
-import userController from '../controllers/userController.js';
+import { Router } from "express";
+import authMiddleware from "../middlewares/authMiddleware.js";
+import userController from "../controllers/userController.js";
 
 /* ==== ROUTER INITIALIZATION ==== */
 
 const router = Router();
 
-/* ==== ROADS ==== */
+/* ============================= */
+/* USER ROUTES                   */
+/* ============================= */
 
-router.get('/me', authMiddleware, userController.getProfile);
+/* Récupérer le profil du user connecté */
+router.get("/me",authMiddleware,userController.getProfile);
 
-router.put('/me', authMiddleware, userController.updateProfile);
+/* Modifier le profil du user connecté */
+router.patch("/me",authMiddleware,userController.updateProfile);
 
 /* ==== EXPORT ==== */
 

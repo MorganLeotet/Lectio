@@ -1,27 +1,31 @@
 /* ==== IMPORT ==== */
-import { Router } from 'express';
-import bookController from '../controllers/bookController.js';
-import authMiddleware from '../middlewares/authMiddleware.js';
 
-/* ==== ROUTER INITIALIZATION === */
+import { Router } from "express";
+import bookController from "../controllers/bookController.js";
+import authMiddleware from "../middlewares/authMiddleware.js";
+
+/* ==== ROUTER INITIALIZATION ==== */
+
 const router = Router();
 
-/* ==== ROADS ==== */
+/* ============================= */
+/* BOOK ROUTES                   */
+/* ============================= */
 
-router.get('/', authMiddleware, bookController.getAllBooks);            // voir tous les livres
+/* Voir tous les livres */
+router.get("/",authMiddleware,bookController.getAllBooks);
 
-router.get('/:id', authMiddleware, bookController.getBookById);         // voir un livre
+/* Voir un livre */
+router.get("/:id",authMiddleware,bookController.getBookById);
 
-router.post('/', authMiddleware, bookController.createBook);            // créer un livre
+/* Créer un livre */
+router.post("/",authMiddleware,bookController.createBook);
 
-router.put('/:id', authMiddleware, bookController.updateBook);          // mettre à jour un livre
+/* Mettre à jour un livre */
+router.patch("/:id",authMiddleware,bookController.updateBook);
 
-router.delete('/:id', authMiddleware, bookController.deleteBook);       // retirer un livre
-
-router.get('/detail/:id', (req,res) => {
-    res.sendFile(path.join(process.cwd)(), 'public/pages/book_detail.html');
-});
-
+/* Supprimer un livre */
+router.delete("/:id",authMiddleware,bookController.deleteBook);
 
 /* ==== EXPORT ==== */
 

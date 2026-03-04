@@ -1,42 +1,43 @@
 /* ==== IMPORT ==== */
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 
-/* ==== MIDDLEWARE INITIALIZATION ==== */
+/* ==== AUTH MIDDLEWARE ==== */
 
 const authMiddleware = (req, res, next) => {
-    
-    const authHeader = req.headers.authorization;           // on récupère le header Authorization (thunder client)
 
+    const authHeader = req.headers.authorization;
 
-    if (!authHeader) {                                      // verif s'il existe
+    if (!authHeader) {
         return res.status(401).json({
-            message: 'Token manquant'
+            message: "Token manquant"
         });
     }
 
-    const token = authHeader.split(' ')[1];                  // le format attendu : Bearer + token
+    const parts = authHeader.split(" ");
 
-    if (!token) {                                   
+    if (parts.length !== 2 || parts[0] !== "Bearer") {
         return res.status(401).json({
-            message: 'Token Invalide'
+            message: "Format de token invalide"
         });
     }
+
+    const token = parts[1];
 
     try {
 
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);          // verif du token
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-        req.user = decoded;         // on attache l'utilisateur à la requête
+        req.userId = decoded.userId;
 
-        next();         // on continue vers la route
+        next();
+
     } catch (error) {
+
         return res.status(401).json({
-            message: 'Token invalide ou expiré'
+            message: "Token invalide ou expiré"
         });
+
     }
-
 };
-
-/* ==== EXPORT ==== */
 
 export default authMiddleware;

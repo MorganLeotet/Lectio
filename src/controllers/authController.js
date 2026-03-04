@@ -4,6 +4,11 @@ import jwt from 'jsonwebtoken';
 
 import { Library, User } from '../models/index.js';
 
+/* ==== SECURITY CHECK ==== */
+
+if (!process.env.JWT_SECRET) {
+    throw new Error("JWT_SECRET manquant");
+}
 
 const authController = {
 
@@ -90,18 +95,26 @@ const authController = {
                 });
             }
 
-            const token = jwt.sign({                        // on gère le token 
-
-                userId: user.id_user,
-                email: user.email
-            },
-
-            process.env.JWT_SECRET,
-
+            const token = jwt.sign(
             {
-                expiresIn: '1h'
+                userId: user.id_user,
+                email: user.mail
+            },
+            process.env.JWT_SECRET,
+            {
+                expiresIn: "1h"
             }
-        );
+            );
+
+            res.json({
+                message: "Connexion réussie",
+                token,
+                user: {
+                    id: user.id_user,
+                    email: user.mail,
+                    name: user.name
+                }
+            });
 
             res.json({                              // Connexion réussie
                 message: 'Connexion réussie',
@@ -114,10 +127,29 @@ const authController = {
                 message: 'Erreur Serveur'
             });
         }
+        },
+        me: async (req, res) => {
+
+        try {
+
+            return res.json({
+                user: req.user
+            });
+
+        } catch (error) {
+
+            console.error(error);
+
+            return res.status(500).json({
+                message: "Erreur serveur"
+            });
+
         }
 
+    }
 
 }
+
 
 /* ==== EXPORT ==== */
 

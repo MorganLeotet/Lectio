@@ -1,40 +1,88 @@
 /* ==== IMPORT ==== */
 
-import { Genre, Book } from '../models/index.js';
+import { Genre, Book } from "../models/index.js";
 
-const genreController  = {
+/* ==== CONTROLLER ==== */
 
-        getAll: async (req, res) => {
+const genreController = {
 
-            try {
-                const genres = await Genre.findAll();
-                res.json(genres);
-            } catch (error) {
-                res.status(500).json({
-                    message: 'Erreur Serveur'
-                });
-            }
-        },
+  /* ============================= */
+  /* GET ALL GENRES                */
+  /* ============================= */
 
-        getById: async (req, res) => {
+    getAll: async (req, res) => {
 
-            try {
-                const genre = await Genre.findByPk(req.params.id, {
-                    include: Book
-                });
+        try {
 
-                if (!genre) {
-                    return res.status(404).json({
-                        message: 'Genre non trouvé'
-                    });
-                }
-                res.json(genre);
-            } catch (error) {
-                res.status(500).json({
-                    message: 'Erreur Serveur'
-                });
-            }
+        const genres = await Genre.findAll({
+            attributes: ["id_genre", "name"]
+        });
+
+        return res.json(genres);
+
+        } catch (error) {
+
+        console.error(error);
+
+        return res.status(500).json({
+            message: "Erreur serveur"
+        });
+
         }
+
+    },
+
+
+    /* ============================= */
+    /* GET GENRE BY ID               */
+    /* ============================= */
+
+    getById: async (req, res) => {
+
+        try {
+
+        const genreId = parseInt(req.params.id, 10);
+
+        if (isNaN(genreId)) {
+            return res.status(400).json({
+            message: "ID invalide"
+            });
+        }
+
+        const genre = await Genre.findByPk(genreId, {
+
+            attributes: ["id_genre", "name"],
+
+            include: [
+            {
+                model: Book,
+                attributes: ["id_book", "title"],
+                through: { attributes: [] }
+            }
+            ]
+
+        });
+
+        if (!genre) {
+            return res.status(404).json({
+            message: "Genre non trouvé"
+            });
+        }
+
+        return res.json(genre);
+
+        } catch (error) {
+
+        console.error(error);
+
+        return res.status(500).json({
+            message: "Erreur serveur"
+        });
+
+        }
+
+    }
+
 };
 
 /* ==== EXPORT ==== */

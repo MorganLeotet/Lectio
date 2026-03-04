@@ -1,99 +1,156 @@
 /* ==== IMPORT ==== */
 
-import { User, Book } from '../models/index.js';
+import { User, Book } from "../models/index.js";
+
+/* ==== CONTROLLER ==== */
 
 const favoriteController = {
 
-    addFavorite : async (req, res) => {         // ajouter un livre en favoris
+  /* ============================= */
+  /* ADD FAVORITE                  */
+  /* ============================= */
+
+    addFavorite: async (req, res) => {
 
         try {
 
-            const userId = req.user.userId;
-            const { id_book } = req.body;
+        const userId = req.userId;
+        const { id_book } = req.body;
 
-            const user = await User.findByPk(userId);
-            const book = await Book.findByPk(id_book);
+        const bookId = parseInt(id_book, 10);
 
-            if (!user || !book) {
-                return res.status(404).json({
-                    message: 'Utilisateur ou livre introuvable'
-                });
-            }
-            
-            await user.addFavorite(book);
-
-            return res.status(201).json({
-                message: 'Livre ajouté aux favoris'
-            });
-
-        } catch (error) {
-            console.error(error);
-            return res.status(500).json({
-                message: 'Erreur Serveur'
+        if (isNaN(bookId)) {
+            return res.status(400).json({
+            message: "ID du livre invalide"
             });
         }
+
+        const user = await User.findByPk(userId);
+        const book = await Book.findByPk(bookId);
+
+        if (!user || !book) {
+            return res.status(404).json({
+            message: "Utilisateur ou livre introuvable"
+            });
+        }
+
+        const alreadyFavorite = await user.hasFavorite(book);
+
+        if (alreadyFavorite) {
+            return res.status(409).json({
+            message: "Livre déjà dans les favoris"
+            });
+        }
+
+        await user.addFavorite(book);
+
+        return res.status(201).json({
+            message: "Livre ajouté aux favoris"
+        });
+
+        } catch (error) {
+
+        console.error(error);
+
+        return res.status(500).json({
+            message: "Erreur serveur"
+        });
+
+        }
+
     },
+
+
+    /* ============================= */
+    /* REMOVE FAVORITE               */
+    /* ============================= */
 
     deleteFavorite: async (req, res) => {
 
         try {
 
-            const userId = req.user.userId;
-            const { id_book } = req.params;
+        const userId = req.userId;
 
-            const user = await User.findByPk(userId);
-            const book = await Book.findByPk(id_book);
+        const bookId = parseInt(req.params.id_book, 10);
 
-            if (!book) {
-                return res.status(404).json({
-                    message: 'Livre introuvable'
-                });
-            }
-            await user.removeFavorite(book);
-
-            return res.json({
-                message: 'Livre retiré des favoris'
-            });
-
-        } catch (error) {
-            console.error(error);
-            return res.status(500).json({
-                message: 'Erreur Serveur'
+        if (isNaN(bookId)) {
+            return res.status(400).json({
+            message: "ID du livre invalide"
             });
         }
+
+        const user = await User.findByPk(userId);
+        const book = await Book.findByPk(bookId);
+
+        if (!book) {
+            return res.status(404).json({
+            message: "Livre introuvable"
+            });
+        }
+
+        await user.removeFavorite(book);
+
+        return res.json({
+            message: "Livre retiré des favoris"
+        });
+
+        } catch (error) {
+
+        console.error(error);
+
+        return res.status(500).json({
+            message: "Erreur serveur"
+        });
+
+        }
+
     },
 
-    getfavorite: async (req, res) => {
+
+    /* ============================= */
+    /* GET USER FAVORITES            */
+    /* ============================= */
+
+    getFavorites: async (req, res) => {
 
         try {
 
-            const userId = req.user.userId;
+        const userId = req.userId;
 
-            const user = await User.findByPk(userId, {
-                include: [
-                    {
-                        model: Book,
-                        as: 'favorites',
-                        attributes: ['id_book', 'title'],
-                    }
-                ]
-            });
+        const user = await User.findByPk(userId, {
 
-            if (!user) {
-                return res.status(404).json({
-                    message: 'Utilisateur introuvable'
-                });
+            attributes: [],
+
+            include: [
+            {
+                model: Book,
+                as: "favorites",
+                attributes: ["id_book", "title"]
             }
+            ]
 
-            return res.json(user.favorites);
+        });
 
-        } catch (error) {
-            console.error(error);
-            return res.status(500).json({
-                message: 'Erreur Serveur'
+        if (!user) {
+            return res.status(404).json({
+            message: "Utilisateur introuvable"
             });
         }
-    },
+
+        return res.json(user.favorites);
+
+        } catch (error) {
+
+        console.error(error);
+
+        return res.status(500).json({
+            message: "Erreur serveur"
+        });
+
+        }
+
+    }
+
 };
 
 /* ==== EXPORT ==== */

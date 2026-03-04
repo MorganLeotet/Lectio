@@ -1,42 +1,39 @@
-/* ==== IMPORT ==== */
-
 import { DataTypes } from "sequelize";
 import sequelize from "../config/database.js";
 
-/* ==== USER MODEL ==== */
-
 const User = sequelize.define(
-
-    'User',
+    "User",
     {
         id_user: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
         },
 
         mail: {
-            type: DataTypes.STRING(150),
-            allowNull: false,
+        type: DataTypes.STRING(150),
+        allowNull: false,
+        unique: true,
+        validate: {
+            isEmail: true,
+        },
         },
 
         name: {
-            type: DataTypes.STRING(100),
-            allowNull: false,
+        type: DataTypes.STRING(100),
+        allowNull: false,
         },
 
         password: {
-            type: DataTypes.STRING(255),
-            allowNull: false,
+        type: DataTypes.STRING(255),
+        allowNull: false,
         },
     },
     {
-        tableName: 'users',         // nom de la table
-        timestamps: true,           // createdAt / updatedAt
-        underscored: true,          // created_at au lieu de createdAt
+        tableName: "users",
+        timestamps: true,
+        underscored: true,
     }
 );
-
-/* ==== EXPORT ==== */
 
 export default User;

@@ -1,22 +1,25 @@
 /* ==== IMPORT ==== */
 
-import { Router } from 'express';
-import authMiddleware from '../middlewares/authMiddleware.js';
-import favoriteController from '../controllers/favoriteController.js';
+import { Router } from "express";
+import authMiddleware from "../middlewares/authMiddleware.js";
+import favoriteController from "../controllers/favoriteController.js";
 
-/* ==== ROUTER INITIALIZATION === */
+/* ==== ROUTER INITIALIZATION ==== */
 
 const router = Router();
 
-/* ==== ROADS ==== */
+/* ============================= */
+/* FAVORITES ROUTES              */
+/* ============================= */
 
-router.post('/', authMiddleware, favoriteController.addFavorite);           // ajouter un favori
+/* Ajouter un livre aux favoris */
+router.post("/",authMiddleware,favoriteController.addFavorite);
 
-router.get('/', authMiddleware, favoriteController.getfavorite);            // voir les favoris
+/* Récupérer les favoris du user connecté */
+router.get("/",authMiddleware,favoriteController.getFavorites);
 
-router.delete('/:id_book', authMiddleware, favoriteController.deleteFavorite);      // supprimer un favori
-
-
+/* Supprimer un livre des favoris */
+router.delete("/:id_book",authMiddleware,favoriteController.deleteFavorite);
 
 /* ==== EXPORT ==== */
 

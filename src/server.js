@@ -1,7 +1,8 @@
+import 'dotenv/config';
+
 /* ==== IMPORT ==== */
 
 import app from './app.js';
-import 'dotenv/config.js';
 import sequelize from './config/database.js';
 
 import './models/index.js';

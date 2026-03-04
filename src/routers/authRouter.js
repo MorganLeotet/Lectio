@@ -1,22 +1,25 @@
 /* ==== IMPORT ==== */
 
-import { Router } from 'express';
-import { authController } from '../controllers/authController.js';
-import authMiddleware from '../middlewares/authMiddleware.js';
+import { Router } from "express";
+import { authController } from "../controllers/authController.js";
+import authMiddleware from "../middlewares/authMiddleware.js";
 
 /* ==== ROUTER INITIALIZATION ==== */
+
 const router = Router();
 
-router.post('/register', authController.register);          // INSCRIPTION
+/* ============================= */
+/* AUTH ROUTES                   */
+/* ============================= */
 
-router.post('/login', authController.login);                // CONNEXION
+/* Inscription utilisateur */
+router.post("/register",authController.register);
 
-router.get('/me', authMiddleware, (req, res) => {           // ROUTE PROTEGEE
-    res.json({
-        user: req.user
-    })
-})
+/* Connexion utilisateur */
+router.post("/login",authController.login);
 
+/* Vérifier l'utilisateur connecté */
+router.get("/me",authMiddleware,authController.me);
 
 /* ==== EXPORT ==== */
 

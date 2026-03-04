@@ -1,61 +1,68 @@
 /* ==== IMPORT ==== */
 
-import express from 'express';
-import path, { join } from 'node:path';
+import express from "express";
+import path from "node:path";
+import { fileURLToPath } from "url";
 
-import bookRouter from './routers/bookRouter.js';
-import authRouter from './routers/authRouter.js';
-import libraryRouter from './routers/libraryRouter.js';
-import favoriteRouter from './routers/favoriteRouter.js';
-import genreRouter from './routers/genreRouter.js'
-import writerRouter from './routers/writerRouter.js';
-import userRouter from './routers/userRouter.js';
+import bookRouter from "./routers/bookRouter.js";
+import authRouter from "./routers/authRouter.js";
+import libraryRouter from "./routers/libraryRouter.js";
+import favoriteRouter from "./routers/favoriteRouter.js";
+import genreRouter from "./routers/genreRouter.js";
+import writerRouter from "./routers/writerRouter.js";
+import userRouter from "./routers/userRouter.js";
 
+/* ==== PATH CONFIG ==== */
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 /* ==== APP INITIALIZATION ==== */
+
 const app = express();
 
 /* ==== EJS CONFIGURATION ==== */
-app.set('views', join(import.meta.dirname, 'src/views'));
-app.set('view engine', 'ejs');
 
-/* ==== STACTIC FILES ==== */
-app.use(express.static(join(import.meta.dirname, '../public')));
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+
+/* ==== STATIC FILES ==== */
+
+app.use(express.static(path.join(__dirname, "../public")));
 
 /* ==== MIDDLEWARES ==== */
-app.use(express.json());            /* pour lire le Json envoyé par le navigateur */
 
-/* ==== ROADS ==== */
+app.use(express.json());
 
-app.get('/home', (req, res) => {
-    res.sendFile(path.join(process.cwd(), 'public/pages/home.html'));
+/* ============================= */
+/* ROUTES                        */
+/* ============================= */
+
+/* Home */
+app.get("/home", (req, res) => {
+  res.sendFile(path.join(process.cwd(), "public/pages/home.html"));
 });
 
-/* ==== AUTH ROAD ==== */
-app.use('/auth', authRouter);
+/* AUTH */
+app.use("/auth", authRouter);
 
-/* ==== BOOK ROAD ==== */
-app.use('/books', bookRouter);
+/* BOOKS */
+app.use("/books", bookRouter);
 
-/* ==== LIBRARY ROAD ==== */
-app.use('/library', libraryRouter);
+/* LIBRARY */
+app.use("/library", libraryRouter);
 
-/* ==== FAVORITE ROAD ==== */
-app.use('/favorites', favoriteRouter);
+/* FAVORITES */
+app.use("/favorites", favoriteRouter);
 
-/* ==== GENRE ROAD ==== */
-app.use('/genres', genreRouter);
+/* GENRES */
+app.use("/genres", genreRouter);
 
-/* ==== AUTHOR ROAD ==== */
-app.use('/authors', writerRouter);
+/* AUTHORS */
+app.use("/authors", writerRouter);
 
-/* ==== USER ROAD ==== */
-app.use('/users', userRouter);
-
-
-
-
-
+/* USERS */
+app.use("/users", userRouter);
 
 /* ==== EXPORT ==== */
 

@@ -1,26 +1,31 @@
 /* ==== IMPORT ==== */
-import { Router } from 'express';
-import authMiddleware from '../middlewares/authMiddleware.js';
-import libraryController from '../controllers/libraryController.js';
 
-/* ==== ROUTER CONFIGURATION ==== */
+import { Router } from "express";
+import authMiddleware from "../middlewares/authMiddleware.js";
+import libraryController from "../controllers/libraryController.js";
+
+/* ==== ROUTER INITIALIZATION ==== */
 
 const router = Router();
 
-/* ==== ROAD ==== */
+/* ============================= */
+/* LIBRARY ROUTES                */
+/* ============================= */
 
-router.get('/', authMiddleware, libraryController.getMyLibrary);
+/* Récupérer la bibliothèque du user connecté */
+router.get("/",authMiddleware,libraryController.getMyLibrary);
 
-router.post('/books', authMiddleware, libraryController.addBookToLibrary);
+/* Ajouter un livre dans la bibliothèque */
+router.post("/books",authMiddleware,libraryController.addBookToLibrary);
 
-router.put('/books/:bookId', authMiddleware, libraryController.updateReadingStatus);
+/* Mettre à jour le statut de lecture */
+router.patch("/books/:bookId",authMiddleware,libraryController.updateReadingStatus);
 
-router.delete('/books/:bookId', authMiddleware, libraryController.deleteBookFromLibrary);
+/* Retirer un livre de la bibliothèque */
+router.delete("/books/:bookId",authMiddleware,libraryController.deleteBookFromLibrary);
 
-router.put('/name', authMiddleware, libraryController.updateLibraryName);
-
-
-
+/* Modifier le nom de la bibliothèque */
+router.patch("/name",authMiddleware,libraryController.updateLibraryName);
 
 /* ==== EXPORT ==== */
 
