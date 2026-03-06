@@ -1,0 +1,33 @@
+<!-- =========== MAIN ============ -->
+
+<main class="page page-genre">
+
+    <h1 class="page-title">Les Genres</h1>
+
+    <div class="container">
+
+        <div class="genre-grid">
+
+            <% genres.forEach(genre => { %>
+
+                <article class="genre-card">
+
+                    <a href="/genres/<%= genre.id_genre %>" class="genre-link">
+
+                    <div class="genre-cover">
+                        <img src="<%= genre.banner %>" alt="<%= genre.name %>">
+                    </div>
+
+                    <h3 class="genre-title"><%= genre.name %></h3>
+
+                    </a>
+
+                </article>
+
+            <% }) %>
+
+        </div>
+
+    </div>
+
+</main>

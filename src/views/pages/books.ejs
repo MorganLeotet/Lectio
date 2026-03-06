@@ -1,0 +1,49 @@
+<main class="page page-book">
+
+    <div class="container">
+
+        <h1 class="page-title">Catalogue des livres</h1>
+
+        <div class="books-grid">
+
+            <% if (books && books.length > 0) { %>
+
+                    <% books.forEach(book => { %>
+
+                        <article class="book-card">
+
+                            <a href="/books/<%= book.id_book %>" class="book-link">
+
+                                <div class="book-cover">
+                                    <img src="/assets/img/book-placeholder.png" alt="<%= book.title %>">
+                                </div>
+
+                                <h3 class="book-title"><%= book.title %></h3>
+
+                            </a>
+
+                            <p class="book-author">
+
+                                <% if (book.Author) { %>
+                                    <a href="/authors/<%= book.Author.id_author %>"><%= book.Author.name %></a>
+                                <% } else { %>
+                                    Auteur inconnu
+                                <% } %>
+
+                            </p>
+
+                        </article>
+
+                    <% }) %>
+
+                <% } else { %>
+
+                <p class="empty-message">Aucun livre disponible pour le moment.</p>
+
+            <% } %>
+
+        </div>
+
+    </div>
+
+</main>

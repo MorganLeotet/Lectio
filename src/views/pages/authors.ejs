@@ -1,0 +1,41 @@
+<main class="page page-authors">
+
+    <div class="container">
+
+        <h1 class="page-title">Les auteurs</h1>
+
+        <div class="authors-grid">
+
+            <% if (authors && authors.length > 0) { %>
+
+                <% authors.forEach(author => { %>
+
+                    <article class="authors-card">
+
+                        <a href="/authors/<%= author.id_author %>">
+
+                            <div class="authors-cover">
+
+                                <img src="https://i.pravatar.cc/300?u=<%= author.id_author %>" alt="<%= author.name %>">
+
+                            </div>
+
+                            <h3 class="authors-title"><%= author.name %></h3>
+
+                        </a>
+
+                    </article>
+
+                <% }) %>
+
+                <% } else { %>
+
+                <p class="empty-message">Aucun auteur disponible.</p>
+
+            <% } %>
+
+        </div>
+
+    </div>
+
+</main>

@@ -1,0 +1,63 @@
+<main class="page">
+
+    <div class="container">
+
+        <section class="book-wrapper">
+
+            <div class="book-container">
+
+                <div class="cover">
+
+                    <img src="/assets/img/seigneur_anneaux_484x350 1.png" alt="couverture du livre">
+
+                </div>
+
+                <div class="book-info">
+
+                    <h1><%= book.title %></h1>
+
+                    <p>
+                        <strong>Auteur :</strong> <a href="/authors/<%= book.Author.id_author %>"><%= book.Author.name %></a>
+                    </p>
+
+                    <p>
+                        <strong>Date de publication :</strong><%= book.release_date || "Non renseignée" %>
+                    </p>
+
+                    <p>
+                        <strong>Editeur :</strong><%= book.publisher || "Non renseigné" %>
+                    </p>
+
+                    <p>
+                        <strong>Genre :</strong><% book.Genres.forEach(genre => { %><span><%= genre.name %></span><% }) %>
+                    </p>
+
+                    <p>
+                        <strong>Âge du lecteur :</strong><%= book.reader_age || "Non renseigné" %>
+                    </p>
+
+                    <p>
+                        <strong>Nombre de pages :</strong><%= book.pages || "Non renseigné" %>
+                    </p>
+
+                    <p>
+                        <strong>ISBN :</strong><%= book.isbn || "Non renseigné" %>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="book-summary">
+
+            <h2>Résumé du livre</h2>
+
+            <p><%= book.summary || "Résumé non disponible." %></p>
+
+        </section>
+
+    </div>
+
+</main>

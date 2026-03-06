@@ -1,0 +1,62 @@
+<main class="page page-authors-selected">
+
+    <div class="container">
+
+        <section class="author-header">
+
+            <div class="author-info">
+
+                <img 
+                    src="<%= author.photo %>" 
+                    alt="<%= author.name %>" 
+                    class="author-photo"
+                >
+
+                <div class="author-text">
+                    <h1 class="author-name"><%= author.name %></h1>
+
+                    <p class="author-bio">
+                        <%= author.bio %>
+                    </p>
+
+                    <p class="author-stats">
+                        <strong><%= books.length %></strong> livre(s)
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="books-grid">
+
+            <% books.forEach(book => { %>
+
+            <article class="authors-card">
+
+                <div class="authors-cover">
+                    <img 
+                        src="<%= book.cover %>" 
+                        alt="<%= book.title %>"
+                    >
+                </div>
+
+                <h3 class="authors-title">
+                    <a href="/books/<%= book.id %>">
+                        <%= book.title %>
+                    </a>
+                </h3>
+
+            </article>
+
+            <% }) %>
+
+        </section>
+
+    </div>
+
+</main>
+
+<div id="loginContainer"></div>

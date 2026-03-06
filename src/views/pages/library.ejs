@@ -1,0 +1,41 @@
+<main class="page page-library">
+
+    <div class="container">
+
+        <h1 id="libraryTitle">Ma bibliothèque</h1>
+
+        <div class="library_menu">
+
+        <button data-filter="all">Tous</button>
+        <button data-filter="a_lire">A Lire</button>
+        <button data-filter="en_cours">En Cours</button>
+        <button data-filter="lu">Lu</button>
+        <button data-filter="favorites">Coup de Coeur</button>
+
+        </div>
+
+        <div class="library-grid" id="library-grid">
+
+            <% books.forEach(book => { %>
+
+            <article class="book-card">
+
+                <a href="/books/<%= book.id %>" class="book-link">
+
+                <div class="book-cover">
+                <img src="<%= book.cover %>" alt="<%= book.title %>">
+                </div>
+
+                <h3 class="book-title"><%= book.title %></h3>
+
+                </a>
+
+            </article>
+
+            <% }) %>
+
+        </div>
+
+    </div>
+
+</main>

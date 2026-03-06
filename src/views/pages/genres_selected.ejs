@@ -1,0 +1,46 @@
+<!-- ======== BANNER ====== -->
+
+<section class="banner" style="background-image:url('<%= genre.banner %>')">
+    <h1><%= genre.name %></h1>
+    <a href="/genres" class="btn-back">←</a>
+</section>
+
+<!-- ========= MAIN ========= -->
+
+<main class="page page-book">
+
+    <div class="container">
+        
+        <div class="books-grid">
+
+            <% if (books.length === 0) { %>
+
+                <p class="empty-message">Aucun livre disponible pour ce genre.</p>
+
+            <% } %>
+
+            <% books.forEach(book => { %>
+
+                <article class="book-card">
+
+                    <a href="/books/<%= book.id_book %>" class="book-link">
+
+                        <div class="book-cover">
+                            <img src="<%= book.cover || '/assets/img/default-book.png' %>" alt="<%= book.title %>">
+                        </div>
+
+                        <h3 class="book-title"><%= book.title %></h3>
+
+                    </a>
+
+                </article>
+
+            <% }) %>
+
+        </div>
+
+    </div>
+
+</main>
+
+<div id="loginContainer"></div>

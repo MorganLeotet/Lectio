@@ -153,4 +153,4 @@ const authController = {
 
 /* ==== EXPORT ==== */
 
-export { authController };
+export default authController;

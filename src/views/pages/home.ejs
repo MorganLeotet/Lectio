@@ -1,0 +1,184 @@
+<main class="page page-home">
+
+    <div class="container">
+
+        <!-- FIL D’ARIANE -->
+
+        <nav class="breadcrumb">
+
+            <a href="/home">Accueil</a> &gt;
+            <a href="/books">Bibliothèque</a> &gt;
+            <span>Livre</span>
+
+        </nav>
+
+        <!-- ================= GENRES ================= -->
+
+        <section class="genres">
+
+            <div class="genres-grid">
+
+                <a href="/genres"><img src="/assets/banner/ados.png" alt="Univers Ados"></a>
+
+                <a href="/genres"><img src="/assets/banner/art-culture-societe.png" alt="Art et culture"></a>
+
+                <a href="/genres"><img src="/assets/banner/BD.png" alt="BD"></a>
+
+                <a href="/genres"><img src="/assets/banner/bien-être.png" alt="Bien être"></a>
+
+                <a href="/genres"><img src="/assets/banner/comics.png" alt="Comics"></a>
+
+                <a href="/genres"><img src="/assets/banner/fantasy fantastiques.png" alt="Fantasy"></a>
+
+                <a href="/genres"><img src="/assets/banner/jeunesse.png" alt="Jeunesse"></a>
+
+                <a href="/genres"><img src="/assets/banner/littérature.png" alt="Littérature"></a>
+
+                <a href="/genres"><img src="/assets/banner/loisirs sports nature.png" alt="Loisirs"></a>
+
+                <a href="/genres"><img src="/assets/banner/mangas.png" alt="Mangas"></a>
+
+                <a href="/genres"><img src="/assets/banner/noël.png" alt="Noël"></a>
+
+                <a href="/genres"><img src="/assets/banner/policiers.png" alt="Policiers"></a>
+
+                <a href="/genres"><img src="/assets/banner/vie pratique.png" alt="Vie pratique"></a>
+
+                <a href="/genres"><img src="/assets/banner/voyage tourisme.png" alt="Voyage"></a>
+
+            </div>
+
+            <a class="genres-toggle" href="/genres">Afficher la liste</a>
+
+        </section>
+
+        <!-- ================= FAVORITES ================= -->
+        <section class="section favorites">
+            <div class="container">
+
+                <h2 class="section-title">Coups de coeur des Lecteurs</h2>
+
+                <div class="carousel">
+                    <div class="carousel-track">
+
+                        <% books.forEach(book => { %>
+
+                                <article class="book-card">
+
+                                <a href="/books/<%= book.id %>" class="book-link">
+
+                                <div class="book-cover"></div>
+
+                                <h3 class="book-title">
+                                <%= book.title %>
+                                </h3>
+
+                                </a>
+
+                                <p class="book-author">
+                                <%= book.Author.name %>
+                                </p>
+
+                                </article>
+
+                            <% }) %>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= BOOKS ================= -->
+
+        <section class="section books">
+
+            <div class="container">
+
+                <h2 class="section-title">L'univers des livres</h2>
+
+                <div class="carousel">
+                    <div class="carousel-track">
+
+                        <% books.forEach(book => { %>
+
+                            <article class="book-card">
+
+                            <a href="/books/<%= book.id %>" class="book-link">
+
+                            <div class="book-cover"></div>
+
+                            <h3 class="book-title">
+                            <%= book.title %>
+                            </h3>
+
+                            </a>
+
+                            <p class="book-author">
+                            <%= book.Author.name %>
+                            </p>
+
+                            </article>
+
+                        <% }) %>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= AUTHORS ================= -->
+
+        <section class="section authors">
+
+            <div class="container">
+
+                <h2 class="section-title">Coin des Auteurs</h2>
+
+                <div class="carousel">
+                    <div class="carousel-track">
+
+                        <% books.forEach(book => { %>
+
+                            <article class="author-card">
+
+                                <a href="/authors/<%= book.Author.id %>">
+
+                                    <div class="author-avatar">
+                                        Auteur
+                                    </div>
+
+                                    <p class="author-name">
+                                        <%= book.Author.name %>
+                                    </p>
+
+                                </a>
+
+                            </article>
+
+                        <% }) %>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= CTA ================= -->
+
+            <section class="cta">
+
+                <a href="/books" class="btn-primary">
+
+                Voir la bibliothèque
+
+                </a>
+
+            </section>
+
+    </div>
+
+</main>
+
+<div id="loginContainer"></div>

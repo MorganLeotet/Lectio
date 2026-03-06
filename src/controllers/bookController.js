@@ -302,6 +302,33 @@ const bookController = {
 
         }
 
+    },
+
+    /* ========================= */
+  /* PAGE CATALOGUE DES LIVRES */
+  /* ========================= */
+
+    renderBooksPage: async (req, res) => {
+
+        try {
+
+        const books = await Book.findAll({
+            include: Author
+        });
+
+        res.render("pages/books", {
+            title: "Catalogue des livres",
+            books
+        });
+
+        } catch (error) {
+
+        console.error(error);
+
+        res.status(500).send("Erreur serveur");
+
+        }
+
     }
 
 };

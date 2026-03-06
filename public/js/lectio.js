@@ -2,7 +2,7 @@
 
 console.log("Lectio JS chargé");
 
-import { authGuard } from "../js/core/authGuard.js";
+import { authGuard } from "./core/authGuard.js";
 import { initAccessibility } from "./pages/accessibility.js";
 import { loadLogin } from "./pages/loadLogin.js";
 import { initHome } from "./pages/home.js";

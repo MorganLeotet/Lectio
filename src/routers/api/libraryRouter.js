@@ -1,8 +1,8 @@
 /* ==== IMPORT ==== */
 
 import { Router } from "express";
-import authMiddleware from "../middlewares/authMiddleware.js";
-import libraryController from "../controllers/libraryController.js";
+import authMiddleware from "../../middlewares/authMiddleware.js";
+import libraryController from "../../controllers/libraryController.js";
 
 /* ==== ROUTER INITIALIZATION ==== */
 

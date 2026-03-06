@@ -6,29 +6,65 @@
     background: var(--color-background-menu);
     transition: transform 0.2s ease;
     overflow: hidden;
-    min-height: 18rem;
+    width:100%;
+    max-width:20rem;
+    margin:auto;
 
 }
-.authors-cover img {
+.authors-cover img{
     width: 100%;
-    height: 100%;
+    height: 16rem;
     object-fit: cover;
+    border-radius: 0.5rem;
 }
+
 .author-header {
     text-align: center;
     max-width: 48rem;
     margin: 5rem auto 4rem;
 }
-.author-name {
-    display: inline-block;
-    padding: 1rem 3rem;
-    border-radius: 2rem;
-    font-size: 1.4rem;
+.author-info{
+    display: flex;
+    gap: 1.875rem;         
+    align-items: center;
+    margin-bottom: 2.5rem;  
 }
-.author-bio {
-    font-size: 1.3rem;
+
+.author-photo{
+    width: 7.5rem;          
+    height: 7.5rem;         
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-name{
+    font-size: 2rem;        
+    margin-bottom: 0.625rem; 
+}
+
+.author-bio{
+    color: #555;
+    margin-bottom: 0.625rem; 
+    font-size: 1rem;        
+    line-height: 1.5;
+}
+
+.author-stats{
     font-weight: bold;
-    text-align: center;
+    font-size: 1rem;        
+}
+
+.books-grid{
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit, minmax(18rem, 1fr));
+
+    gap:2rem;
+
+    max-height:65vh;
+    overflow-y:auto;
+
+    justify-items:center;
 }
 
 /* ========================== MEDIA QUERIES =========================== */
@@ -36,15 +72,6 @@
 /* =============== MOBILE ============ */
 @media (max-width: 48rem) {
 
-    .books-grid {
-        display: grid;
-        grid-template-columns: 18rem;
-        gap: 2rem;
-        justify-content: center;
-        max-height: 65vh;   /* limite hauteur */
-        overflow-y: auto;   /* scroll vertical */
-        padding-right: 0.5rem;
-    }
     #loginPanel {
         width: 80%;
         max-width: 100%;
@@ -58,29 +85,6 @@
 /* =============== TABLETTE ========== */
 @media (min-width: 48rem) and (max-width: 74.99rem){
 
-    .books-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 20rem);
-        justify-content: center;
-        gap: 4rem 5rem; /* vertical horizontal */
-        margin: 6rem auto;
-        max-height: 70vh;
-        overflow-y: auto;
-    }
-    .books-grid::-webkit-scrollbar {
-    width: 0.4rem;
-    }
-    .books-grid::-webkit-scrollbar-thumb {
-    background: var(--color-menu-text);
-    border-radius: 1rem;
-    }
-    .authors-cover {
-        height: 24rem;
-    }
-    .authors-title {
-        text-align: center;
-        font-size: 2rem;
-    }
     #loginPanel {
         width: 32rem;
         max-width: 85%;
@@ -91,14 +95,7 @@
 /* =============== DESKTOP =========== */
 @media (min-width: 75rem) {
 
-    .books-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 20rem);
-        justify-content: center;
-        gap: 5rem 4rem; /* vertical horizontal */
-        margin: 7rem auto;
-    }
-    .authors-cover {
+    .authors-cover{
         height: 26rem;
     }
 }
