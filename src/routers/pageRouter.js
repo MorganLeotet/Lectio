@@ -1,44 +1,29 @@
 /* ============================== */
-/* IMPORTS                        */
+/* IMPORTS */
 /* ============================== */
 
 import { Router } from "express";
 import { Book, Author, Genre } from "../models/index.js";
-
-/* ============================== */
-/* ROUTER                         */
-/* ============================== */
+import { requireAuth } from "../middlewares/requireAuth.js";
 
 const router = Router();
 
 
 /* ============================== */
-/* INDEX                           */
+/* HOME */
 /* ============================== */
 
-router.get("/", (req, res) => {
-
-    res.render("pages/index", {
-        title: "Accueil"
-    });
-
-});
-
-/* ============================== */
-/* HOME                           */
-/* ============================== */
-
-router.get("/home", async (req, res) => {
+router.get(["/", "/home"], async (req, res) => {
 
     try {
 
         const books = await Book.findAll({
-        include: Author
+            include: Author
         });
 
         res.render("pages/home", {
-        title: "Accueil",
-        books
+            title: "Accueil",
+            books
         });
 
     } catch (error) {
@@ -51,9 +36,8 @@ router.get("/home", async (req, res) => {
 });
 
 
-
 /* ============================== */
-/* BOOKS CATALOG                  */
+/* BOOKS CATALOG */
 /* ============================== */
 
 router.get("/books", async (req, res) => {
@@ -61,12 +45,12 @@ router.get("/books", async (req, res) => {
     try {
 
         const books = await Book.findAll({
-        include: Author
+            include: Author
         });
 
         res.render("pages/books", {
-        title: "Catalogue",
-        books
+            title: "Catalogue",
+            books
         });
 
     } catch (error) {
@@ -80,7 +64,7 @@ router.get("/books", async (req, res) => {
 
 
 /* ============================== */
-/* BOOK DETAIL                    */
+/* BOOK DETAIL */
 /* ============================== */
 
 router.get("/books/:id", async (req, res) => {
@@ -88,17 +72,23 @@ router.get("/books/:id", async (req, res) => {
     try {
 
         const book = await Book.findByPk(req.params.id, {
-        include: [Author, Genre]
+            include: [
+                Author,
+                Genre
+            ]
         });
 
         if (!book) {
-        return res.status(404).render("pages/404",{
-        });
+
+            return res.status(404).render("pages/404", {
+                title: "Livre introuvable"
+            });
+
         }
 
         res.render("pages/book_detail", {
-        title: book.title,
-        book
+            title: book.title,
+            book
         });
 
     } catch (error) {
@@ -112,7 +102,7 @@ router.get("/books/:id", async (req, res) => {
 
 
 /* ============================== */
-/* AUTHORS PAGE                   */
+/* AUTHORS */
 /* ============================== */
 
 router.get("/authors", async (req, res) => {
@@ -122,8 +112,8 @@ router.get("/authors", async (req, res) => {
         const authors = await Author.findAll();
 
         res.render("pages/authors", {
-        title: "Les auteurs",
-        authors
+            title: "Les auteurs",
+            authors
         });
 
     } catch (error) {
@@ -135,8 +125,9 @@ router.get("/authors", async (req, res) => {
 
 });
 
+
 /* ============================== */
-/* AUTHORS SELECTED PAGE          */
+/* AUTHOR DETAIL */
 /* ============================== */
 
 router.get("/authors/:id", async (req, res) => {
@@ -144,17 +135,20 @@ router.get("/authors/:id", async (req, res) => {
     try {
 
         const author = await Author.findByPk(req.params.id, {
-            include: Book
+            include: {
+                model: Book,
+                include: Author
+            }
         });
 
         if (!author) {
-            return res.status(404).render("pages/404", {
-                title: "Auteur introuvable"
-            });
+
+            return res.status(404).render("pages/404");
+
         }
 
         res.render("pages/authors-selected", {
-            title: author.name,
+            title: author.firstname + " " + author.lastname,
             author,
             books: author.Books
         });
@@ -170,34 +164,9 @@ router.get("/authors/:id", async (req, res) => {
 
 
 /* ============================== */
-/* LIBRARY PAGE                   */
+/* GENRES */
 /* ============================== */
 
-router.get("/library", async (req, res) => {
-
-    try {
-
-        const books = await Book.findAll({
-        include: Author
-        });
-
-        res.render("pages/library", {
-        title: "Ma bibliothèque",
-        books
-        });
-
-    } catch (error) {
-
-        console.error(error);
-        res.status(500).send("Erreur serveur");
-
-    }
-
-});
-
-/* ============================== */
-/* GENRE PAGE
-/* ============================== */
 router.get("/genres", async (req, res) => {
 
     try {
@@ -205,8 +174,8 @@ router.get("/genres", async (req, res) => {
         const genres = await Genre.findAll();
 
         res.render("pages/genres", {
-        title: "Les genres",
-        genres
+            title: "Les genres",
+            genres
         });
 
     } catch (error) {
@@ -218,28 +187,32 @@ router.get("/genres", async (req, res) => {
 
 });
 
+
 /* ============================== */
-/* GENRE SELECTED
+/* GENRE DETAIL */
 /* ============================== */
+
 router.get("/genres/:id", async (req, res) => {
 
     try {
 
         const genre = await Genre.findByPk(req.params.id, {
-        include: {
-            model: Book,
-            include: Author
-        }
+            include: {
+                model: Book,
+                include: Author
+            }
         });
 
         if (!genre) {
-        return res.status(404).render("pages/404");
+
+            return res.status(404).render("pages/404");
+
         }
 
         res.render("pages/genres_selected", {
-        title: genre.name,
-        genre,
-        books: genre.Books
+            title: genre.name,
+            genre,
+            books: genre.Books
         });
 
     } catch (error) {
@@ -251,16 +224,36 @@ router.get("/genres/:id", async (req, res) => {
 
 });
 
-router.get("/test-genres", async (req, res) => {
 
-    const genres = await Genre.findAll();
+/* ============================== */
+/* LIBRARY (AUTH REQUIRED) */
+/* ============================== */
 
-    res.json(genres);
+router.get("/library", requireAuth, async (req, res) => {
+
+    try {
+
+        const books = await Book.findAll({
+            include: Author
+        });
+
+        res.render("pages/library", {
+            title: "Ma bibliothèque",
+            books
+        });
+
+    } catch (error) {
+
+        console.error(error);
+        res.status(500).send("Erreur serveur");
+
+    }
 
 });
 
+
 /* ============================== */
-/* EXPORT                         */
+/* EXPORT */
 /* ============================== */
 
 export default router;

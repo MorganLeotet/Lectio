@@ -1,0 +1,21 @@
+<nav class="breadcrumb">
+
+<a href="/home">Accueil</a>
+
+<% if (typeof breadcrumbs !== "undefined" && breadcrumbs.length) { %>
+
+    <% breadcrumbs.forEach(crumb => { %>
+
+        <span class="separator">›</span>
+
+        <% if (crumb.url) { %>
+            <a href="<%= crumb.url %>"><%= crumb.label %></a>
+        <% } else { %>
+            <span class="current"><%= crumb.label %></span>
+        <% } %>
+
+    <% }) %>
+
+<% } %>
+
+</nav>

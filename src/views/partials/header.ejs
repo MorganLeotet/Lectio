@@ -3,11 +3,21 @@
     <div class="header-container">
 
         <!-- Icône user (mobile uniquement) -->
+        <% if (user) { %>
+
+            <a href="/api/auth/logout" class="mobile-user">
+                Déconnexion
+            </a>
+
+        <% } else { %>
+
         <button class="mobile-user">👤</button>
 
+        <% } %>
+
         <!-- Logo -->
-        <a href="../index.html" class="logo">
-        <img src="../assets/logo/logo.svg" alt="Logo Lectio">
+        <a href="/home" class="logo">
+            <img src="/assets/logo/logo.svg" alt="Logo Lectio">
         </a>
 
         <!-- Recherche -->
@@ -19,14 +29,33 @@
         <!-- Zone utilisateur -->
         <div class="user-area">
 
-        <!-- BLOC A DROITE -->
-        <div class="header-actions"></div>
-            <span class="welcome-text"></span>
-            <button class="login-btn">Connexion</button>
-            <button class="mobile-search">🔍</button>
-            <button class="accessibility-toggle" aria-label="Mode accessibilité">
-                <img src="../assets/icons/handicap.svg">
-            </button>
+            <div class="header-actions">
+
+                <% if (user) { %>
+
+                <div class="user-menu">
+
+                    <button class="user-button">
+                        <%= user.firstname %>
+                    </button>
+
+                    </div>
+
+                </div>
+
+                <% } else { %>
+
+                    <button class="login-btn">Connexion</button>
+
+                <% } %>
+
+                <button class="mobile-search">🔍</button>
+
+                <button class="accessibility-toggle" aria-label="Mode accessibilité"><img src="/assets/icons/handicap.svg"></button>
+
+            </div>
+
         </div>
+
     </div>
 </header>

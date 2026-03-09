@@ -1,11 +1,8 @@
 /* ============= IMPORT ============= */
 
-import { auth } from "../core/auth.js";
-
-
 export function initLogin() {
 
-    console.log("init login ok");
+    console.log("Login init");
 
     /* ==========================
         SELECTEURS
@@ -13,24 +10,23 @@ export function initLogin() {
 
     const loginBtn = document.querySelector(".login-btn");
     const mobileUserBtn = document.querySelector(".mobile-user");
-    const mobileSearchBtn = document.querySelector(".mobile-search");
 
-    const closeBtn = document.getElementById("closeLogin");
     const overlay = document.getElementById("loginOverlay");
     const panel = document.getElementById("loginSlide");
+    const closeBtn = document.getElementById("closeLogin");
 
     const steps = document.querySelectorAll(".step");
     const nextButtons = document.querySelectorAll(".next");
     const backButtons = document.querySelectorAll(".btn-back");
 
+    const emailInput = document.getElementById("emailInput");
+    const loginEmail = document.getElementById("loginEmail");
+    const loginPassword = document.getElementById("loginPassword");
+
     const forgotBtn = document.getElementById("forgotPasswordBtn");
     const inscriptionBtn = document.getElementById("btnInscription");
 
-    /* ==========================
-        SECURITE
-    ========================== */
-
-    if (!panel || !overlay || steps.length === 0) return;
+    if (!panel || !overlay) return;
 
     /* ==========================
         ETAT
@@ -43,90 +39,146 @@ export function initLogin() {
     ========================== */
 
     function showStep(index) {
-        if (!steps[index]) return;
 
         steps.forEach(step => step.classList.remove("active"));
-        steps[index].classList.add("active");
 
-        currentStep = index;
+        if (steps[index]) {
+            steps[index].classList.add("active");
+            currentStep = index;
+        }
+
     }
 
     /* ==========================
-        OUVRIR / FERMER
+        OPEN / CLOSE
     ========================== */
 
     function openLogin() {
+
         overlay.classList.add("active");
         panel.classList.add("active");
         document.body.style.overflow = "hidden";
+
     }
 
     function closeLogin() {
+
         overlay.classList.remove("active");
         panel.classList.remove("active");
         document.body.style.overflow = "";
+
         showStep(0);
+
     }
 
     /* ==========================
-        EVENTS OPEN
+        EVENTS
     ========================== */
 
     loginBtn?.addEventListener("click", openLogin);
     mobileUserBtn?.addEventListener("click", openLogin);
 
     closeBtn?.addEventListener("click", closeLogin);
-    overlay.addEventListener("click", closeLogin);
+    overlay?.addEventListener("click", closeLogin);
 
-    /* ==========================
-        RECHERCHE MOBILE
-    ========================== */
+    document.addEventListener("keydown", e => {
 
-    mobileSearchBtn?.addEventListener("click", () => {
-        openLogin();
-        showStep(4);
+        if (e.key === "Escape") closeLogin();
 
-        setTimeout(() => {
-        const input = document.querySelector(".step.active input");
-        input?.focus();
-        }, 200);
     });
 
     /* ==========================
-        BOUTON CONTINUER
+        NAVIGATION STEPS
     ========================== */
 
     nextButtons.forEach(btn => {
-        btn.addEventListener("click", e => {
-        e.preventDefault();
 
-        switch (currentStep) {
+        btn.addEventListener("click", async e => {
 
-            case 0:
-            showStep(1);
-            break;
+            e.preventDefault();
 
-            case 1: // Connexion
-                auth.login({
-                    name: "Morgan"
-                });
+            switch (currentStep) {
 
-                window.location.href = "/pages/library.html";
-                break;
+                /* EMAIL */
 
-            case 2: // Inscription
-                auth.login({
-                    name: "Morgan"
-                });
+                case 0:
 
-                window.location.href = "/pages/library.html";
-                break;
+                    if (!emailInput?.value.trim()) {
+                        emailInput.focus();
+                        return;
+                    }
 
-            case 3:
-            showStep(0);
-            break;
-        }
+                    if (loginEmail) {
+                        loginEmail.value = emailInput.value;
+                    }
+
+                    showStep(1);
+                    break;
+
+
+                /* LOGIN */
+
+                case 1:
+
+                    const email = loginEmail?.value.trim();
+                    const password = loginPassword?.value.trim();
+
+                    if (!email || !password) {
+                        alert("Veuillez remplir tous les champs");
+                        return;
+                    }
+
+                    try {
+
+                        const response = await fetch("/api/auth/login", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                email,
+                                password
+                            })
+                        });
+
+                        const data = await response.json();
+
+                        if (!response.ok) {
+                            alert(data.error || "Erreur de connexion");
+                            return;
+                        }
+
+                        // recharge la page pour afficher l'utilisateur
+                        window.location.reload();
+
+                    } catch (error) {
+
+                        console.error("Login error:", error);
+
+                    }
+
+                    break;
+
+
+                /* INSCRIPTION */
+
+                case 2:
+
+                    alert("Inscription non implémentée");
+                    break;
+
+
+                /* RESET PASSWORD */
+
+                case 3:
+
+                    showStep(0);
+                    break;
+
+            }
+
         });
+
     });
 
     /* ==========================
@@ -134,7 +186,9 @@ export function initLogin() {
     ========================== */
 
     forgotBtn?.addEventListener("click", () => {
+
         showStep(3);
+
     });
 
     /* ==========================
@@ -142,7 +196,9 @@ export function initLogin() {
     ========================== */
 
     inscriptionBtn?.addEventListener("click", () => {
+
         showStep(2);
+
     });
 
     /* ==========================
@@ -150,12 +206,15 @@ export function initLogin() {
     ========================== */
 
     backButtons.forEach(btn => {
+
         btn.addEventListener("click", () => {
-        if (currentStep > 0) {
-            showStep(currentStep - 1);
-        }
+
+            if (currentStep > 0) {
+                showStep(currentStep - 1);
+            }
+
         });
+
     });
 
 }
-

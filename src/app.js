@@ -4,6 +4,7 @@
 
 import express from "express";
 import expressLayouts from "express-ejs-layouts";
+import session from "express-session";
 import path from "node:path";
 import { fileURLToPath } from "url";
 
@@ -23,6 +24,8 @@ import userRouter from "./routers/userRouter.js";
 /* Pages */
 
 import pageRouter from "./routers/pageRouter.js";
+
+
 
 
 /* ============================== */
@@ -64,6 +67,17 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(session({
+    secret: "lectio-secret",
+    resave: false,
+    saveUninitialized: false
+}));
+app.use((req, res, next) => {
+    res.locals.user = req.session.user || null;
+    res.locals.error = null;
+    next();
+});
 
 
 /* ============================== */

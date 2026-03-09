@@ -1,5 +1,3 @@
-import { auth } from "./auth.js";
-
 export function authGuard() {
 
     const protectedPages = [

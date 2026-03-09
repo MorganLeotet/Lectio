@@ -1,0 +1,106 @@
+<!-- ===== LOGIN POPUP ===== -->
+
+<div class="login-overlay" id="loginOverlay"></div>
+
+<div class="login-slide" id="loginSlide">
+
+    <button class="login-close" id="closeLogin" aria-label="Fermer la connexion">✕</button>
+
+    <div class="login-steps" id="loginSteps">
+
+        <!-- ===== ÉTAPE 1 EMAIL ===== -->
+
+        <section class="step active">
+
+            <h2>Connexion / Inscription</h2>
+
+            <p>Saisissez votre e-mail pour vous connecter ou créer un compte</p>
+
+            <input type="email" id="emailInput" name="email" placeholder="adresse e-mail" required>
+
+            <button class="next">Continuer</button>
+
+        </section>
+
+
+        <!-- ===== ÉTAPE 2 LOGIN ===== -->
+
+        <section class="step">
+
+            <button class="btn-back" id="backToEmail1">← Retour</button>
+
+            <h2>Connexion</h2>
+
+            <form action="/login" method="POST">
+
+                <input type="email" name="email" id="loginEmail" placeholder="adresse e-mail" required>
+
+                <input type="password" name="password" id="loginPassword" placeholder="mot de passe" required>
+
+                <% if (typeof error !== "undefined" && error) { %>
+
+                    <p class="login-error"><%= error %></p>
+
+                <% } %>
+
+                <button type="submit" class="next">Se connecter</button>
+
+            </form>
+
+            <button type="button" class="forgot-password" id="forgotPasswordBtn">Mot de passe oublié ?</button>
+
+            <button type="button" class="inscription" id="btnInscription">Pas encore inscrit ?</button>
+
+        </section>
+
+
+        <!-- ===== ÉTAPE 3 INSCRIPTION ===== -->
+
+        <section class="step">
+
+            <button class="btn-back" id="backToEmail2">← Retour</button>
+
+            <h2>Inscription</h2>
+
+            <form action="/register" method="POST">
+
+                <input type="text" name="firstname" placeholder="Prénom" required>
+
+                <input type="text" name="lastname" placeholder="Nom" required>
+
+                <input type="email" name="email" placeholder="adresse e-mail" required>
+
+                <input type="password" name="password" placeholder="mot de passe" required>
+
+                <input type="text" name="library" placeholder="Nom de votre bibliothèque">
+
+                <button type="submit" class="next">Créer mon compte</button>
+
+            </form>
+
+        </section>
+
+
+        <!-- ===== ÉTAPE 4 PASSWORD RESET ===== -->
+
+        <section class="step">
+
+            <button class="btn-back" id="backToPassword">← Retour</button>
+
+            <h2>Mot de passe oublié ?</h2>
+
+            <p>Nous allons vous envoyer un message pour vous permettre de vous connecter.</p>
+
+            <form action="/forgot-password" method="POST">
+
+                <input type="email" name="email" placeholder="adresse e-mail" required>
+
+                <button type="submit" class="next">Continuer</button>
+
+            </form>
+
+        </section>
+
+    </div>
+
+</div>
