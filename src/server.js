@@ -7,7 +7,6 @@ import sequelize from './config/database.js';
 import { seedUser } from "./config/seedUser.js";
 import './models/index.js';
 
-
 /* ==== SEQUELIZE ==== */
 
 (async () => {
@@ -26,12 +25,13 @@ import './models/index.js';
 
 await seedUser();
 
-
 /* ==== SERVER ==== */
 
 const port = process.env.PORT || 3000;
 const base_url = process.env.BASE_URL || 'http://localhost';
 
 app.listen(port, '0.0.0.0' , () => {
-    console.log(`Server ok on ${base_url}:${port}`)
+    console.log(`Server running:`);
+    console.log(`Local:   http://localhost:${port}`);
+    console.log(`Mobile:  http://192.168.1.154:${port}`);
 });

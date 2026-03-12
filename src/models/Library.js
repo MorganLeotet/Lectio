@@ -6,29 +6,28 @@ import sequelize from "../config/database.js";
 /* ==== LIBRARY MODEL ==== */
 
 const Library = sequelize.define(
-
-    'Library',
+    "Library",
     {
-        id_library: {                                       // id unique de la bibliothèque
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
+        id_library: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
         },
 
         name: {
-            type: DataTypes.STRING(100),
-            allowNull: false,
-            defaultValue: "Ma Bibliothèque"
+        type: DataTypes.STRING(100),
+        allowNull: false,
+        defaultValue: "Ma bibliothèque",
         },
 
-        id_user: {                                          // clé étrangère vers users.id_user
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            unique: true,                                   // 1 user = 1 library
+        id_user: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        unique: true, // 1 utilisateur = 1 bibliothèque
         },
     },
     {
-        tableName: 'libraries',
+        tableName: "libraries",
         timestamps: true,
         underscored: true,
     }

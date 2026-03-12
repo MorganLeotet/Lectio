@@ -8,6 +8,8 @@ import { initHome } from "./pages/home.js";
 import { initLibrary } from "./pages/library.js";
 import { initBook } from "./pages/book_connected.js";
 import { initLogin } from "./pages/login.js";
+import { initSearch } from "./pages/search.js"; 
+
 
 /* GUARD */
 authGuard();
@@ -19,3 +21,4 @@ initLogin();
 initHome();
 initLibrary();
 initBook();
+initSearch();

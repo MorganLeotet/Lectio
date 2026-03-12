@@ -11,21 +11,14 @@ import { fileURLToPath } from "url";
 /* Routers API */
 
 import authRouter from "./routers/api/authRouter.js";
-import bookRouter from "./routers/api/bookRouter.js";
 import libraryRouter from "./routers/api/libraryRouter.js";
-
-/* Routers */
-
-import favoriteRouter from "./routers/favoriteRouter.js";
-import genreRouter from "./routers/genreRouter.js";
-import writerRouter from "./routers/writerRouter.js";
 import userRouter from "./routers/userRouter.js";
+import googleBooksRouter from "./routers/api/googleBooksRouter.js";
 
 /* Pages */
 
 import pageRouter from "./routers/pageRouter.js";
-
-
+import LibraryBook from "./models/LibraryBook.js";
 
 
 /* ============================== */
@@ -73,12 +66,28 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
-app.use((req, res, next) => {
-    res.locals.user = req.session.user || null;
-    res.locals.error = null;
-    next();
-});
 
+app.use(async (req, res, next) => {
+
+    res.locals.user = req.session.user;
+
+    if (req.session.libraryId) {
+
+        const count = await LibraryBook.count({
+            where: { id_library: req.session.libraryId }
+        });
+
+        res.locals.libraryCount = count;
+
+    } else {
+
+        res.locals.libraryCount = 0;
+
+    }
+
+    next();
+
+});
 
 /* ============================== */
 /* PAGE ROUTES                    */
@@ -92,13 +101,9 @@ app.use("/", pageRouter);
 /* ============================== */
 
 app.use("/api/auth", authRouter);
-app.use("/api/books", bookRouter);
 app.use("/api/library", libraryRouter);
-
-app.use("/api/favorites", favoriteRouter);
-app.use("/api/genres", genreRouter);
-app.use("/api/authors", writerRouter);
 app.use("/api/users", userRouter);
+app.use("/api/google-books", googleBooksRouter)
 
 
 /* ============================== */
@@ -106,9 +111,9 @@ app.use("/api/users", userRouter);
 /* ============================== */
 
 app.use((req, res) => {
-  res.status(404).render("pages/404", {
-    title: "Page introuvable"
-  });
+    res.status(404).render("pages/404", {
+        title: "Page introuvable"
+    });
 });
 
 

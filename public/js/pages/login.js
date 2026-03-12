@@ -1,4 +1,4 @@
-/* ============= IMPORT ============= */
+/* ============= LOGIN MODULE ============= */
 
 export function initLogin() {
 
@@ -20,6 +20,7 @@ export function initLogin() {
     const backButtons = document.querySelectorAll(".btn-back");
 
     const emailInput = document.getElementById("emailInput");
+
     const loginEmail = document.getElementById("loginEmail");
     const loginPassword = document.getElementById("loginPassword");
 
@@ -35,7 +36,7 @@ export function initLogin() {
     let currentStep = 0;
 
     /* ==========================
-        STEPS
+        AFFICHER STEP
     ========================== */
 
     function showStep(index) {
@@ -57,6 +58,7 @@ export function initLogin() {
 
         overlay.classList.add("active");
         panel.classList.add("active");
+
         document.body.style.overflow = "hidden";
 
     }
@@ -65,6 +67,7 @@ export function initLogin() {
 
         overlay.classList.remove("active");
         panel.classList.remove("active");
+
         document.body.style.overflow = "";
 
         showStep(0);
@@ -99,13 +102,15 @@ export function initLogin() {
 
             switch (currentStep) {
 
-                /* EMAIL */
+                /* ===== EMAIL ===== */
 
                 case 0:
 
                     if (!emailInput?.value.trim()) {
+
                         emailInput.focus();
                         return;
+
                     }
 
                     if (loginEmail) {
@@ -113,10 +118,11 @@ export function initLogin() {
                     }
 
                     showStep(1);
+
                     break;
 
 
-                /* LOGIN */
+                /* ===== LOGIN ===== */
 
                 case 1:
 
@@ -124,31 +130,38 @@ export function initLogin() {
                     const password = loginPassword?.value.trim();
 
                     if (!email || !password) {
+
                         alert("Veuillez remplir tous les champs");
                         return;
+
                     }
 
                     try {
 
                         const response = await fetch("/api/auth/login", {
+
                             method: "POST",
+
                             headers: {
                                 "Content-Type": "application/json"
                             },
+
                             body: JSON.stringify({
                                 email,
                                 password
                             })
+
                         });
 
                         const data = await response.json();
 
                         if (!response.ok) {
+
                             alert(data.error || "Erreur de connexion");
                             return;
+
                         }
 
-                        // recharge la page pour afficher l'utilisateur
                         window.location.reload();
 
                     } catch (error) {
@@ -160,19 +173,70 @@ export function initLogin() {
                     break;
 
 
-                /* INSCRIPTION */
+                /* ===== INSCRIPTION ===== */
 
                 case 2:
 
-                    alert("Inscription non implémentée");
+                    const firstname = document.getElementById("registerFirstname")?.value.trim();
+                    const lastname = document.getElementById("registerLastname")?.value.trim();
+                    const registerEmail = document.getElementById("registerEmail")?.value.trim();
+                    const registerPassword = document.getElementById("registerPassword")?.value.trim();
+                    const libraryName = document.getElementById("registerLibrary")?.value.trim();
+
+                    console.log(firstname, lastname, registerEmail, registerPassword);
+
+                    if (!firstname || !lastname || !registerEmail || !registerPassword) {
+
+                        alert("Veuillez remplir tous les champs");
+                        return;
+
+                    }
+
+                    try {
+
+                        const response = await fetch("/api/auth/register", {
+
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+
+                            body: JSON.stringify({
+                                name: firstname,
+                                email: registerEmail,
+                                password: registerPassword,
+                                library: libraryName
+                            })
+
+                        });
+
+                        const data = await response.json();
+
+                        if (!response.ok) {
+
+                            alert(data.error || "Erreur inscription");
+                            return;
+
+                        }
+
+                        window.location.reload();
+
+                    } catch (error) {
+
+                        console.error("Register error:", error);
+
+                    }
+
                     break;
 
 
-                /* RESET PASSWORD */
+                /* ===== RESET PASSWORD ===== */
 
                 case 3:
 
                     showStep(0);
+
                     break;
 
             }
@@ -192,17 +256,25 @@ export function initLogin() {
     });
 
     /* ==========================
-        INSCRIPTION
+            INSCRIPTION
     ========================== */
 
     inscriptionBtn?.addEventListener("click", () => {
 
         showStep(2);
 
+        const registerEmail = document.getElementById("registerEmail");
+
+        if (registerEmail && emailInput) {
+
+            registerEmail.value = emailInput.value;
+
+        }
+
     });
 
     /* ==========================
-        RETOUR
+                RETOUR
     ========================== */
 
     backButtons.forEach(btn => {
@@ -210,7 +282,9 @@ export function initLogin() {
         btn.addEventListener("click", () => {
 
             if (currentStep > 0) {
+
                 showStep(currentStep - 1);
+
             }
 
         });

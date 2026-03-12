@@ -3,30 +3,35 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/database.js";
 
-
 /* ==== LIBRARYBOOK MODEL ==== */
 
 const LibraryBook = sequelize.define(
-    'LibraryBook',
+    "LibraryBook",
     {
-        id_library: {                                              // id unique
-            type: DataTypes.INTEGER,
-            primaryKey: true,
+        id_library: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
         },
 
-        id_book: {                                                
-            type: DataTypes.INTEGER,
-            primaryKey: true,
+        google_book_id: {
+        type: DataTypes.STRING(255),
+        primaryKey: true,
         },
 
-        reading_status: {                                           // statut de lecture propre à la bibliothèque
-            type: DataTypes.ENUM('to_read', 'reading', 'read'),
-            allowNull: false,
+        reading_status: {
+        type: DataTypes.ENUM("to_read", "reading", "read"),
+        allowNull: false,
+        defaultValue: "to_read",
         },
+
+        favorite:{
+            type:DataTypes.BOOLEAN,
+            defaultValue:false
+        }
     },
     {
-        tableName: 'library_book',
-        timestamps: false,                                      // pas de created_at / updated_at
+        tableName: "library_book",
+        timestamps: false,
     }
 );
 

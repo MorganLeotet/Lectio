@@ -13,19 +13,27 @@ const router = Router();
 /* ============================= */
 
 /* Récupérer la bibliothèque du user connecté */
-router.get("/",authMiddleware,libraryController.getMyLibrary);
+router.get("/", authMiddleware, libraryController.getMyLibrary);
 
 /* Ajouter un livre dans la bibliothèque */
-router.post("/books",authMiddleware,libraryController.addBookToLibrary);
+router.post("/books", authMiddleware, libraryController.addBookToLibrary);
 
 /* Mettre à jour le statut de lecture */
-router.patch("/books/:bookId",authMiddleware,libraryController.updateReadingStatus);
+router.patch(
+    "/books/:google_book_id",
+    authMiddleware,
+    libraryController.updateReadingStatus
+);
 
 /* Retirer un livre de la bibliothèque */
-router.delete("/books/:bookId",authMiddleware,libraryController.deleteBookFromLibrary);
+router.delete(
+    "/books/:google_book_id",
+    authMiddleware,
+    libraryController.deleteBookFromLibrary
+);
 
 /* Modifier le nom de la bibliothèque */
-router.patch("/name",authMiddleware,libraryController.updateLibraryName);
+router.patch("/name", authMiddleware, libraryController.updateLibraryName);
 
 /* ==== EXPORT ==== */
 

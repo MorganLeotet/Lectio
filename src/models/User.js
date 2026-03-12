@@ -1,5 +1,9 @@
+/* ==== IMPORT ==== */
+
 import { DataTypes } from "sequelize";
 import sequelize from "../config/database.js";
+
+/* ==== USER MODEL ==== */
 
 const User = sequelize.define(
     "User",

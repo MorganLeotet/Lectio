@@ -1,0 +1,55 @@
+<main class="page page-authors-selected">
+
+    <%- include("../partials/breadcrumb") %>
+
+    <div class="container">
+
+        <section class="author-header">
+
+            <div class="author-info">
+
+                <div class="author-text">
+
+                    <h1 class="title-author">
+                        Livres de <%= authorName %>
+                    </h1>
+
+                    <p class="author-stats">
+                        <strong><%= books.length %></strong> livre(s) trouvé(s)
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <div class="books-grid">
+
+        <% books.forEach(book => { %>
+
+            <article class="book-card">
+
+                <a href="/books/<%= book.id %>" class="book-link">
+
+                    <h3 class="book-title"><%= book.volumeInfo.title %></h3>
+
+                    <div class="book-cover">
+
+                    <img src="<%= book.volumeInfo.imageLinks?.thumbnail || '/assets/img/default-book.png' %>"alt="<%= book.volumeInfo.title %>">
+
+                    </div>
+
+                </a>
+
+            </article>
+
+        <% }) %>
+
+        </div>
+
+    </div>
+
+</main>
+
+<div id="loginContainer"></div>

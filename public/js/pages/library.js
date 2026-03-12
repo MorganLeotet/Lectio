@@ -1,183 +1,143 @@
 /* ============== IMPORT ================ */
 
-import { store } from "../core/store.js";
-
-
 export function initLibrary() {
 
-    const libraryGrid = document.getElementById("libraryGrid");
-    if (!libraryGrid) return;
+    const buttons = document.querySelectorAll(".library_menu button");
+    const books = document.querySelectorAll(".book-card");
 
-    let myLibrary = store.library.get();
+    if (!buttons.length) return;
 
-    /* ==========================
-        STORAGE
-    ========================== */
+    buttons.forEach(button => {
 
-    function saveLibrary() {
-        store.library.set(myLibrary);
-    }
+    button.addEventListener("click", () => {
 
-    /* ==========================
-        CREATE BOOK
-    ========================== */
+        const filter = button.dataset.filter;
 
-    function createBook(title, author, cover) {
-        return {
-        id: Date.now(),
-        title,
-        author,
-        cover,
-        status: "a_lire",
-        favorite: false
-        };
-    }
+        /* ===== FILTRE COUP DE COEUR ===== */
 
-    /* ==========================
-        RENDER
-    ========================== */
+        if(filter === "favorites"){
 
-    function getStatusLabel(status) {
-        if (status === "a_lire") return "À lire";
-        if (status === "en_cours") return "En cours";
-        return "Lu";
-    }
+            books.forEach(book=>{
 
-    function renderLibrary(filter = "all") {
+                if(book.dataset.favorite === "true"){
+                    book.style.display="block";
+                }else{
+                    book.style.display="none";
+                }
 
-        let books = myLibrary;
+            });
 
-        if (filter === "favorites") {
-        books = myLibrary.filter(b => b.favorite);
-        } else if (filter !== "all") {
-        books = myLibrary.filter(b => b.status === filter);
+            return;
         }
 
-        if (books.length === 0) {
-        libraryGrid.innerHTML = "<p>Aucun livre ici.</p>";
-        return;
-        }
+        /* ===== FILTRE STATUT ===== */
 
-        const html = books.map(book => `
-        <div class="book-card" data-id="${book.id}">
+        books.forEach(book => {
 
-            <div class="cover-wrapper">
-            <img src="${book.cover}" alt="${book.title}" class="book-cover">
+            const status = book.dataset.status;
 
-            <span class="status-badge ${book.status}">
-                ${getStatusLabel(book.status)}
-            </span>
+            if (filter === "all" || filter === status) {
+                book.style.display = "block";
+            } else {
+                book.style.display = "none";
+            }
 
-            <button class="favorite-book ${book.favorite ? "active" : ""}" data-id="${book.id}">
-                ❤️
-            </button>
-            </div>
-
-            <div class="book-info">
-            <h3>${book.title}</h3>
-            <p>${book.author}</p>
-
-            <select class="change-status" data-id="${book.id}">
-                <option value="a_lire" ${book.status==="a_lire"?"selected":""}>À lire</option>
-                <option value="en_cours" ${book.status==="en_cours"?"selected":""}>En cours</option>
-                <option value="lu" ${book.status==="lu"?"selected":""}>Lu</option>
-            </select>
-
-            <button class="remove-book" data-id="${book.id}">
-                Retirer
-            </button>
-            </div>
-
-        </div>
-        `).join("");
-
-        libraryGrid.innerHTML = html;
-    }
-
-    /* ==========================
-        EVENTS CLICK
-    ========================== */
-
-    libraryGrid.addEventListener("click", e => {
-
-        const id = Number(e.target.dataset.id);
-
-        if (e.target.classList.contains("remove-book")) {
-        myLibrary = myLibrary.filter(b => b.id !== id);
-        saveLibrary();
-        renderLibrary();
-        }
-
-        if (e.target.classList.contains("favorite-book")) {
-        myLibrary = myLibrary.map(b => {
-            if (b.id === id) b.favorite = !b.favorite;
-            return b;
         });
-        saveLibrary();
-        renderLibrary();
-        }
 
-        const card = e.target.closest(".book-card");
-        if (
-        card &&
-        !e.target.classList.contains("remove-book") &&
-        !e.target.classList.contains("favorite-book") &&
-        !e.target.classList.contains("change-status")
-        ) {
-        localStorage.setItem("selectedBookId", card.dataset.id);
-        window.location.href = "book_connected.html";
-        }
     });
 
-    /* ==========================
-        STATUS CHANGE
-    ========================== */
+});
 
-    libraryGrid.addEventListener("change", e => {
+    document.addEventListener("change", async (e) => {
 
-        if (!e.target.classList.contains("change-status")) return;
+        if(!e.target.classList.contains("change-status")) return;
 
-        const id = Number(e.target.dataset.id);
-        const status = e.target.value;
+        const google_book_id = e.target.dataset.id;
+        const reading_status = e.target.value;
 
-        myLibrary = myLibrary.map(b => {
-        if (b.id === id) b.status = status;
-        return b;
-        });
+        try{
 
-        saveLibrary();
-        renderLibrary();
+            await fetch(`/library/books/${google_book_id}`,{
+
+                method:"PATCH",
+
+                headers:{
+                    "Content-Type":"application/json"
+                },
+
+                body:JSON.stringify({
+                    reading_status
+                })
+
+            });
+
+            /* ===== MAJ VISUELLE ===== */
+
+            const card = e.target.closest(".book-card");
+            const badge = card.querySelector(".status-badge");
+
+            if(badge){
+
+                badge.textContent = reading_status;
+
+                badge.className =
+                "status-badge " +
+                reading_status.toLowerCase().replace(" ","_");
+
+            }
+
+            /* mettre à jour le filtre */
+
+            card.dataset.status = reading_status.toLowerCase().replace(" ","_");
+
+        }catch(err){
+
+            console.error("Erreur mise à jour statut :",err);
+
+        }
+
     });
 
-    /* ==========================
-        FILTERS
-    ========================== */
+    document.addEventListener("click", async (e) => {
 
-    document.querySelectorAll(".library_menu button")
-        .forEach(btn => {
-        btn.addEventListener("click", () => {
+        if (!e.target.classList.contains("favorite-book")) return;
 
-            document
-            .querySelectorAll(".library_menu button")
-            .forEach(b => b.classList.remove("active"));
+        e.preventDefault();
+        e.stopPropagation();
 
-            btn.classList.add("active");
+        const btn = e.target;
+        const google_book_id = btn.dataset.id;
 
-            renderLibrary(btn.dataset.filter);
-        });
-        });
+        try {
 
-    /* ==========================
-        INIT DATA
-    ========================== */
+            const response = await fetch("/library/favorite", {
 
-    if (myLibrary.length === 0) {
-        myLibrary = [
-        createBook("Le Seigneur des Anneaux","J.R.R. Tolkien","#"),
-        createBook("Le Crime de l'Orient-Express","Agatha Christie","#")
-        ];
-        saveLibrary();
-    }
+                method: "POST",
 
-    renderLibrary();
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    google_book_id
+                })
+
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+
+                btn.classList.toggle("active", data.favorite);
+
+            }
+
+        } catch (error) {
+
+            console.error("Erreur favori :", error);
+
+        }
+
+    });
+
 }

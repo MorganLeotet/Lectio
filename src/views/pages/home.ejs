@@ -1,176 +1,152 @@
 <main class="page page-home">
 
     <%- include("../partials/breadcrumb") %>
+        <div class="container"> 
 
-    <div class="container">
+            <!-- ================= GENRES ================= -->
 
-        <!-- ================= GENRES ================= -->
+            <section class="genres">
 
-        <section class="genres">
+                <div class="genres-grid">
 
-            <div class="genres-grid">
+                    <% genres.forEach(genre => { %>
 
-                <a href="/genres"><img src="/assets/banner/ados.png" alt="Univers Ados"></a>
+                        <a href="/genres/<%= genre.slug %>" class="genre-card">
 
-                <a href="/genres"><img src="/assets/banner/art-culture-societe.png" alt="Art et culture"></a>
+                        <img src="<%= genre.banner || '/assets/banner/default-genre.png' %>">
 
-                <a href="/genres"><img src="/assets/banner/BD.png" alt="BD"></a>
+                        </a>
 
-                <a href="/genres"><img src="/assets/banner/bien-être.png" alt="Bien être"></a>
+                    <% }) %>
 
-                <a href="/genres"><img src="/assets/banner/comics.png" alt="Comics"></a>
+                </div>
 
-                <a href="/genres"><img src="/assets/banner/fantasy fantastiques.png" alt="Fantasy"></a>
+                <a class="genres-toggle" href="/genres">Afficher la liste</a>
 
-                <a href="/genres"><img src="/assets/banner/jeunesse.png" alt="Jeunesse"></a>
+            </section>
 
-                <a href="/genres"><img src="/assets/banner/littérature.png" alt="Littérature"></a>
+            <!-- ================= FAVORITES ================= -->
+            <section class="section favorites">
 
-                <a href="/genres"><img src="/assets/banner/loisirs sports nature.png" alt="Loisirs"></a>
+                <div class="container">
 
-                <a href="/genres"><img src="/assets/banner/mangas.png" alt="Mangas"></a>
+                    <h2 class="section-title">Coups de coeur des Lecteurs</h2>
 
-                <a href="/genres"><img src="/assets/banner/noël.png" alt="Noël"></a>
+                    <div class="carousel">
 
-                <a href="/genres"><img src="/assets/banner/policiers.png" alt="Policiers"></a>
+                        <div class="carousel-track">
 
-                <a href="/genres"><img src="/assets/banner/vie pratique.png" alt="Vie pratique"></a>
+                            <% if(favorites && favorites.length > 0){ %>
 
-                <a href="/genres"><img src="/assets/banner/voyage tourisme.png" alt="Voyage"></a>
+                            <% favorites.forEach(book => { %>
 
-            </div>
-
-            <a class="genres-toggle" href="/genres">Afficher la liste</a>
-
-        </section>
-
-        <!-- ================= FAVORITES ================= -->
-        <section class="section favorites">
-            <div class="container">
-
-                <h2 class="section-title">Coups de coeur des Lecteurs</h2>
-
-                <div class="carousel">
-                    <div class="carousel-track">
-
-                        <% books.forEach(book => { %>
-
-                                <article class="book-card">
+                            <article class="book-card">
 
                                 <a href="/books/<%= book.id %>" class="book-link">
 
-                                <div class="book-cover"></div>
+                                    <div class="book-cover">
 
-                                <h3 class="book-title">
-                                <%= book.title %>
-                                </h3>
+                                        <img src="<%= book.volumeInfo.imageLinks?.thumbnail?.replace('http://','https://') || '/images/no-cover.png' %>">
+
+                                    </div>
+
+                                    <h3 class="book-title"><%= book.volumeInfo.title %></h3>
 
                                 </a>
 
-                                <p class="book-author">
-                                <%= book.Author.name %>
-                                </p>
+                                <p class="book-author"><%= book.volumeInfo.authors?.join(", ") || "Auteur inconnu" %></p>
+
+                            </article>
+
+                            <% }) %>
+
+                            <% } else { %>
+
+                                <p class="no-favorites">Aucun coup de cœur pour le moment.</p>
+
+                            <% } %>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ================= BOOKS ================= -->
+
+            <section class="section books">
+
+                <div class="container">
+
+                    <h2 class="section-title">L'univers des livres</h2>
+
+                    <div class="carousel">
+                        <div class="carousel-track">
+
+                            <% randomBooks.forEach(book => { %>
+
+                                <article class="book-card">
+
+                                    <a href="/books/<%= book.id %>" class="book-link">
+
+                                    <div class="book-cover">
+
+                                    <img src="<%= book.volumeInfo.imageLinks?.thumbnail %>" alt="<%= book.volumeInfo.title %>">
+
+                                    </div>
+
+                                    <h3 class="book-title"><%= book.volumeInfo.title %></h3>
+
+                                    <p class="book-author"><%= book.volumeInfo.authors?.join(", ") || "Auteur inconnu" %></p>
+
+                                    </a>
 
                                 </article>
 
                             <% }) %>
+
+                        </div>
                     </div>
+
                 </div>
-
-            </div>
-        </section>
-
-        <!-- ================= BOOKS ================= -->
-
-        <section class="section books">
-
-            <div class="container">
-
-                <h2 class="section-title">L'univers des livres</h2>
-
-                <div class="carousel">
-                    <div class="carousel-track">
-
-                        <% books.forEach(book => { %>
-
-                            <article class="book-card">
-
-                            <a href="/books/<%= book.id %>" class="book-link">
-
-                            <div class="book-cover"></div>
-
-                            <h3 class="book-title">
-                            <%= book.title %>
-                            </h3>
-
-                            </a>
-
-                            <p class="book-author">
-                            <%= book.Author.name %>
-                            </p>
-
-                            </article>
-
-                        <% }) %>
-
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- ================= AUTHORS ================= -->
-
-        <section class="section authors">
-
-            <div class="container">
-
-                <h2 class="section-title">Coin des Auteurs</h2>
-
-                <div class="carousel">
-                    <div class="carousel-track">
-
-                        <% books.forEach(book => { %>
-
-                            <article class="author-card">
-
-                                <a href="/authors/<%= book.Author.id %>">
-
-                                    <div class="author-avatar">
-                                        Auteur
-                                    </div>
-
-                                    <p class="author-name">
-                                        <%= book.Author.name %>
-                                    </p>
-
-                                </a>
-
-                            </article>
-
-                        <% }) %>
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- ================= CTA ================= -->
-
-            <section class="cta">
-
-                <a href="/books" class="btn-primary">
-
-                Voir la bibliothèque
-
-                </a>
 
             </section>
 
-    </div>
+            <!-- ================= AUTHORS ================= -->
+
+            <section class="section authors">
+
+                <div class="container">
+
+                    <h2 class="section-title">Coin des Auteurs</h2>
+
+                    <div class="carousel">
+                        <div class="carousel-track">
+
+                            <% authors.forEach(author => { %>
+
+                                <a href="/authors/<%= encodeURIComponent(author) %>" class="author-card">
+
+                                    <div class="author-avatar">
+                                        <img src="https://ui-avatars.com/api/?name=<%= author %>&background=random">
+                                    </div>
+
+                                    <h3 class="author-name"><%= author %></h3>
+
+                                </a>
+
+                            <% }) %>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
 
 </main>
+
 
 <div id="loginContainer"></div>

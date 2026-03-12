@@ -3,7 +3,7 @@
 /* ============================== */
 
 import { Router } from "express";
-import { User } from "../../models/index.js";
+import { User, Library } from "../../models/index.js";
 import argon2 from "argon2";
 
 const router = Router();
@@ -19,35 +19,39 @@ router.post("/login", async (req, res) => {
 
         const { email, password } = req.body;
 
-        if (!email || !password) {
-            return res.status(400).json({
-                error: "Email et mot de passe requis"
-            });
-        }
-
         const user = await User.findOne({
             where: { mail: email }
         });
 
         if (!user) {
-            return res.status(401).json({
-                error: "Utilisateur introuvable"
-            });
+            return res.status(401).json({ error: "Utilisateur introuvable" });
         }
 
         const validPassword = await argon2.verify(user.password, password);
 
         if (!validPassword) {
-            return res.status(401).json({
-                error: "Mot de passe incorrect"
+            return res.status(401).json({ error: "Mot de passe incorrect" });
+        }
+
+        // récupérer la bibliothèque
+        let library = await Library.findOne({
+            where: { id_user: user.id_user }
+        });
+
+        if (!library) {
+            library = await Library.create({
+                id_user: user.id_user
             });
         }
 
+        // session
         req.session.user = {
             id: user.id_user,
             name: user.name,
             mail: user.mail
         };
+
+        req.session.libraryId = library.id_library;
 
         res.json({
             success: true,
@@ -56,11 +60,8 @@ router.post("/login", async (req, res) => {
 
     } catch (error) {
 
-        console.error("Login error:", error);
-
-        res.status(500).json({
-            error: "Erreur serveur"
-        });
+        console.error(error);
+        res.status(500).json({ error: "Erreur serveur" });
 
     }
 
@@ -75,13 +76,17 @@ router.post("/register", async (req, res) => {
 
     try {
 
-        const { name, email, password } = req.body;
+        let { firstname, lastname, email, password, library } = req.body;
 
-        if (!name || !email || !password) {
+        email = email.toLowerCase().trim();
+
+        if (!firstname || !lastname || !email || !password) {
             return res.status(400).json({
                 error: "Tous les champs sont requis"
             });
         }
+
+        const name = `${firstname} ${lastname}`;
 
         const existingUser = await User.findOne({
             where: { mail: email }
@@ -97,15 +102,25 @@ router.post("/register", async (req, res) => {
 
         const newUser = await User.create({
             name,
+            firstname,
+            lastname,
             mail: email,
             password: hashedPassword
+        });
+
+        const newLibrary = await Library.create({
+            name: library || `Bibliothèque de ${firstname}`,
+            id_user: newUser.id_user
         });
 
         req.session.user = {
             id: newUser.id_user,
             name: newUser.name,
+            firstname: newUser.firstname,
             mail: newUser.mail
         };
+
+        req.session.libraryId = newLibrary.id_library;
 
         res.json({
             success: true,

@@ -1,47 +1,54 @@
-<!-- ======== BANNER ====== -->
+<main class="page page-genre-selected">
 
-<section class="banner" style="background-image:url('<%= genre.banner %>')">
-    <h1><%= genre.name %></h1>
-    <a href="/genres" class="btn-back">←</a>
-</section>
+    <!-- BANNER -->
 
-<!-- ========= MAIN ========= -->
+    <section class="genre-banner">
 
-<main class="page page-book">
+        <img 
+            src="/assets/banner/<%= genreSlug %>.png" 
+            alt="<%= genreName %>"
+        >
+
+    </section>
 
     <%- include("../partials/breadcrumb") %>
 
-    <div class="container">
-        
-        <div class="books-grid">
 
-            <% if (books.length === 0) { %>
+    <!-- BOOKS -->
 
-                <p class="empty-message">Aucun livre disponible pour ce genre.</p>
+    <section class="genre-books">
 
-            <% } %>
+        <div class="container">
 
-            <% books.forEach(book => { %>
+            <div class="books-grid">
 
-                <article class="book-card">
+                <% books.forEach(book => { %>
 
-                    <a href="/books/<%= book.id_book %>" class="book-link">
+                    <article class="book-card">
 
-                        <div class="book-cover">
-                            <img src="<%= book.cover || '/assets/img/default-book.png' %>" alt="<%= book.title %>">
-                        </div>
+                        <a href="/books/<%= book.id %>" class="book-link">
 
-                        <h3 class="book-title"><%= book.title %></h3>
+                            <div class="book-cover">
 
-                    </a>
+                                <img src="<%= book.volumeInfo.imageLinks?.thumbnail || '/assets/img/default-book.png' %>" alt="<%= book.volumeInfo.title %>">
 
-                </article>
+                            </div>
 
-            <% }) %>
+                            <h3 class="book-title"><%= book.volumeInfo.title %></h3>
+
+                            <p class="book-author"><%= book.volumeInfo.authors?.[0] || "Auteur inconnu" %></p>
+
+                        </a>
+
+                    </article>
+
+                <% }) %>
+
+            </div>
 
         </div>
 
-    </div>
+    </section>
 
 </main>
 

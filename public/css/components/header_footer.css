@@ -1,5 +1,5 @@
-
 /* =============== HEADER ================== */
+
 .site-header {
     background-color: var(--color-background-header-footer);
     padding: 1rem;
@@ -14,26 +14,41 @@
 }
 
 /* LOGO */
+
 .logo {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
-    gap: 0.6rem;
 }
 
 .logo img {
-    height: 10rem;
+    height: 6rem;
 }
 
-/* CACHER LOGIN BOUTON ET SEARCH BAR */
-.search-bar,
-.login-btn {
-    display: none;
+/* SEARCH */
+
+.search-container{
+    position:relative;
 }
 
- /* USER BOUTON */
+.search-bar{
+    display:none;
+}
+
+.search-bar.active{
+    display:flex;
+}
+
+/* LOGIN */
+
+.login-btn{
+    display:none;
+}
+
+/* USER MOBILE */
+
 .mobile-user {
     display: block;
     background: none;
@@ -43,7 +58,8 @@
     color: var(--color-background-menu);
 }
 
-/* GROUPE DROITE */
+/* ACTIONS */
+
 .header-actions {
     display: flex;
     align-items: center;
@@ -53,21 +69,25 @@
     display: block;
     background: none;
     border: none;
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
+
+/* ACCESSIBILITY */
 
 .accessibility-toggle img {
     border-radius: 0.6rem;
-    padding: 0.5rem;
-    height: 4rem;
+    padding: 0.4rem;
+    height: 3rem;
 }
 
 /* USER AREA */
+
 .user-area {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
+
 .user-menu{
     position:relative;
 }
@@ -77,283 +97,208 @@
     border:none;
     font-weight:600;
     cursor:pointer;
+    color: var(--color-background-menu);
 }
 
+/* MENU */
+
 .user-dropdown{
-
     position:absolute;
-    top:120%;
+    top:100%;
     right:0;
-
-    background:white;
+    background: var(--color-background-menu);
     border-radius:0.5rem;
     box-shadow:0 4px 10px rgba(0,0,0,0.1);
-
     display:none;
     flex-direction:column;
 }
 
+/* LIENS */
+
 .user-dropdown a{
-
+    display:flex;
+    justify-content:space-between;
     padding:0.6rem 1rem;
-    text-decoration:none;
-    color:#333;
-
+    text-decoration: none;
+    color: var(--color-background-header-footer);
+    white-space:nowrap;
 }
 
 .user-dropdown a:hover{
     background:#f5f5f5;
+    border-radius: 1rem;
 }
+
+/* HOVER */
 
 .user-menu:hover .user-dropdown{
     display:flex;
 }
 
-/* ==== FIL ARIANE ==== */
-.breadcrumb{
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    gap:0.5rem;
-
-    font-size:0.9rem;
-    margin:1rem 0;
-    font-size:0.8rem;
+.welcome-text{
+    display:none;
 }
 
-.breadcrumb a{
+.logout-btn{
     text-decoration:none;
-    color:var(--color-menu-text);
+    padding:0.4rem 0.8rem;
+    border-radius:0.6rem;
+    background:var(--color-background-menu);
+    color:var(--color-background-header-footer);
 }
 
-.breadcrumb a:hover{
-    text-decoration:underline;
+/* ==== SEARCH POPUP ==== */
+
+.popup {
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    width: 100%;
+    max-width: 22rem;
+    background: var(--color-background-menu);
+    border: 0.0625rem solid var(--color-background-header-footer);
+    border-radius: 0.4rem;
+    padding: 0.8rem;
+    box-shadow: 0 0.3rem 0.8rem rgba(0,0,0,0.15);
+    display: none;
+    z-index: 1000;
+    max-height: 20rem;
+    overflow-y: auto;
+
+    /* amélioration du scroll */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
 
-.separator{
-    opacity:0.5;
+/* scrollbar plus propre */
+.popup::-webkit-scrollbar {
+    width: 6px;
 }
 
-.current{
-    font-weight:600;
+.popup::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
 }
 
-/* ==== FOOTER ==== */
+.result-item{
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.result-item:hover{
+    background: rgba(0,0,0,0.05);
+}
+
+/* =============================== FOOTER ============================ */
+
 .footer {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding: 1.5rem;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    padding:1.5rem;
     background:var(--color-background-header-footer);
-    color: var(--color-background-menu);
-    text-align: center;
+    color:var(--color-background-menu);
+    text-align:center;
 }
+
 .footer a {
-    text-decoration: none;
-    color: inherit;
     color: var(--color-background-menu);
+    text-decoration: none;
 }
 
-/* ========================== MEDIA QUERIES =========================== */
+/* ================================================================================
+                                MEDIA QUERIES
+==================================================================================*/
 
-/*  ===================== TABLETTE + ===================  */
-@media (min-width: 48rem) {
-    .header-container {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
+/* ===================== TABLETTE ========================= */
+
+@media (min-width:48rem){
 
     /* LOGO */
 
-    .logo {
-    position: static;
-    transform: none;
-    }
-
-    /* LOGIN BOUTON */
-
-    .login-btn {
-        display: block;
-    }
-     /* CACHER LES ICONES */
-
-    .mobile-search {
-        display: none;
-    }
-
-    .mobile-user {
-        display: none;
+    .logo{
+        position:static;
+        transform:none;
     }
 
     /* SEARCH BAR */
 
-    .search-bar {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    background: var(--color-background-menu);
-    border-radius: 3rem;
-    padding: 0.6rem 1.2rem;
-    width: 45%;
-    max-width: 38rem;
-    box-shadow: 0 0.2rem 0.6rem var(--color-menu-text);
-    transition: all 0.3s ease;
+    .search-bar{
+        display:flex;
+        align-items:center;
+        gap:0.8rem;
+
+        background:var(--color-background-menu);
+
+        border-radius:3rem;
+        padding:0.6rem 1.2rem;
+
+        width:45%;
+        max-width:38rem;
+
+        box-shadow:0 0.2rem 0.6rem var(--color-menu-text);
     }
 
-    .search-bar:focus-within {
-    background: var(--color-background-menu);
-    box-shadow: 0 0.4rem 1rem var(--color-menu-text);
+    .search-bar input{
+        flex:1;
+        border:none;
+        background:transparent;
+        font-size:1rem;
+        outline:none;
     }
 
-    .search-bar input {
-    flex: 1;
-    border: none;
-    background: transparent;
-    font-size: 1rem;
-    outline: none;
+    .search-bar button{
+        border:none;
+        background:transparent;
+        cursor:pointer;
     }
 
-    .search-bar button {
-    border: none;
-    background: transparent;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: transform 0.2s ease;
+    /* LOGIN */
+
+    .login-btn{
+        display:block;
+        padding:0.7rem 1.6rem;
+        border-radius:1rem;
+        border:none;
+        font-weight:600;
+        cursor:pointer;
+        background:var(--color-background-menu);
     }
 
-    .search-bar button:hover {
-    transform: scale(1.1);
+    /* CACHER MOBILE */
+
+    .mobile-search,
+    .mobile-user{
+        display:none;
     }
 
-    /* LOGIN BOUTON */
-
-    .login-btn {
-    padding: 0.7rem 1.6rem;
-    border-radius: 1rem;
-    border: none;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    background: var(--color-background-menu);
-    color: var(--color-background-header-footer);
-    box-shadow: 0 0.2rem 0.5rem var(--color-menu-text);
-    transition: all 0.3s ease;
-    }
-
-    .login-btn:hover {
-    background: var(--color-background-button);
-    color: var(--color-background-menu);
-    transform: translateY(-0.2rem);
-    box-shadow: 0 0.6rem 1.2rem var(--color-menu-text);
-    }
-
-    .login-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 0.3rem 0.6rem var(--color-menu-text);
+    .welcome-text{
+        display:inline;
     }
 
 }
 
-/* ====================== DESKTOP ====================== */
-/* Desktop */
-@media (min-width: 64rem) {
+/* ============================= DESKTOP ========================= */
 
-    .logo {
-    position: static;
-    transform: none;
+@media (min-width:64rem){
+
+    .logo img{
+        height:12rem;
     }
 
-    /* LOGIN BOUTON */
-
-    .login-btn {
-        display: block;
+    .popup{
+        max-width:28rem;
     }
-    /* CACHER LES ICONES */
-
-    .mobile-search {
-        display: none;
-    }
-
-    .mobile-user {
-        display: none;
-    }
-
-    /* SEARCH BAR */
 
     .search-bar {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    background: var(--color-background-menu);
-    border-radius: 3rem;
-    padding: 0.6rem 1.2rem;
-    width: 45%;
-    max-width: 38rem;
-    box-shadow: 0 0.2rem 0.6rem var(--color-menu-text);
-    transition: all 0.3s ease;
+        width: 20rem;
     }
 
-    .search-bar:focus-within {
-    background: var(--color-background-menu);
-    box-shadow: 0 0.4rem 1rem var(--color-menu-text);
+    .accessibility-toggle img{
+        height: 5rem;
     }
 
-    .search-bar input {
-    flex: 1;
-    border: none;
-    background: transparent;
-    font-size: 1rem;
-    outline: none;
+    .welcome-text{
+        display:inline;
     }
 
-    .search-bar button {
-    border: none;
-    background: transparent;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    }
-
-    .search-bar button:hover {
-    transform: scale(1.1);
-    }
-
-    /* LOGIN BOUTON */
-
-    .login-btn {
-    padding: 0.7rem 1.6rem;
-    border-radius: 1rem;
-    border: none;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    background: var(--color-background-menu);
-    color: var(--color-background-header-footer);
-    box-shadow: 0 0.2rem 0.5rem var(--color-menu-text);
-    transition: all 0.3s ease;
-    }
-
-    .login-btn:hover {
-    background: var(--color-background-button);
-    color: var(--color-background-menu);
-    transform: translateY(-0.2rem);
-    box-shadow: 0 0.6rem 1.2rem var(--color-menu-text);
-    }
-
-    .login-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 0.3rem 0.6rem var(--color-menu-text);
-    }
-
-    .logout-btn {
-        text-decoration: none;
-        color: var(--color-background-menu);
-        margin-left: 1rem;
-    }
-
-    /* USER */
-
-    .user-button {
-        color: var(--color-background-menu);
-    }
 }

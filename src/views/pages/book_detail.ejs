@@ -2,64 +2,132 @@
 
     <%- include("../partials/breadcrumb") %>
 
-    <div class="container">
+    <section class="book-wrapper">
 
-        <section class="book-wrapper">
+        <div class="container">
 
             <div class="book-container">
 
+                <!-- COVER -->
+
                 <div class="cover">
 
-                    <img src="/assets/img/seigneur_anneaux_484x350 1.png" alt="couverture du livre">
+                    <img src="<%= book.cover || '/assets/img/default-book.png' %>" alt="<%= book.title %>">
+
+                    <% if (user) { %>
+
+                        <button class="favorite-btn">❤️</button>
+
+                    <% } %>
+
+                    <% if(readingStatus){ %>
+
+                        <span class="book-status"><%= readingStatus %></span>
+
+                    <% } %>
 
                 </div>
 
+                <!-- INFOS -->
+
                 <div class="book-info">
 
-                    <h1><%= book.title %></h1>
+                    <h1 class="book-title"><%= book.title %></h1>
 
                     <p>
-                        <strong>Auteur :</strong> <a href="/authors/<%= book.Author.id_author %>"><%= book.Author.name %></a>
+                        <strong>Auteur :</strong>
+                        <% if (book.authors?.length) { %>
+                            <a href="/authors/<%= encodeURIComponent(book.authors[0]) %>">
+                                <%= book.authors.join(", ") %>
+                            </a>
+                        <% } else { %>
+                            Auteur inconnu
+                        <% } %>
                     </p>
 
-                    <p>
-                        <strong>Date de publication :</strong><%= book.release_date || "Non renseignée" %>
-                    </p>
+                    <p><strong>Date de publication :</strong> <%= book.publishedDate || "Non disponible" %></p>
 
-                    <p>
-                        <strong>Editeur :</strong><%= book.publisher || "Non renseigné" %>
-                    </p>
+                    <p><strong>Éditeur :</strong> <%= book.publisher || "Non disponible" %></p>
 
-                    <p>
-                        <strong>Genre :</strong><% book.Genres.forEach(genre => { %><span><%= genre.name %></span><% }) %>
-                    </p>
+                    <p><strong>Nombre de pages :</strong> <%= book.pageCount || "Non disponible" %></p>
 
-                    <p>
-                        <strong>Âge du lecteur :</strong><%= book.reader_age || "Non renseigné" %>
-                    </p>
+                    <!-- ACTIONS -->
 
-                    <p>
-                        <strong>Nombre de pages :</strong><%= book.pages || "Non renseigné" %>
-                    </p>
+                    <div class="book-actions">
 
-                    <p>
-                        <strong>ISBN :</strong><%= book.isbn || "Non renseigné" %>
-                    </p>
+                        <% if (user) { %>
+
+                            <% if (alreadyInLibrary) { %>
+
+                                <form action="/library/remove" method="POST">
+                                    <input type="hidden" name="google_book_id" value="<%= book.id %>">
+                                    <button class="btn-remove">Retirer de ma bibliothèque</button>
+                                </form>
+
+                            <% } else { %>
+
+                                <form action="/library/add" method="POST">
+                                    <input type="hidden" name="google_book_id" value="<%= book.id %>">
+                                    <button type="submit" class="btn-add">Ajouter à ma bibliothèque</button>
+                                </form>
+
+                            <% } %>
+
+                        <% } else { %>
+
+                            <a href="/login" class="login-to-add">
+                                Connectez-vous pour ajouter ce livre à votre bibliothèque
+                            </a>
+
+                        <% } %>
+
+                    </div>
 
                 </div>
 
             </div>
 
-        </section>
+            <!-- RESUME -->
 
-        <section class="book-summary">
+            <section class="book-summary">
 
-            <h2>Résumé du livre</h2>
+                <h2>Résumé du livre</h2>
 
-            <p><%= book.summary || "Résumé non disponible." %></p>
+                <p><%- book.description || "Aucun résumé disponible pour ce livre." %></p>
 
-        </section>
+            </section>
 
-    </div>
+            <% if (user && similarBooks?.length) { %>
+
+                <section class="similar-books">
+
+                    <h2>Livres similaires</h2>
+
+                    <div class="similar-grid">
+
+                        <% similarBooks.forEach(similar => { %>
+
+                            <a href="/books/<%= similar.id %>" class="similar-book">
+
+                                <img 
+                                    src="<%= similar.volumeInfo.imageLinks?.thumbnail || '/assets/img/default-book.png' %>" 
+                                    alt="<%= similar.volumeInfo.title %>"
+                                >
+
+                                <p><%= similar.volumeInfo.title %></p>
+
+                            </a>
+
+                        <% }) %>
+
+                    </div>
+
+                </section>
+
+            <% } %>
+
+        </div>
+
+    </section>
 
 </main>

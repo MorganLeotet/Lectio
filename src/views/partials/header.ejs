@@ -5,9 +5,7 @@
         <!-- Icône user (mobile uniquement) -->
         <% if (user) { %>
 
-            <a href="/api/auth/logout" class="mobile-user">
-                Déconnexion
-            </a>
+            <a href="/api/auth/logout" class="mobile-user">Déconnexion</a>
 
         <% } else { %>
 
@@ -21,10 +19,28 @@
         </a>
 
         <!-- Recherche -->
-        <form class="search-bar">
-            <input type="text" placeholder="Rechercher par livre, auteur, genre">
-            <button type="submit">🔍</button>
-        </form>
+        <div class="search-container">
+
+            <form class="search-bar">
+
+                <input id="searchInput" type="text" placeholder="Rechercher un livre ou un auteur">
+
+            </form>
+
+            <!-- Popup -->
+            <div id="searchPopup" class="popup">
+
+                <div id="resultLivres">
+                    <h3>Livres</h3>
+                </div>
+
+                <div id="resultAuteurs">
+                    <h3>Auteurs</h3>
+                </div>
+
+            </div>
+
+        </div>
 
         <!-- Zone utilisateur -->
         <div class="user-area">
@@ -36,8 +52,18 @@
                 <div class="user-menu">
 
                     <button class="user-button">
-                        <%= user.firstname %>
+
+                        <span class="welcome-text">Bienvenue, <%= user.name.split(" ")[0] %></span>
+
+                        <span class="user-arrow">▼</span>
+
                     </button>
+
+                    <div class="user-dropdown">
+
+                        <a href="/library">Ma bibliothèque (<%= libraryCount %>)</a>
+
+                        <a href="/api/auth/logout">Déconnexion</a>
 
                     </div>
 
@@ -49,7 +75,7 @@
 
                 <% } %>
 
-                <button class="mobile-search">🔍</button>
+                <button id="mobileSearchBtn" class="mobile-search">🔍</button>
 
                 <button class="accessibility-toggle" aria-label="Mode accessibilité"><img src="/assets/icons/handicap.svg"></button>
 

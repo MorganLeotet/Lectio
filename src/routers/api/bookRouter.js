@@ -3,59 +3,26 @@
 import { Router } from "express";
 import bookController from "../../controllers/bookController.js";
 import authMiddleware from "../../middlewares/authMiddleware.js";
-import { Book, Author, Genre } from "../../models/index.js";
 
 /* ==== ROUTER INITIALIZATION ==== */
 
 const router = Router();
 
 /* ============================= */
-/* BOOK PAGES                    */
+/* GOOGLE BOOK                   */
 /* ============================= */
 
-/* Page détail d'un livre */
-router.get("/:id/page", async (req, res) => {
-
-    try {
-
-        const book = await Book.findByPk(req.params.id, {
-        include: [
-            { model: Author },
-            { model: Genre }
-        ]
-        });
-
-        if (!book) {
-        return res.status(404).send("Livre introuvable");
-        }
-
-        res.render("pages/book_detail", {
-        title: book.title,
-        book
-        });
-
-    } catch (error) {
-
-    console.error(error);
-    res.status(500).send("Erreur serveur");
-
-    } 
-
-});
-
+router.get("/google/:googleId", bookController.getGoogleBook);
 
 /* ============================= */
 /* BOOK API                      */
 /* ============================= */
 
-/* PAGE CATALOGUE */
-router.get("/page", bookController.renderBooksPage);
-
 /* Voir tous les livres */
 router.get("/", authMiddleware, bookController.getAllBooks);
 
 /* Voir un livre */
-router.get("/:id", authMiddleware, bookController.getBookById);
+router.get("/:id", bookController.getBookDetail);
 
 /* Créer un livre */
 router.post("/", authMiddleware, bookController.createBook);

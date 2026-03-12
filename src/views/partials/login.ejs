@@ -43,7 +43,7 @@
 
                 <% } %>
 
-                <button type="submit" class="next">Se connecter</button>
+                <button type="button" class="next">Se connecter</button>
 
             </form>
 
@@ -62,19 +62,19 @@
 
             <h2>Inscription</h2>
 
-            <form action="/register" method="POST">
+            <form>
 
-                <input type="text" name="firstname" placeholder="Prénom" required>
+                <input id="registerFirstname" type="text" name="firstname" placeholder="Prénom" required>
 
-                <input type="text" name="lastname" placeholder="Nom" required>
+                <input id="registerLastname" type="text" name="lastname" placeholder="Nom" required>
 
-                <input type="email" name="email" placeholder="adresse e-mail" required>
+                <input id="registerEmail" type="email" name="email" placeholder="adresse e-mail" required>
 
-                <input type="password" name="password" placeholder="mot de passe" required>
+                <input id="registerPassword" type="password" name="password" placeholder="mot de passe" required>
 
-                <input type="text" name="library" placeholder="Nom de votre bibliothèque">
+                <input id="registerLibrary" type="text" name="library" placeholder="Nom de votre bibliothèque">
 
-                <button type="submit" class="next">Créer mon compte</button>
+                <button type="button" class="next">Créer mon compte</button>
 
             </form>
 
@@ -95,7 +95,7 @@
 
                 <input type="email" name="email" placeholder="adresse e-mail" required>
 
-                <button type="submit" class="next">Continuer</button>
+                <button type="button" class="next">Continuer</button>
 
             </form>
 

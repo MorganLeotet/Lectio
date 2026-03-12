@@ -4,15 +4,15 @@
 
     <div class="container">
 
-        <h1 id="libraryTitle">Ma bibliothèque</h1>
+        <h1 id="libraryTitle"><%= library.name %></h1>
 
         <div class="library_menu">
 
-        <button data-filter="all">Tous</button>
-        <button data-filter="a_lire">A Lire</button>
-        <button data-filter="en_cours">En Cours</button>
-        <button data-filter="lu">Lu</button>
-        <button data-filter="favorites">Coup de Coeur</button>
+            <button data-filter="all">Tous</button>
+            <button data-filter="a_lire">A Lire</button>
+            <button data-filter="en_cours">En Cours</button>
+            <button data-filter="lu">Lu</button>
+            <button data-filter="favorites">Coup de Coeur</button>
 
         </div>
 
@@ -20,19 +20,37 @@
 
             <% books.forEach(book => { %>
 
-            <article class="book-card">
+                <div class="book-card" data-status="<%= book.reading_status.toLowerCase().replace(' ','_') %>" data-favorite="<%= book.favorite %>">
 
-                <a href="/books/<%= book.id %>" class="book-link">
+                    <a href="/books/<%= book.id %>">
 
-                <div class="book-cover">
-                <img src="<%= book.cover %>" alt="<%= book.title %>">
+                        <div class="cover-wrapper">
+
+                            <img src="<%= book.volumeInfo.imageLinks?.thumbnail || '/images/no-cover.png' %>">
+
+                            <button class="favorite-book <%= book.favorite ? 'active' : '' %>" data-id="<%= book.id %>">❤️</button>
+
+                            <span class="status-badge <%= book.reading_status.toLowerCase().replace(' ','_') %>"><%= book.reading_status %></span>
+
+                        </div>
+
+                        <h3><%= book.volumeInfo.title %></h3>
+
+                    </a>
+
+                    <p><%= book.volumeInfo.authors?.join(", ") %></p>
+
+                    <select class="change-status" data-id="<%= book.id %>">
+
+                        <option value="a_lire" <%= book.reading_status==="a_lire"?"selected":"" %>>A Lire</option>
+
+                        <option value="en_cours" <%= book.reading_status==="en_cours"?"selected":"" %>>En Cours</option>
+
+                        <option value="lu" <%= book.reading_status==="lu"?"selected":"" %>>Lu</option>
+
+                    </select>
+
                 </div>
-
-                <h3 class="book-title"><%= book.title %></h3>
-
-                </a>
-
-            </article>
 
             <% }) %>
 

@@ -65,7 +65,7 @@
 
 .accessibility .index-slogan {
     font-size: 1.6rem;
-  line-height: 1.6;
+    line-height: 1.6;
 }
 
 .accessibility .index-button {
@@ -78,7 +78,6 @@
 }
 
 
-
 /* ========================== MEDIA QUERIES =========================== */
 
 /* =============== TABLETTE ========== */
@@ -89,3 +88,5 @@
         right: 2rem;
     }
 }
+
+

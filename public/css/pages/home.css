@@ -60,52 +60,86 @@
     justify-content: center;
     gap: 2rem;
 }
-/* ===== AUTEURS ===== */
-.author-card {
+
+/* ===============================
+    BOOK CARD
+================================ */
+.search-book-card {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    min-width: 18rem;
-    height: 22rem;
-    padding: 2rem;
-    border-radius: 1.2rem;
+    gap: 1.5rem;
+
+    background: var(--color-background-menu);
+    border-radius: 0.5rem;
+
+    padding: 1rem;
+
+    box-shadow: 0 0.125rem 0.375rem rgba(0,0,0,0.1);
+
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+    cursor: pointer;
 }
-.author-card a {
+
+.search-book-card:hover {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.15);
+}
+
+.search-book-cover {
+    width: 4.5rem;
+    height: 6.5rem;
+    object-fit: cover;
+    border-radius: 0.25rem;
+}
+
+.search-book-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.search-book-card h3 {
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.search-book-card p {
+    font-size: 0.8rem;
+    color: #555;
+    margin: 0;
+}
+
+/* ==========================
+    BOOK LINK
+============================ */
+
+.search-book-link {
     text-decoration: none;
     color: inherit;
 }
-.author-avatar {
-    width: 8rem;
-    height: 8rem;
-    border-radius: 50%;
-    margin-bottom: 1.5rem;
-    background: #5e6a82;
-}
-.author-name {
-    font-size: 0.9rem;
-}
 
+/* ===============================
+    ADD BUTTON
+================================ */
 
-/* ==== BOUTON BIBLIOTHEQUE ==== */
+.add-book-btn {
+    margin-top: 0.5rem;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.75rem;
 
-.cta {
-    display: grid;
-    justify-content: center;
-}
-.btn-primary {
-    padding: 0 1.5rem;
-    border: 1px solid var(--color-menu-text);
-    border-radius: 12px;
-    color: var(--color-menu-text);
-    background: var(--color-background-menu);
-    text-decoration: none;
-}
-.btn-primary:hover {
-    background: var(--color-background-button);
+    border: none;
+    border-radius: 0.25rem;
+
+    background: var(--color-background-header-footer);
     color: var(--color-background-menu);
+
+    cursor: pointer;
 }
 
-
+.add-book-btn:hover {
+    background: var(--color-background-button);
+}
 
 
 
