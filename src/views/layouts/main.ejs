@@ -16,7 +16,11 @@
 </head>
 <body>
     <%- include('../partials/header') %>
-    <button id="installApp" style="display:none;">Installer Lectio</button>
+    
+    <div id="installBanner" style="display:none;">
+        <span>📚 Installer Lectio pour un accès rapide</span>
+        <button id="installApp">Installer</button>
+    </div>
 
     <main>
         <%- body -%>
@@ -38,17 +42,13 @@
 
         let deferredPrompt;
         const installBtn = document.getElementById("installApp");
+        const banner = document.getElementById("installBanner");
 
-        if (!installBtn) return;
-
-        // détection iOS
         const isIOS = /iphone|ipad|ipod/.test(window.navigator.userAgent.toLowerCase());
-
-        // détection si déjà installé
         const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches;
 
         if (isIOS && !isInStandaloneMode) {
-            installBtn.style.display = "block";
+            banner.style.display = "flex";
         }
 
         window.addEventListener("beforeinstallprompt", (e) => {
@@ -56,7 +56,7 @@
             e.preventDefault();
             deferredPrompt = e;
 
-            installBtn.style.display = "block";
+            banner.style.display = "flex";
 
         });
 
@@ -67,6 +67,8 @@
                 deferredPrompt.prompt();
                 await deferredPrompt.userChoice;
                 deferredPrompt = null;
+
+                banner.style.display = "none";
 
             } else if (isIOS) {
 

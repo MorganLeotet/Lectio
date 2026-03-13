@@ -22,14 +22,27 @@ main {
 }
 
 /* Bouton Lectio */
-#installApp {
+
+#installBanner {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background: #2d2dff;
     color: white;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+#installBanner button {
+    background: white;
+    color: #2d2dff;
     border: none;
-    padding: 12px 18px;
-    border-radius: 8px;
+    padding: 8px 14px;
+    border-radius: 6px;
     cursor: pointer;
+    font-weight: bold;
 }
