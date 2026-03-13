@@ -16,6 +16,11 @@ import './models/index.js';
         await sequelize.authenticate();
         console.log('✅ Connexion PostgreSQL ok')
 
+        await sequelize.sync();
+        console.log('✅ Tables synchronisées');
+
+        await seedUser();
+
     } catch (error) {
 
     console.error('❌ Erreur DB :', error);
@@ -23,7 +28,6 @@ import './models/index.js';
     }
 })();
 
-await seedUser();
 
 /* ==== SERVER ==== */
 
