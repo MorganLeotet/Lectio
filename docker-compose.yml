@@ -12,24 +12,27 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   app:
-    build: .
-    container_name: lectio-app
-    restart: always
-    ports:
-      - "3000:3000"
-    logging:
+  build: .
+  container_name: lectio-app
+  restart: always
+  ports:
+    - "3000:3000"
+
+  logging:
     driver: "json-file"
     options:
       max-size: "10m"
       max-file: "3"
-    depends_on:
-      - db
-    environment:
-      DB_HOST: db
-      DB_USER: lectio
-      DB_PASSWORD: lectio
-      DB_NAME: lectio
-      DB_PORT: 5432
+
+  depends_on:
+    - db
+
+  environment:
+    DB_HOST: db
+    DB_USER: lectio
+    DB_PASSWORD: lectio
+    DB_NAME: lectio
+    DB_PORT: 5432
 
 volumes:
   postgres_data:
