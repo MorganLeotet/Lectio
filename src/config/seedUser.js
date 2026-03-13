@@ -3,24 +3,27 @@ import { User } from "../models/index.js";
 
 export async function seedUser() {
 
-    const email = "test@test.com";
+    const email = "admin@lectio.app";
+    const password = "admin123";
 
     const existingUser = await User.findOne({
         where: { mail: email }
     });
 
     if (existingUser) {
-        console.log("✔ Test user already exists");
+        console.log("✔ Admin user already exists");
         return;
     }
 
-    const hashedPassword = await argon2.hash("123456");
+    const hashedPassword = await argon2.hash(password);
 
     await User.create({
-        name: "TestUser",
+        name: "Admin",
         mail: email,
         password: hashedPassword
     });
 
-    console.log("✔ Test user created");
+    console.log("✔ Admin user created");
+    console.log(`Email: ${email}`);
+    console.log(`Password: ${password}`);
 }
