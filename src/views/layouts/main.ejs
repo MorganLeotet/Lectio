@@ -34,23 +34,47 @@
     </script>
     <script>
         let deferredPrompt;
+    const installBtn = document.getElementById("installApp");
 
-        window.addEventListener("beforeinstallprompt", (e) => {
+    // détection iOS
+    const isIOS = /iphone|ipad|ipod/.test(window.navigator.userAgent.toLowerCase());
+
+    // détection si déjà installé
+    const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches;
+
+    // afficher le bouton sur iOS
+    if (isIOS && !isInStandaloneMode) {
+        installBtn.style.display = "block";
+    }
+
+    // Android / Chrome
+    window.addEventListener("beforeinstallprompt", (e) => {
+
         e.preventDefault();
         deferredPrompt = e;
 
-        const installBtn = document.getElementById("installApp");
-        if (installBtn) {
-            installBtn.style.display = "block";
+        installBtn.style.display = "block";
 
-            installBtn.addEventListener("click", async () => {
+        installBtn.addEventListener("click", async () => {
+
             installBtn.style.display = "none";
-            deferredPrompt.prompt();
-            await deferredPrompt.userChoice;
-            deferredPrompt = null;
-            });
-        }
+
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                await deferredPrompt.userChoice;
+                deferredPrompt = null;
+            } else if (isIOS) {
+
+                alert(
+                    "Pour installer Lectio :\n\n1️⃣ Appuyez sur 'Partager'\n2️⃣ Puis 'Ajouter à l'écran d'accueil'"
+                );
+
+            }
+
         });
+
+    });
+
     </script>
 </body>
 
