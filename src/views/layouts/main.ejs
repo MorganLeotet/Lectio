@@ -33,36 +33,41 @@
         }
     </script>
     <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+
         let deferredPrompt;
-    const installBtn = document.getElementById("installApp");
+        const installBtn = document.getElementById("installApp");
 
-    // détection iOS
-    const isIOS = /iphone|ipad|ipod/.test(window.navigator.userAgent.toLowerCase());
+        if (!installBtn) return;
 
-    // détection si déjà installé
-    const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches;
+        // détection iOS
+        const isIOS = /iphone|ipad|ipod/.test(window.navigator.userAgent.toLowerCase());
 
-    // afficher le bouton sur iOS
-    if (isIOS && !isInStandaloneMode) {
-        installBtn.style.display = "block";
-    }
+        // détection si déjà installé
+        const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches;
 
-    // Android / Chrome
-    window.addEventListener("beforeinstallprompt", (e) => {
+        if (isIOS && !isInStandaloneMode) {
+            installBtn.style.display = "block";
+        }
 
-        e.preventDefault();
-        deferredPrompt = e;
+        window.addEventListener("beforeinstallprompt", (e) => {
 
-        installBtn.style.display = "block";
+            e.preventDefault();
+            deferredPrompt = e;
+
+            installBtn.style.display = "block";
+
+        });
 
         installBtn.addEventListener("click", async () => {
 
-            installBtn.style.display = "none";
-
             if (deferredPrompt) {
+
                 deferredPrompt.prompt();
                 await deferredPrompt.userChoice;
                 deferredPrompt = null;
+
             } else if (isIOS) {
 
                 alert(
@@ -73,7 +78,7 @@
 
         });
 
-    });
+        });
 
     </script>
 </body>
