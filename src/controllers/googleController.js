@@ -20,7 +20,7 @@ const googleBooksController = {
                 google_id: book.id,
                 title: info.title,
                 authors: info.authors || [],
-                thumbnail: info.imageLinks?.thumbnail?.replace("http://", "https://")
+                thumbnail: info.imageLinks?.thumbnail? info.imageLinks.thumbnail.replace("http://", "https://"): "/assets/default-book.png"
             };
 
         });
