@@ -39,13 +39,14 @@ router.get(["/", "/home"], async (req, res) => {
 
         const randomBooks = [...books]
             .sort(() => Math.random() - 0.5)
-            .slice(0, 10);
+            .slice(0, 20);
 
         /* ================= AUTHORS ================= */
 
         const authors = [...new Set(
-            books.flatMap(book => book.volumeInfo?.authors || [])
-        )].slice(0, 10);
+            randomBooks.flatMap(book => book.volumeInfo?.authors || [])
+        )]
+        .slice(0, 10);
 
         /* ================= GENRES ================= */
 
