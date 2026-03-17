@@ -11,12 +11,19 @@ import { requireAuth } from "../middlewares/requireAuth.js";
 
 const router = Router();
 
+/* ============================== */
+/* INDEX */
+/* ============================== */
+
+router.get("/index", (req, res) => {
+    res.redirect("/");
+});
 
 /* ============================== */
 /* HOME */
 /* ============================== */
 
-router.get(["/", "/home"], async (req, res) => {
+router.get(["/home"], async (req, res) => {
 
     try {
 
