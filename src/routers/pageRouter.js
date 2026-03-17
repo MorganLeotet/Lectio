@@ -16,7 +16,7 @@ const router = Router();
 /* ============================== */
 
 router.get("/index", (req, res) => {
-    res.redirect("/");
+    res.render("pages/index");
 });
 
 /* ============================== */
