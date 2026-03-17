@@ -15,8 +15,11 @@ const router = Router();
 /* INDEX */
 /* ============================== */
 
-router.get("/index", (req, res) => {
-    res.render("pages/index");
+router.get("/", (req, res) => {
+    res.render("pages/index", {
+        layout: false,
+        title: "Accueil"
+    });
 });
 
 /* ============================== */
@@ -116,7 +119,7 @@ router.get(["/home"], async (req, res) => {
         /* ================= RENDER ================= */
 
         res.render("pages/home", {
-            title: "Accueil",
+            title: "Home",
             randomBooks,
             authors,
             genres,

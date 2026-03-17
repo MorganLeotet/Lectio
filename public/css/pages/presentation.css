@@ -1,39 +1,43 @@
 
-.index-page {
+/*.index-page {
     min-height: 100vh;
     background: var(--color-background-header-footer);
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-}
+}*/
 
 .index {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    min-height: 100vh;
     gap: 3rem;
     padding: 2rem;
+    background: var(--color-background-header-footer);
+    position: relative;
 }
 
 .index-logo {
-    width: 15rem;
+    width: 35rem;
+    margin-top: 10rem;
 }
 
 .index-slogan {
     color: var(--color-background-menu);
-    font-family: "Merriweather", sans-serif;
+    font-family: "Literata", sans-serif;
     font-style: italic;
     font-weight: bold;
-    font-size: 1.25rem;
-    max-width: 22rem;
+    font-size: 1.5rem;
+    max-width: 30rem;
 }
 
 .index-button {
     border: 1px solid var(--color-background-menu);
     color: var(--color-background-menu);
-    padding: 0.75rem 2rem;
+    padding: 1rem 3rem;
     border-radius: 0.75rem;
     text-decoration: none;
     background: transparent;
@@ -41,7 +45,7 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    margin: 1rem auto;
 }
 
 .index-button:hover {
@@ -81,11 +85,66 @@
 /* ========================== MEDIA QUERIES =========================== */
 
 /* =============== TABLETTE ========== */
+
 @media (min-width: 48rem) {
+    .index-logo {
+    width: 35rem;
+    margin-top: 20rem;
+}
     .accessibility-toggle {
         left: auto;
         transform: none;
         right: 2rem;
+    }
+    .accessibility .index-logo {
+        width: 24rem;
+    }
+
+    .accessibility .index-slogan {
+        font-size: 2rem;
+        line-height: 1.7;
+        max-width: 30rem;
+    }
+
+    .accessibility .index-button {
+        font-size: 1.4rem;
+        padding: 1.2rem 3rem;
+    }
+
+    .accessibility .index {
+        gap: 5rem;
+    }
+}
+
+/* =============== DESKTOP ========== */
+
+@media (min-width: 64rem) {
+    .index-logo {
+    width: 35rem;
+    margin-top: 26rem;
+}
+    .accessibility-toggle {
+        left: auto;
+        transform: none;
+        right: 2rem;
+    }
+    .accessibility .index-logo {
+        width: 28rem;
+    }
+
+    .accessibility .index-slogan {
+        font-size: 3rem;
+        line-height: 1.7;
+        max-width: 30rem;
+    }
+
+    .accessibility .index-button {
+        font-size: 1.6rem;
+        padding: 1.4rem 3rem;
+    }
+
+    .accessibility .index {
+        gap: 5rem;
     }
 }
 
