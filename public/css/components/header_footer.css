@@ -305,7 +305,7 @@ body.logged-in .logo {
 @media (min-width:64rem){
 
     .logo img{
-        height:12rem;
+        height:10rem;
     }
 
     .popup{
