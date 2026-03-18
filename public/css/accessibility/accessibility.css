@@ -54,11 +54,11 @@ body.accessibility * {
 .accessibility-toggle {
     background: none;
     border: none;
-    padding: 0;
     cursor: pointer;
     display: grid;
-    place-items: center;
+    place-items: right;
 }
+
 .accessibility-icon {
     width: 2.25rem;
     height: 2.25rem;

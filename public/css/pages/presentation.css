@@ -1,13 +1,4 @@
 
-/*.index-page {
-    min-height: 100vh;
-    background: var(--color-background-header-footer);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}*/
-
 .index {
     display: flex;
     flex-direction: column;
@@ -53,9 +44,6 @@
 }
 
 .accessibility-toggle {
-    top: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
     background: #f8fafc;
     border: none;
     border-radius: 0.75rem;
