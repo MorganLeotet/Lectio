@@ -54,14 +54,18 @@
 /* USER MOBILE */
 
 .mobile-user {
-    display: block;
+    display: grid;
+    place-items: center;
     background: none;
     border: none;
-    font-size: 1.2rem;
-    text-decoration: none;
-    color: var(--color-background-menu);
+    padding: 0.5rem;
+    cursor: pointer;
 }
 
+.mobile-user img {
+    width: 1.8rem;
+    height: 1.8rem;
+}
 /* ACTIONS */
 
 .header-actions {
