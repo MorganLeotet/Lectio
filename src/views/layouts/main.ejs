@@ -32,9 +32,13 @@
     <script type="module" src="/js/lectio.js?v=<%= version %>"></script>
     <script>
         if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("/sw.js")
-            .then(() => console.log("Service Worker registered"));
-        }
+            navigator.serviceWorker.register("/sw.js?v=<%= version %>")
+        .then(reg => {
+            console.log("Service Worker registered");
+
+            reg.update();
+        });
+}
     </script>
     <script>
 
