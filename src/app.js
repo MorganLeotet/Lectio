@@ -69,6 +69,8 @@ app.use(session({
 
 app.use(async (req, res, next) => {
 
+    res.locals.version = Date.now();
+
     res.locals.user = req.session.user;
 
     if (req.session.libraryId) {
