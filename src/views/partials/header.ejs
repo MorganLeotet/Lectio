@@ -5,6 +5,12 @@
         <!-- Icône user (mobile uniquement) -->
         <% if (user) { %>
 
+            <a href="/api/auth/logout" class="mobile-user" aria-label="Déconnexion">
+                <img src="/assets/icons/logout.svg" alt="Déconnexion">
+            </a>
+
+        <% } else { %>
+
         <button class="mobile-user">👤</button>
 
         <% } %>
