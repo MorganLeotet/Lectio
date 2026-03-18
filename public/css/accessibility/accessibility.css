@@ -57,6 +57,7 @@ body.accessibility * {
     cursor: pointer;
     display: grid;
     place-items: right;
+    padding: 0.5rem;
 }
 
 .accessibility-icon {

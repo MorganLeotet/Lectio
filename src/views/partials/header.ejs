@@ -3,8 +3,11 @@
     <div class="header-container">
 
         <!-- Icône user (mobile uniquement) -->
+        <% if (!user) { %>
 
-        <button class="mobile-user">👤</button>
+            <button class="mobile-user">👤</button>
+
+        <% } %>
 
         <!-- Logo -->
         <a href="/" class="logo">
@@ -48,7 +51,7 @@
 
                         <span class="welcome-text">Bienvenue, <%= user.name.split(" ")[0] %></span>
 
-                        <span class="user-arrow">▼</span>
+                        <span class="user-arrow"></span>
 
                     </button>
 
