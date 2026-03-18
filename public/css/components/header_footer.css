@@ -66,6 +66,7 @@ body.logged-in .logo {
     border: none;
     padding: 0.5rem;
     cursor: pointer;
+    height: 2rem;
 }
 
 /* ACTIONS */
