@@ -35,15 +35,20 @@ const libraryController = {
 
             const books = await Promise.all(
 
-                googleIds.map(async (id) => {
+                libraryBooks.map(async (b) => {
 
                     const response = await fetch(
-                        `https://www.googleapis.com/books/v1/volumes/${id}`
+                        `https://www.googleapis.com/books/v1/volumes/${b.google_book_id}`
                     );
 
                     const data = await response.json();
 
-                    return data.volumeInfo ? data : null;
+                    if (!data.volumeInfo) return null;
+
+                    return {
+                    ...data,
+                    reading_status: b.reading_status // 👈 IMPORTANT
+                    };
 
                 })
 
@@ -109,7 +114,7 @@ const libraryController = {
             await LibraryBook.create({
                 id_library: library.id_library,
                 google_book_id,
-                reading_status: reading_status || "A Lire"
+                reading_status: reading_status || "to_read"
             });
 
             res.status(201).json({
@@ -141,7 +146,7 @@ const libraryController = {
 
         const { reading_status } = req.body;
 
-        const allowedStatus = ["A Lire", "En Cours", "Lu"];
+        const allowedStatus = ["to_read", "reading", "red"];
 
         if (!allowedStatus.includes(reading_status)) {
             return res.status(400).json({
