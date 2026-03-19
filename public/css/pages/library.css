@@ -81,15 +81,15 @@ html, body{
 
 /* ===== STATUS COLORS ===== */
 
-.status-badge.a_lire{
+.status-badge.to_read{
     background:var(--color-button-reading-status-alire);
 }
 
-.status-badge.en_cours{
+.status-badge.reading{
     background:var(--color-button-reading-status-encours);
 }
 
-.status-badge.lu{
+.status-badge.read{
     background:var(--color-button-reading-status-lu);
 }
 
