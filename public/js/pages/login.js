@@ -223,14 +223,6 @@ export function initLogin() {
 
                     try {
 
-                        console.log({
-                            firstname,
-                            lastname,
-                            registerEmail,
-                            registerPassword,
-                            libraryName
-                        });
-
                         const response = await fetch("/api/auth/register", {
 
                             method: "POST",
@@ -240,7 +232,8 @@ export function initLogin() {
                             },
 
                             body: JSON.stringify({
-                                name: firstname,
+                                firstname,
+                                lastname,
                                 email: registerEmail,
                                 password: registerPassword,
                                 library: libraryName
