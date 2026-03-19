@@ -83,8 +83,8 @@ html, body{
     appearance: none;
     border: none;
     border-radius: 999px;
-    padding: 0.4rem 1rem;
-    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.95rem;
     cursor: pointer;
     font-weight: 500;
 }
@@ -92,18 +92,18 @@ html, body{
 /* Couleurs dynamiques */
 
 .status-select[data-status="to_read"] {
-    background: var(--color-background-menu);
-    color: var(--color-button-reading-status-alire);
+    background: var(--color-button-reading-status-alire);
+    color: var(--color-background-menu);
 }
 
 .status-select[data-status="reading"] {
-    background: var(--color-background-menu);
-    color: var(--color-button-reading-status-encours);
+    background: var(--color-button-reading-status-encours);
+    color: var(--color-background-menu);
 }
 
 .status-select[data-status="read"] {
-    background: var(--color-background-menu);
-    color: var(--color-button-reading-status-lu);
+    background: var(--color-button-reading-status-lu);
+    color: var(--color-background-menu);
 }
 
 /* ===== STATUS COLORS ===== */
