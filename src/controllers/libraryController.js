@@ -146,7 +146,7 @@ const libraryController = {
 
         const { reading_status } = req.body;
 
-        const allowedStatus = ["to_read", "reading", "red"];
+        const allowedStatus = ["to_read", "reading", "read"];
 
         if (!allowedStatus.includes(reading_status)) {
             return res.status(400).json({

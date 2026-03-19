@@ -57,18 +57,14 @@ export function initLibrary() {
 
         try{
 
-            await fetch(`/library/books/${google_book_id}`,{
-
+            await fetch(`/api/library/books/${google_book_id}`, {
                 method:"PATCH",
-
                 headers:{
                     "Content-Type":"application/json"
                 },
-
                 body:JSON.stringify({
                     reading_status
                 })
-
             });
 
             /* ===== MAJ VISUELLE ===== */
@@ -76,19 +72,18 @@ export function initLibrary() {
             const card = e.target.closest(".book-card");
             const badge = card.querySelector(".status-badge");
 
-            if(badge){
+            const labels = {
+                to_read: "À lire",
+                reading: "En cours",
+                read: "Lu"
+            };
 
-                badge.textContent = reading_status;
-
-                badge.className =
-                "status-badge " +
-                reading_status.toLowerCase().replace(" ","_");
-
+            if (badge) {
+                badge.textContent = labels[reading_status];
+                badge.className = "status-badge " + reading_status;
             }
 
-            /* mettre à jour le filtre */
-
-            card.dataset.status = reading_status.toLowerCase().replace(" ","_");
+            card.dataset.status = reading_status;
 
         }catch(err){
 
