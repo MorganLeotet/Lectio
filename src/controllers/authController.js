@@ -1,156 +1,73 @@
 /* ==== IMPORT ==== */
 import argon2 from 'argon2';
-import jwt from 'jsonwebtoken';
 
 import { Library, User } from '../models/index.js';
 
-/* ==== SECURITY CHECK ==== */
-
-if (!process.env.JWT_SECRET) {
-    throw new Error("JWT_SECRET manquant");
-}
 
 const authController = {
 
-    register: async (req, res) => {                            // INSCRIPTION
-        const { email, password } = req.body;
+    register: async (req, res) => {
 
-        if (!email || !password) {                         // Verifier si les champs sont ok
-            return res.status(400).json({
-                message: 'Email et mot de passe obligatoires'
-            });
-        }
+    const { email, password, name, library } = req.body;
+
+    if (!email || !password) {
+        return res.status(400).json({
+        message: 'Email et mot de passe obligatoires'
+        });
+    }
 
     try {
 
-        const existingUser = await User.findOne({               // Vérif si le user existe déjà dans la BDD
-            where: { mail: email }
+        const existingUser = await User.findOne({
+        where: { mail: email }
         });
 
         if (existingUser) {
-            return res.status(409).json({
-                message: 'Utilisateur existe déjà'
-            })
+        return res.status(409).json({
+            message: 'Utilisateur existe déjà'
+        });
         }
 
-        const hashedPassword = await argon2.hash(password);             // mot de passe hasher avec argon2
+        const hashedPassword = await argon2.hash(password);
 
-        const user = await User.create({                                // on crée le user 
-            mail: email,
-            password: hashedPassword,
-            name: email
+        const user = await User.create({
+        mail: email,
+        password: hashedPassword,
+        name: name || email
         });
 
-        await Library.create({                          // on crée une bibliothèque vide pour le user
-            name: 'Bibliothèque de ' + email,                                     
-            id_user: user.id_user
+        const newLibrary = await Library.create({
+        name: library || 'Ma bibliothèque',
+        id_user: user.id_user
         });
 
-        return  res.status(201).json({
-            message: 'Utilisateur crée',
-            user: {
-                id: user.id_user,
-                email: user.mail
-            }
+        /* 💥 SESSION DIRECT APRÈS REGISTER */
+
+        req.session.user = {
+        id: user.id_user,
+        email: user.mail,
+        name: user.name
+        };
+
+        req.session.libraryId = newLibrary.id_library;
+
+        return res.status(201).json({
+        message: 'Utilisateur créé',
+        user: req.session.user
         });
 
     } catch (error) {
+
         console.error(error);
+
         return res.status(500).json({
-            message: 'Erreur Serveur'
+        message: 'Erreur serveur'
         });
-    }
-    },
-
-        login: async (req, res) => {   
-
-            const { email, password } = req.body;
-
-            if (!email || !password) {              // Verifie si les champs sont ok
-                return res.status(400).json({
-                    message: 'Email et mot de passe obligatoires'
-                });
-            }
-
-        try {
-
-            const user = await User.findOne({
-                where: { mail: email },
-            });
-
-            if (!user) {
-                return res.status(401).json({
-                    message: 'Email ou mot de passe incorrect'
-                });
-            }
-
-            const isPasswordValid = await argon2.verify(            // verif mot de passe avec Argon2
-                user.password, 
-                password,
-            );       
-
-            if (!isPasswordValid) {
-                return res.status(401).json({
-                    message: 'Email ou mot de passe incorrect'
-                });
-            }
-
-            const token = jwt.sign(
-            {
-                userId: user.id_user,
-                email: user.mail
-            },
-            process.env.JWT_SECRET,
-            {
-                expiresIn: "1h"
-            }
-            );
-
-            res.json({
-                message: "Connexion réussie",
-                token,
-                user: {
-                    id: user.id_user,
-                    email: user.mail,
-                    name: user.name
-                }
-            });
-
-            res.json({                              // Connexion réussie
-                message: 'Connexion réussie',
-                token
-            });
-
-        } catch (error) {
-            console.error(error);
-            return res.status(500).json({
-                message: 'Erreur Serveur'
-            });
-        }
-        },
-        me: async (req, res) => {
-
-        try {
-
-            return res.json({
-                user: req.user
-            });
-
-        } catch (error) {
-
-            console.error(error);
-            
-
-            return res.status(500).json({
-                message: "Erreur serveur"
-            });
-
-        }
 
     }
 
+    }
 }
-
 
 /* ==== EXPORT ==== */
 
