@@ -464,10 +464,12 @@ router.get("/books/:id", async (req, res) => {
         );
 
         const data = await response.json();
-        const info = data.volumeInfo;
 
         /* ===== LIVRE ===== */
+        if (!data.volumeInfo) return null;
 
+        const info = data.volumeInfo;
+        
         const book = {
             id: data.id,
             title: info.title,

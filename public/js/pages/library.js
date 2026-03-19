@@ -62,6 +62,7 @@ export function initLibrary() {
                 headers:{
                     "Content-Type":"application/json"
                 },
+                credentials: "include",
                 body:JSON.stringify({
                     reading_status
                 })
