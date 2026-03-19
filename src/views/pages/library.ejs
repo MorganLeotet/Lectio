@@ -48,11 +48,11 @@
 
                     <select class="change-status" data-id="<%= book.id %>">
 
-                        <option value="a_lire" <%= book.reading_status==="a_lire"?"selected":"" %>>A Lire</option>
+                        <option value="to_read" <%= book.reading_status==="to_read"?"selected":"" %>>A Lire</option>
 
-                        <option value="en_cours" <%= book.reading_status==="en_cours"?"selected":"" %>>En Cours</option>
+                        <option value="reading" <%= book.reading_status==="reading"?"selected":"" %>>En Cours</option>
 
-                        <option value="lu" <%= book.reading_status==="lu"?"selected":"" %>>Lu</option>
+                        <option value="read" <%= book.reading_status==="read"?"selected":"" %>>Lu</option>
 
                     </select>
 

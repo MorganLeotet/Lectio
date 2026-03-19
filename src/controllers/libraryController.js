@@ -148,6 +148,8 @@ const libraryController = {
 
         const allowedStatus = ["to_read", "reading", "read"];
 
+        console.log("STATUS RECU:", reading_status);
+
         if (!allowedStatus.includes(reading_status)) {
             return res.status(400).json({
                 message: "Statut de lecture invalide"
