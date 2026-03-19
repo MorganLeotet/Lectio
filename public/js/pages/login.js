@@ -242,6 +242,9 @@ export function initLogin() {
 
                         const data = await response.json();
 
+                        console.log("STATUS:", response.status);
+                        console.log("RESPONSE:", data);
+
                         if (!response.ok) {
 
                             alert(data.error || "Erreur inscription");
