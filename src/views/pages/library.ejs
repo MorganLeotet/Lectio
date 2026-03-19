@@ -46,7 +46,7 @@
 
                     <p><%= book.volumeInfo.authors?.join(", ") %></p>
 
-                    <select class="change-status" data-id="<%= book.id %>">
+                    <select class="change-status status-select" data-id="<%= book.id %>">
 
                         <option value="to_read" <%= book.reading_status==="to_read"?"selected":"" %>>A Lire</option>
 
@@ -55,6 +55,11 @@
                         <option value="read" <%= book.reading_status==="read"?"selected":"" %>>Lu</option>
 
                     </select>
+
+                    <form action="/library/remove" method="POST">
+                        <input type="hidden" name="google_book_id" value="<%= book.id %>">
+                        <button class="btn-remove">Retirer de ma bibliothèque</button>
+                    </form>
 
                 </div>
 
