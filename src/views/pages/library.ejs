@@ -30,7 +30,13 @@
 
                             <button class="favorite-book <%= book.favorite ? 'active' : '' %>" data-id="<%= book.id %>">❤️</button>
 
-                            <span class="status-badge <%= book.reading_status.toLowerCase().replace(' ','_') %>"><%= book.reading_status %></span>
+                            <span class="status-badge <%= book.reading_status %>">
+                                <%= {
+                                    to_read: "À lire",
+                                    reading: "En cours",
+                                    read: "Lu"
+                                }[book.reading_status] %>
+                            </span>
 
                         </div>
 
