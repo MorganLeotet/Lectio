@@ -88,6 +88,8 @@ export function initLibrary() {
 
                 card.dataset.status = reading_status;
 
+                e.target.dataset.status = reading_status;
+
                 applyCurrentFilter();
 
             } catch (err) {
