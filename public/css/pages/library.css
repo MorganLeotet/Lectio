@@ -178,17 +178,17 @@ html, body{
 
 /* ===== STATUS COLORS ===== */
 
-.library_menu button[data-filter="a_lire"]{
+.library_menu button[data-filter="to_read"]{
     background:var(--color-button-reading-status-alire);
     color:var(--color-background-menu);
 }
 
-.library_menu button[data-filter="en_cours"]{
+.library_menu button[data-filter="reading"]{
     background:var(--color-button-reading-status-encours);
     color:var(--color-background-menu);
 }
 
-.library_menu button[data-filter="lu"]{
+.library_menu button[data-filter="read"]{
     background:var(--color-button-reading-status-lu);
     color:var(--color-background-menu);
 }
