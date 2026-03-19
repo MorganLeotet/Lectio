@@ -17,7 +17,7 @@ export function initLibrary() {
             books.forEach(book => {
 
                 const status = book.dataset.status;
-                console.log("NEW STATUS:", card.dataset.status);
+                console.log("NEW STATUS:", book.dataset.status);
                 const favorite = book.dataset.favorite;
 
                 if (currentFilter === "favorites") {
@@ -42,8 +42,6 @@ export function initLibrary() {
             button.addEventListener("click", () => {
 
                 currentFilter = button.dataset.filter;
-
-                console.log("CURRENT FILTER:", currentFilter);
 
                 applyCurrentFilter();
 
