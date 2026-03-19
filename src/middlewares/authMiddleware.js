@@ -1,43 +1,17 @@
-/* ==== IMPORT ==== */
-import jwt from "jsonwebtoken";
 
 /* ==== AUTH MIDDLEWARE ==== */
 
 const authMiddleware = (req, res, next) => {
 
-    const authHeader = req.headers.authorization;
-
-    if (!authHeader) {
+    if (!req.session.user) {
         return res.status(401).json({
-            message: "Token manquant"
+        message: "Non authentifié"
         });
     }
 
-    const parts = authHeader.split(" ");
+    req.userId = req.session.user.id;
 
-    if (parts.length !== 2 || parts[0] !== "Bearer") {
-        return res.status(401).json({
-            message: "Format de token invalide"
-        });
-    }
-
-    const token = parts[1];
-
-    try {
-
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-        req.userId = decoded.userId;
-
-        next();
-
-    } catch (error) {
-
-        return res.status(401).json({
-            message: "Token invalide ou expiré"
-        });
-
-    }
+    next();
 };
 
 export default authMiddleware;

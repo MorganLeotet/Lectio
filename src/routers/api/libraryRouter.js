@@ -19,11 +19,7 @@ router.get("/", authMiddleware, libraryController.getMyLibrary);
 router.post("/books", authMiddleware, libraryController.addBookToLibrary);
 
 /* Mettre à jour le statut de lecture */
-router.patch(
-    "/books/:google_book_id",
-    authMiddleware,
-    libraryController.updateReadingStatus
-);
+router.patch("/books/:google_book_id",authMiddleware,libraryController.updateReadingStatus);
 
 /* Retirer un livre de la bibliothèque */
 router.delete(
