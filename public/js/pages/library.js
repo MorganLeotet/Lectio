@@ -30,7 +30,7 @@ export function initLibrary() {
                 } else {
                     book.style.display = "none";
                 }
-                console.log("CURRENT FILTER:", currentFilter);
+                
             });
 
         }
@@ -42,6 +42,8 @@ export function initLibrary() {
             button.addEventListener("click", () => {
 
                 currentFilter = button.dataset.filter;
+
+                console.log("CURRENT FILTER:", currentFilter);
 
                 applyCurrentFilter();
 
