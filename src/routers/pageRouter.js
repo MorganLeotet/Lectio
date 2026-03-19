@@ -188,21 +188,23 @@ router.get("/library", requireAuth, async (req, res) => {
         const validBooks = books.filter(book => book !== null);
 
         const booksToRead = validBooks.filter(
-            b => b.reading_status === "A Lire"
+            b => b.reading_status === "to_read"
         );
 
         const booksReading = validBooks.filter(
-            b => b.reading_status === "En Cours"
+            b => b.reading_status === "reading"
         );
 
         const booksFinished = validBooks.filter(
-            b => b.reading_status === "Lu"
+            b => b.reading_status === "read"
         );
 
         res.render("pages/library", {
             title: library.name || "Ma bibliothèque",
             library,
-            books: validBooks
+            booksToRead,
+            booksReading,
+            booksFinished
         });
 
     } catch (error) {
@@ -242,7 +244,7 @@ router.post("/library/add", requireAuth, async (req, res) => {
             await LibraryBook.create({
                 id_library: req.session.libraryId,
                 google_book_id,
-                reading_status: "A Lire",
+                reading_status: "to_read",
                 favorite: false
             });
 
