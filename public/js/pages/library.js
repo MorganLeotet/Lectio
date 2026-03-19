@@ -54,6 +54,7 @@ export function initLibrary() {
 
         const google_book_id = e.target.dataset.id;
         const reading_status = e.target.value;
+        
 
         try{
 
