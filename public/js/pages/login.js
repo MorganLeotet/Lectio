@@ -223,6 +223,14 @@ export function initLogin() {
 
                     try {
 
+                        console.log({
+                            firstname,
+                            lastname,
+                            registerEmail,
+                            registerPassword,
+                            libraryName
+                        });
+
                         const response = await fetch("/api/auth/register", {
 
                             method: "POST",
@@ -241,9 +249,6 @@ export function initLogin() {
                         });
 
                         const data = await response.json();
-
-                        console.log("STATUS:", response.status);
-                        console.log("RESPONSE:", data);
 
                         if (!response.ok) {
 
