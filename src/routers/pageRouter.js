@@ -202,9 +202,7 @@ router.get("/library", requireAuth, async (req, res) => {
         res.render("pages/library", {
             title: library.name || "Ma bibliothèque",
             library,
-            booksToRead,
-            booksReading,
-            booksFinished
+            books: validBooks
         });
 
     } catch (error) {

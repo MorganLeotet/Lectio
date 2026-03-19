@@ -47,7 +47,7 @@ const libraryController = {
 
                     return {
                     ...data,
-                    reading_status: b.reading_status // 👈 IMPORTANT
+                    reading_status: b.reading_status 
                     };
 
                 })
