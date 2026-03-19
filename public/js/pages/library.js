@@ -17,6 +17,7 @@ export function initLibrary() {
             books.forEach(book => {
 
                 const status = book.dataset.status;
+                console.log("NEW STATUS:", card.dataset.status);
                 const favorite = book.dataset.favorite;
 
                 if (currentFilter === "favorites") {
@@ -29,7 +30,7 @@ export function initLibrary() {
                 } else {
                     book.style.display = "none";
                 }
-
+                console.log("CURRENT FILTER:", currentFilter);
             });
 
         }
@@ -86,8 +87,6 @@ export function initLibrary() {
                 }
 
                 card.dataset.status = reading_status;
-
-                /* 💥 LA MAGIE EST ICI */
 
                 applyCurrentFilter();
 
