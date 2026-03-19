@@ -5,7 +5,7 @@ export function loadLogin() {
     const container = document.getElementById("loginContainer");
     if (!container) return;
 
-    fetch("/components/login.html") // chemin absolu plus stable
+    fetch("/components/login.html") 
         .then(response => {
         if (!response.ok) {
             throw new Error("Erreur chargement login.html");
@@ -14,7 +14,7 @@ export function loadLogin() {
         })
         .then(html => {
         container.innerHTML = html;
-        initLogin(); // init seulement après injection
+        initLogin(); 
         })
         .catch(error => {
         console.error("Login load error :", error);

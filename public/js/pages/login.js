@@ -90,6 +90,35 @@ export function initLogin() {
 
     });
 
+    document.addEventListener("keydown", async (e) => {
+
+    if (e.key !== "Enter") return;
+
+    if (e.target.tagName === "TEXTAREA") return;
+
+    e.preventDefault();
+
+    switch (currentStep) {
+
+        case 0:
+            nextButtons[0]?.click();
+            break;
+
+        case 1:
+            nextButtons[1]?.click();
+            break;
+
+        case 2:
+            nextButtons[2]?.click();
+            break;
+
+        case 3:
+            nextButtons[3]?.click();
+            break;
+    }
+
+    });
+
     /* ==========================
         NAVIGATION STEPS
     ========================== */
