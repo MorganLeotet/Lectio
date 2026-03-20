@@ -12,7 +12,7 @@ import { fileURLToPath } from "url";
 
 import authRouter from "./routers/api/authRouter.js";
 import libraryRouter from "./routers/api/libraryRouter.js";
-import userRouter from "./routers/userRouter.js";
+/*import userRouter from "./routers/userRouter.js";*/
 import googleBooksRouter from "./routers/api/googleBooksRouter.js";
 
 /* Pages */
@@ -104,7 +104,7 @@ app.use("/", pageRouter);
 
 app.use("/api/auth", authRouter);
 app.use("/api/library", libraryRouter);
-app.use("/api/users", userRouter);
+/*app.use("/api/users", userRouter);*/
 app.use("/api/google-books", googleBooksRouter)
 
 
