@@ -1,10 +1,15 @@
-/* ==== IMPORT ==== */
+/* =============================================== */
+/*          EVOLUTION FUTURE                      */
+/* ============================================= */ 
+
+
+/* ==== IMPORT ==== 
 
 import { Router } from "express";
 import authMiddleware from "../middlewares/authMiddleware.js";
 import userController from "../controllers/userController.js";
 
-/* ==== ROUTER INITIALIZATION ==== */
+/* ==== ROUTER INITIALIZATION ==== 
 
 const router = Router();
 
@@ -12,12 +17,12 @@ const router = Router();
 /* USER ROUTES                   */
 /* ============================= */
 
-/* Récupérer le profil du user connecté */
+/* Récupérer le profil du user connecté 
 router.get("/me",authMiddleware,userController.getProfile);
 
-/* Modifier le profil du user connecté */
+/* Modifier le profil du user connecté 
 router.patch("/me",authMiddleware,userController.updateProfile);
 
-/* ==== EXPORT ==== */
+/* ==== EXPORT ==== 
 
-export default router;
+export default router;*/

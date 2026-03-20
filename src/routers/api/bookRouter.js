@@ -14,23 +14,29 @@ const router = Router();
 
 router.get("/google/:googleId", bookController.getGoogleBook);
 
+
+
+/* ================================================================ */
+/* EVOLUTION FUTURE AVEC BASE DE DONNEE (CRUD)                     */
+/* ============================================================== */
+
 /* ============================= */
 /* BOOK API                      */
 /* ============================= */
 
-/* Voir tous les livres */
+/* Voir tous les livres 
 router.get("/", authMiddleware, bookController.getAllBooks);
 
-/* Voir un livre */
+/* Voir un livre 
 router.get("/:id", bookController.getBookDetail);
 
-/* Créer un livre */
+/* Créer un livre 
 router.post("/", authMiddleware, bookController.createBook);
 
-/* Mettre à jour un livre */
+/* Mettre à jour un livre 
 router.patch("/:id", authMiddleware, bookController.updateBook);
 
-/* Supprimer un livre */
+/* Supprimer un livre 
 router.delete("/:id", authMiddleware, bookController.deleteBook);
 
 /* ==== EXPORT ==== */

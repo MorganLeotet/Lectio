@@ -15,7 +15,12 @@ const router = Router();
 router.post("/login", authController.login);
 router.post("/register", authController.register);
 router.get("/logout", authController.logout);
-router.get("/me", authController.me);
+
+/* =============================================== */
+/*          EVOLUTION FUTURE                      */
+/* ============================================= */ 
+
+/*router.get("/me", authController.me); */
 
 /* ============================== */
 /* EXPORT */
