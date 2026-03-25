@@ -388,18 +388,26 @@ Cela évite la saisie manuelle et améliore la qualité des données.
 
 ##### Authentification
 
-Un système d’authentification basé sur JWT est mis en place.
+Un système d’authentification a été mis en place afin de sécuriser l’accès aux fonctionnalités de l’application.
+Concrètement, certaines routes sont protégées par un middleware d’authentification, ce qui permet de vérifier qu’un utilisateur est bien connecté avant d’accéder à ses données personnelles, comme sa bibliothèque.
+Cela permet de garantir que chaque utilisateur ne peut accéder qu’à ses propres informations.
 
-Justification :
+##### Protection des données
 
-	• sécurisation des échanges client/serveur
-	• gestion des sessions sans stockage côté serveur
+Les mots de passe des utilisateurs ne sont jamais stockés en clair dans la base de données.Ils sont hashés avant d’être enregistrés, ce qui permet de sécuriser les informations sensibles en cas de fuite de données.
+Les échanges entre le frontend et le backend se font via des requêtes HTTP structurées, ce qui permet de contrôler les données envoyées et reçues.
 
-Des bonnes pratiques sont également appliquées :
+##### Bonnes pratiques mises en place
 
-	• hashage des mots de passe
-	• validation des données
-	• protection contre les failles courantes (XSS, injections SQL)
+Plusieurs bonnes pratiques ont été appliquées tout au long du développement :
+
+	- validation des données côté serveur, pour éviter les entrées invalides ou malveillantes
+	- protection des routes sensibles, accessibles uniquement aux utilisateurs authentifiés
+	- utilisation de Sequelize, qui limite les risques d’injection SQL grâce aux requêtes paramétrées
+	attention portée à l’affichage des données pour limiter les risques de failles XSS
+
+L’objectif est d’assurer un niveau de sécurité cohérent avec le périmètre du projet.
+
 
 #### Expérience utilisateur
 
@@ -666,10 +674,10 @@ Ce schéma représente l’arborescence des routes frontend de l’application e
 
 ### Google Books (API EXTERNE)
 
-| Verbe HTTP | URL    | Router       | Controller & Méthode    | Modèle & Méthodes |Description      |
-|------------|----------------|--------------|-----------------------------|-------------------------|
-| GET   | /api/google-books/search  | googleBooksRouter  | googleBooksController.search      |      | Rechercher des livres via Google Books |
-| GET   | /api/books/google/:googleId   | bookRouter  | bookController.getGoogleBook    |      | Voir le détail d'un livre depuis Google Books       |
+| Verbe HTTP | URL    | Router       | Controller & Méthode    | Modèle & Méthodes | Description                                   |
+|------------|----------------|--------------|-----------------------------|-------------------|-----------------------------------------------|
+| GET       | /api/google-books/search | googleBooksRouter  | googleBooksController.search     |        | Rechercher des livres via Google Books                |
+| GET       | /api/books/google/:googleId   | bookRouter   | bookController.getGoogleBook      |     | Voir le détail d'un livre depuis Google Books                   |
 
 
 ### Authentification
@@ -725,6 +733,7 @@ Ce schéma représente l’arborescence des routes frontend de l’application e
 | 409  | Conflict               | Conflit lors de la création ou modification  |
 | 500  | Internal Server Error  | Erreur interne du serveur                    |
 
+
 ## User Stories
 
 ### Visiteur (non connecté)
@@ -739,6 +748,7 @@ Ce schéma représente l’arborescence des routes frontend de l’application e
 | Visiteur    | Utiliser le moteur de recherche        | Trouver un livre, un auteur via l'Api Google Books   |
 | Visiteur    | Accéder aux pages d'informations       | Comprendre le cadre et l'usage de l'application      |
 | Visiteur    | Créer un compte ou me connecter        | D'accéder à ma bibliothèque                          |
+
 
 ### Utilisateur connecté
 
@@ -758,6 +768,7 @@ Ce schéma représente l’arborescence des routes frontend de l’application e
 |-------------|-----------------------------------------------|----------------------------------------------|
 | Utilisateur | Rechercher un livre ou un auteur via une API Google Books | Récupérer automatiquement les informations d'un livre ou d'un auteur |
 | Utilisateur | Consulter les détails d'un livre externe    | Visualiser les informations sans stockage en base  |
+
 
 ### Évolutions futures 
 
@@ -780,7 +791,8 @@ Ce schéma représente l’arborescence des routes frontend de l’application e
 
 ### LOGO
 
-	- voir le logo : ![Logo](./Design/Charte%20Graphique/logo/logo%20fav.png)
+	- voir le logo : 
+	![Logo](./Design/Charte%20Graphique/logo/logo%20fav.png)
 
 ### Intention graphique
 
@@ -913,8 +925,14 @@ Cette organisation m’a permis de développer une vision globale d’un projet 
 gérant à la fois les aspects techniques, fonctionnels et organisationnels.
 
 Les documents MCD, le MLD, les wireframes, les maquettes (dossier Design) sont à retrouvés dans les différents dossiers ou ici : 
-	- pour voir le schéma du MCD : ![MCD](./Conception/MCD/MCD.light.png)
-	- pour voir le schéma du MLD : ![MLD](./Conception/MLD/MLD.light.png)
+	- pour voir le schéma du MCD : 
+	
+	![MCD](./Conception/MCD/MCD.light.png)
+
+
+	- pour voir le schéma du MLD : 
+	
+	![MLD](./Conception/MLD/MLD.light.png)
 
 Ces éléments permettent de détailler la structure de l’application, l’organisation des
 données et la conception de l’interface utilisateur.
