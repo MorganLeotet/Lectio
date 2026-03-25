@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lectio - Accueil</title>
+    <link rel="stylesheet" href="../css/lectio.css">
+    
+</head>
+<body>
+<!-- =========================== HEADER ========================= -->
+<header class="site-header">
+    <div class="header-container">
+
+        <!-- Icône user (mobile uniquement) -->
+        <button class="mobile-user">👤</button>
+
+        <!-- Logo -->
+        <a href="../index.html" class="logo">
+        <img src="../assets/logo/logo.svg" alt="Logo Lectio">
+        </a>
+
+        <!-- Recherche -->
+        <form class="search-bar">
+            <input type="text" placeholder="Rechercher par livre, auteur, genre">
+            <button type="submit">🔍</button>
+        </form>
+
+        <!-- Zone utilisateur -->
+        <div class="user-area">
+
+        <!-- BLOC A DROITE -->
+        <div class="header-actions"></div>
+            <span class="welcome-text"></span>
+            <button class="login-btn">Connexion</button>
+            <button class="mobile-search">🔍</button>
+            <button class="accessibility-toggle" aria-label="Mode accessibilité">
+                <img src="../assets/icons/handicap.svg">
+            </button>
+        </div>
+    </div>
+</header>
+<!-- =========================== MAIN ========================= -->
+    <main class="page page-home">
+        <div class="container">
+        <!-- FIL D’ARIANE -->
+            <nav class="breadcrumb">
+                    <a href="/pages/home.html">Accueil</a> &gt;
+                    <a href="../pages/books.html">Bibliothèque</a> &gt;
+                    <span>Livre</span>
+            </nav>
+        <!-- ==== GENRE ====== -->
+            <section class="genres">
+                    <div class="genres-grid">
+                        <a href="/pages/genres_selected.html"><img src="../assets/banner/ados.png" aria-label="Univers: Ados"></a>
+                        <a href="/pages/genres_selected.html"><img src="../assets/banner/art & culture & société.png" aria-label="Univers: Art et culture"></a>
+                        <a href="/pages/genres_selected.html"><img src="../assets/banner/BD.png" aria-label="Univers: BD"></a>
+                        <a href="/pages/genres_selected.html"><img src="../assets/banner/bien-être.png" aria-label="Univers: Bien Être"></a>
+                        <a href="/pages/genres_selected.html"><img src="../assets/banner/comics.png" aria-label="Univers: Comics"></a>
+                        <a href="/pages/genres_selected.html"><img src="../assets/banner/fantasy fantastiques.png" aria-label="Univers: Fantasy Fantastiques"></a>
+                        <a href="/pages/genres_selected.html"><img src="../assets/banner/jeunesse.png" aria-label="Univers: Jeunesse"></a>
+                        <a href="/pages/genres_selected.html"><img src="../assets/banner/littérature.png" aria-label="Univers: Littérature"></a>
+                        <a href="/pages/genres_selected.html"><img src="../assets/banner/loisirs sports nature.png" aria-label="Univers Sport Loisirs Nature"></a>
+                        <a href="/pages/genres_selected.html"><img src="../assets/banner/mangas.png" aria-label="Univers: Mangas"></a>
+                        <a href="/pages/genres_selected.html"><img src="../assets/banner/noël.png" aria-label="Univers: Livres de Noël"></a>
+                        <a href="/pages/genres_selected.html"><img src="../assets/banner/policiers.png" aria-label="Univers: Policiers"></a>
+                        <a href="/pages/genres_selected.html"><img src="../assets/banner/vie pratique.png" aria-label="Univers: Vie Pratique"></a>
+                        <a href="/pages/genres_selected.html"><img src="../assets/banner/voyage tourisme.png" aria-label="Univers: Voyage et Tourisme"></a>
+                    </div>
+                    <a class="genres-toggle" href="/pages/genres.html">Afficher la liste</a>
+            </section>
+        <!-- ==== COUP DE COEUR ==== -->
+            <section class="section favorites">
+                <div class="container">
+                    <h2 class="section-title">Coups de coeur des Lecteurs</h2>
+                        <div class="carousel">
+                            <div class="carousel-track">
+                                <article class="book-card">
+                                    <a href="/pages/books.html" class="book-link">
+                                    <div class="book-cover"><a href="/pages/book_detail.html">#</a></div>
+                                    <h3 class="book-title"><a href="/pages/book_detail.html">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="/pages/authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/books.html" class="book-link">
+                                    <div class="book-cover"><a href="/pages/book_detail.html">#</a></div>
+                                    <h3 class="book-title"><a href="/pages/book_detail.html">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="/pages/authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/books.html" class="book-link">
+                                    <div class="book-cover"><a href="/pages/book_detail.html">#</a></div>
+                                    <h3 class="book-title"><a href="/pages/book_detail.html">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="/pages/authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/books.html" class="book-link">
+                                    <div class="book-cover"><a href="/pages/book_detail.html">#</a></div>
+                                    <h3 class="book-title"><a href="/pages/book_detail.html">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="/pages/authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/books.html" class="book-link">
+                                    <div class="book-cover"><a href="/pages/book_detail.html">#</a></div>
+                                    <h3 class="book-title"><a href="/pages/book_detail.html">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="/pages/authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/books.html" class="book-link">
+                                    <div class="book-cover"><a href="/pages/book_detail.html">#</a></div>
+                                    <h3 class="book-title"><a href="/pages/book_detail.html">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="/pages/authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/books.html" class="book-link">
+                                    <div class="book-cover"><a href="/pages/book_detail.html">#</a></div>
+                                    <h3 class="book-title"><a href="/pages/book_detail.html">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="/pages/authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/books.html" class="book-link">
+                                    <div class="book-cover"><a href="/pages/book_detail.html">#</a></div>
+                                    <h3 class="book-title"><a href="/pages/book_detail.html">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="/pages/authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/books.html" class="book-link">
+                                    <div class="book-cover"><a href="/pages/book_detail.html">#</a></div>
+                                    <h3 class="book-title"><a href="/pages/book_detail.html">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="/pages/authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/books.html" class="book-link">
+                                    <div class="book-cover"><a href="/pages/book_detail.html">#</a></div>
+                                    <h3 class="book-title"><a href="/pages/book_detail.html">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="/pages/authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/books.html" class="book-link">
+                                    <div class="book-cover"><a href="/pages/book_detail.html">#</a></div>
+                                    <h3 class="book-title"><a href="/pages/book_detail.html">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="/pages/authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/books.html" class="book-link">
+                                    <div class="book-cover"><a href="/pages/book_detail.html">#</a></div>
+                                    <h3 class="book-title"><a href="/pages/book_detail.html">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="/pages/authors_selected.html">Nom de l'auteur</a> </p>
+                                </article> 
+
+                            </div>
+                        </div>
+                </div>
+            </section>
+        <!-- ===== LIVRES =====-->
+            <section class="section books">
+                <div class="container">
+                    <h2 class="section-title">L'univers des livres</h2>
+                        <div class="carousel">
+                            <div class="carousel-track">
+                                <article class="book-card">
+                                    <a href="/pages/book_detail.html" class="book-link">
+                                    <div class="book-cover"></div>
+                                    <h3 class="book-title">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/book_detail.html" class="book-link">
+                                    <div class="book-cover"></div>
+                                    <h3 class="book-title">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/book_detail.html" class="book-link">
+                                    <div class="book-cover"></div>
+                                    <h3 class="book-title">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/book_detail.html" class="book-link">
+                                    <div class="book-cover"></div>
+                                    <h3 class="book-title">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/book_detail.html" class="book-link">
+                                    <div class="book-cover"></div>
+                                    <h3 class="book-title">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/book_detail.html" class="book-link">
+                                    <div class="book-cover"></div>
+                                    <h3 class="book-title">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/books.html" class="book-link">
+                                    <div class="book-cover"><a href="/pages/book_detail.html">#</a></div>
+                                    <h3 class="book-title"><a href="/pages/book_detail.html">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="/pages/authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/books.html" class="book-link">
+                                    <div class="book-cover"><a href="/pages/book_detail.html">#</a></div>
+                                    <h3 class="book-title"><a href="/pages/book_detail.html">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="/pages/authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/books.html" class="book-link">
+                                    <div class="book-cover"><a href="/pages/book_detail.html">#</a></div>
+                                    <h3 class="book-title"><a href="/pages/book_detail.html">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="/pages/authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/books.html" class="book-link">
+                                    <div class="book-cover"><a href="/pages/book_detail.html">#</a></div>
+                                    <h3 class="book-title"><a href="/pages/book_detail.html">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="/pages/authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/books.html" class="book-link">
+                                    <div class="book-cover"><a href="/pages/book_detail.html">#</a></div>
+                                    <h3 class="book-title"><a href="/pages/book_detail.html">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="/pages/authors_selected.html">Nom de l'auteur</a> </p>
+                                </article>
+                                <article class="book-card">
+                                    <a href="/pages/books.html" class="book-link">
+                                    <div class="book-cover"><a href="/pages/book_detail.html">#</a></div>
+                                    <h3 class="book-title"><a href="/pages/book_detail.html">Titre du livre</a></h3>
+                                    </a>
+                                    <p class="book-author"><a href="/pages/authors_selected.html">Nom de l'auteur</a> </p>
+                                </article> 
+                            </div>
+                        </div>
+                    </div>
+            </section>
+        <!-- ====== AUTEURS ====-->
+            <section class="section authors">
+                    <div class="container">
+                        <h2 class="section-title">Coin des Auteurs</h2>
+                            <div class="carousel">
+                                <div class="carousel-track">
+                                    <article class="author-card"><a href="/pages/authors.html">
+                                        <div class="author-avatar">Auteur1</div>
+                                        <p class="author-name"><a href="/pages/authors_selected.html">Nom Auteur</a></p>
+                                        </a>
+                                    </article>
+                                    <article class="author-card"><a href="/pages/authors.html">
+                                        <div class="author-avatar">Auteur1</div>
+                                        <p class="author-name"><a href="/pages/authors_selected.html">Nom Auteur</a></p>
+                                        </a>
+                                    </article>
+                                    <article class="author-card"><a href="/pages/authors.html">
+                                        <div class="author-avatar">Auteur1</div>
+                                        <p class="author-name"><a href="/pages/authors_selected.html">Nom Auteur</a></p>
+                                        </a>
+                                    </article>
+                                    <article class="author-card"><a href="/pages/authors.html">
+                                        <div class="author-avatar">Auteur1</div>
+                                        <p class="author-name"><a href="/pages/authors_selected.html">Nom Auteur</a></p>
+                                        </a>
+                                    </article>
+                                    <article class="author-card"><a href="/pages/authors.html">
+                                        <div class="author-avatar">Auteur1</div>
+                                        <p class="author-name"><a href="/pages/authors_selected.html">Nom Auteur</a></p>
+                                        </a>
+                                    </article>
+                                    <article class="author-card"><a href="/pages/authors.html">
+                                        <div class="author-avatar">Auteur1</div>
+                                        <p class="author-name"><a href="/pages/authors_selected.html">Nom Auteur</a></p>
+                                        </a>
+                                    </article>
+                                    <article class="author-card"><a href="/pages/authors.html">
+                                        <div class="author-avatar">Auteur1</div>
+                                        <p class="author-name"><a href="/pages/authors_selected.html">Nom Auteur</a></p>
+                                        </a>
+                                    </article>
+                                    <article class="author-card"><a href="/pages/authors.html">
+                                        <div class="author-avatar">Auteur1</div>
+                                        <p class="author-name"><a href="/pages/authors_selected.html">Nom Auteur</a></p>
+                                        </a>
+                                    </article>
+                                    <article class="author-card"><a href="/pages/authors.html">
+                                        <div class="author-avatar">Auteur1</div>
+                                        <p class="author-name"><a href="/pages/authors_selected.html">Nom Auteur</a></p>
+                                        </a>
+                                    </article>
+                                    <article class="author-card"><a href="/pages/authors.html">
+                                        <div class="author-avatar">Auteur1</div>
+                                        <p class="author-name"><a href="/pages/authors_selected.html">Nom Auteur</a></p>
+                                        </a>
+                                    </article>
+                                    <article class="author-card"><a href="/pages/authors.html">
+                                        <div class="author-avatar">Auteur1</div>
+                                        <p class="author-name"><a href="/pages/authors_selected.html">Nom Auteur</a></p>
+                                        </a>
+                                    </article>
+                                    <article class="author-card"><a href="/pages/authors.html">
+                                        <div class="author-avatar">Auteur1</div>
+                                        <p class="author-name"><a href="/pages/authors_selected.html">Nom Auteur</a></p>
+                                        </a>
+                                    </article>
+                                    <article class="author-card"><a href="/pages/authors.html">
+                                        <div class="author-avatar">Auteur1</div>
+                                        <p class="author-name"><a href="/pages/authors_selected.html">Nom Auteur</a></p>
+                                        </a>
+                                    </article>
+                                    <article class="author-card"><a href="/pages/authors.html">
+                                        <div class="author-avatar">Auteur1</div>
+                                        <p class="author-name"><a href="/pages/authors_selected.html">Nom Auteur</a></p>
+                                        </a>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+            </section>       
+        </div>
+    </main>
+<!-- =========================== FOOTER ========================= -->
+    <footer class="footer">
+        <span>LECTIO ® 2026</span>
+        <a href="mentions.html">Mentions Légales</a>
+        <a href="accesibility.html">Mode accessibilité</a>
+    </footer>
+
+<div id="loginContainer"></div>
+<script type="module" src="../js/lectio.js"></script>
+
+</body>
+</html>

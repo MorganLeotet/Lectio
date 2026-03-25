@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title || "Lectio" %></title>
+    <link rel="stylesheet" href="/css/lectio.css?v=<%= version %>">
+    <link rel="apple-touch-icon" href="/assets/icons/logo/apple-touch-icon.png">
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2d2dff">
+
+    <link rel="apple-touch-icon" href="/assets/icons/logo/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+</head>
+<body class="<%= user ? 'logged-in' : 'guest' %>">
+    <%- include('../partials/header') %>
+    
+    <div id="installBanner" style="display:none;">
+        <span>📚 Installer Lectio pour un accès rapide</span>
+        <button id="installApp">Installer</button>
+    </div>
+
+    <main>
+        <%- body -%>
+    </main>
+    <%- include("../partials/login") %>
+    <%- include('../partials/footer') %>
+
+
+    <script type="module" src="/js/lectio.js?v=<%= version %>"></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/sw.js?v=<%= version %>")
+        .then(reg => {
+            console.log("Service Worker registered");
+
+            reg.update();
+        });
+}
+    </script>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+        let deferredPrompt;
+        const installBtn = document.getElementById("installApp");
+        const banner = document.getElementById("installBanner");
+
+        const isIOS = /iphone|ipad|ipod/.test(window.navigator.userAgent.toLowerCase());
+        const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches;
+
+        if (isIOS && !isInStandaloneMode) {
+            banner.style.display = "flex";
+        }
+
+        window.addEventListener("beforeinstallprompt", (e) => {
+
+            e.preventDefault();
+            deferredPrompt = e;
+
+            banner.style.display = "flex";
+
+        });
+
+        installBtn.addEventListener("click", async () => {
+
+            if (deferredPrompt) {
+
+                deferredPrompt.prompt();
+                await deferredPrompt.userChoice;
+                deferredPrompt = null;
+
+                banner.style.display = "none";
+
+            } else if (isIOS) {
+
+                alert(
+                    "Pour installer Lectio :\n\n1️⃣ Appuyez sur 'Partager'\n2️⃣ Puis 'Ajouter à l'écran d'accueil'"
+                );
+
+            }
+
+        });
+
+        });
+
+    </script>
+</body>
+
+</html>

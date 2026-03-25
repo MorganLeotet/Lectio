@@ -1,0 +1,29 @@
+<main class="page page-genre">
+
+    <%- include("../partials/breadcrumb") %>
+
+    <div class="container">
+
+        <div class="genres-grid">
+
+            <% genres.forEach(genre => { %>
+
+                <article class="genre-card">
+
+                <a href="/genres/<%= genre.slug %>" class="genre-link">
+
+                <img src="<%= genre.banner %>" alt="<%= genre.name %>">
+
+                </a>
+
+                </article>
+
+            <% }) %>
+
+        </div>
+
+    </div>
+
+</main>
+
+<div id="loginContainer"></div>

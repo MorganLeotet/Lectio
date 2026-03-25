@@ -1,0 +1,72 @@
+<main class="page page-library">
+
+    <%- include("../partials/breadcrumb") %>
+
+    <div class="container">
+
+        <h1 id="libraryTitle"><%= library.name %></h1>
+
+        <div class="library_menu">
+
+            <button data-filter="all">Tous</button>
+            <button data-filter="to_read">A Lire</button>
+            <button data-filter="reading">En Cours</button>
+            <button data-filter="read">Lu</button>
+            <button data-filter="favorites">Coup de Coeur</button>
+
+        </div>
+
+        <div class="library-grid" id="library-grid">
+
+            <% books.forEach(book => { %>
+
+                <div class="book-card" data-status="<%= book.reading_status.toLowerCase().replace(' ','_') %>" data-favorite="<%= book.favorite %>">
+
+                    <a href="/books/<%= book.id %>">
+
+                        <div class="cover-wrapper">
+
+                            <img src="<%= book.volumeInfo.imageLinks?.thumbnail || '/images/no-cover.png' %>">
+
+                            <button class="favorite-book <%= book.favorite ? 'active' : '' %>" data-id="<%= book.id %>">❤️</button>
+
+                            <span class="status-badge <%= book.reading_status %>">
+                                <%= {
+                                    to_read: "À lire",
+                                    reading: "En cours",
+                                    read: "Lu"
+                                }[book.reading_status] %>
+                            </span>
+
+                        </div>
+
+                        <h3><%= book.volumeInfo.title %></h3>
+
+                    </a>
+
+                    <p><%= book.volumeInfo.authors?.join(", ") %></p>
+
+                    <select class="change-status status-select" data-id="<%= book.id %>">
+
+                        <option value="to_read" <%= book.reading_status==="to_read"?"selected":"" %>>A Lire</option>
+
+                        <option value="reading" <%= book.reading_status==="reading"?"selected":"" %>>En Cours</option>
+
+                        <option value="read" <%= book.reading_status==="read"?"selected":"" %>>Lu</option>
+
+                    </select>
+
+                    <form action="/library/remove" method="POST">
+                        <input type="hidden" name="google_book_id" value="<%= book.id %>">
+                        <button class="btn-remove">Retirer de ma bibliothèque</button>
+                    </form>
+
+                </div>
+
+            <% }) %>
+
+        </div>
+
+    </div>
+
+</main>

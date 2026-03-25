@@ -1,0 +1,148 @@
+
+/* ===== MAIN ===== */
+
+.page-home {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 2rem;
+
+}
+/* ===== GENRES ====== */
+
+.genres {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+.genres-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+.genres-grid a:nth-child(n+4) {
+    display: none;
+}
+.genres-grid img {
+    width: 100%;
+    display: block;
+    border-radius: 0.8rem;
+}
+.genres-toggle {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.8rem;
+    border: 0.1rem solid var(--color-background-menu);
+    text-decoration: none;
+    color: var(--color-background-menu);
+    background: var(--color-background-header-footer);
+}
+.genres-toggle a {
+    text-decoration: none;
+    color: inherit;
+}
+.genres-toggle:hover {
+    background: var(--color-background-button);
+    color: var(--color-background-menu);
+}
+/* ========== TITLE ========= */
+.section-title {
+    text-align: center;
+    font-size: 1.75rem;
+    margin-bottom: 3rem;
+}
+/* ========= SECTION ======== */
+.section {
+    margin: 6rem 0;
+}
+/* ===== LIVRES ===== */
+.books-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* ===============================
+    BOOK CARD
+================================ */
+.search-book-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    background: var(--color-background-menu);
+    border-radius: 0.5rem;
+
+    padding: 1rem;
+
+    box-shadow: 0 0.125rem 0.375rem rgba(0,0,0,0.1);
+
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+    cursor: pointer;
+}
+
+.search-book-card:hover {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.15);
+}
+
+.search-book-cover {
+    width: 4.5rem;
+    height: 6.5rem;
+    object-fit: cover;
+    border-radius: 0.25rem;
+}
+
+.search-book-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.search-book-card h3 {
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.search-book-card p {
+    font-size: 0.8rem;
+    color: #555;
+    margin: 0;
+}
+
+/* ==========================
+    BOOK LINK
+============================ */
+
+.search-book-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===============================
+    ADD BUTTON
+================================ */
+
+.add-book-btn {
+    margin-top: 0.5rem;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.75rem;
+
+    border: none;
+    border-radius: 0.25rem;
+
+    background: var(--color-background-header-footer);
+    color: var(--color-background-menu);
+
+    cursor: pointer;
+}
+
+.add-book-btn:hover {
+    background: var(--color-background-button);
+}
+
+
+
+
+

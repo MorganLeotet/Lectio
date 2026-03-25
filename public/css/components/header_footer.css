@@ -1,0 +1,327 @@
+/* =============== HEADER ================== */
+
+.site-header {
+    background-color: var(--color-background-header-footer);
+    padding: 1rem;
+    color: var(--color-background-menu);
+}
+
+.header-container {
+    /*position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;*/
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* LOGO */
+
+.logo {
+    /*position: relative;
+    left: 3rem;
+    display: flex;
+    align-items: center;*/
+    margin: 0 auto;
+}
+
+body.logged-in .logo {
+    margin: 0;
+}
+
+.logo img {
+    height: 5rem;
+}
+
+/* SEARCH */
+
+.search-container{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar{
+    display:none;
+}
+
+.search-bar.active{
+    display:flex;
+}
+
+/* LOGIN */
+
+.login-btn{
+    display:none;
+}
+
+/* USER MOBILE */
+
+.mobile-user {
+    display: grid;
+    place-items: center;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+/* ACTIONS */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-left: auto;
+}
+
+.mobile-search {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem;
+}
+
+/* ACCESSIBILITY */
+
+.accessibility-toggle img {
+    border-radius: 0.6rem;
+    padding: 0.4rem;
+    height: 3rem;
+}
+
+/* USER AREA */
+
+.user-area {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-menu{
+    position:relative;
+}
+
+.user-button{
+    background:none;
+    border:none;
+    font-weight:600;
+    cursor:pointer;
+    color: var(--color-background-menu);
+}
+
+/* MENU */
+
+.user-arrow {
+    width: 0;
+    height: 0;
+    margin-left: 0.4rem;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid white;
+    transition: transform 0.2s ease;
+}
+
+.user-dropdown{
+    position:absolute;
+    top:100%;
+    right:0;
+    background: var(--color-background-menu);
+    border-radius:0.5rem;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    display:none;
+    flex-direction:column;
+}
+
+/* LIENS */
+
+.user-dropdown a{
+    display:flex;
+    justify-content:space-between;
+    padding:0.6rem 1rem;
+    text-decoration: none;
+    color: var(--color-background-header-footer);
+    white-space:nowrap;
+}
+
+.user-dropdown a:hover{
+    background:#f5f5f5;
+    border-radius: 1rem;
+}
+
+/* HOVER */
+
+.user-menu:hover .user-dropdown{
+    display:flex;
+}
+
+.welcome-text{
+    display:none;
+}
+
+.logout-btn{
+    text-decoration:none;
+    padding:0.4rem 0.8rem;
+    border-radius:0.6rem;
+    background:var(--color-background-menu);
+    color:var(--color-background-header-footer);
+}
+
+/* ==== SEARCH POPUP ==== */
+
+.popup {
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    width: 100%;
+    max-width: 22rem;
+    background: var(--color-background-menu);
+    border: 0.0625rem solid var(--color-background-header-footer);
+    border-radius: 0.4rem;
+    padding: 0.8rem;
+    box-shadow: 0 0.3rem 0.8rem rgba(0,0,0,0.15);
+    display: none;
+    z-index: 1000;
+    max-height: 20rem;
+    overflow-y: auto;
+
+    /* amélioration du scroll */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* scrollbar plus propre */
+.popup::-webkit-scrollbar {
+    width: 6px;
+}
+
+.popup::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+.result-item{
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.result-item:hover{
+    background: rgba(0,0,0,0.05);
+}
+
+/* =============================== FOOTER ============================ */
+
+.footer {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    padding:1.5rem;
+    background:var(--color-background-header-footer);
+    color:var(--color-background-menu);
+    text-align:center;
+}
+
+.footer a {
+    color: var(--color-background-menu);
+    text-decoration: none;
+}
+
+/* ================================================================================
+                                MEDIA QUERIES
+==================================================================================*/
+
+/* ===================== TABLETTE ========================= */
+
+@media (min-width:48rem){
+
+    /* LOGO */
+
+    .logo{
+        position:static;
+        transform:none;
+    }
+
+    /* SEARCH BAR */
+
+    .search-bar{
+        display:flex;
+        align-items:center;
+        gap:0.8rem;
+
+        background:var(--color-background-menu);
+
+        border-radius:3rem;
+        padding:0.6rem 1.2rem;
+
+        width:45%;
+        max-width:38rem;
+
+        box-shadow:0 0.2rem 0.6rem var(--color-menu-text);
+    }
+
+    .search-bar input{
+        flex:1;
+        border:none;
+        background:transparent;
+        font-size:1rem;
+        outline:none;
+    }
+
+    .search-bar button{
+        border:none;
+        background:transparent;
+        cursor:pointer;
+    }
+
+    /* LOGIN */
+
+    .login-btn{
+        display:block;
+        padding:0.7rem 1.6rem;
+        border-radius:1rem;
+        border:none;
+        font-weight:600;
+        cursor:pointer;
+        background:var(--color-background-menu);
+    }
+
+    /* CACHER MOBILE */
+
+    .mobile-search,
+    .mobile-user{
+        display:none;
+    }
+
+    .welcome-text{
+        display:inline;
+    }
+
+}
+
+/* ============================= DESKTOP ========================= */
+
+@media (min-width:64rem){
+
+    .logo img{
+        height:10rem;
+    }
+
+    .popup{
+        max-width:28rem;
+    }
+
+    .search-bar {
+        width: 22rem;
+    }
+
+    .accessibility-toggle img{
+        height: 5rem;
+    }
+
+    .welcome-text{
+        display:inline;
+    }
+
+}

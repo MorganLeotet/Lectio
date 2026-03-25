@@ -1,0 +1,152 @@
+<main class="page page-home">
+
+    <%- include("../partials/breadcrumb") %>
+        <div class="container"> 
+
+            <!-- ================= GENRES ================= -->
+
+            <section class="genres">
+
+                <div class="genres-grid">
+
+                    <% genres.forEach(genre => { %>
+
+                        <a href="/genres/<%= genre.slug %>" class="genre-card">
+
+                        <img src="<%= genre.banner || '/assets/banner/default-genre.png' %>">
+
+                        </a>
+
+                    <% }) %>
+
+                </div>
+
+                <a class="genres-toggle" href="/genres">Afficher la liste</a>
+
+            </section>
+
+            <!-- ================= FAVORITES ================= -->
+            <section class="section favorites">
+
+                <div class="container">
+
+                    <h2 class="section-title">Coups de coeur des Lecteurs</h2>
+
+                    <div class="carousel">
+
+                        <div class="carousel-track">
+
+                            <% if(favorites && favorites.length > 0){ %>
+
+                            <% favorites.forEach(book => { %>
+
+                            <article class="book-card">
+
+                                <a href="/books/<%= book.id %>" class="book-link">
+
+                                    <div class="book-cover">
+
+                                        <img src="<%= book.volumeInfo.imageLinks?.thumbnail?.replace('http://','https://') || '/images/no-cover.png' %>">
+
+                                    </div>
+
+                                    <h3 class="book-title"><%= book.volumeInfo.title %></h3>
+
+                                </a>
+
+                                <p class="book-author"><%= book.volumeInfo.authors?.join(", ") || "Auteur inconnu" %></p>
+
+                            </article>
+
+                            <% }) %>
+
+                            <% } else { %>
+
+                                <p class="no-favorites">Aucun coup de cœur pour le moment.</p>
+
+                            <% } %>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ================= BOOKS ================= -->
+
+            <section class="section books">
+
+                <div class="container">
+
+                    <h2 class="section-title">L'univers des livres</h2>
+
+                    <div class="carousel">
+                        <div class="carousel-track">
+
+                            <% randomBooks.forEach(book => { %>
+
+                                <article class="book-card">
+
+                                    <a href="/books/<%= book.id %>" class="book-link">
+
+                                    <div class="book-cover">
+
+                                    <img src="<%= book.volumeInfo.imageLinks?.thumbnail %>" alt="<%= book.volumeInfo.title %>">
+
+                                    </div>
+
+                                    <h3 class="book-title"><%= book.volumeInfo.title %></h3>
+
+                                    <p class="book-author"><%= book.volumeInfo.authors?.join(", ") || "Auteur inconnu" %></p>
+
+                                    </a>
+
+                                </article>
+
+                            <% }) %>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ================= AUTHORS ================= -->
+
+            <section class="section authors">
+
+                <div class="container">
+
+                    <h2 class="section-title">Coin des Auteurs</h2>
+
+                    <div class="carousel">
+                        <div class="carousel-track">
+
+                            <% authors.forEach(author => { %>
+
+                                <a href="/authors/<%= encodeURIComponent(author) %>" class="author-card">
+
+                                    <div class="author-avatar">
+                                        <img src="https://ui-avatars.com/api/?name=<%= author %>&background=random">
+                                    </div>
+
+                                    <h3 class="author-name"><%= author %></h3>
+
+                                </a>
+
+                            <% }) %>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+</main>
+
+
+<div id="loginContainer"></div>

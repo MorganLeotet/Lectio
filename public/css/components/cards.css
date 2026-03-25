@@ -1,0 +1,68 @@
+
+.book-card {
+    width: 18rem;
+    max-width: 100%;
+    min-height: 28rem;
+    border: 0.08rem solid var(--color-menu-text);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    background: var(--color-background-menu);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+}
+.book-card a {
+    text-decoration: none;
+    color: inherit;
+}
+.book-card:hover {
+    transform: translateY(-0.4rem);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.book-link {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    text-align: center;
+    border-radius: 0.8rem;
+    margin-bottom: 1rem;
+}
+.book-link:focus-visible {
+    outline: 0.2rem solid #ffd700;
+    outline-offset: 0.3rem;
+    border-radius: 0.5rem;
+}
+/* couverture */
+
+.book-cover {
+    width: 100%;
+    height: 20rem;
+    display:flex;
+    justify-content:center;
+}
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: .5rem;
+}
+.book-title {
+    font-size:1.4rem;
+    margin-top:1rem;
+    text-align:center;
+}
+.book-author {
+    font-size:1.2rem;
+    color:#666;
+    text-align:center;
+}
+.empty-message {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    opacity: 0.7;
+}

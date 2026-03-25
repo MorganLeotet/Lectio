@@ -1,0 +1,293 @@
+/* ================= GLOBAL ================= */
+
+html, body{
+    overflow-x:hidden;
+}
+
+/* ================= PAGE ================= */
+
+.page-library{
+    padding:1rem 0;
+    text-align:center;
+}
+
+.page-library .container{
+    max-width:75rem;
+    margin:auto;
+}
+
+/* ================= TITLE ================= */
+
+#libraryTitle{
+    font-size:1.8rem;
+    font-weight:700;
+    margin-bottom:2rem;
+    color:var(--color-menu-text);
+    letter-spacing:0.03em;
+}
+
+/* ================= GRID ================= */
+
+.library-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(16rem, 1fr));
+    gap:2.5rem;
+    padding:2rem 1rem;
+    max-width:70rem;
+    margin:0 auto;
+    justify-items:center;
+}
+
+/* ================= BOOK CARD ================= */
+
+.page-library .book-card{
+    width:100%;
+    max-width:18rem;
+}
+
+.page-library .book-card:hover{
+    transform:translateY(-0.3rem);
+    box-shadow:0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* ================= COVER ================= */
+
+.cover-wrapper{
+    position:relative;
+    width:100%;
+}
+
+.cover-wrapper img{
+    width:100%;
+    height:18rem;
+    object-fit:cover;
+    border-radius:1rem;
+}
+
+/* ================= STATUS BADGE ================= */
+
+.status-badge{
+    position:absolute;
+    bottom:0.7rem;
+    left:0.6rem;
+    padding:0.35rem 0.7rem;
+    border-radius:2rem;
+    font-size:0.7rem;
+    font-weight:600;
+    color:white;
+    backdrop-filter:blur(3px);
+    box-shadow:0 2px 6px rgba(0,0,0,0.25);
+}
+
+.status-select {
+    appearance: none;
+    border: none;
+    border-radius: 999px;
+    padding: 0.6rem 1rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* Couleurs dynamiques */
+
+.status-select[data-status="to_read"] {
+    background: var(--color-button-reading-status-alire);
+    color: var(--color-background-menu);
+}
+
+.status-select[data-status="reading"] {
+    background: var(--color-button-reading-status-encours);
+    color: var(--color-background-menu);
+}
+
+.status-select[data-status="read"] {
+    background: var(--color-button-reading-status-lu);
+    color: var(--color-background-menu);
+}
+
+/* ===== STATUS COLORS ===== */
+
+.status-badge.to_read{
+    background:var(--color-button-reading-status-alire);
+}
+
+.status-badge.reading{
+    background:var(--color-button-reading-status-encours);
+}
+
+.status-badge.read{
+    background:var(--color-button-reading-status-lu);
+}
+
+/* ================= FAVORITE ================= */
+.favorite-book{
+    position:absolute;
+    top:0.5rem;
+    right:0.5rem;
+    background:rgba(0,0,0,0.45);
+    border:none;
+    width:2rem;
+    height:2rem;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1rem;
+    cursor:pointer;
+    transition:all .2s ease;
+}
+
+.favorite-book:hover{
+    transform:scale(1.15);
+}
+
+.favorite-book.active{
+    background:#ff4d6d;
+}
+
+/* ================= BOOK INFO ================= */
+
+.page-library .book-card h3{
+    font-size:0.9rem;
+    margin-top:0.5rem;
+}
+
+.page-library .book-card p{
+    font-size:0.8rem;
+    color:var(--color-menu-text);
+}
+
+/* ================= REMOVE BUTTON ================= */
+
+.remove-book{
+    background:var(--color-background-button);
+    border:none;
+    padding:0.45rem 1rem;
+    border-radius:1.1rem;
+    font-size:0.75rem;
+    color:var(--color-background-menu);
+    cursor:pointer;
+    transition:background .2s ease;
+}
+
+.remove-book:hover{
+    background:var(--color-text);
+}
+
+/* ================= FILTER MENU ================= */
+
+.library_menu{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:0.5rem;
+    padding:0.6rem 1rem;
+    margin:0 auto 2rem auto;
+}
+
+.library_menu::-webkit-scrollbar{
+    display:none;
+}
+
+/* ================= MENU BUTTONS ================= */
+
+.library_menu button{
+    border:none;
+    padding:0.4rem 1.3rem;
+    border-radius:2rem;
+    font-weight:600;
+    font-size:0.85rem;
+    cursor:pointer;
+    transition:all .2s ease;
+    white-space:nowrap;
+}
+
+/* ===== STATUS COLORS ===== */
+
+.library_menu button[data-filter="to_read"]{
+    background:var(--color-button-reading-status-alire);
+    color:var(--color-background-menu);
+}
+
+.library_menu button[data-filter="reading"]{
+    background:var(--color-button-reading-status-encours);
+    color:var(--color-background-menu);
+}
+
+.library_menu button[data-filter="read"]{
+    background:var(--color-button-reading-status-lu);
+    color:var(--color-background-menu);
+}
+
+.library_menu button[data-filter="all"]{
+    background:var( --color-background-header-footer);
+    color:var(--color-background-menu);
+}
+
+.library_menu button[data-filter="favorites"]{
+    background:red;
+    color:var(--color-background-menu);
+}
+
+/* ================= MENU STATES ================= */
+
+.library_menu button:hover{
+    transform:translateY(-0.15rem);
+}
+
+.library_menu button:active{
+    transform:scale(0.95);
+}
+
+.library_menu button.active{
+    box-shadow:0 0.2rem 0.6rem rgba(0,0,0,0.15);
+}
+
+/* ================= ANIMATION ================= */
+
+.book-item{
+
+    opacity:0;
+
+    transform:translateY(1rem);
+
+    animation:fadeIn .4s ease forwards;
+}
+
+@keyframes fadeIn{
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ============================================== MEDIA QUERIES ========================================== */
+
+/* ================= TABLET ================= */
+
+@media (min-width:48rem){
+
+    .library_menu{
+        grid-template-columns:repeat(2, minmax(14rem, 18rem));
+        justify-items:center;
+        gap:3rem;
+    }
+
+}
+
+/* ================= DESKTOP ================= */
+
+@media (min-width:75rem){
+
+    .library-grid{
+        grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));
+        padding:3rem 2rem;
+    }
+
+    .library_menu{
+        justify-content:center;
+    }
+
+}

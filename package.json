@@ -1,0 +1,35 @@
+{
+  "name": "lectio",
+  "version": "1.0.0",
+  "description": "Plateforme de gestion de bibliothèque et de suivi de lecture",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MorganLeotet/Lectio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/MorganLeotet/Lectio/issues"
+  },
+  "homepage": "https://github.com/MorganLeotet/Lectio#readme",
+  "dependencies": {
+    "argon2": "^0.44.0",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.3",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.19.0",
+    "jsonwebtoken": "^9.0.3",
+    "node-fetch": "^3.3.2",
+    "pg": "^8.17.2",
+    "sequelize": "^6.37.7"
+  }
+}

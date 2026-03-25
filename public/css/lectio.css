@@ -1,0 +1,37 @@
+/* ======================================
+                IMPORT
+========================================*/
+
+/* ======== BASE ======= */
+
+@import url("./base/reset.css");
+@import url("./base/typography.css");
+@import url("./base/variables.css");
+@import url("./base/layout.css");
+
+/* ======= COMPONENTS ======= */
+
+@import url("./components/header_footer.css");
+@import url("./components/cards.css");
+@import url('./components/carrousel.css');
+@import url('./components/login.css');
+
+
+
+/* ======= PAGES ====== */
+
+@import url("./pages/home.css");
+@import url("./pages/genre.css");
+@import url("./pages/genres_selected.css");
+@import url("./pages/authors.css");
+@import url('./pages/authors_selected.css');
+@import url("./pages/book_detail.css");
+@import url('./pages/library.css');
+@import url('./pages/legal-page.css');
+@import url('./pages/presentation.css');
+
+
+
+/* ======== ACCESSIBILITY ====== */
+
+@import url("./accessibility/accessibility.css");

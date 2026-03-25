@@ -1,0 +1,133 @@
+<main class="page">
+
+    <%- include("../partials/breadcrumb") %>
+
+    <section class="book-wrapper">
+
+        <div class="container">
+
+            <div class="book-container">
+
+                <!-- COVER -->
+
+                <div class="cover">
+
+                    <img src="<%= book.cover || '/assets/img/default-book.png' %>" alt="<%= book.title %>">
+
+                    <% if (user) { %>
+
+                        <button class="favorite-btn">❤️</button>
+
+                    <% } %>
+
+                    <% if(readingStatus){ %>
+
+                        <span class="book-status"><%= readingStatus %></span>
+
+                    <% } %>
+
+                </div>
+
+                <!-- INFOS -->
+
+                <div class="book-info">
+
+                    <h1 class="book-title"><%= book.title %></h1>
+
+                    <p>
+                        <strong>Auteur :</strong>
+                        <% if (book.authors?.length) { %>
+                            <a href="/authors/<%= encodeURIComponent(book.authors[0]) %>">
+                                <%= book.authors.join(", ") %>
+                            </a>
+                        <% } else { %>
+                            Auteur inconnu
+                        <% } %>
+                    </p>
+
+                    <p><strong>Date de publication :</strong> <%= book.publishedDate || "Non disponible" %></p>
+
+                    <p><strong>Éditeur :</strong> <%= book.publisher || "Non disponible" %></p>
+
+                    <p><strong>Nombre de pages :</strong> <%= book.pageCount || "Non disponible" %></p>
+
+                    <!-- ACTIONS -->
+
+                    <div class="book-actions">
+
+                        <% if (user) { %>
+
+                            <% if (alreadyInLibrary) { %>
+
+                                <form action="/library/remove" method="POST">
+                                    <input type="hidden" name="google_book_id" value="<%= book.id %>">
+                                    <button class="btn-remove">Retirer de ma bibliothèque</button>
+                                </form>
+
+                            <% } else { %>
+
+                                <form action="/library/add" method="POST">
+                                    <input type="hidden" name="google_book_id" value="<%= book.id %>">
+                                    <button type="submit" class="btn-add">Ajouter à ma bibliothèque</button>
+                                </form>
+
+                            <% } %>
+
+                        <% } else { %>
+
+                            <a href="/login" class="login-to-add">
+                                Connectez-vous pour ajouter ce livre à votre bibliothèque
+                            </a>
+
+                        <% } %>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- RESUME -->
+
+            <section class="book-summary">
+
+                <h2>Résumé du livre</h2>
+
+                <p><%- book.description || "Aucun résumé disponible pour ce livre." %></p>
+
+            </section>
+
+            <% if (user && similarBooks?.length) { %>
+
+                <section class="similar-books">
+
+                    <h2>Livres similaires</h2>
+
+                    <div class="similar-grid">
+
+                        <% similarBooks.forEach(similar => { %>
+
+                            <a href="/books/<%= similar.id %>" class="similar-book">
+
+                                <img 
+                                    src="<%= similar.volumeInfo.imageLinks?.thumbnail || '/assets/img/default-book.png' %>" 
+                                    alt="<%= similar.volumeInfo.title %>"
+                                >
+
+                                <p><%= similar.volumeInfo.title %></p>
+
+                            </a>
+
+                        <% }) %>
+
+                    </div>
+
+                </section>
+
+            <% } %>
+
+        </div>
+
+    </section>
+
+</main>

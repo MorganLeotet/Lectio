@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lectio - Détail Livre</title>
+    <link rel="stylesheet" href="../css/lectio.css">
+    
+</head>
+<body>
+<!-- =========================== HEADER ========================= -->
+<header class="site-header">
+    <div class="header-container">
+
+        <!-- Icône user (mobile uniquement) -->
+        <button class="mobile-user">👤</button>
+
+        <!-- Logo -->
+        <a href="../index.html" class="logo">
+        <img src="../assets/logo/logo.svg" alt="Logo Lectio">
+        </a>
+
+        <!-- Recherche -->
+        <form class="search-bar">
+            <input type="text" placeholder="Rechercher par livre, auteur, genre">
+            <button type="submit">🔍</button>
+        </form>
+
+        <!-- Zone utilisateur -->
+        <div class="user-area">
+
+        <!-- BLOC A DROITE -->
+        <div class="header-actions"></div>
+            <span class="welcome-text"></span>
+            <button class="login-btn">Connexion</button>
+            <button class="mobile-search">🔍</button>
+            <button class="accessibility-toggle" aria-label="Mode accessibilité">
+                <img src="../assets/icons/handicap.svg">
+            </button>
+        </div>
+    </div>
+</header>
+<!-- FIL D’ARIANE -->
+    <nav class="breadcrumb">
+        <a href="#">Accueil</a> &gt;
+        <a href="#">Catalogue</a> &gt;
+        <span>Livre</span>
+    </nav>
+<!-- =========== MAIN =========== -->
+    <main class="page">
+        <div class="container">
+            <section class="book-wrapper">
+                <div class="book-container">
+                    <div class="cover">
+                        <img src="../assets/img/test-book.jpg" alt="couverture du livre"> 
+                        <button class="favorite-btn">♡</button>
+                        <span class="book-status">statut du livre</span>
+                        <div class="book-actions">
+                            <button class="btn-add">Ajouter</button>
+                            <button class="btn-remove">Retirer</button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h1>Le Seigneur des anneaux : La Communauté de l'Anneau</h1>
+                        <p><strong>Auteur: J.J.R Tolkien</strong></p>
+                        <p><strong>Date de publication: 29 Juillet 1954</strong></p>
+                        <p><strong>Editeur: BOURGOIS CHRISTIAN</strong></p>
+                        <p><strong>Genre: Fanstasy Fantastiques</strong></p>
+                        <p><strong>Âge du lecteur: 9 - 11ans</strong></p>
+                        <p><strong>Nombre de pages: 544</strong></p>
+                        <p><strong>ISBN: 226705485X</strong></p>
+                    </div>
+                </div>
+            </section>
+            <section class="book-summary">
+                <h1>Résumé du livre</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla viverra massa et tortor tincidunt luctus. 
+                    Ut aliquet eget nisl ut venenatis. Aliquam vitae ante faucibus, aliquam odio sed, sodales quam. 
+                    Suspendisse condimentum pharetra augue, at malesuada tellus tincidunt non. Curabitur porttitor a lectus in rutrum. 
+                    Etiam sed finibus purus.
+                    Sed nibh augue, bibendum nec lectus eget, euismod accumsan urna. Fusce eu eros sit amet tortor tincidunt malesuada.
+                </p>
+            </section>
+        </div>
+    </main>
+<!--- ==== FOOTER ==== -->
+    <footer class="footer">
+        <span>LECTIO ® 2026</span>
+        <a href="mentions.html">Mentions Légales</a>
+        <a href="accesibility.html">Mode accessibilité</a>
+    </footer>
+
+<script type="module" src="../js/lectio.js"></script>
+
+</body>
+</html>

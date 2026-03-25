@@ -1,0 +1,38 @@
+/* ==== IMPORT ==== */
+
+import { DataTypes } from "sequelize";
+import sequelize from "../config/database.js";
+
+/* ==== LIBRARY MODEL ==== */
+
+const Library = sequelize.define(
+    "Library",
+    {
+        id_library: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+        },
+
+        name: {
+        type: DataTypes.STRING(100),
+        allowNull: false,
+        defaultValue: "Ma bibliothèque",
+        },
+
+        id_user: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        unique: true, // 1 utilisateur = 1 bibliothèque
+        },
+    },
+    {
+        tableName: "libraries",
+        timestamps: true,
+        underscored: true,
+    }
+);
+
+/* ==== EXPORT ==== */
+
+export default Library;
