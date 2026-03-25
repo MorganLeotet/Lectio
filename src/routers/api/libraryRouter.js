@@ -22,11 +22,7 @@ router.post("/books", authMiddleware, libraryController.addBookToLibrary);
 router.patch("/books/:google_book_id",authMiddleware,libraryController.updateReadingStatus);
 
 /* Retirer un livre de la bibliothèque */
-router.delete(
-    "/books/:google_book_id",
-    authMiddleware,
-    libraryController.deleteBookFromLibrary
-);
+router.delete("/books/:google_book_id",authMiddleware,libraryController.deleteBookFromLibrary);
 
 /* Modifier le nom de la bibliothèque */
 router.patch("/name", authMiddleware, libraryController.updateLibraryName);

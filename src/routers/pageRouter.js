@@ -32,17 +32,19 @@ router.get(["/home"], async (req, res) => {
 
         /* ================= GOOGLE BOOKS ================= */
 
+    // on récupère les livres depuis le cache (éviter trop d'appel api)
         let booksData = getCached("home_books");
-
+    // si pas de données en cache, on appel l'api
         if (!booksData) {
             const booksRes = await fetch(
                 "https://www.googleapis.com/books/v1/volumes?q=subject:fiction&maxResults=40"
             );
 
             booksData = await booksRes.json();
+        // on stocke les données dans le cache pour la prochaine fois
             setCache("home_books", booksData);
         }
-
+    // liste des livres récupérés
         const books = booksData.items || [];
 
         /* ================= RANDOM BOOKS ================= */
@@ -86,16 +88,16 @@ router.get(["/home"], async (req, res) => {
         /* ================= FAVORITES ================= */
 
         let favorites = [];
-
+    // si l'utilisateur est connecté
         if (req.session.libraryId) {
-
+        // on récupère ses favoris en base
             const favBooks = await LibraryBook.findAll({
                 where: {
                     id_library: req.session.libraryId,
                     favorite: true
                 }
             });
-
+        // on récupère les infos via google books
             favorites = await Promise.all(
 
                 favBooks.map(async (book) => {
@@ -111,7 +113,7 @@ router.get(["/home"], async (req, res) => {
         );
 
         /* ===== ORDRE DES FAVORIS ===== */
-
+    // on affiche les plus récents en premier
         favorites.reverse();
 
 }
@@ -144,9 +146,12 @@ router.get("/library", requireAuth, async (req, res) => {
 
     try {
 
+    // on récupère la bibliothèque de l'utilisateur connecté
+
         const library = await Library.findOne({
             where: { id_user: req.session.user.id }
         });
+    // si pas encore de bibliothèque, on affiche la page vide
 
         if (!library) {
             return res.render("pages/library", {
@@ -156,25 +161,31 @@ router.get("/library", requireAuth, async (req, res) => {
                 booksFinished: []
             });
         }
+    // on récupère tous les livres associés à la bibliothèque en base
 
         const libraryBooks = await LibraryBook.findAll({
             where: {
                 id_library: library.id_library
             }
         });
+    
+    // pour chaque livre, on récupère ses infos via google books
 
         const books = await Promise.all(
 
             libraryBooks.map(async (libBook) => {
-
+            
+            // on appel google books avec l'id du livre
                 const response = await fetch(
                     `https://www.googleapis.com/books/v1/volumes/${libBook.google_book_id}`
                 );
 
                 const data = await response.json();
-
+            
+            // si aucune info, on ignore le livre
                 if (!data.volumeInfo) return null;
-
+            
+            // on fusionne les données google books avec nos statuts et nos favoris en local
                 return {
                     ...data,
                     reading_status: libBook.reading_status,
@@ -185,8 +196,10 @@ router.get("/library", requireAuth, async (req, res) => {
 
         );
 
+    
         const validBooks = books.filter(book => book !== null);
-
+    
+    // on trie les livres selon le statut de lecture
         const booksToRead = validBooks.filter(
             b => b.reading_status === "to_read"
         );
@@ -199,6 +212,7 @@ router.get("/library", requireAuth, async (req, res) => {
             b => b.reading_status === "read"
         );
 
+    // on envoie la page "library" avec les données
         res.render("pages/library", {
             title: library.name || "Ma bibliothèque",
             library,
@@ -222,21 +236,22 @@ router.post("/library/add", requireAuth, async (req, res) => {
 
         const { google_book_id } = req.body;
 
+    // on vérifie si y'a bien l'id du livre
         if (!google_book_id) {
             return res.status(400).send("Livre manquant");
         }
-
+    // vérifie si l'utilisateur a bien une bilbiothèque
         if (!req.session.libraryId) {
             return res.status(400).send("Bibliothèque introuvable");
         }
-
+    // vérifie si le livre est déjà dans la bibliothèque
         const existing = await LibraryBook.findOne({
             where: {
                 id_library: req.session.libraryId,
                 google_book_id
             }
         });
-
+    // si existe pas , on l'ajoute
         if (!existing) {
 
             await LibraryBook.create({
@@ -247,7 +262,7 @@ router.post("/library/add", requireAuth, async (req, res) => {
             });
 
         }
-
+    // redirection vars page d'avant ou page bibliothèque
         res.redirect(req.get("referer") || "/library");
 
     } catch (error) {
@@ -263,13 +278,14 @@ router.post("/library/add", requireAuth, async (req, res) => {
 router.post("/library/remove", requireAuth, async (req, res) => {
 
     try {
-
+    
+    // récupère l'id du livre à supprimer depuis le formulaire
         const { google_book_id } = req.body;
-
+    // véridie que l'id est donné
         if (!google_book_id) {
             return res.status(400).send("Livre manquant");
         }
-
+    // supprime le livre de la biblothèque de l'utilisateur
         await LibraryBook.destroy({
             where: {
                 id_library: req.session.libraryId,
@@ -300,24 +316,26 @@ router.post("/library/favorite", requireAuth, async (req, res) => {
                 error: "Livre manquant"
             });
         }
-
+    
+    // recherche le livre dans la bibliothèque de l'utilisateur
         const libraryBook = await LibraryBook.findOne({
             where: {
                 id_library: req.session.libraryId,
                 google_book_id
             }
         });
-
+    
+    // si livre existe pas
         if (!libraryBook) {
             return res.status(404).json({
                 error: "Livre introuvable"
             });
         }
-
+    // inverser l'état du favori (true <-> false)
         libraryBook.favorite = !libraryBook.favorite;
-
+    // sauvegarde en base
         await libraryBook.save();
-
+    // retourne un json avec le nouvel état
         res.json({
             success: true,
             favorite: libraryBook.favorite

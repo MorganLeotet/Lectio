@@ -1,485 +1,715 @@
 # Cahier des charges
 
-## 📖 Présentation du projet
+## Présentation du projet
 
-Le projet consiste à concevoir et développer une application web de gestion de bibliothèque personnelle.
-Cette application permet aux utilisateurs de regrouper leurs livres au même endroit, de suivre l’état de leurs lectures et de découvrir de nouveaux ouvrages à travers un catalogue accessible à tous.
+Le projet consiste à concevoir et développer une application web dédiée à la gestion
+d’une bibliothèque personnelle.
 
-L’application est pensée pour être :
-simple d’utilisation,
-accessible à tous, y compris aux personnes ayant des besoins spécifiques,
-utilisable aussi bien par des visiteurs que par des utilisateurs connectés.
-Les visiteurs peuvent découvrir librement le contenu de l’application, tandis que les utilisateurs connectés peuvent gérer leur propre bibliothèque personnelle.
-Le projet est développé dans une logique de MVP (Minimum Viable Product), c’est-à-dire une première version fonctionnelle et cohérente, volontairement limitée, afin de poser des bases solides avant d’éventuelles évolutions.
+L’objectif est de proposer une plateforme simple et intuitive permettant aux
+utilisateurs de centraliser leurs livres, suivre l’avancement de leurs lectures et
+découvrir de nouveaux ouvrages.
 
-## 🧩 Besoins du projet
+La page d’accueil met notamment en avant différentes catégories comme les genres,
+les auteurs ou encore les coups de cœur des lecteurs, afin de faciliter l’exploration.
 
-Afin de répondre à cette problématique, le projet doit satisfaire les besoins suivants :
+L’application est pensée pour répondre à plusieurs enjeux :
 
-### 📚 Besoin de centralisation
+	• offrir une expérience utilisateur claire et facile à prendre en main, même pour
+	un public non technique
+	• garantir une accessibilité optimale, y compris pour les personnes ayant des
+	besoins spécifiques
+	• permettre une utilisation sans compte (mode visiteur) tout en proposant des
+	fonctionnalités avancées pour les utilisateurs connectés
 
-Les utilisateurs ont besoin d’un espace unique leur permettant de regrouper l’ensemble de leurs livres afin d’éviter la dispersion des informations et de mieux s’organiser.
+Ainsi :
+	• un visiteur peut consulter librement le contenu et découvrir des livres
+	• un utilisateur connecté peut gérer sa propre bibliothèque (ajout, suivi,
+	organisation)
 
-### ⏱️ Besoin de suivi des lectures
+Le projet s’inscrit dans une démarche de développement en MVP (Minimum Viable
+Product).
 
-Les utilisateurs doivent pouvoir suivre l’état de leurs lectures (livre à lire, en cours de lecture ou déjà lu) afin de mieux gérer leur temps de lecture et leur progression.
+Cela signifie que cette première version se concentre sur les fonctionnalités
+essentielles, afin de proposer un produit fonctionnel, cohérent et exploitable, tout en
+laissant la place à des évolutions futures.
 
-### 🔍 Besoin de découverte
+## Définition des besoins
 
-Les visiteurs et les utilisateurs ont besoin de découvrir de nouveaux livres grâce à :
-	. la navigation par genres,
-	. la consultation des auteurs,
-	. la mise en avant des coups de cœur des lecteurs.
+Le projet répond à plusieurs besoins liés à la gestion et à la découverte de livres.
 
-### 🌐 Besoin d’accessibilité
+### Centraliser ses livres
 
-L’application doit être accessible au plus grand nombre, notamment aux personnes rencontrant des difficultés de lecture ou de navigation.Un mode accessibilité est donc nécessaire pour améliorer le confort d’utilisation.
+Les utilisateurs ont besoin d’un espace unique pour regrouper et organiser leurs
+livres, afin d’éviter la dispersion des informations.
 
-### 🔐 Besoin de différenciation des accès
+### Suivre ses lectures
 
-Il est nécessaire de distinguer :
+Les utilisateurs souhaitent pouvoir suivre l’avancement de leurs lectures et garder
+une trace de leur progression.
 
-	 .les visiteurs, qui consultent librement le catalogue,
-	. les utilisateurs connectés, qui peuvent gérer leur bibliothèque personnelle.
+### Découvrir facilement de nouveaux livres
 
-Cette distinction permet de protéger les données personnelles tout en offrant une découverte libre de l’application.
+Les utilisateurs ont besoin de moyens simples pour explorer de nouveaux contenus
+(navigation, recherche, recommandations).
 
-### ⚙️ Besoin de simplicité technique
+### Accéder librement au contenu
 
-L’application doit rester simple à utiliser et à maintenir, avec des fonctionnalités clairement définies et un périmètre maîtrisé, afin de garantir la faisabilité du projet dans le cadre du MVP.
+Un utilisateur doit pouvoir découvrir l’application sans obligation de création de
+compte.
 
-Ces besoins ont permis de définir les objectifs du projet, en cohérence avec les usages attendus par les utilisateurs.
+### Disposer d’un espace personnel sécurisé
 
-## 🎯 Objectifs du projet
+Les utilisateurs doivent pouvoir accéder à un espace personnel pour gérer leurs
+données de manière sécurisée.
 
-L’objectif du projet est de concevoir une application web simple, accessible et fonctionnelle permettant aux utilisateurs de gérer leur bibliothèque personnelle et de découvrir de nouveaux livres.
+### Utiliser une application accessible
 
-À travers ce projet, l’application doit permettre :
+L’application doit être utilisable par tous, y compris les personnes ayant des besoins
+spécifiques en termes de lisibilité.
 
-### 📚 Gérer une bibliothèque personnelle
+## Objectifs du projet
 
-Permettre à chaque utilisateur connecté de disposer d’un espace personnel dans lequel il peut ajouter, consulter et organiser ses livres.
+Le projet vise à proposer une application web fonctionnelle répondant aux besoins
+identifiés, à travers les objectifs suivants :
 
-### ⏱️ Suivre l’état de lecture des livres
+## Permettre la gestion d’une bibliothèque personnelle
 
-Offrir la possibilité de définir un statut de lecture pour chaque livre (à lire, en cours, lu) afin d’aider les utilisateurs à suivre leur progression.
+Mettre à disposition un espace utilisateur permettant d’ajouter, supprimer et
+consulter des livres.
 
-### 🔍 Faciliter la découverte de nouveaux livres
+### Mettre en place un suivi de lecture
 
-Proposer un catalogue consultable par tous, avec une navigation par genres et par auteurs, afin de favoriser la découverte de nouveaux ouvrages.
+Permettre de définir et modifier le statut de lecture pour chaque livre.
 
-### ❤️ Mettre en avant les coups de cœur des lecteurs
+### Proposer des outils de découverte
 
-Permettre aux utilisateurs de marquer des livres comme coups de cœur afin de mettre en avant les ouvrages appréciés par la communauté.
+Offrir une navigation par genres et auteurs, ainsi qu’un moteur de recherche
+performant.
+### Permettre une utilisation sans compte
 
-### 🌐 Rendre l’application accessible au plus grand nombre
+Donner accès aux fonctionnalités de découverte sans authentification.
 
-Intégrer un mode accessibilité afin d’améliorer la lisibilité et la navigation pour les personnes ayant des besoins spécifiques.
+### Implémenter un système d’authentification
 
-### 🔐 Proposer une gestion des accès simple et sécurisée
+Permettre la création de compte et la connexion sécurisée des utilisateurs.
 
-Différencier les fonctionnalités accessibles aux visiteurs et aux utilisateurs connectés, tout en garantissant la sécurité des données personnelles.
+### Intégrer un système de recommandation simple
 
-### ⚙️ Développer une application cohérente et évolutive
+Permettre aux utilisateurs de marquer des livres comme coups de cœur.
 
-Concevoir une application respectant le périmètre du MVP, avec une architecture claire, afin de faciliter la maintenance et les évolutions futures.
+### Faciliter l’ajout de livres via une API externe
 
-Les objectifs du projet ont été définis afin de répondre aux besoins des utilisateurs tout en respectant les contraintes du MVP.
+Intégrer une API (Google Books) pour enrichir facilement la base de données.
 
-## 🎯 Cible du projet (Public visé)
+### Intégrer un mode accessibilité
 
-L’application s’adresse à toute personne souhaitant organiser, suivre et découvrir des livres de manière simple et accessible.
+Proposer une interface adaptée pour améliorer l’expérience utilisateur.
 
-### 📚 Lecteurs occasionnels
+## Spécifications fonctionnelles
 
-Le projet vise les personnes qui lisent de temps en temps et souhaitent garder une trace des livres qu’elles ont lus, qu’elles sont en train de lire ou qu’elles souhaitent lire plus tard.
-L’application leur permet de gérer leur bibliothèque personnelle sans complexité.
+## MVP – Minimum Viable Product
 
-### 📖 Lecteurs réguliers
+Le MVP correspond à la première version fonctionnelle de l’application.
+Il regroupe uniquement les fonctionnalités essentielles permettant à un utilisateur
+de découvrir des livres et gérer une bibliothèque personnelle, tout en garantissant
+une utilisation simple et cohérente.
 
-Les lecteurs plus assidus peuvent utiliser l’application pour structurer leur bibliothèque, suivre leur progression de lecture et découvrir de nouveaux livres grâce à la navigation par genres, auteurs et coups de cœur.
+### Fonctionnalités accessibles aux visiteurs
 
-### 👀 Utilisateurs en phase de découverte
+Les visiteurs peuvent utiliser l’application sans créer de compte, dans une logique de
+découverte.
 
-Les visiteurs qui ne possèdent pas encore de compte peuvent consulter librement le catalogue afin de découvrir l’application avant de s’inscrire.
-Cette approche permet de tester le service sans engagement.
+### Accès à la page d’accueil
 
-### ♿ Utilisateurs ayant des besoins spécifiques
+La page d’accueil permet de découvrir l’application à travers plusieurs sections :
 
-L’application prend en compte les utilisateurs ayant des besoins d’accessibilité, notamment les personnes ayant des difficultés de lecture ou de navigation.
-Le mode accessibilité permet d’améliorer la lisibilité et le confort d’utilisation.
+	• genres littéraires
+	• auteurs
+	• coups de cœur des lecteurs
+	• sélection de livres
 
-### 💻 Public général
+### Navigation par genres et auteurs
 
-L’application est destinée à un public large, sans connaissances techniques particulières, et accessible depuis un navigateur web sur ordinateur, tablette ou smartphone.
+Les visiteurs peuvent explorer les livres selon :
 
-## 🚀 MVP – Minimum Viable Product
+	• les genres
+	• les auteurs
 
-Le MVP correspond à la première version fonctionnelle de l’application.Il regroupe uniquement les fonctionnalités essentielles permettant de répondre aux objectifs du projet, sans complexité inutile.
+### Consultation des fiches livres
 
-## 👀 Fonctionnalités pour les visiteurs
+Accès aux informations principales :
 
-Les visiteurs peuvent découvrir l’application sans créer de compte.
+	• titre
+	• auteur
+	• résumé
+	• genre
 
-### 🏠 Accéder à la page d’accueil
+### Recherche de contenu
 
-La page d’accueil présente l’application et met en avant une sélection de livres coups de cœur des lecteurs, renouvelée régulièrement.
+Un moteur de recherche permet de trouver rapidement :
 
-### 📚 Consulter le catalogue de livres
+	• un livre
+	• un auteur
+	• un genre
 
-Les visiteurs peuvent parcourir la liste des livres disponibles et accéder aux informations principales.
+### Mode accessibilité
 
-### 🏷️ Naviguer par genres et auteurs
+Activation d’un mode améliorant la lisibilité et le confort de navigation.
 
-Les visiteurs peuvent découvrir les livres selon les genres littéraires ou les auteurs afin de faciliter la recherche et la découverte.
+### Inscription et connexion
 
-### 📖 Consulter le détail d’un livre
+Possibilité de créer un compte et de se connecter pour accéder aux fonctionnalités
+avancées.
 
-Les visiteurs peuvent accéder à la fiche d’un livre (titre, auteur, résumé, genre), sans possibilité de modifier les données.
+### Fonctionnalités accessibles aux utilisateurs connectés
 
-### 🔍 Utiliser le moteur de recherche
+Les utilisateurs connectés disposent d’un espace personnel pour gérer leur
+bibliothèque.
 
-Les visiteurs peuvent rechercher un livre, un genre ou un auteur rapidement.
+### Gestion de la bibliothèque
 
-### ♿ Activer le mode accessibilité
+	• consultation des livres ajoutés
+	• organisation de sa bibliothèque
 
-Les visiteurs peuvent activer un mode accessibilité afin d’améliorer la lisibilité et le confort de navigation.
+### Ajouter / supprimer des livres
 
-### 🔐 Créer un compte et se connecter
+Ajout et suppression de livres dans sa bibliothèque personnelle.
 
-Les visiteurs peuvent se créer un compte et se connecter de manière sécurisée afin d’accéder à leur espace personnel.
+### Suivi de lecture
 
-## 👤 Fonctionnalités pour les utilisateurs connectés
+Définition d’un statut pour chaque livre :
 
-Les utilisateurs connectés disposent de fonctionnalités supplémentaires pour gérer leur bibliothèque personnelle.
+	• à lire
+	• en cours
+	• lu
 
-### 🔐 se connecter
+### Gestion des coups de cœur
 
-Les utilisateurs peuvent se connecter de manière sécurisée afin d’accéder à leur espace personnel.
+Possibilité de marquer des livres comme favoris afin de contribuer aux
+recommandations.
 
-### 📚 Gérer sa bibliothèque personnelle
+### Recherche via API externe
 
-Chaque utilisateur dispose d’une bibliothèque personnelle dans laquelle il peut consulter tous les livres qu’il a ajoutés.
+Recherche de livres via une API externe (Google Books) pour faciliter l’ajout de
+nouveaux ouvrages.
 
-### ➕ Ajouter et ➖ retirer des livres
+### Mode accessibilité
 
-Les utilisateurs peuvent ajouter des livres à leur bibliothèque ou les retirer à tout moment.
+Disponible également pour les utilisateurs connectés.
 
-### ⏱️ Définir un statut de lecture
+## Évolutions potentielles du projet
 
-Pour chaque livre, l’utilisateur peut indiquer s’il est à lire, en cours de lecture ou déjà lu.
+Les fonctionnalités suivantes ne font pas partie du MVP.
+Elles représentent des pistes d’amélioration permettant d’enrichir l’application à
+moyen et long terme, en améliorant l’expérience utilisateur et en ajoutant des
+dimensions sociales et analytiques.
 
-### ❤️ Marquer des livres comme coups de cœur
+### Fonctionnalités sociales
 
-Les utilisateurs peuvent marquer des livres comme coups de cœur afin de participer à la mise en avant des recommandations.
+#### Partage de bibliothèque
 
-### 📚 Rechercher des livres via une API externe
+Permettre aux utilisateurs de rendre leur bibliothèque publique ou accessible à
+d’autres utilisateurs.
+Cette fonctionnalité favoriserait l’échange et la découverte de nouvelles lectures.
 
-Les utilisateurs peuvent rechercher des livres via une API externe (Google Books) afin de faciliter l’ajout de nouveaux ouvrages.
+#### Avis et notes sur les livres
 
-### ♿ Utiliser le mode accessibilité
+Donner la possibilité aux utilisateurs de laisser un avis et d’attribuer une note à un
+livre.
+Cela permettrait d’enrichir les contenus et d’aider les autres utilisateurs dans leurs
+choix.
 
-Les utilisateurs connectés peuvent également activer le mode accessibilité.
+#### Partage sur les réseaux sociaux
 
-## 🔮 Évolutions potentielles du projet
+Permettre le partage de livres ou de coups de cœur sur des plateformes externes, afin
+d’augmenter la visibilité de l’application.
 
-Les fonctionnalités suivantes ne font pas partie du MVP.Elles représentent des pistes d’évolution possibles pour enrichir l’application dans le futur.
+#### Personnalisation de l’expérience
 
-### 📤 Partage de bibliothèque
+##### Recommandations personnalisées
 
-Il serait possible de permettre aux utilisateurs de rendre leur bibliothèque visible à d’autres utilisateurs.Cette fonctionnalité favoriserait l’échange autour des lectures et la découverte de nouvelles bibliothèques.
+Proposer des suggestions de livres basées sur :
 
-### ⭐ Avis et notes sur les livres
+	• les genres consultés
+	• les livres ajoutés
+	• les coups de cœur
 
-Les utilisateurs pourraient laisser un avis et attribuer une note à un livre.Cela permettrait d’enrichir les informations disponibles et d’aider les autres lecteurs à faire leur choix.
+#### Notifications
 
-### 🎯 Recommandations personnalisées
+Mettre en place un système de notifications pour :
 
-L’application pourrait proposer des recommandations de livres basées sur :
+	• relancer une lecture en cours
+	• suggérer de nouveaux livres
+	• informer des nouveautés
 
-	- les genres consultés,
-	- les livres ajoutés à la bibliothèque,
-	- les coups de cœur des utilisateurs.
+#### Suivi et analyse
 
-### 📊 Statistiques de lecture
+##### Statistiques de lecture
 
-Les utilisateurs pourraient accéder à des statistiques personnelles, comme :
+Fournir des indicateurs personnalisés, tels que :
 
-	- le nombre de livres lus,
-	- le temps passé à lire,
-	- les genres les plus consultés.
+	• nombre de livres lus
+	• livres en cours
+	• genres les plus consultés
 
-### 📱 Application mobile
+#### Évolution technique
 
-Une version mobile de l’application pourrait être développée afin de permettre aux utilisateurs de gérer leur bibliothèque depuis leur smartphone ou leur tablette.
+##### Application mobile
 
-### 🔔 Notifications
+Développer une version mobile (ou progressive web app) afin d’améliorer
+l’accessibilité et l’usage au quotidien.
 
-L’application pourrait envoyer des notifications pour :
+#### Accessibilité avancée
 
-	- rappeler une lecture en cours,
-	- suggérer de nouveaux livres,
-	- informer des nouveautés du catalogue.
+Améliorer le mode accessibilité avec :
 
-### 🌍 Partage social
+	• des options de personnalisation (taille, contraste, etc.)
+	• une compatibilité avec les lecteurs d’écran
+	• des réglages adaptés aux différents besoins utilisateurs
 
-Il serait possible de connecter l’application à des réseaux sociaux afin de partager ses coups de cœur ou sa bibliothèque.
+## Spécifications techniques
 
-### ♿ Accessibilité avancée
+### Choix technologiques et justifications
 
-Le mode accessibilité pourrait être enrichi avec :
+Les technologies retenues ont été choisies afin de garantir une application
+fonctionnelle, maintenable et évolutive, tout en restant adaptées au périmètre
+du MVP.
 
-	- des options de personnalisation plus poussées,
-	- une compatibilité avec des lecteurs d’écran,
-	- des réglages spécifiques selon les besoins des utilisateurs.
+#### Frontend
 
-## 🛠️ Choix technologiques et justifications
+##### HTML5
 
-Les technologies choisies ont pour objectif de garantir une application simple à utiliser, facile à maintenir et évolutive, tout en restant cohérentes avec le périmètre du MVP.
+HTML5 est utilisé pour structurer les pages de l’application.
 
-### 🧱 Frontend – HTML5
+Justification :
 
-HTML5 sera utilisé pour structurer les pages de l’application.
+Il permet de créer une structure claire et sémantique, essentielle pour :
 
-Justification du choix :
+	• l’accessibilité
+	• le référencement naturel (SEO)
+	• la compatibilité avec les navigateurs modernes
 
-HTML5 permet de créer une structure claire et sémantique des pages.Il est essentiel pour :
+##### CSS
 
-	- l’accessibilité,
-	- le référencement naturel (SEO),
-	- la compatibilité avec les navigateurs modernes.
+CSS est utilisé pour la mise en forme de l’interface.
 
-### 🎨 Frontend – Tailwind CSS
+Justification :
 
-Tailwind CSS sera utilisé pour la mise en forme et le design de l’interface.
+Il permet de gérer l’apparence visuelle et d’assurer une interface claire et agréable :
 
-Justification du choix :
+	• mise en page
+	• gestion des couleurs et typographies
+	• adaptation aux différents écrans (responsive design)
 
-Tailwind CSS permet de créer rapidement des interfaces modernes et responsives grâce à ses classes utilitaires.Il facilite l’approche mobile first et assure une cohérence visuelle sur l’ensemble de l’application.
+##### JavaScript
 
-### 🟨 Frontend – JavaScript
+JavaScript permet de gérer les interactions dynamiques côté client.
 
-JavaScript sera utilisé pour gérer les interactions dynamiques du site.
+Justification :
 
-Justification du choix :
+Il est utilisé pour :
 
-JavaScript permet de rendre l’application interactive (formulaires, actions utilisateur, affichage dynamique).Il est indispensable pour communiquer avec le backend via des requêtes HTTP et consommer les API.
+	• la gestion des actions utilisateur
+	• l’affichage dynamique des données
+	• la communication avec le backend via des requêtes HTTP
+	• l’intégration d’API externes
 
-### ⚙️ Backend – Node.js
+#### Backend
 
-Node.js sera utilisé comme environnement d’exécution côté serveur.
+##### Node.js
 
-Justification du choix :
+Node.js est utilisé comme environnement d’exécution côté serveur.
 
-Node.js permet de développer des applications performantes et scalables.Il est bien adapté au développement d’API REST et s’intègre naturellement avec JavaScript.
+Justification :
 
-### 🚏 Backend – Express.js
+Il permet de développer une application performante et cohérente avec
+l’utilisation de JavaScript sur l’ensemble du projet (full JavaScript).
 
-Express.js sera utilisé comme framework backend.
+##### Express.js
 
-Justification du choix :
+Express.js est utilisé comme framework backend.
 
-Express.js fournit une structure simple et légère pour gérer les routes, les requêtes HTTP et les middlewares.Il permet de construire une API REST claire et maintenable.
+Justification :
 
+Il facilite la mise en place :
 
-### 🗃️ ORM – Sequelize
+	• des routes
+	• des requêtes HTTP
+	• des middlewares
 
-Sequelize sera utilisé pour gérer les échanges avec la base de données.
+et permet de structurer une API REST claire et maintenable.
 
-Justification du choix :
+#### Gestion des données
 
-Sequelize permet de manipuler les données via des modèles plutôt que des requêtes SQL complexes.Il facilite la gestion des relations et limite les erreurs de manipulation des données.
+##### PostgreSQL
 
-### 🐘 Base de données – PostgreSQL
+PostgreSQL est utilisé comme base de données relationnelle.
 
-PostgreSQL sera utilisé comme système de gestion de base de données.
+Justification :
 
-Justification du choix :
+Elle offre :
 
-PostgreSQL est une base de données relationnelle fiable et robuste.Elle est adaptée à la gestion de relations complexes et respecte les standards SQL.
+	• robustesse et fiabilité
+	• gestion efficace des relations
+	• respect des standards SQL
 
-### 📚 API externe – Google Books API
+##### Sequelize (ORM)
 
-Google Books API sera utilisée pour enrichir le catalogue de livres.
+Sequelize est utilisé pour interagir avec la base de données.
 
-Justification du choix :
+Justification :
 
-Cette API permet de rechercher des livres par titre, auteur ou ISBN et de récupérer automatiquement leurs informations.Elle évite une saisie manuelle complète et améliore la qualité des données.
+Il permet de manipuler les données via des modèles, ce qui :
 
-### 🔐 Sécurité – Authentification et bonnes pratiques
+	• simplifie les requêtes
+	• améliore la lisibilité du code
+	• limite les erreurs
 
-Un système d’authentification sécurisé sera mis en place.
+#### API externe
 
-Justification du choix :
+##### Google Books API
 
-L’utilisation de JWT permet de sécuriser les échanges entre le frontend et le backend.Les bonnes pratiques de sécurité (hashage des mots de passe, protection contre les failles courantes) garantissent la protection des données utilisateurs et la conformité RGPD.
+Cette API est utilisée pour récupérer des informations sur les livres.
 
+Justification :
 
-### 📱 Responsive design & Mobile First
+Elle permet de rechercher des livres (titre, auteur, ISBN) et de récupérer
+automatiquement :
 
-L’application sera conçue selon une approche mobile first.
+	• titre
+	• auteur
+	• description
+	• couverture
+	• date de publication
 
-Justification du choix :
+Cela évite la saisie manuelle et améliore la qualité des données.
 
-Cette approche garantit une expérience utilisateur optimale sur tous les supports (mobile, tablette, ordinateur).
+#### Sécurité
 
-### ♿ Accessibilité – Normes WCAG
+##### Authentification
 
-Les normes d’accessibilité seront respectées dès la conception.
+Un système d’authentification basé sur JWT est mis en place.
 
-Justification du choix :
+Justification :
 
-Le respect des normes WCAG permet de rendre l’application utilisable par le plus grand nombre, notamment les personnes en situation de handicap.
+	• sécurisation des échanges client/serveur
+	• gestion des sessions sans stockage côté serveur
 
-### 🔍 SEO – Bonnes pratiques
+Des bonnes pratiques sont également appliquées :
 
-Les bonnes pratiques de référencement naturel seront appliquées.
+	• hashage des mots de passe
+	• validation des données
+	• protection contre les failles courantes (XSS, injections SQL)
 
-Justification du choix :
+#### Expérience utilisateur
 
-Une structure HTML sémantique et des URLs lisibles améliorent la visibilité de l’application sur les moteurs de recherche.
+##### Responsive design (Mobile First)
 
-### 🌱 Éco-conception
+L’application est conçue en mobile first.
 
-Des principes d’éco-conception seront intégrés au développement.
+Justification :
 
-Justification du choix :
+Garantit une expérience optimale sur :
 
-L’optimisation des ressources et la limitation des requêtes inutiles permettent de réduire l’impact environnemental de l’application.
+	• mobile
+	• tablette
+	• ordinateur
 
+#### Accessibilité
 
-### 🚀 Déploiement – Docker
+Un mode accessibilité est intégré.
 
-Docker sera utilisé pour le déploiement de l’application.
+Justification :
 
-Justification du choix :
+Permet d’améliorer la lisibilité (ex : augmentation de la taille du texte) et
+constitue une première approche vers une interface inclusive.
 
-Docker garantit des environnements de développement et de production cohérents, facilitant le déploiement et la maintenance.
+#### Référencement (SEO)
 
-## 🌐 Compatibilité des navigateurs
+Des bonnes pratiques SEO sont appliquées.
 
-L’application doit être accessible et utilisable sur les navigateurs web les plus courants, dans leurs versions récentes et maintenues, afin de garantir une expérience utilisateur fiable et cohérente.
+Justification :
 
-L’application web sera conçue pour être compatible avec les navigateurs web récents sur ordinateur et mobile.
-Elle prendra en charge Google Chrome, Mozilla Firefox, Microsoft Edge (Chromium) à partir de la version 100, ainsi que Safari à partir de la version 14.
-Sur mobile, l’application sera compatible avec Chrome Mobile (Android) et Safari Mobile (iOS 14 et versions supérieures).
-Le choix de ces versions garantit une compatibilité optimale avec les technologies web modernes utilisées dans le projet.
+	• structure HTML sémantique
+	• URLs lisibles
 
-## 🌐 Routes Frontend
+Objectif : améliorer la visibilité sur les moteurs de recherche.
 
-Voici la liste des routes frontend
+#### Éco-conception
 
-				/ → Accueil
-				/login → Connexion
-				/register → Inscription
-				/library → Ma bibliothèque (utilisateur connecté)
-				/books → Catalogue / Recherche de livres
-				/book/:id → Détail d’un livre
-				/genres → Liste des genres
-				/genre/:id → Détail d’un genre
-				/authors → Liste des auteurs
-				/author/:name → Détail d’un auteur
-				/profile → Profil utilisateur
+Des principes d’optimisation sont pris en compte.
 
-👉 Les routes livres / genres / auteurs / détails sont accessibles :
+Justification :
 
-	- aux visiteurs (lecture seule)
-	- aux utilisateurs connectés (avec actions supplémentaires)
+	• limitation des requêtes inutiles
+	• optimisation des ressources
 
-### 🧭 Logique de navigation
+Objectif : réduire l’impact environnemental.
 
-	- Accueil est le point d’entrée principal
-	- Depuis l’accueil, l’utilisateur peut :
-			. se connecter / s’inscrire
-			. explorer le catalogue
-	-Les pages livre / genre / auteur sont accessibles à tous
-	- Les pages library et profile nécessitent une connexion
+#### Déploiement
 
-## 🎨 Schéma d’arborescence
+##### Docker
+
+Docker est utilisé pour le déploiement.
+
+Justification :
+
+Permet de garantir un environnement identique entre développement et production :
+
+	• déploiement simplifié
+	• meilleure portabilité
+	• maintenance facilitée
+
+## Cible du projet
+
+### Public visé
+
+L’application s’adresse à un public large souhaitant gérer, suivre et découvrir des
+livres de manière simple et accessible, sans nécessiter de compétences techniques
+particulières.
+
+### Profils principaux d’utilisateurs
+
+#### Lecteurs occasionnels
+
+Les lecteurs occasionnels souhaitent garder une trace de leurs lectures sans utiliser
+des outils complexes.
+
+L’application leur permet de :
+
+	• suivre leurs lectures
+	• organiser simplement leurs livres
+	• retrouver facilement leurs informations
+
+#### Lecteurs réguliers
+
+Les lecteurs plus assidus ont besoin d’un outil structuré pour gérer un volume plus
+important de livres.
+
+L’application leur permet de :
+
+	• organiser leur bibliothèque
+	• suivre leur progression
+	• découvrir de nouveaux livres
+
+#### Utilisateurs en phase de découverte
+
+Certains utilisateurs souhaitent explorer l’application avant de s’engager.
+
+Ils peuvent :
+
+	• consulter les livres
+	• naviguer par genres et auteurs
+	• tester les fonctionnalités principales
+
+Cette approche facilite l’adoption en réduisant les freins à l’inscription.
+
+#### Accessibilité et inclusion
+
+L’application est conçue pour être utilisable par le plus grand nombre, y compris les
+personnes ayant des difficultés de lecture ou de navigation.
+
+Un mode accessibilité permet :
+
+	• d’améliorer la lisibilité
+	• d’augmenter le confort d’utilisation
+
+#### Contexte d’utilisation
+
+L’application est accessible :
+
+	• depuis un navigateur web
+	• sur ordinateur, tablette et smartphone
+
+Elle s’adresse à un public non technique, avec une interface pensée pour être intuitive
+et rapide à prendre en main.
+
+## Compatibilité des navigateurs
+
+L’application est conçue pour être accessible sur les navigateurs web les plus utilisés,
+afin de garantir une expérience utilisateur fiable, cohérente et accessible au plus
+grand nombre.
+
+### Navigateurs desktop supportés
+
+L’application est compatible avec les navigateurs modernes suivants :
+
+	• Google Chrome
+	• Mozilla Firefox
+	• Microsoft Edge
+	• Safari
+
+### Navigateurs mobiles
+L’application est également accessible sur les principaux navigateurs mobiles :
+
+	• Chrome Mobile (Android)
+	• Safari Mobile (iOS)
+
+### Choix techniques favorisant la compatibilité
+
+L’utilisation de technologies web standards permet d’assurer une bonne
+compatibilité :
+
+	• HTML5 pour une structure sémantique
+	• CSS pour la mise en forme et le responsive design
+	• JavaScript (ES6+) pour les interactions dynamiques
+
+Ces technologies sont largement supportées par les navigateurs modernes.
+
+### Responsive design
+
+L’application est développée selon une approche mobile first, garantissant une
+adaptation fluide à différents formats d’écran :
+
+	• smartphone
+	• tablette
+	• ordinateur
+
+### Tests et limites
+
+Des tests ont été réalisés sur les principaux navigateurs afin de vérifier le bon
+fonctionnement de l’application.
+
+L’application est optimisée pour les versions récentes des navigateurs.
+La compatibilité avec des navigateurs obsolètes (ex : Internet Explorer) n’est pas
+garantie.
+
+
+## Arborescence de l’application
+
+### Organisation des routes
+
+L’application Lectio est structurée autour de différentes routes permettant d’accéder
+aux fonctionnalités principales.
+
+Ces routes sont organisées selon le type d’utilisateur : visiteur ou utilisateur
+connecté.
+
+#### Routes accessibles aux visiteurs
+
+Les visiteurs peuvent naviguer librement dans l’application et consulter les contenus
+en lecture seule.
+
+	• / → Page d’accueil
+	• /home → Page d’accueil dynamique
+	• /login → Connexion
+	• /register → Inscription
+	• /genres → Liste des genres
+	• /genres/:slug → Livres d’un genre
+	• /authors/:name → Livres d’un auteur
+	• /books/:id → Détail d’un livre
+	• /mentions-legales → Mentions légales
+	• /accessibilite → Mode accessibilité
+
+Ces routes permettent une exploration complète de l’application sans
+authentification.
+
+#### Routes accessibles aux utilisateurs connectés
+
+Les utilisateurs connectés disposent de fonctionnalités supplémentaires liées à leur
+espace personnel.
+
+	• /library → Bibliothèque personnelle
+
+#### Actions disponibles :
+
+	• POST /library/add → Ajouter un livre
+	• POST /library/remove → Supprimer un livre
+	• POST /library/favorite → Ajouter / retirer un favori
+
+Ces routes permettent la gestion des livres et des préférences utilisateur.
+Logique de navigation
+
+Le parcours utilisateur est pensé pour être simple et fluide :
+
+	1. L’utilisateur arrive sur la page d’accueil
+	2. Il explore les contenus (genres, auteurs, suggestions)
+	3. Il consulte le détail d’un livre
+	4. Il peut ensuite :
+		◦ créer un compte / se connecter
+		◦ ajouter le livre à sa bibliothèque (si connecté)
+
+#### Choix de conception (MVP)
+
+Contrairement à une structure classique, l’application ne propose pas de page
+catalogue globale des livres (/books).
+
+Les livres sont accessibles via différents points d’entrée :
+
+	• page d’accueil
+	• genres
+	• auteurs
+
+Ce choix permet :
+
+	• de simplifier la navigation
+	• de limiter la complexité technique
+	• de rester cohérent avec le périmètre du MVP
+
+#### Objectif de cette arborescence
+
+Cette organisation vise à :
+
+	• faciliter la navigation
+	• réduire le nombre d’étapes pour accéder à un contenu
+	• proposer une expérience intuitive, même pour un utilisateur non connecté
+
+## Schéma d’arborescence
 
 
 Ce schéma représente l’arborescence des routes frontend de l’application et illustre les principaux parcours utilisateurs.
 
-![alt text](<Arborescence Routes.drawio.png>)
+![Arborescence](./Conception/Arboresecence%20Routes/Arboresence%20Routes%20(light).png)
 
 
-## 📡 Tableau des Endpoints API et descriptions
+## Tableau des Endpoints API et descriptions
 
-### 📚 Gestion des livres (Catalogue)
+### Google Books (API EXTERNE)
 
-| Verbe HTTP | URL            | Router       | Controller & Méthode        | Modèle & Méthodes | Description                       |
-|------------|----------------|--------------|-----------------------------|-------------------|-----------------------------------|
-| GET        | /books         | bookRouter  | bookController.getAll       | Book.findAll      | Lister tous les livres             |
-| GET        | /books/:id     | bookRouter  | bookController.getById      | Book.findById     | Trouver un livre par son ID        |
-| GET        | /books/search  | bookRouter  | bookController.search       | Book.findAll      | Rechercher un livre par mot-clé    |
-| GET.       | /books/search/external | bookRouter | bookController.searchExternal | Google Books API | Rechercher un livre via une API externe  |
+| Verbe HTTP | URL    | Router       | Controller & Méthode    | Modèle & Méthodes |Description      |
+|------------|----------------|--------------|-----------------------------|-------------------------|
+| GET   | /api/google-books/search  | googleBooksRouter  | googleBooksController.search      |      | Rechercher des livres via Google Books |
+| GET   | /api/books/google/:googleId   | bookRouter  | bookController.getGoogleBook    |      | Voir le détail d'un livre depuis Google Books       |
 
-### 🧑‍💼 Authentification
 
-| Verbe HTTP | URL            | Router       | Controller & Méthode        | Modèle & Méthodes | Description                                   |
+### Authentification
+
+| Verbe HTTP | URL    | Router       | Controller & Méthode    | Modèle & Méthodes | Description                                   |
 |------------|----------------|--------------|-----------------------------|-------------------|-----------------------------------------------|
 | POST       | /auth/register | authRouter  | authController.register     | User.create       | Créer un compte utilisateur                   |
 | POST       | /auth/login    | authRouter  | authController.login        | User.findOne     | Connecter un utilisateur                     |
+| GET       | /auth/logout   | authRouter  | authController.logout       |     | Déconnecter un utilisateur                     |
 
 
-
-### 👤 Utilisateur
+### Utilisateur
 
 | Verbe HTTP | URL        | Router       | Controller & Méthode           | Modèle & Méthodes | Description                               |
 |-----------|------------|--------------|---------------------------------|-------------------|-------------------------------------------|
-| GET       | /users/me  | userRouter  | userController.getProfile       | User.findByPk     | Accéder au profil utilisateur connecté    |
-| PUT       | /users/me  | userRouter  | userController.updateProfile    | User.update       | Modifier les informations du profil       |
+| GET       | /library | libraryRouter  | libraryController.getMyLibrary  | Library.findOne   | Récupérer la bibliothèque utilisateur     |
+| POST       | /api/library/books  | libraryRouter  | libraryController.addBookToLibrary   | LibraryBook.create     | Ajouter un livre à la bibliothèque       |
+| PATCH     | /api/library/books/:google_book_id  | libraryRouter   | libraryController.updateReadingStatus       | LibraryBook.update   | Modifier le statut de lecture |
+| DELETE      | /api/library/books/:google_book_id  | libraryRouter   | libraryController.deleteBookFromLibrary      | Library.destroy    | Supprimer un livre de la bibliothèque                 |
+| PATCH     | /api/library/name    | libraryRouter   | libraryController.updateLibraryName    | LibraryBook.update       | Modifier le nom de la bibliothèque   |
 
 
-### 📦 Bibliothèque personnelle
 
-| Verbe HTTP | URL            | Router          | Controller & Méthode                 | Modèle & Méthodes | Description                                         |
-|-----------|----------------|------------------|--------------------------------------|-------------------|-----------------------------------------------------|
-| GET       | /library/me  | libraryRouter   | libraryController.getMyLibrary       | Library.findOne   | Accéder à la bibliothèque de l’utilisateur connecté |
-| PUT       | /library/me  | libraryRouter   | libraryController.updateLibrary      | Library.update    | Modifier le nom de la bibliothèque                  |
+### Routes Pages (Render)
 
+| Verbe HTTP | URL          | Router       | Modèle & Méthodes | Description                         |
+|-----------|--------------|---------------|-----------------------------|---------------------------|
+| GET        | /           | pageRouter    |                   | Page d'Acceuil                      |
+| GET        | /home       | pageRouter    |                   | Page principale                     |
+| GET        | /library    | pageRouter    | Library.findOne   | Afficher la bibliothèque utilisateur|
+| POST       | /library/add| pageRouter    | LibraryBook.create| Ajouter un livre via un formulaire  |
+| POST       | /library/remove   | pageRouter    | LibraryBook.destroy| Supprimer un livre.          |
+| POST       | /library/favorite | pageRouter    | LibraryBook.update | Ajouter un favori            |
+| GET        | /genres           | pageRouter    |                   | Liste des genres              |
+| GET        | /genres/:slug     | pageRouter    |                   | Livres par genres             |
+| GET        | /authors/:name    | pageRouter    |                   | Livres par auteurs            |
+| GET        | /books/:id        | pageRouter    |                   | Détail d'un livre             |
+| GET        | /mentions-legales | pageRouter    |                   | Page Mentions légales         |
+| GET        | /accessibilite    | pageRouter    |                   | Page Accessibilité            |
 
-### 📘 Livres dans la bibliothèque (statut de lecture)
-
-| Verbe HTTP | URL                              | Router               | Controller & Méthode               | Modèle & Méthodes       | Description                          |
-|-----------|----------------------------------|----------------------|------------------------------------|--------------------------|--------------------------------------|
-| POST      | /library/books              | libraryBookRouter   | libraryBookController.addBook      | LibraryBook.create       | Ajouter un livre à la bibliothèque   |
-| PUT     | /library/books/:bookId      | libraryBookRouter   | libraryBookController.updateStatus | LibraryBook.update       | Modifier le statut de lecture        |
-| DELETE    | /library/books/:bookId      | libraryBookRouter   | libraryBookController.removeBook   | LibraryBook.destroy      | Retirer un livre de la bibliothèque  |
-
-
-### 🏷️ Genres
-
-| Verbe HTTP | URL          | Router        | Controller & Méthode       | Modèle & Méthodes | Description                         |
-|-----------|--------------|---------------|-----------------------------|-------------------|-------------------------------------|
-| GET       | /genres      | genreRouter  | genreController.getAll      | Genre.findAll     | Lister tous les genres               |
-| GET       | /genres/:id  | genreRouter  | genreController.getById     | Genre.findByPk    | Accéder au détail d’un genre         |
-
-
-### ✍️ Gestion des auteurs
-
-| Verbe HTTP | URL               | Router        | Controller & Méthode          | Modèle & Méthodes | Description                    |
-|------------|-------------------|---------------|--------------------------------|-------------------|--------------------------------|
-| GET        | /authors          | writerRouter | authorController.getAll        | Author.findAll    | Lister tous les auteurs        |
-| GET        | /authors/:id      | writerRouter | authorController.getOne        | Author.findByPk   | Afficher le détail d’un auteur |
-| GET        | /authors/:id/books| writerRouter | authorController.getBooks      | Book.findAll      | Lister les livres d’un auteur  |
-
-
-### 🔗 Association livres ↔ genres
-
-| Verbe HTTP | URL                     | Router           | Controller & Méthode           | Modèle & Méthodes     | Description                          |
-|------------|-------------------------|------------------|---------------------------------|------------------------|--------------------------------------|
-| POST       | /books/:id/genres       | bookGenre.router | bookGenreController.addGenre    | BookGenre.create       | Associer un genre à un livre         |
-| DELETE     | /books/:id/genres/:genreId | bookGenre.router | bookGenreController.removeGenre | BookGenre.destroy      | Supprimer l’association livre/genre |
-
-
-### ❤️ Coups de cœur (favoris)
-
-| Verbe HTTP | URL                     | Router           | Controller & Méthode                | Modèle & Méthodes | Description                                      |
-|------------|-------------------------|------------------|--------------------------------------|-------------------|--------------------------------------------------|
-| POST       | /books/:id/favorite     | favoriteRouter  | favoriteController.add               | Favorite.create   | Ajouter un livre aux coups de cœur               |
-| DELETE     | /books/:id/favorite     | favoriteRouter  | favoriteController.remove            | Favorite.destroy  | Retirer un livre des coups de cœur               |
-| GET        | /books/favorites/random | bookRouter      | bookController.getRandomFavorites    | Book.findAll      | Afficher une sélection aléatoire de coups de cœur|
 
 ### 🚨 Tableau des codes d’erreur HTTP
 
@@ -495,52 +725,200 @@ Ce schéma représente l’arborescence des routes frontend de l’application e
 | 409  | Conflict               | Conflit lors de la création ou modification  |
 | 500  | Internal Server Error  | Erreur interne du serveur                    |
 
-## 🌐 User Stories
+## User Stories
 
-### 👀 User stories – Visiteur (non connecté)
+### Visiteur (non connecté)
 
-| En tant que | Je veux                               | Afin de                                              |
+| En tant que | Je veux                                | Afin de                                               |
 |-------------|----------------------------------------|------------------------------------------------------|
-| Visiteur    | Accéder à la page d’accueil            | Découvrir l’application                              |
-| Visiteur    | Consulter la bibliothèque              | Voir les livres disponibles sans créer de compte     |
+| Visiteur    | Accéder à la page principale           | Découvrir l’application                              |
+| Visiteur    | Consulter les livres proposés          | Explorer les livres disponibles                      |
 | Visiteur    | Naviguer par genres                    | Découvrir des livres selon mes préférences           |
-| Visiteur    | Consulter la page d’un genre           | Voir les livres associés                             |
-| Visiteur    | Consulter la liste des auteurs         | Découvrir leurs ouvrages                             |
-| Visiteur    | Consulter la page d’un auteur          | Voir ses livres et ses genres associés               |
-| Visiteur    | Consulter le détail d’un livre         | Lire le résumé et les informations principales       |
-| Visiteur    | Me connecter ou m’inscrire             | Accéder à ma bibliothèque et la gérer                |
-| Visiteur    | Utiliser le moteur de recherche        | Trouver rapidement un livre, genre ou auteur         |
-| Visiteur    | Activer le mode accessibilité          | Améliorer la lisibilité de l’application             |
-| Visiteur    | Filtrer les livres par auteur          | Découvrir ses ouvrages                               |
+| Visiteur    | Consulter la page d’un auteur          | Voir les livres associés                             |
+| Visiteur    | Consulter le détail d’un livre         | Lire son résumé et ses informations                  |
+| Visiteur    | Utiliser le moteur de recherche        | Trouver un livre, un auteur via l'Api Google Books   |
+| Visiteur    | Accéder aux pages d'informations       | Comprendre le cadre et l'usage de l'application      |
+| Visiteur    | Créer un compte ou me connecter        | D'accéder à ma bibliothèque                          |
 
-### 👤 User stories – Utilisateur connecté
+### Utilisateur connecté
 
 | En tant que            | Je veux                                      | Afin de                                           |
 |------------------------|-----------------------------------------------|---------------------------------------------------|
 | Utilisateur connecté   | Accéder à ma bibliothèque                    | Voir tous les livres que j’ai ajoutés             |
 | Utilisateur connecté   | Ajouter un livre à ma bibliothèque           | Gérer ma collection                               |
 | Utilisateur connecté   | Retirer un livre de ma bibliothèque          | Maintenir ma collection à jour                    |
-| Utilisateur connecté   | Définir un statut de lecture                 | Suivre l’avancement de mes lectures               |
-| Utilisateur connecté   | Consulter le détail d’un livre               | L’ajouter ou le retirer de ma bibliothèque        |
-| Utilisateur connecté   | Rechercher par titre, auteur, genre, ISBN    | Retrouver un livre facilement                    |
-| Utilisateur connecté   | Modifier les infos d’un livre                | Corriger ou compléter ses données                 |
-| Utilisateur connecté   | Activer le mode accessibilité                | Améliorer la lisibilité et l’accessibilité        |
-| Utilisateur connecté   | Cliquer sur le bouton coeur d'un livre 		| Ajouter un livre à mes coups de coeur 			|
+| Utilisateur connecté   | Modifier le statut de lecture d'un livre     | Suivre l’avancement de mes lectures               |
+| Utilisateur connecté   | Marquer un livre comme favori                | Retrouver facilement mes coups de coeur |
+| Utilisateur connecté   | Modifier le nom de la bibliothèque           | Personnaliser ma bibliothèque           |
 
-### 🌐 User stories – API externe (Google Books)
+
+### API externe (Google Books)
 
 | En tant que | Je veux                                      | Afin de                                      |
 |-------------|-----------------------------------------------|----------------------------------------------|
-| Utilisateur | Rechercher un livre via une API externe      | Préremplir automatiquement ses informations |
-| Utilisateur | Modifier les données récupérées via l’API    | Garder le contrôle sur mes livres            |
+| Utilisateur | Rechercher un livre ou un auteur via une API Google Books | Récupérer automatiquement les informations d'un livre ou d'un auteur |
+| Utilisateur | Consulter les détails d'un livre externe    | Visualiser les informations sans stockage en base  |
 
-### 🔮 User stories – Évolutions futures 
+### Évolutions futures 
 
 | En tant que | Je veux                                   | Afin de                                   |
-|-------------|--------------------------------------------|-------------------------------------------|
-| Utilisateur | Laisser un avis sur un livre              | Partager mon opinion avec d’autres lecteurs|
-| Utilisateur | Noter un livre                            | Évaluer mes lectures                      |
-| Utilisateur | Recevoir des recommandations personnalisées| Découvrir de nouveaux livres              |
-| Utilisateur | Partager ma bibliothèque                  | Permettre à d’autres d’y accéder          |
-| Utilisateur | Accéder à ma bibliothèque sur mobile      | Gérer mes lectures en mobilité            |
+|-------------|--------------------------------------------|------------------------------------------|
+| Utilisateur connecté | Laisser un avis sur un livre     | Partager mon opinion                      |
+| Utilisateur connecté | Noter un livre                   | Évaluer mes lectures                      |
+| Utilisateur connecté | Recevoir des recommandations     | Découvrir de nouveaux livres              |
+| Utilisateur connecté | Partager ma bibliothèque         | Permettre à d’autres d’y accéder          |
+| Utilisateur connecté | Supprimer ma bibliothèque        | Réinitialiser ma collection et repartir de zéro |
+| Utilisateur connecté | Accéder à ma page profile        | Consulter mes informations personnelles   |
+| Utilisateur connecté | Modifier mes informations        | Personnaliser mon compte                  |
+| Utilisateur connecté | Supprimer mon compte             | Gérer mes données personnelles            |
+| Utilisateur connecté | Personnaliser ma bibliothèque    | Adapter l'interface à mes préférences     |
+| Utilisateur connecté | Organiser mes livres             | Mieux structurer ma collection            |
+| Utilisateur connecté | Ajouter une description à ma bibliothèque| Donner du contexte à ma collection|
+
+
+## Charte Graphique
+
+### LOGO
+
+	- voir le logo : ![Logo](./Design/Charte%20Graphique/logo/logo%20fav.png)
+
+### Intention graphique
+
+L’identité visuelle de l’application Lectio repose sur un univers à la fois calme,
+moderne et accessible, en cohérence avec l’usage principal de l’application : la
+lecture et la gestion personnelle de livres.
+
+L’objectif est de proposer une interface :
+
+	• apaisante, adaptée à une utilisation prolongée
+	• structurée, facilitant l’organisation des informations
+	• engageante, donnant envie de découvrir et suivre ses lectures
+
+L’univers graphique s’appuie sur une combinaison de couleurs froides et d’un accent
+chaud, permettant de créer un équilibre entre lisibilité et dynamisme.
+
+### Palette de couleurs
+
+#### Couleurs principales
+
+• Bleu principal : #1E3A8A
+
+Utilisé pour la navigation, les titres et les éléments structurants → inspire confiance et concentration
+
+• Bleu secondaire / turquoise : #2CB1BC
+
+Utilisé pour les éléments interactifs (liens, icônes, badges) → apporte modernité et clarté
+
+• Couleur d’accent (orange) : #F97316
+
+Utilisée pour les actions principales (CTA, favoris, interactions) → attire l’attention et dynamise l’interface
+
+#### Couleurs neutres
+
+	• Fond principal : #F8FAFC (clair, adapté à la lecture)
+	• Texte principal : #0F172A (lisible et moins agressif que noir pur)
+	• Texte secondaire : #64748B
+	• Bordures / séparateurs : #E2E8F0
+
+#### Accessibilité
+
+Un mode accessibilité est proposé afin d’améliorer la lisibilité.
+
+	• Fond : #FFFFFF
+	• Texte : #000000
+	• Accent renforcé : #EA580C
+	• Focus visible sur les éléments interactifs (boutons, champs)
+
+Cette approche permet de rendre l’application utilisable par un plus large public.
+
+#### Codes couleur des statuts
+
+Les statuts de lecture sont différenciés visuellement afin de faciliter la
+compréhension rapide :
+
+	• À lire → #38BDF8
+	• En cours → #FACC15
+	• Lu → #22C55E
+
+Chaque statut est accompagné :
+
+	• d’une couleur
+	• d’un label texte pour garantir l’accessibilité
+
+#### Typographies
+
+• Inter (sans-serif)
+
+Utilisée pour l’interface (titres, boutons, navigation) → lisibilité optimale et rendu moderne
+
+• Literata (serif)
+
+Utilisée pour le contenu textuel (résumés, descriptions) → améliore le confort de lecture
+
+#### Composants UI
+
+##### Bouton principal (CTA)
+
+	• Fond : orange (#F97316)
+	• Texte : blanc
+	• Forme : arrondie (rounded-xl)
+	• Effet hover : couleur plus foncée
+
+utilisé pour les actions importantes (ex : ajouter un livre)
+
+##### Bouton secondaire
+
+	• Fond transparent
+	• Bordure bleue (#1E3A8A)
+	• Hover léger
+
+##### Bouton tertiaire
+
+	• Texte discret
+	• Utilisé pour les actions secondaires
+
+##### Style visuel
+
+	• Icônes simples (outline)
+	• Utilisation d’angles arrondis
+	• Cartes avec ombres légères
+	• Espaces suffisants pour une bonne lisibilité
+
+L’interface est pensée pour être claire, aérée et facile à parcourir.
+
+#### Cohérence avec le projet
+
+Cette charte graphique a été conçue en cohérence avec :
+
+	• les besoins d’accessibilité
+	• le type d’utilisateur (grand public)
+	• le contexte d’utilisation (lecture prolongée)
+	
+Elle permet de garantir une expérience utilisateur fluide et homogène sur l’ensemble
+de l’application.
+
+## Gestion de projet
+
+Le projet Lectio a été réalisé en autonomie, dans le cadre de la formation
+Développeur Web et Web Mobile.
+
+J’ai assuré l’ensemble des rôles liés au projet, notamment :
+
+	- la conception fonctionnelle et technique
+	- le développement frontend et backend
+	- la gestion de la base de données
+	- les tests et le déploiement
+
+Cette organisation m’a permis de développer une vision globale d’un projet web, en
+gérant à la fois les aspects techniques, fonctionnels et organisationnels.
+
+Les documents MCD, le MLD, les wireframes, les maquettes (dossier Design) sont à retrouvés dans les différents dossiers ou ici : 
+	- pour voir le schéma du MCD : ![MCD](./Conception/MCD/MCD.light.png)
+	- pour voir le schéma du MLD : ![MLD](./Conception/MLD/MLD.light.png)
+
+Ces éléments permettent de détailler la structure de l’application, l’organisation des
+données et la conception de l’interface utilisateur.
+
+Certaines phases de réflexion (brainstorming) ont été réalisées en amont du projet
+afin de définir les premières orientations.
 

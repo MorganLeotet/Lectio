@@ -1,0 +1,25 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.3">
+  <diagram name="Page-1" id="zlJ26XFICFj6pJIvTK9v">
+    <mxGraphModel dx="1186" dy="672" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="583" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="3Dk32YCiCB-t1nqsiiyN-1" parent="1" style="html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.ios7.misc.iphone;strokeColor=#c0c0c0;" value="" vertex="1">
+          <mxGeometry height="786" width="344" x="113" y="25" as="geometry" />
+        </mxCell>
+        <mxCell id="3Dk32YCiCB-t1nqsiiyN-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;LOGO&lt;/font&gt;" vertex="1">
+          <mxGeometry height="118" width="179" x="195.5" y="279" as="geometry" />
+        </mxCell>
+        <mxCell id="3Dk32YCiCB-t1nqsiiyN-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Bienvenue" vertex="1">
+          <mxGeometry height="36" width="110" x="230" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="3Dk32YCiCB-t1nqsiiyN-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="MH" vertex="1">
+          <mxGeometry height="28" width="45" x="368" y="611" as="geometry" />
+        </mxCell>
+        <mxCell id="3Dk32YCiCB-t1nqsiiyN-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Activer mode Handicap" vertex="1">
+          <mxGeometry height="30" width="134" x="296" y="653" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
