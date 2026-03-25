@@ -789,11 +789,6 @@ Ce schéma représente l’arborescence des routes frontend de l’application e
 
 ## Charte Graphique
 
-### LOGO
-
-	- voir le logo : 
-	![Logo](./Design/Charte%20Graphique/logo/logo.png)
-
 ### Intention graphique
 
 L’identité visuelle de l’application Lectio repose sur un univers à la fois calme,
