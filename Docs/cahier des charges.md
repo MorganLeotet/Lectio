@@ -792,7 +792,7 @@ Ce schéma représente l’arborescence des routes frontend de l’application e
 ### LOGO
 
 	- voir le logo : 
-	![Logo](./Design/Charte%20Graphique/logo/logo%20fav.png)
+	![Logo](./Design/Charte%20Graphique/logo/logo.png)
 
 ### Intention graphique
 
